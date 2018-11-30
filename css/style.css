@@ -1,0 +1,14 @@
+.stepPanelItem {
+  left: 7%;
+  width: 55%;
+  /* background-image: url("../img/UI/group_text_bg.svg"); */
+}
+.opClass {
+  display: none;
+  opacity: 0.0;
+  filter: alpha(opacity=0);
+}
+
+.highlight {
+  color: red;
+}
