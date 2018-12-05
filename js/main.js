@@ -1,14 +1,12 @@
 var game;
+
 $(function() {
   $.get("json/steps.json", function(data) {
-
-    game = new Game();
+    testdiv= item("body","test",{border:"black solid 1px",width:"100px",height:"100px",position:"absolute"},["class1 class2"])
+    game = new Game(data.steps);
     menu = new Menu()
-
-
+    step = new Step()
     menu.buildMenu(data.steps, "stepList")
-    console.log(JSON.stringify(game.groups))
-    console.log(game.getSteps())
     game.setStep(0)
 
 

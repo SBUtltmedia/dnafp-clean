@@ -7,8 +7,7 @@ function Menu() {
 
     if (steps.length) {
       var parentSelector = "#" + parent;
-      var repeats
-      for (step of steps) {
+      for (var step of steps) {
         $(parentSelector).append($("<div>", {
           "id": step.id,
           "html": step.shortText,
@@ -17,11 +16,10 @@ function Menu() {
         if (step.steps) {
           if (step.repeats) {
             $("#" + step.id).addClass("repeats")
-            repeats = step.repeats
-          }else{
-            repeats = 0
+            game.addToRepeats(step.id,step.repeats)
+
           }
-          game.addToRepeats(step.id, repeats)
+
           $(parentSelector).append(menu.buildMenu(step.steps, step.id))
         } else {
           game.addToSteps(step)

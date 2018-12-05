@@ -11,8 +11,8 @@
           "logic": {
             "eventSelector": "#enzTube",
             "eventType": "mouseenter",
-            "eventFunction": "helperFunctions.liftEnzyme",
-            "postEventFunction": "helperFunctions.liftEnzymePost"
+            "eventFunction": "liftEnzyme",
+            "postEventFunction": "liftEnzymePost"
           }
         }
 
@@ -25,8 +25,8 @@
           "logic": {
             "eventSelector": "#enzTube",
             "eventType": "click",
-            "eventFunction": "helperFunctions.openEnzyme",
-            "postEventFunction": "helperFunctions.openEnzymePost"
+            "eventFunction": "openEnzyme",
+            "postEventFunction": "openEnzymePost"
           }
         }
 
@@ -39,8 +39,8 @@
           "logic": {
             "eventSelector": "#volumeInputForm",
             "eventType": "submit",
-            "eventFunction": "helperFunctions.setVolume",
-            "postEventFunction": "helperFunctions.setVolumePost",
+            "eventFunction": "setVolume",
+            "postEventFunction": "setVolumePost",
             "criteria": {
               "variable": "volume",
               "value": 10,
@@ -60,7 +60,7 @@
               "logic": {
                 "eventSelector": ".tip",
                 "eventType": "click",
-                "eventFunction": "helperFunctions.takeEnzyme"
+                "eventFunction": "takeEnzyme"
               }
             }
 
@@ -74,10 +74,10 @@
               "logic": {
                 "eventSelector": "#s0Tube",
                 "eventType": "click",
-                "eventFunction": "helperFunctions.openTube",
+                "eventFunction": "openTube",
                 "criteria": {
                   "variable": "microtubeState",
-                  "value": "[microTubeEnum[1], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0]]"
+                  "value": [1, 0, 0, 0, 0, 0]
                 }
               }
             },
@@ -90,7 +90,7 @@
               "logic": {
                 "eventSelector": "#micropipet2",
                 "eventType": "click",
-                "eventFunction": "helperFunctions.addEnzyme"
+                "eventFunction": "addEnzyme"
               }
             },
             {
@@ -102,8 +102,8 @@
               "logic": {
                 "eventSelector": "#micropipet2",
                 "eventType": "click",
-                "eventFunction": "helperFunctions.mixContents",
-                "postEventFunction": "helperFunctions.mixContentsPost"
+                "eventFunction": "mixContents",
+                "postEventFunction": "mixContentsPost"
               }
             },
             {
@@ -115,7 +115,7 @@
               "logic": {
                 "eventSelector": "#wasteBasket",
                 "eventType": "click",
-                "eventFunction": "helperFunctions.replaceTip"
+                "eventFunction": "replaceTip"
               }
             },
             {
@@ -127,10 +127,10 @@
               "logic": {
                 "eventSelector": "#s0Tube",
                 "eventType": "click",
-                "eventFunction": "helperFunctions.closeTube",
+                "eventFunction": "closeTube",
                 "criteria": {
                   "variable": "microtubeState",
-                  "value": "[microTubeEnum[2], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0]]"
+                  "value": [2, 0, 0, 0, 0, 0]
                 }
               }
             },
@@ -143,10 +143,10 @@
               "logic": {
                 "eventSelector": "#s0Tube",
                 "eventType": "click",
-                "eventFunction": "helperFunctions.flickTube",
+                "eventFunction": "flickTube",
                 "criteria": {
                   "variable": "microtubeState",
-                  "value": "[microTubeEnum[3], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0]]"
+                  "value": [3, 0, 0, 0, 0, 0]
                 }
               }
             },
@@ -159,11 +159,11 @@
               "logic": {
                 "eventSelector": "#s0Tube",
                 "eventType": "click",
-                "eventFunction": "helperFunctions.tapTube",
-                "postEventFunction": "helperFunctions.afterTapTube",
+                "eventFunction": "tapTube",
+                "postEventFunction": "afterTapTube",
                 "criteria": {
                   "variable": "microtubeState",
-                  "value": "[microTubeEnum[4], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0]]"
+                  "value": [4, 0, 0, 0, 0, 0]
                 }
               }
             }
@@ -177,11 +177,11 @@
             "logic": {
               "eventSelector": "#s0Tube",
               "eventType": "click",
-              "eventFunction": "helperFunctions.tubeRack",
-              "postEventFunction": "helperFunctions.tubeRackPost",
+              "eventFunction": "tubeRack",
+              "postEventFunction": "tubeRackPost",
               "criteria": {
                 "variable": "microtubeState",
-                "value": "[microTubeEnum[5], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0]]"
+                "value": [5, 0, 0, 0, 0, 0]
               }
             }
           },
@@ -194,11 +194,11 @@
             "logic": {
               "eventSelector": ".microTube",
               "eventType": "click",
-              "eventFunction": "helperFunctions.pressTube",
-              "postEventFunction": "helperFunctions.pressTubePost",
+              "eventFunction": "pressTube",
+              "postEventFunction": "pressTubePost",
               "criteria": {
                 "variable": "microtubeState",
-                "value": "[microTubeEnum[6], microTubeEnum[6], microTubeEnum[6], microTubeEnum[6], microTubeEnum[6], microTubeEnum[6]]"
+                "value": [6, 6, 6, 6, 6, 6]
               }
             }
           },
@@ -211,7 +211,7 @@
             "logic": {
               "eventSelector": "#waterBathLid",
               "eventType": "click",
-              "eventFunction": "helperFunctions.removeLid"
+              "eventFunction": "removeLid"
             }
           },
           {
@@ -223,7 +223,7 @@
             "logic": {
               "eventSelector": "#waterBathNoLid",
               "eventType": "click",
-              "eventFunction": "helperFunctions.checkTemp"
+              "eventFunction": "checkTemp"
             }
           },
           {
@@ -235,7 +235,7 @@
             "logic": {
               "eventSelector": "#tubeBlock",
               "eventType": "click",
-              "eventFunction": "helperFunctions.insertRack"
+              "eventFunction": "insertRack"
             }
           },
           {
@@ -247,7 +247,7 @@
             "logic": {
               "eventSelector": "#waterBathLid",
               "eventType": "click",
-              "eventFunction": "helperFunctions.closeLid"
+              "eventFunction": "closeLid"
             }
           },
           {
@@ -259,8 +259,8 @@
             "logic": {
               "eventSelector": "#timerForm",
               "eventType": "submit",
-              "eventFunction": "helperFunctions.setTimer",
-              "postEventFunction": "helperFunctions.setTimerPost",
+              "eventFunction": "setTimer",
+              "postEventFunction": "setTimerPost",
               "criteria": {
                 "variable": "time",
                 "value": 45
@@ -281,7 +281,7 @@
           "logic": {
             "eventSelector": "#micropipet2",
             "eventType": "click",
-            "eventFunction": "helperFunctions.prepPipet1"
+            "eventFunction": "prepPipet1"
           }
         }, {
           "id": "setDyeVolume",
@@ -292,8 +292,8 @@
           "logic": {
             "eventSelector": "#volumeInputForm",
             "eventType": "submit",
-            "eventFunction": "helperFunctions.setDyeVolume",
-            "postEventFunction": "helperFunctions.setDyeVolumePost",
+            "eventFunction": "setDyeVolume",
+            "postEventFunction": "setDyeVolumePost",
             "criteria": {
               "variable": "volume",
               "value": 5,
@@ -309,8 +309,8 @@
           "logic": {
             "eventSelector": ".loadingDye",
             "eventType": "click",
-            "eventFunction": "helperFunctions.openDye",
-            "postEventFunction": "helperFunctions.openDyePost"
+            "eventFunction": "openDye",
+            "postEventFunction": "openDyePost"
           }
         }, {"repeats": 6,
           "id": "repeatDay2",
@@ -323,7 +323,7 @@
           "logic": {
             "eventSelector": ".tip",
             "eventType": "click",
-            "eventFunction": "helperFunctions.takeDye"
+            "eventFunction": "takeDye"
           }
         }, {
           "id": "openTube1",
@@ -334,10 +334,10 @@
           "logic": {
             "eventSelector": "#s0Tube",
             "eventType": "click",
-            "eventFunction": "helperFunctions.openTube1",
+            "eventFunction": "openTube1",
             "criteria": {
               "variable": "microtubeState",
-              "value": "[microTubeEnum[1], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0]]"
+              "value": [1, 0, 0, 0, 0, 0]
             }
           }
         }, {
@@ -349,7 +349,7 @@
           "logic": {
             "eventSelector": "#micropipet2",
             "eventType": "click",
-            "eventFunction": "helperFunctions.addDye"
+            "eventFunction": "addDye"
           }
         }, {
           "id": "mixContents1",
@@ -360,8 +360,8 @@
           "logic": {
             "eventSelector": "#micropipet2",
             "eventType": "click",
-            "eventFunction": "helperFunctions.mixContents1",
-            "postEventFunction": "helperFunctions.mixContents1Post"
+            "eventFunction": "mixContents1",
+            "postEventFunction": "mixContents1Post"
           }
         }, {
           "id": "replaceTip1",
@@ -372,7 +372,7 @@
           "logic": {
             "eventSelector": "#wasteBasket",
             "eventType": "click",
-            "eventFunction": "helperFunctions.replaceTip1"
+            "eventFunction": "replaceTip1"
           }
         }, {
           "id": "closeTube1",
@@ -383,10 +383,10 @@
           "logic": {
             "eventSelector": "#s0Tube",
             "eventType": "click",
-            "eventFunction": "helperFunctions.closeTube1",
+            "eventFunction": "closeTube1",
             "criteria": {
               "variable": "microtubeState",
-              "value": "[microTubeEnum[2], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0]]"
+              "value": [2, 0, 0, 0, 0, 0]
             }
           }
         }, {
@@ -398,10 +398,10 @@
           "logic": {
             "eventSelector": "#s0Tube",
             "eventType": "click",
-            "eventFunction": "helperFunctions.flickTube1",
+            "eventFunction": "flickTube1",
             "criteria": {
               "variable": "microtubeState",
-              "value": "[microTubeEnum[3], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0]]"
+              "value": [3, 0, 0, 0, 0, 0]
             }
           }
         }, {
@@ -413,10 +413,10 @@
           "logic": {
             "eventSelector": "#s0Tube",
             "eventType": "click",
-            "eventFunction": "helperFunctions.tapTube1",
+            "eventFunction": "tapTube1",
             "criteria": {
               "variable": "microtubeState",
-              "value": "[microTubeEnum[4], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0]]"
+              "value": [4, 0, 0, 0, 0, 0]
             }
           }
         }
@@ -429,11 +429,11 @@
           "logic": {
             "eventSelector": "#s0Tube",
             "eventType": "click",
-            "eventFunction": "helperFunctions.tubeRack1",
-            "postEventFunction": "helperFunctions.tubeRackPost",
+            "eventFunction": "tubeRack1",
+            "postEventFunction": "tubeRackPost",
             "criteria": {
               "variable": "microtubeState",
-              "value": "[microTubeEnum[5], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0], microTubeEnum[0]]"
+              "value": [5, 0, 0, 0, 0, 0]
             }
           }
         }, {
@@ -445,11 +445,11 @@
           "logic": {
             "eventSelector": ".microTube",
             "eventType": "click",
-            "eventFunction": "helperFunctions.openTubes",
-            "postEventFunction": "helperFunctions.pressTubePost",
+            "eventFunction": "openTubes",
+            "postEventFunction": "pressTubePost",
             "criteria": {
               "variable": "microtubeState",
-              "value": "[microTubeEnum[6], microTubeEnum[6], microTubeEnum[6], microTubeEnum[6], microTubeEnum[6], microTubeEnum[6]]"
+              "value": [6, 6, 6, 6, 6, 6]
             }
           }
         }, {
@@ -461,7 +461,7 @@
           "logic": {
             "eventSelector": "#gelCombHitBox",
             "eventType": "click",
-            "eventFunction": "helperFunctions.removeComb"
+            "eventFunction": "removeComb"
           }
         }, {
           "id": "toTop",
@@ -472,7 +472,7 @@
           "logic": {
             "eventSelector": "#gelSideView",
             "eventType": "click",
-            "eventFunction": "helperFunctions.toTop"
+            "eventFunction": "toTop"
           }
         }, {
           "id": "orientGel",
@@ -483,7 +483,7 @@
           "logic": {
             "eventSelector": "#arrowDown",
             "eventType": "click",
-            "eventFunction": "helperFunctions.orientGel"
+            "eventFunction": "orientGel"
           }
         }]
       },
@@ -500,7 +500,7 @@
           "logic": {
             "eventSelector": ".tipTop",
             "eventType": "click",
-            "eventFunction": "helperFunctions.addTipTop"
+            "eventFunction": "addTipTop"
           }
         }, {
           "id": "takeHind",
@@ -511,8 +511,8 @@
           "logic": {
             "eventSelector": ".tubeTopp",
             "eventType": "click",
-            "eventFunction": "helperFunctions.takeMicTube",
-            "postEventFunction": "helperFunctions.takeMicTubePost",
+            "eventFunction": "takeMicTube",
+            "postEventFunction": "takeMicTubePost",
             "criteria": {
               "variable": "tubePicked",
               "value": 0,
@@ -530,8 +530,8 @@
               ,
             "eventType": "click"
               ,
-            "eventFunction": "helperFunctions.toLane",
-            "postEventFunction": "helperFunctions.toLanePost",
+            "eventFunction": "toLane",
+            "postEventFunction": "toLanePost",
             "criteria": {
               "variable": "lanePicked",
               "value": 0,
@@ -547,8 +547,8 @@
           "logic": {
             "eventSelector": "#gelWell",
             "eventType": "drop",
-            "eventFunction": "helperFunctions.insertTip",
-            "postEventFunction": "helperFunctions.insertTipPost",
+            "eventFunction": "insertTip",
+            "postEventFunction": "insertTipPost",
             "criteria": {
               "variable": "TipPosition",
               "value": true
@@ -563,7 +563,7 @@
           "logic": {
             "eventSelector": "#wasteBinTop",
             "eventType": "click",
-            "eventFunction": "helperFunctions.disposeTip"
+            "eventFunction": "disposeTip"
           }
         }]
       },
@@ -579,7 +579,7 @@
           "logic": {
             "eventSelector": "#lidSide",
             "eventType": "click",
-            "eventFunction": "helperFunctions.clickLid"
+            "eventFunction": "clickLid"
           }
         }, {
           "id": "setVoltage",
@@ -590,8 +590,8 @@
           "logic": {
             "eventSelector": "#voltageInputForm",
             "eventType": "submit",
-            "eventFunction": "helperFunctions.setVoltage",
-            "postEventFunction": "helperFunctions.setVoltagePost",
+            "eventFunction": "setVoltage",
+            "postEventFunction": "setVoltagePost",
             "criteria": {
               "variable": "voltage",
               "value": 100,
@@ -607,7 +607,7 @@
           "logic": {
             "eventSelector": "#lidBox",
             "eventType": "click",
-            "eventFunction": "helperFunctions.removeGelLid"
+            "eventFunction": "removeGelLid"
           }
         }, {
           "id": "removeGel",
@@ -618,7 +618,7 @@
           "logic": {
             "eventSelector": "#stainingTray",
             "eventType": "click",
-            "eventFunction": "helperFunctions.removeGel"
+            "eventFunction": "removeGel"
           }
         }, {
           "id": "nudgeGel",
@@ -629,7 +629,7 @@
           "logic": {
             "eventSelector": "#gelFinalTop",
             "eventType": "click",
-            "eventFunction": "helperFunctions.nudgeGel"
+            "eventFunction": "nudgeGel"
           }
         }, {
           "id": "stainGel",
@@ -640,7 +640,7 @@
           "logic": {
             "eventSelector": "#graduatedCylinder",
             "eventType": "click",
-            "eventFunction": "helperFunctions.stainGel"
+            "eventFunction": "stainGel"
           }
         }, {
           "id": "examineGel",
@@ -651,7 +651,7 @@
           "logic": {
             "eventSelector": "#stainedGel",
             "eventType": "click",
-            "eventFunction": "helperFunctions.examineGel"
+            "eventFunction": "examineGel"
           }
         }, {
           "id": "pickLane",
@@ -662,11 +662,11 @@
           "logic": {
             "eventSelector": ".laneFills",
             "eventType": "click",
-            "eventFunction": "helperFunctions.pickLane",
-            "postEventFunction": "helperFunctions.pickLanePost",
+            "eventFunction": "pickLane",
+            "postEventFunction": "pickLanePost",
             "criteria": {
               "variable": "lanePickedNumber",
-              "value": "answer - 1",
+              "value": 1,
               "messageWrong": "Incorrect. Try again."
             }
           }

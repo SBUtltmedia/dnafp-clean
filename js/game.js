@@ -1,6 +1,5 @@
 function Game(steps) {
   this.groups = {}
-  this.repeats = {}
   this.steps = []
   this.currentStep = 0
   this.currentGroup = 0
@@ -16,19 +15,18 @@ function Game(steps) {
   // };
 
   this.addToGroup=function(id,group){
-    this.groups[group] = this.groups[group] || []
-    this.groups[group]= [...this.groups[group],id]
+    this.groups[group]= this.groups[group] || {repeats:0,steps:[]}
+    this.groups[group].steps= [...this.groups[group].steps,id]
 
   }
   this.addToRepeats = function(group,repeats){
-    this.repeats[group] = this.repeats[group] || []
-    this.repeats[group]= [...this.repeats[group],repeats]
+    this.groups[group]={repeats:repeats,steps:[]}
   }
   this.getGroupMembership = function(item){
 
     return Object.keys(this.groups).find((n)=>{
 
-      return this.groups[n].indexOf(this.steps[item].id)!=-1;
+      return this.groups[n].steps.indexOf(this.steps[item].id)!=-1;
 
     }  )
   }
@@ -46,7 +44,7 @@ function Game(steps) {
 
   this.setStep = function(currentStepCount) {
     this.currentStep = this.steps[currentStepCount]
-    this.currentGroup = this.getGroupMembership(currentStepCount)
+    this.currentGroupId = this.getGroupMembership(currentStepCount)
     this.currentRepeats = this.repeats
     menu.setMenuItem(currentStepCount)
   }
@@ -55,10 +53,20 @@ function Game(steps) {
   }
   this.nextStep = function() {
     var nextStepNum = (this.steps.indexOf(this.currentStep)+1)%this.steps.length
-    console.log(nextStepNum)
-    console.log(this.repeats)
+    var currentGroup = this.groups[this.currentGroupId]
+    if(currentGroup.steps.indexOf(this.currentStep.id) == currentGroup.steps.length-1){
+      if(this.iteration < currentGroup.repeats-1){
+        nextStepNum-=currentGroup.steps.length;
+        this.iteration++;
+      }else{
+      this.iteration =0;
+      }
+    }
+
 
     menu.highlightMenuItem(this.currentStep.id)
     this.setStep(nextStepNum)
+    console.log(step,this.step)
+    step.startStep(this.currentStep)
   }
 }
