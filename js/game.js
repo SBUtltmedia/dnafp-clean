@@ -56,7 +56,6 @@ function Game(steps) {
   this.nextStep = function() {
     var nextStepNum = (this.steps.indexOf(this.currentStep)+1)%this.steps.length
     console.log(nextStepNum)
-    // this.group = this.getGroupMembership(nextStepNum-1)
     console.log(this.repeats)
 
     menu.highlightMenuItem(this.currentStep.id)
