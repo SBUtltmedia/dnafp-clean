@@ -1,5 +1,27 @@
-function item(parent,itemId,css,classes){
+function Item() {
+  console.log("Test")
+  this.buildItem = function({
+    parent = "#view",
+    itemId,
+    css,
+    classes,
+    svg
+  }) {
 
-var div=$('<div/>',{id:itemId,class:[...classes]}).css(css)
-$(parent).append(div);
+    if (svg) {
+      $.ajax({url:`img/${svg}`, dataType: "text", success: function(data) {
+        console.log(data)
+          var div = $('<div/>', {
+            id: itemId,
+            class: [...classes],
+            html: data
+          }).css(css)
+          $(parent).append(div);
+        }
+      })
+  }
+
+
+
+}
 }

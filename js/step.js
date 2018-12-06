@@ -13,9 +13,9 @@ this.startStep = function(step) {
     console.log("Test")});
     var composite = function (evt) {
         evt.preventDefault();
-        //console.log(s)
-        s.logic.eventFunction(evt)
-        if (testMode && s.logic && s.logic.criteria) {
+        console.log(s)
+        helperFunctions[s.logic.eventFunction](evt)
+        if (game.testMode && s.logic && s.logic.criteria) {
             state[s.logic.criteria.variable] = JSON.parse(JSON.stringify(s.logic.criteria.value)) //returns reference to value, don't touch
         }
 
@@ -43,7 +43,7 @@ this.startStep = function(step) {
 //    console.log(s)
       $(s.logic.eventSelector).on(s.logic.eventType, composite);
 
-    if (testMode) {
+    if (game.testMode) {
         $(s.logic.eventSelector).trigger(s.logic.eventType);
 
     }

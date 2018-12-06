@@ -1,7 +1,7 @@
 function animate(selector, delay, method, param, callback = () => {}) {
 
   var animateDur = 400;
-  if (testMode) {
+  if (game.testMode) {
     delay = 0
     animateDur = 0;
   }
@@ -30,7 +30,7 @@ function animate(selector, delay, method, param, callback = () => {}) {
   if (method == "keyframe")
 
   {
-    if (testMode) {
+    if (game.testMode) {
       var endState = findKeyFrameDef(param.split("_")[1])
 
       $(selector).css(endState)
@@ -78,7 +78,7 @@ function animate(selector, delay, method, param, callback = () => {}) {
   if (method == "animate")
 
   {
-    if (testMode) {
+    if (game.testMode) {
       $(selector).css(...param)
     } else {
       setTimeout(function() {
@@ -94,12 +94,12 @@ function animate(selector, delay, method, param, callback = () => {}) {
     }
     //$(selector).delay(delay).playKeyframe(param, function () {});
   } else if (typeof(method) == "function") {
-    if (method.name == "zoom" && testMode) {
+    if (method.name == "zoom" && game.testMode) {
       zoomInstant(param[0], param[1], param[2])
       callback()
     } else {
       $(selector).delay(delay).queue(function() {
-        method(...param, testMode)
+        method(...param, game.testMode)
         $(this).dequeue();
         callback();
       })

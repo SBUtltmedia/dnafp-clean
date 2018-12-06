@@ -1,9 +1,14 @@
 var helperFunctions = {
+
+
+
   //step 0
   "liftEnzyme": function() {
+    console.log("lift")
     animate("#enzTube", 0, "keyframe", "anim_moveEnz")
   }, //step 1
   "openEnzyme": function() {
+    console.log("open")
     animate("#enzTube svg .Cap", 0, "animate", rotateObj)
     state["firstStep"] = 45;
     animate("#svgfluid", 0, "animate", [{

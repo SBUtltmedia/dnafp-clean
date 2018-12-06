@@ -84,7 +84,7 @@
             {
               "id": "addEnzyme",
               "shortText": "Add enzyme mix",
-              "longText": "Pipet 10 µl of enzyme mix into the very bottom of the tube",
+              "longText": "Pipette 10 µl of enzyme mix into the very bottom of the tube",
               "bottomText": "Click on the micropipette to take up the enzyme mix",
               "feedbackText": "complete the third step",
               "logic": {
@@ -96,7 +96,7 @@
             {
               "id": "mixContents",
               "shortText": "Mix the Contents",
-              "longText": "Pipet up and down carefully to mix well",
+              "longText": "Pipette up and down carefully to mix well",
               "bottomText": "Click on the micropipette to mix the contents",
               "feedbackText": "complete the third step",
               "logic": {
@@ -354,7 +354,7 @@
         }, {
           "id": "mixContents1",
           "shortText": "Mix the Contents",
-          "longText": "Pipet up and down carefully to mix well",
+          "longText": "Pipette up and down carefully to mix well",
           "bottomText": "Click on the micropipette to mix the contents",
           "feedbackText": "complete the third step",
           "logic": {

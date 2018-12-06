@@ -4,6 +4,7 @@ function Game(steps) {
   this.currentStep = 0
   this.currentGroup = 0
   this.iteration = 0
+  this.testMode = true
   // this.setStepList = function(steps, stepNames) {
   //   for (i of stepNames.length) {
   //     if (step.id == stepName[i]) {
@@ -47,6 +48,10 @@ function Game(steps) {
     this.currentGroupId = this.getGroupMembership(currentStepCount)
     this.currentRepeats = this.repeats
     menu.setMenuItem(currentStepCount)
+    console.log(currentStepCount)
+    menu.highlightMenuItem(this.currentStep.id)
+    step.startStep(this.currentStep)
+    item.buildItem(domItems["#enzTube"])
   }
   this.getStep = function() {
     return this.currentStep
@@ -64,9 +69,9 @@ function Game(steps) {
     }
 
 
-    menu.highlightMenuItem(this.currentStep.id)
+
     this.setStep(nextStepNum)
     console.log(step,this.step)
-    step.startStep(this.currentStep)
+
   }
 }
