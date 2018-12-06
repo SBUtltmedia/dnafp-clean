@@ -13,14 +13,7 @@
   color: red;
 }
 
-#pipetteHolder {
-  width: 22%;
-  height: 29%;
-  left: -0.25%;
-  top: 51%;
-  position: absolute;
-  background-image: url(img/piptetHolder.svg);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
+
+.clearTube {
+  fill :#CFCCCC;
 }

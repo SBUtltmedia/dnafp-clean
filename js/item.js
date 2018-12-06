@@ -4,7 +4,7 @@ function Item() {
     parent = "#view",
     itemId,
     css,
-    classes,
+    classes = [],
     svg
   }) {
 

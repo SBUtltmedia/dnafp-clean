@@ -52,6 +52,7 @@ function Game(steps) {
     menu.highlightMenuItem(this.currentStep.id)
     step.startStep(this.currentStep)
     item.buildItem(domItems["#enzTube"])
+    item.buildItem(domItems["#iceBucket"])
   }
   this.getStep = function() {
     return this.currentStep
