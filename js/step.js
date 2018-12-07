@@ -1,7 +1,7 @@
 function Step() {
 this.startStep = function(step) {
     window.location.hash= step.id;
-    highlightObject(true,step.logic.eventSelector);
+    //highlightObject(true,step.logic.eventSelector);
     var s = jQuery.extend(true, {}, step);
     var clicked = false;
     $("#headerText").text(s.longText);

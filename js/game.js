@@ -51,8 +51,8 @@ function Game(steps) {
     console.log(currentStepCount)
     menu.highlightMenuItem(this.currentStep.id)
     step.startStep(this.currentStep)
-    item.buildItem(domItems["#enzTube"])
-    item.buildItem(domItems["#iceBucket"])
+    item.buildItemById("#enzTube")
+    item.buildItemById("#iceBucket")
   }
   this.getStep = function() {
     return this.currentStep

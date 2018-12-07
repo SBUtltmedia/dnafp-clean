@@ -13,7 +13,97 @@
   color: red;
 }
 
-
 .clearTube {
   fill :#CFCCCC;
+}
+
+.microTube {
+  width: 2.9%;
+  height: 7%;
+  top: 70%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform-origin: 100% 0%;
+  z-index: 0;
+}
+
+.tubeColor {
+  opacity: 1;
+  stroke: #000000;
+}
+
+.opacity9 {
+  opacity: 0.9;
+}
+
+.opacity8 {
+  opacity: 0.8;
+}
+
+.opacity7 {
+  opacity: 0.7;
+}
+
+.opacity6 {
+  opacity: 0.6;
+}
+
+.opacity5 {
+  opacity: 0.5;
+}
+
+.opacity4 {
+  opacity: 0.4;
+}
+
+.opacity3 {
+  opacity: 0.3;
+}
+
+.opacity2 {
+  opacity: 0.2;
+}
+
+.opacity1 {
+  opacity: 0.1;
+}
+
+.tubeFluid {
+  opacity: 1;
+  fill: #818AC4;
+}
+
+.Cap {
+  transform-origin: 3% 5%;
+}
+
+.s0TubeColor {
+  fill: green;
+}
+
+.s1TubeColor {
+  fill: blue;
+}
+
+.s2TubeColor {
+  fill: orange;
+}
+
+.s3TubeColor {
+  fill: purple;
+}
+
+.s4TubeColor {
+  fill: red;
+}
+
+.s5TubeColor {
+  fill: yellow;
+}
+.clearTube {
+  fill :#CFCCCC;
+}
+.dyeFluid{
+  fill: #2E4EA2;
 }
