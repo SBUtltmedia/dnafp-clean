@@ -638,6 +638,13 @@ domItems = {
     },
     svg: "equipment/microtubeHolderTop.svg"
   },
+  "tubeTop_0": {
+    css: {
+      top: "20%",
+    },
+    classes: ["tubeTop"],
+    svg: "equipment/ladderTop.svg"
+  },
 }
 
 function highlightObject(highlight, selector) {
