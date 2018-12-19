@@ -7,8 +7,12 @@ $(function() {
     step = new Step()
     item = new Item()
     menu.buildMenu(data.steps, "stepList")
-    game.setStep(0)
+    item.buildAllItems(domItems)
 
+
+  }).then(function(){
+console.log("sad")
+game.setStep(0)
 
   })
 $("#next").on("click", function(){

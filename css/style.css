@@ -107,3 +107,25 @@
 .dyeFluid{
   fill: #2E4EA2;
 }
+.tip {
+  width: 0.7%;
+  height: 7%;
+  left: 22.4%;
+  top: 70.2%;
+  position: absolute;
+  background-image: url(img/tip.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  visibility: visible;
+}
+.tubeTop {
+  width: 7%;
+  height: 3.5%;
+  left: 33.5%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  visibility: visible;
+}

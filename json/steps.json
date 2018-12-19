@@ -2,6 +2,7 @@
   "steps": [{
       "id": "group1",
       "shortText": "Day One",
+      "itemsAdded": "#labBench #shelf1 #pipetteHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #s0Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #iceBucket #enzTube #waterBathLid #waterBathNoLid",
       "steps": [{
           "id": "liftEnzyme",
           "shortText": "Enzyme mix",
@@ -272,6 +273,8 @@
       {
         "id": "group2",
         "shortText": "Add Loading Dye",
+        "itemsRemoved": "#shelf1 #waterBathLid #waterBathNoLid #iceBucket #enzTube",
+        "itemsAdded": "#shelf2 #tubeRack #loadDye #gelTray #gelComb #electroBoxSide",
         "steps": [{
           "id": "prepPipet1",
           "shortText": "Prepare micropipet",
@@ -476,6 +479,8 @@
           }
         }, {
           "id": "orientGel",
+          "itemsRemoved": "#labBench #pipetHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #s0Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #shelf2 #tubeRack #loadDye #gelTray #gelComb #gelSideView",
+          "itemsAdded": "#labBenchTop #gelTopView #lidBase #lidSide #arrowUp #arrowDown #powerSupplyTop #microtubeHolderTop #tubeTop_0 #tubeTop_1 #tubeTop_2 #tubeTop_3 #tubeTop_4 #tubeTop_5 #tubeTop_6 #tipBoxTop #wasteBinTop",
           "shortText": "Orient gel",
           "longText": "Properly orient your gel in the electrophoresis chamber",
           "bottomText": "Click on one of the arrows to select the direction you'd like the wells to face",
@@ -489,6 +494,8 @@
       },
       {
         "id": "group3",
+        "itemsRemoved": "#arrowUp #arrowDown",
+        "itemsAdded": "#gelFinalTop #micropipetteTopView",
         "shortText": "Load reagent into gel",
         "repeats": 7,
         "steps": [{
@@ -540,6 +547,7 @@
           }
         }, {
           "id": "insertTip1",
+          "itemsAdded": "#gelWell #pipetteTip1",
           "shortText": "Insert tip",
           "longText": "Place the tip in the well. Be sure not to breach the walls!",
           "bottomText": "Drag around the tip to position it",
@@ -556,6 +564,7 @@
           }
         }, {
           "id": "disposeTip1",
+          "itemsRemoved": "#gelWell #pipetteTip1",
           "shortText": "Dispose of tip",
           "longText": "Dispose of the used tip",
           "bottomText": "Click on the waste bin to dispose of the tip",
@@ -600,6 +609,7 @@
           }
         }, {
           "id": "removeGelLid",
+          "itemsAdded": "#stainingTray",
           "shortText": "Remove Lid",
           "longText": "Remove the lid from the electrophoresis chamber",
           "bottomText": "Click on the lid to remove it from the chamber",
@@ -611,6 +621,8 @@
           }
         }, {
           "id": "removeGel",
+          "itemsRemoved": "#lidBox",
+          "itemsAdded": "#lidSide",
           "shortText": "Remove gel",
           "longText": "Remove the gel tray from the electrophoresis chamber",
           "bottomText": "Click on the staining tray to remove the gel",
@@ -633,6 +645,8 @@
           }
         }, {
           "id": "stainGel",
+          "itemsRemoved": "#labBenchTop #gelTopView #lidBase #lidSide #arrowUp #arrowDown #powerSupplyTop #microtubeHolderTop #tubeTop_0 #tubeTop_1 #tubeTop_2 #tubeTop_3 #tubeTop_4 #tubeTop_5 #tubeTop_6 #tipBoxTop #wasteBinTop",
+          "itemsAdded": "#labBench #pipetHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #s0Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #graduatedCylinder #stainingTraySide #stainedGel",
           "shortText": "Stain the gel",
           "longText": "Pour the stain onto the gel in the staining tray",
           "bottomText": "Click on the graduated cylinder to pour the stain",

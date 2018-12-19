@@ -1,7 +1,7 @@
 // All references of pipet have been changes to pipette, must convert when taking from dnafp
 // Additional changes: holder is now tipHolder, gelSideView is now electroBox
 domItems = {
-  "#labBench": {
+  "labBench": {
     css: {
       width: "100%",
       height: "60%",
@@ -12,10 +12,9 @@ domItems = {
       "background-size": "cover",
       "pointer-events": "none !important",
     },
-    classes: ["item clearTube"],
     svg: "equipment/labBench2.svg"
   },
-  "#shelf1": {
+  "shelf1": {
     css: {
       width: "18%",
       height: "3%",
@@ -25,10 +24,9 @@ domItems = {
       "background-repeat": "no-repeat",
       "background-size": "cover",
     },
-    classes: ["item clearTube"],
     svg: "equipment/shelf.svg"
   },
-  "#shelf2": {
+  "shelf2": {
     css: {
       width: "18%",
       height: "3%",
@@ -38,10 +36,9 @@ domItems = {
       "background-repeat": "no-repeat",
       "background-size": "cover",
     },
-    classes: ["item clearTube"],
     svg: "equipment/shelf.svg"
   },
-  "#enzTube": {
+  "enzTube": {
     css: {
       width: "5%",
       height: "11%",
@@ -52,10 +49,10 @@ domItems = {
       "background-size": "contain",
       "transform-origin": "100% 0%",
     },
-    classes: ["item clearTube"],
+    classes: ["clearTube"],
     svg: "equipment/csTube.svg"
   },
-  "#iceBucket": {
+  "iceBucket": {
     css: {
       width: "20%",
       height: "12%",
@@ -395,7 +392,6 @@ domItems = {
       "background-size": "cover",
       "z-index": "0",
     },
-    classes: ["item"],
     svg: "equipment/water_bath_no_lid.svg"
   },
   "waterBathLid": {
@@ -409,7 +405,6 @@ domItems = {
       "background-size": "cover",
       "z-index": "0",
     },
-    classes: ["item"],
     svg: "equipment/water_bath_lid.svg"
   },
   "tubeRack": {
@@ -423,19 +418,18 @@ domItems = {
       "background-size": "cover",
       "z-index": "1",
     },
-    classes: ["item"],
     svg: "equipment/tubeRack.svg"
   },
   "loadDye": {
     css: {
       width: "5%",
-        height: "15%",
-        left: "8%",
-        top: "19.2%",
-        position: "absolute",
-        "background-repeat": "no-repeat",
-        "background-size": "contain",
-        "transform-origin": "100% 0%",
+      height: "15%",
+      left: "8%",
+      top: "19.2%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "transform-origin": "100% 0%",
     },
     classes: ["clearTube"],
     svg: "equipment/csTube.svg"
@@ -520,6 +514,129 @@ domItems = {
       "z-index": "0",
     },
     svg: "equipment/graduatedCylinder.svg"
+  },
+  "labBenchTop": {
+    css: {
+      width: "85%",
+      height: "175%",
+      left: "-21%",
+      top: "-25%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "background-position": "center center",
+      "z-index": "0",
+    },
+    svg: "equipment/labBenchTop.svg"
+  },
+  "gelTopView": {
+    css: {
+      width: "20%",
+      height: "30%",
+      left: "7%",
+      top: "55%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "background-position": "center center",
+    },
+    svg: "equipment/gelTopView.svg"
+  },
+  "lidBox": {
+    css: {
+      width: "35%",
+      height: "45%",
+      left: "-5.5%",
+      top: "40%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "background-position": "center center",
+    },
+    svg: "equipment/lidBox.svg"
+  },
+  "lidBase": {
+    css: {
+      width: "35%",
+      height: "45%",
+      left: "-5.5%",
+      top: "40%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "background-position": "center center",
+    },
+    svg: "equipment/lidBase.svg"
+  },
+  "lidSide": {
+    css: {
+      width: "36%",
+      height: "30%",
+      left: "-2%",
+      top: "20.3%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "background-position": "center center",
+      visibility: "visible",
+      "z-index": "0",
+    },
+    svg: "equipment/lidSide.svg"
+  },
+  "arrowUp": {
+    css: {
+      width: "5%",
+      height: "16%",
+      left: "60%",
+      top: "10%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "background-position": "center center",
+    },
+    svg: "equipment/arrowUp.svg"
+  },
+  "arrowDown": {
+    css: {
+      width: "5%",
+      height: "16%",
+      left: "55%",
+      top: "10%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "background-position": "center center",
+    },
+    svg: "equipment/arrowDown.svg"
+  },
+  "powerSupplyTop": {
+    css: {
+      width: "15%",
+      height: "30%",
+      left: "-3.9%",
+      top: "19.4%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "background-position": "center center",
+      visibility: "visible",
+    },
+    svg: "equipment/powerSupplyTop.svg"
+  },
+  "microTubeHolderTop": {
+    css: {
+      width: "8%",
+      height: "30%",
+      left: "35%",
+      top: "23%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "background-size": "contain",
+      "background-position": "center center",
+      visibility: "visible",
+    },
+    svg: "equipment/microtubeHolderTop.svg"
   },
 }
 
