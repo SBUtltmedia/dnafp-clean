@@ -1,7 +1,14 @@
 var helperFunctions = {
-
-
-
+  commonSide = {
+    "#labBench", "#pipetteHolder", "#micropipette0", "#micropipette1", "#micropipette2", "#tipHolder", "#tip1",
+    "#tip2", "#tip3", "#tip4", "#tip5", "#tip6", "#tip7", "#tip8", "#tip9", "#tip10", "#tip11", "#tip12",
+    "#s0Tube", "#s1Tube", "#s2Tube", "#s3Tube", "#s4Tube", "#s5Tube", "#tubeBlock"
+  }
+  commonTop = {
+    "#labBenchTop", "gelTopView", "#lidBox", "#lidBase", "#powerSupplyTop", "#microTubeHolderTop", "#tubeTop_0",
+    "#tubeTop_1", "#tubeTop_2", "#tubeTop_3", "#tubeTop_4", "#tubeTop_5", "#tubeTop_6", "#tipBoxTop",
+  }
+  tipSide = {"#sideView", "#pipetteTip1", "#gelWell", "#gelWellBoundary"}
   //step 0
   "liftEnzyme": function() {
     console.log("lift")

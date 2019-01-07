@@ -130,19 +130,6 @@ domItems = {
     },
     svg: "equipment/tipHolder.svg"
   },
-  "tipHolder": {
-    css: {
-      width: "10%",
-      height: "7.5%",
-      left: "20.4%",
-      top: "71.9%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
-    },
-    svg: "equipment/tipHolder.svg"
-  },
   "tip1": {
     css: {
       width: "0.7%",
@@ -644,6 +631,168 @@ domItems = {
     },
     classes: ["tubeTop"],
     svg: "equipment/ladderTop.svg"
+  },
+  "tubeTop_1": {
+    css: {
+      top: "24.5%",
+    },
+    classes: ["tubeTop"],
+    svg: "equipment/csTop.svg"
+  },
+  "tubeTop_2": {
+    css: {
+      top: "29%",
+    },
+    classes: ["tubeTop"],
+    svg: "equipment/s1Top.svg"
+  },
+  "tubeTop_3": {
+    css: {
+      top: "33.5%",
+    },
+    classes: ["tubeTop"],
+    svg: "equipment/s2Top.svg"
+  },
+  "tubeTop_4": {
+    css: {
+      top: "38%",
+    },
+    classes: ["tubeTop"],
+    svg: "equipment/s3Top.svg"
+  },
+  "tubeTop_5": {
+    css: {
+      top: "42.5%",
+    },
+    classes: ["tubeTop"],
+    svg: "equipment/s4Top.svg"
+  },
+  "tipBoxTop": {
+    css: {
+      width: "10%",
+      height: "10%",
+      left: "33%",
+      top: "60%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "background-position": "center center",
+      "visibility": "visible",
+      "z-index": "0",
+    },
+    svg: "equipment/tipBoxTop.svg"
+  },
+  "wasteBinTop": {
+    css: {
+      wwidth: "10% ",
+      height: "10% ",
+      left: "33% ",
+      top: "75% ",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "background-position": "center center",
+      "visibility": "visible",
+    },
+    svg: "equipment/wasteBinTop.svg"
+  },
+  "micropipetteTopView": {
+    css: {
+      width: "5%",
+      height: "7%",
+      left: "-10.5%",
+      top: "71.6%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "background-position": "center center",
+      "z-index": "0",
+    },
+    svg: "equipment/micropipetteTopView.svg"
+  },
+  "sideView": {
+    css: {
+      width: "45%",
+      height: "60%",
+      left: "55%",
+      top: "25%",
+      position: "absolute",
+      overflow: "hidden",
+      "background-repeat": "no-repeat",
+      "background-size": "cover",
+      "background-position": "center center",
+      "visibility": "visible",
+      "z-index": "0",
+    },
+    svg: "equipment/sideBackground.svg"
+  },
+  "pipetteTip1": {
+    css: {
+      width: "15%",
+      height: "22.5%",
+      left: "54%",
+      top: "96%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "cover",
+      "background-position": "center center",
+    },
+    class: ["tip"]
+  },
+  "gelWell": {
+    css: {
+      width: "98%",
+      height: "53%",
+      left: "1%",
+      top: "46%",
+      position: "absolute",
+      background: rgba(59, 128, 194, .46),
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "background-position": "center center",
+      visibility: visible,
+    },
+  },
+  "gelWellBoundary": {
+    css: {
+      width: "60%",
+      height: "80%",
+      left: "20%",
+      top: "0%",
+      background: rgba(59, 128, 194, .86),
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "background-position": "center center",
+      "visibility": "visible",
+    },
+  },
+  "gelFinalTop": {
+    css: {
+      width: "9.9%",
+      height: "11%",
+      left: "12%",
+      top: "65.5%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "background-position": "center center",
+      "visibility": "visible",
+      "z-index": "0",
+    },
+  },
+  "stainingTray": {
+    css: {
+      width: "15%",
+      height: "18%",
+      left: "28%",
+      top: "55%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "background-position": "center center",
+    },
+    svg: "equipment/stainingTray.svg"
   },
 }
 
