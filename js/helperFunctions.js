@@ -1,14 +1,21 @@
 var helperFunctions = {
-  commonSide = {
+  commonSide = [
     "#labBench", "#pipetteHolder", "#micropipette0", "#micropipette1", "#micropipette2", "#tipHolder", "#tip1",
     "#tip2", "#tip3", "#tip4", "#tip5", "#tip6", "#tip7", "#tip8", "#tip9", "#tip10", "#tip11", "#tip12",
     "#s0Tube", "#s1Tube", "#s2Tube", "#s3Tube", "#s4Tube", "#s5Tube", "#tubeBlock"
-  }
-  commonTop = {
+  ]
+  commonTop = [
     "#labBenchTop", "gelTopView", "#lidBox", "#lidBase", "#powerSupplyTop", "#microTubeHolderTop", "#tubeTop_0",
     "#tubeTop_1", "#tubeTop_2", "#tubeTop_3", "#tubeTop_4", "#tubeTop_5", "#tubeTop_6", "#tipBoxTop",
+  ]
+  tipSide = ["#sideView", "#pipetteTip1", "#gelWell", "#gelWellBoundary"]
+  //step -1
+  "buildStage": function() {
+    console.log("Ready")
+    for (i = 0; i < commonSide.length; i++) {
+      $("#view").append($(commonSide[i]))
+    }
   }
-  tipSide = {"#sideView", "#pipetteTip1", "#gelWell", "#gelWellBoundary"}
   //step 0
   "liftEnzyme": function() {
     console.log("lift")
@@ -236,8 +243,7 @@ var helperFunctions = {
     }])
 
   }, //step 19
-  "openDyePost": function() {
-  },
+  "openDyePost": function() {},
   "takeDye": function(evt) {
     var tippNum = betterParseInt(evt.target.id);
     var tippLeft = tips[(tippNum - 1)];
@@ -292,10 +298,10 @@ var helperFunctions = {
     var tubeId = evt.currentTarget.id.charAt(1);
     if (testMode) {
       for (i = 0; i <= 5; i++) {
-        animate("#s"+i+"Tube svg .Cap", 0, "animate", rotateObj)
+        animate("#s" + i + "Tube svg .Cap", 0, "animate", rotateObj)
       }
     }
-    animate("#s"+tubeId+"Tube svg .Cap", 0, "animate", rotateObj)
+    animate("#s" + tubeId + "Tube svg .Cap", 0, "animate", rotateObj)
     state["microtubeState"][tubeId] = microTubeEnum[6]
   }, //step 29
 
@@ -361,7 +367,7 @@ var helperFunctions = {
       "top": microPipetTopViewTop + '%'
     }]);
     state["tipTray"][column + (row * tipTrayRows)] = 1;;
-    console.log(column+(row * tipTrayRows))
+    console.log(column + (row * tipTrayRows))
   }, //step 33
 
   "takeMicTube": function(evt) {
@@ -474,7 +480,7 @@ var helperFunctions = {
     }]);
   }, //step 72
 
-//To Day3
+  //To Day3
 
   "clickLid": function() {
     animate("#lidSide, #micropipetTopView", 0, "addClass", "opClass")
