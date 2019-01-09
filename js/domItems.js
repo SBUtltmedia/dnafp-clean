@@ -1,5 +1,6 @@
 // All references of pipet have been changes to pipette, must convert when taking from dnafp
 // Additional changes: holder is now tipHolder, gelSideView is now electroBox
+
 domItems = {
   "labBench": {
     css: {
