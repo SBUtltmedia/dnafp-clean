@@ -2,6 +2,11 @@
     font-family: "Helvetica";
     src: url("../resources/fonts/helvetica.woff");
 } */
+#next {
+  top: 35%;
+  left: 5%;
+  position: absolute;
+}
 body {
   margin: 0;
   padding: 0;
@@ -21,6 +26,9 @@ body {
   z-index: 10;
   height: 95%;
   overflow: hidden;
+  top: 33%;
+  left: 0%;
+  width: 100%;
 }
 
 #view {
@@ -46,18 +54,18 @@ body {
   height: 36%;
   position: absolute;
   z-index: 500;
-  /* font-size: .33rem */
+  font-size: .33rem
 }
 
 .stepPanelItem {
   left: 7%;
-  width: 55%;
+  width: 85%;
   /* background-image: url("../img/UI/group_text_bg.svg"); */
 }
 
 .screen {
     position: absolute;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 #header {

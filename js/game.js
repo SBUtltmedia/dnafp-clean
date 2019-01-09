@@ -48,7 +48,7 @@ function Game(steps) {
   this.getSteps = function() {
     return this.steps
   };
-  
+
   this.setStep = function(currentStepCount) {
     this.currentStep = this.steps[currentStepCount]
     this.currentGroupId = this.getGroupMembership(currentStepCount)
@@ -60,7 +60,7 @@ function Game(steps) {
 
 
     item.buildItemById("#enzTube").then(function() {
-      console.log("build tuuube")
+      // console.log("build tuuube")
     })
   }
   this.getStep = function() {
@@ -81,7 +81,7 @@ function Game(steps) {
 
 
     this.setStep(nextStepNum)
-    console.log(step, this.step)
+    // console.log(step, this.step)
 
   }
 }

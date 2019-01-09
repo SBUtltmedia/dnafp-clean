@@ -15,7 +15,7 @@ function Item() {
     classes = [],
     svg
   }) {
-    console.log(domItems[itemId])
+    // console.log(domItems[itemId])
     var defer = $.Deferred();
     if (svg) {
       url = `img/${svg}`
@@ -23,7 +23,7 @@ function Item() {
       url = `html/${svg}`
     }
 
-    if (svg) {
+    if (css) {
       $.ajax({
         url: url,
         dataType: "text",
@@ -40,7 +40,7 @@ function Item() {
         },
         error: function() {
           defer.resolve("not found")
-          
+
         }
       })
     }
@@ -48,13 +48,21 @@ function Item() {
 
     return defer.promise();
   }
-  this.buildAllItems = function(domItems, itemIndex = 0) {
+
+this.buildAllItems = function(domItems) {
+  var defer = $.Deferred();
+  var buildItemsRecurse =(domItems, itemIndex = 0)=> {
     itemIds = Object.keys(domItems)
-    console.log(itemIds[itemIndex])
     if (itemIndex < itemIds.length) {
-      this.buildItemById(itemIds[itemIndex]).then(()=> {console.log("called")
-        this.buildAllItems(domItems, itemIndex+1)
+      this.buildItemById(itemIds[itemIndex]).then(()=> {
+      buildItemsRecurse(domItems, itemIndex+1)
       })
+    }else {
+      console.log("done")
+      defer.resolve("done building item")
     }
   }
+  buildItemsRecurse(domItems)
+  return defer.promise()
+}
 }
