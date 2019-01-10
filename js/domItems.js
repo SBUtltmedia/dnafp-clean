@@ -11,6 +11,7 @@ domItems = {
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "pointer-events": "none !important",
+      "z-index": "-1",
     },
     svg: "equipment/labBench2.svg"
   },
@@ -23,6 +24,7 @@ domItems = {
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
+      "z-index": "-1",
     },
     svg: "equipment/shelf.svg"
   },
@@ -35,6 +37,7 @@ domItems = {
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
+      "z-index": "-1",
     },
     svg: "equipment/shelf.svg"
   },
@@ -48,6 +51,7 @@ domItems = {
       "background-repeat": "no-repeat",
       "background-size": "contain",
       "transform-origin": "100% 0%",
+      "z-index": "0",
     },
     classes: ["clearTube"],
     svg: "equipment/csTube.svg"
@@ -57,13 +61,13 @@ domItems = {
       width: "20%",
       height: "12%",
       left: "80%",
-      top: "66.57%",
+      top: "67.1%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "contain",
       "background-position": "center center",
       visibility: "visible",
-      "z-index": "0",
+      "z-index": "1",
     },
     svg: "equipment/ice_bucket.svg"
   },
@@ -72,11 +76,12 @@ domItems = {
       width: "22%",
       height: "29%",
       left: "-0.25%",
-      top: "51%",
+      top: "50%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "background-position": "center center",
+      "z-index": "-1",
     },
     svg: "equipment/pipetteHolder.svg"
   },
@@ -89,6 +94,7 @@ domItems = {
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
+      "z-index": "0",
     },
     svg: "equipment/micropipette.svg"
   },
@@ -101,6 +107,7 @@ domItems = {
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
+      "z-index": "0",
     },
     svg: "equipment/micropipette.svg"
   },
@@ -113,7 +120,7 @@ domItems = {
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
-      "z-index": "3",
+      "z-index": "1",
     },
     svg: "equipment/micropipette20.svg"
   },
@@ -122,11 +129,12 @@ domItems = {
       width: "10%",
       height: "7.5%",
       left: "20.4%",
-      top: "71.9%",
+      top: "70%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "background-position": "center center",
+      "z-index": "1",
     },
     svg: "equipment/tipHolder.svg"
   },
@@ -135,12 +143,13 @@ domItems = {
       width: "0.7%",
       height: "7%",
       left: "20.8%",
-      top: "70.2%",
+      top: "68.5%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "background-position": "center center",
       visibility: "visible",
+      "z-index": "0",
     },
     classes: ["tip"],
     svg: "equipment/tip.svg"
@@ -150,11 +159,12 @@ domItems = {
       width: "0.7%",
       height: "7%",
       left: "21.6%",
-      top: "70.2%",
+      top: "68.5%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "background-position": "center center",
+      "z-index": "0",
     },
     classes: ["tip"],
     svg: "equipment/tip.svg"
@@ -164,11 +174,12 @@ domItems = {
       width: "0.7%",
       height: "7%",
       left: "22.4%",
-      top: "70.2%",
+      top: "68.5%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "background-position": "center center",
+      "z-index": "0",
     },
     classes: ["tip"],
     svg: "equipment/tip.svg"
@@ -178,11 +189,12 @@ domItems = {
       width: "0.7%",
       height: "7%",
       left: "23.2%",
-      top: "70.2%",
+      top: "68.5%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "background-position": "center center",
+      "z-index": "0",
     },
     classes: ["tip"],
     svg: "equipment/tip.svg"
@@ -192,11 +204,12 @@ domItems = {
       width: "0.7%",
       height: "7%",
       left: "24%",
-      top: "70.2%",
+      top: "68.5%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "background-position": "center center",
+      "z-index": "0",
     },
     classes: ["tip"],
     svg: "equipment/tip.svg"
@@ -206,11 +219,12 @@ domItems = {
       width: "0.7%",
       height: "7%",
       left: "24.8%",
-      top: "70.2%",
+      top: "68.5%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "background-position": "center center",
+      "z-index": "0",
     },
     classes: ["tip"],
     svg: "equipment/tip.svg"
@@ -220,11 +234,12 @@ domItems = {
       width: "0.7%",
       height: "7%",
       left: "25.6%",
-      top: "70.2%",
+      top: "68.5%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "background-position": "center center",
+      "z-index": "0",
       visibility: "visible",
     },
     classes: ["tip"],
@@ -235,11 +250,12 @@ domItems = {
       width: "0.7%",
       height: "7%",
       left: "26.4%",
-      top: "70.2%",
+      top: "68.5%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "background-position": "center center",
+      "z-index": "0",
     },
     classes: ["tip"],
     svg: "equipment/tip.svg"
@@ -249,11 +265,12 @@ domItems = {
       width: "0.7%",
       height: "7%",
       left: "27.2%",
-      top: "70.2%",
+      top: "68.5%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "background-position": "center center",
+      "z-index": "0",
     },
     classes: ["tip"],
     svg: "equipment/tip.svg"
@@ -263,11 +280,12 @@ domItems = {
       width: "0.7%",
       height: "7%",
       left: "28%",
-      top: "70.2%",
+      top: "68.5%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "background-position": "center center",
+      "z-index": "0",
     },
     classes: ["tip"],
     svg: "equipment/tip.svg"
@@ -276,12 +294,13 @@ domItems = {
     css: {
       width: "0.7%",
       height: "7%",
-      left: "28.8",
-      top: "70.2%",
+      left: "28.8%",
+      top: "68.5%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "background-position": "center center",
+      "z-index": "0",
     },
     classes: ["tip"],
     svg: "equipment/tip.svg"
@@ -291,11 +310,12 @@ domItems = {
       width: "0.7%",
       height: "7%",
       left: "29.6%",
-      top: "70.2%",
+      top: "68.5%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "background-position": "center center",
+      "z-index": "0",
     },
     classes: ["tip"],
     svg: "equipment/tip.svg"
@@ -305,18 +325,19 @@ domItems = {
       width: "17%",
       height: "4.8%",
       left: "35.2%",
-      top: "73.4%",
+      top: "73.0%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "background-position": "center center",
-      "z-index": "0",
+      "z-index": "2",
     },
     svg: "equipment/tubeBlock.svg"
   },
   "s0Tube": {
     css: {
       left: "35.5%",
+      "z-index": "1",
     },
     classes: ["microTube s0TubeColor"],
     svg: "equipment/csTube.svg"
@@ -324,6 +345,7 @@ domItems = {
   "s1Tube": {
     css: {
       left: "38%",
+      "z-index": "1",
     },
     classes: ["microTube s1TubeColor"],
     svg: "equipment/csTube.svg"
@@ -331,6 +353,7 @@ domItems = {
   "s2Tube": {
     css: {
       left: "40.5%",
+      "z-index": "1",
     },
     classes: ["microTube s2TubeColor"],
     svg: "equipment/csTube.svg"
@@ -338,6 +361,7 @@ domItems = {
   "s3Tube": {
     css: {
       left: "43%",
+      "z-index": "1",
     },
     classes: ["microTube s3TubeColor"],
     svg: "equipment/csTube.svg"
@@ -345,6 +369,7 @@ domItems = {
   "s4Tube": {
     css: {
       left: "45.5%",
+      "z-index": "1",
     },
     classes: ["microTube s4TubeColor"],
     svg: "equipment/csTube.svg"
@@ -352,6 +377,7 @@ domItems = {
   "s5Tube": {
     css: {
       left: "48%",
+      "z-index": "1",
     },
     classes: ["microTube s5TubeColor"],
     svg: "equipment/csTube.svg"
@@ -361,10 +387,11 @@ domItems = {
       width: "11.5%",
       height: "14%",
       left: "55%",
-      top: "64.5%",
+      top: "63.5%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "contain",
+      "z-index": "1",
     },
     svg: "equipment/waste_basket.svg"
   },
@@ -377,20 +404,20 @@ domItems = {
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
-      "z-index": "0",
+      "z-index": "2",
     },
     svg: "equipment/water_bath_no_lid.svg"
   },
   "waterBathLid": {
     css: {
-      width: "18%",
+      width: "16%",
       height: "6%",
-      left: "59.88%",
-      top: "21.64%",
+      left: "60.75%",
+      top: "21%",
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "cover",
-      "z-index": "0",
+      "z-index": "3",
     },
     svg: "equipment/water_bath_lid.svg"
   },
@@ -738,7 +765,7 @@ domItems = {
       "background-position": "center center",
     },
     class: ["tip"],
-    
+
   },
   "gelWell": {
     css: {

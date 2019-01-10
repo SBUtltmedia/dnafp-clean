@@ -16,7 +16,7 @@ var helperFunctions = {
   }, //step 1
   "openEnzyme": function() {
     console.log("open")
-    animate("#enzTube svg .Cap", 0, "animate", rotateObj)
+    // animate("#enzTube svg .Cap", 0, "animate", rotateObj)
     state["firstStep"] = 45;
     animate("#svgfluid", 0, "animate", [{
       "y": 100
@@ -62,7 +62,7 @@ var helperFunctions = {
 
 
     animate("#s0Tube", 0, "keyframe", "anim_moveTube")
-    animate("#s0Tube svg .Cap", 0, "animate", rotateObj)
+    // animate("#s0Tube svg .Cap", 0, "animate", rotateObj)
 
 
   }, //step 5
@@ -222,7 +222,7 @@ var helperFunctions = {
   },
 
   "setDyeVolumePost": function() {
-    updateScore(10);
+    //updateScore(10);
     animate("#volumeButton,#volumeInput", 1, "addClass", "opClass");
     animate("#view", 0, zoom, [25, 46, 1, 1000])
 

@@ -8,7 +8,7 @@ this.startStep = function(step) {
     $("#footerText").text(s.bottomText);
     $("#view").off()
     $("#view").on("click", function() {
-    updateScore(-1);
+    //updateScore(-1);
     console.log("Score: "+score)
     console.log("Test")});
     var composite = function (evt) {
@@ -27,7 +27,8 @@ this.startStep = function(step) {
 //                console.log(s.logic.postEventFunction)
                 s.logic.postEventFunction()
             }
-            updateScore(11);
+            score = 0
+            //updateScore(11);
             console.log("Score: "+score)
             game.nextStep()
 
