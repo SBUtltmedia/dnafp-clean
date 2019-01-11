@@ -17,7 +17,7 @@ var helperFunctions = {
   "openEnzyme": function() {
     console.log("open")
     // animate("#enzTube svg .Cap", 0, "animate", rotateObj)
-    state["firstStep"] = 45;
+    game.state["firstStep"] = 45;
     animate("#svgfluid", 0, "animate", [{
       "y": 100
     }])
@@ -29,7 +29,7 @@ var helperFunctions = {
   }, //step 2
 
   "setVolume": function() {
-    state["volume"] = $("#volumeInput").val();
+    game.state["volume"] = $("#volumeInput").val();
   },
   "setVolumePost": function() {
     animate("#volumeButton,#volumeInput", 1, "addClass", "opClass")
@@ -58,7 +58,7 @@ var helperFunctions = {
   "openTube": function(evt) {
 
 
-    state["microtubeState"][0] = microTubeEnum[1];
+    game.state["microtubegame.state"][0] = microTubeEnum[1];
 
 
     animate("#s0Tube", 0, "keyframe", "anim_moveTube")
@@ -122,15 +122,15 @@ var helperFunctions = {
   "closeTube": function() {
     animate("#s0Tube svg .Cap", 0, "animate", reverseRotateObj)
     $("#s0Tube").css("z-index", "0")
-    state["microtubeState"][0] = microTubeEnum[2];
+    game.state["microtubegame.state"][0] = microTubeEnum[2];
   },
   "flickTube": function() {
     animate("#s0Tube", 0, "keyframe", "anim_flickTube");
-    state["microtubeState"][0] = microTubeEnum[3];
+    game.state["microtubegame.state"][0] = microTubeEnum[3];
   },
   "tapTube": function() {
     animate("#s0Tube", 0, "keyframe", "anim_tapTube")
-    state["microtubeState"][0] = microTubeEnum[4];
+    game.state["microtubegame.state"][0] = microTubeEnum[4];
   },
   "tubeRack": function() {
     animate("#s0Tube", 0, "keyframe", "anim_tubeDown")
@@ -140,7 +140,7 @@ var helperFunctions = {
     animate("#tubeBlock", 1500, "keyframe", "anim_moveBlock");
     //animate(".pressButton", 2000, "removeClass", "opClass")
 
-    state["microtubeState"][0] = microTubeEnum[5];
+    game.state["microtubegame.state"][0] = microTubeEnum[5];
     for (i = 0; i <= 5; i++) {
       animate("#s" + i + "Tube", 0, "addClass", "microTube");
     }
@@ -160,7 +160,7 @@ var helperFunctions = {
     }
     animate("#s" + tubeId + "Tube", 0, "keyframe", "anim_pressTube" + tubeId);
     //animate("#pressButton_" + tubeId, 50, "addClass", "opClass")
-    state["microtubeState"][tubeId] = microTubeEnum[6]
+    game.state["microtubegame.state"][tubeId] = microTubeEnum[6]
   }, //step 13
   "pressTubePost": function() {
     animate("html", 0, zoom, [35, 65, 1, 1000]);
@@ -193,7 +193,7 @@ var helperFunctions = {
 
   }, //step 17
   "setTimer": function() {
-    state["time"] = $("#timer").val();
+    game.state["time"] = $("#timer").val();
   },
   "setTimerPost": function() {
 
@@ -208,7 +208,7 @@ var helperFunctions = {
     animate("#day2, #tubeBlock, .microTube, #gelSideView", 2000, "removeClass", "opClass")
     animate("#graduatedCylinder, #waterBathNoLid, #waterBathLid, #shelf1, #stainedGel, #stainingTraySide", 0, "addClass", "opClass")
 
-    state["microtubeState"] = Array(6).fill(microTubeEnum[0])
+    game.state["microtubegame.state"] = Array(6).fill(microTubeEnum[0])
 
   }, //step 18
   "prepPipet1": function(evt) {
@@ -218,7 +218,7 @@ var helperFunctions = {
   },
 
   "setDyeVolume": function() {
-    state["volume"] = $("#volumeInput").val();
+    game.state["volume"] = $("#volumeInput").val();
   },
 
   "setDyeVolumePost": function() {
@@ -285,7 +285,7 @@ var helperFunctions = {
       animate("#s" + i + "Tube", 1000, "keyframe", "anim_tube" + i + "ToBath");
     }
     animate("#tubeBlock", 1000, "keyframe", "anim_moveBlock");
-    state["microtubeState"][0] = microTubeEnum[5];
+    game.state["microtubegame.state"][0] = microTubeEnum[5];
   }, //step 29
   "openTubes": function(evt) {
     var tubeId = evt.currentTarget.id.charAt(1);
@@ -295,7 +295,7 @@ var helperFunctions = {
       }
     }
     animate("#s" + tubeId + "Tube svg .Cap", 0, "animate", rotateObj)
-    state["microtubeState"][tubeId] = microTubeEnum[6]
+    game.state["microtubegame.state"][tubeId] = microTubeEnum[6]
   }, //step 29
 
   "removeComb": function() {
@@ -325,7 +325,7 @@ var helperFunctions = {
     var totalRows = 8;
     var totalCols = 16;
 
-    var tip = state["tipTray"].indexOf(0)
+    var tip = game.state["tipTray"].indexOf(0)
     console.log(tip)
     var nextColumn = tip % tipTrayCols
     var nextRow = Math.floor(tip / tipTrayCols);
@@ -359,15 +359,15 @@ var helperFunctions = {
       "left": microPipetTopViewLeft + '%',
       "top": microPipetTopViewTop + '%'
     }]);
-    state["tipTray"][column + (row * tipTrayRows)] = 1;;
+    game.state["tipTray"][column + (row * tipTrayRows)] = 1;;
     console.log(column + (row * tipTrayRows))
   }, //step 33
 
   "takeMicTube": function(evt) {
-    state["tubePicked"] = parseInt(evt.currentTarget.id.split("_")[1]);
+    game.state["tubePicked"] = parseInt(evt.currentTarget.id.split("_")[1]);
   }, //step 34
   "takeMicTubePost": function() {
-    var tubePickedIndex = state["tubePicked"]
+    var tubePickedIndex = game.state["tubePicked"]
     var tubeTopPosition = 17.5
     var tubeTopAdd = 4.5
     var tubeTop = tubeTopPosition + tubeTopAdd * tubePickedIndex
@@ -380,10 +380,10 @@ var helperFunctions = {
   }, //step 34
 
   "toLane": function(evt) {
-    state["lanePicked"] = parseInt(evt.currentTarget.id.split("_")[1]);
+    game.state["lanePicked"] = parseInt(evt.currentTarget.id.split("_")[1]);
   },
   "toLanePost": function() {
-    var laneIndex = state["lanePicked"]
+    var laneIndex = game.state["lanePicked"]
     var laneLeftPosition = 10.3
     var laneLeftAdd = 1.4
     var laneLeft = laneLeftPosition + laneLeftAdd * laneIndex
@@ -417,7 +417,7 @@ var helperFunctions = {
     var sideViewHeight = parseFloat($('#sideView').css("height"));
     var currentBot = parseFloat($('#pipetteTip1').css("bottom")) / sideViewHeight * 100;
     var currentLeft = parseFloat($('#pipetteTip1').css("left")) / sideViewWidth * 100;
-    state["TipPosition"] = false
+    game.state["TipPosition"] = false
     // console.log(currentBot, currentLeft)
     if (currentBot < 53.5) {
       if (currentBot < 12 || currentLeft > 67.8 || currentLeft < 19.5) {
@@ -428,13 +428,13 @@ var helperFunctions = {
 
         message("Your tip is going too deep into the well. Don't risk it to breach the wall!")
       } else {
-        state["TipPosition"] = true
+        game.state["TipPosition"] = true
         $('#pipetteTip1').draggable({
           disabled: true,
           revert: false
         });
       }
-      if (state["TipPosition"] == false) {
+      if (game.state["TipPosition"] == false) {
         $('#pipetteTip1').css("top", "-80%")
         $('#pipetteTip1').css("left", "42%")
       }
@@ -453,13 +453,13 @@ var helperFunctions = {
     animate("#gelWellBoundary", 3400, "css", [{
       "background-image": "radial-gradient(rgba(59,128,194,.86), rgba(59,128,194,.86), rgba(59,128,194,.86))"
     }])
-    var well = state["wellPosition"].indexOf(0)
+    var well = game.state["wellPosition"].indexOf(0)
     console.log(well)
     var currentWell = "#well_" + well
     animate(currentWell, 0, "css", [{
       "fill": "#5555ff"
     }])
-    state["wellPosition"][well] = 1;
+    game.state["wellPosition"][well] = 1;
     // setTimeout(function () {
     //     $('#pipetteTip1').css("top", "-80%")
     //     $('#pipetteTip1').css("left", "42%")
@@ -484,7 +484,7 @@ var helperFunctions = {
   }, //step 73
   "setVoltage": function(evt) {
     console.log("fds")
-    state["voltage"] = $("#voltage").val()
+    game.state["voltage"] = $("#voltage").val()
 
   },
   "setVoltagePost": function() {
@@ -550,7 +550,7 @@ var helperFunctions = {
     console.log(evt.currentTarget.id);
     console.log(answer);
     console.log($("svg [type = 'text/css']")[1])
-    state["lanePickedNumber"] = studentAnswer
+    game.state["lanePickedNumber"] = studentAnswer
   },
   "pickLanePost": function() {
     animate("#day1, #day1 *, #bothDays, #bothDays *", 0, "removeClass", "opClass")

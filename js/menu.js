@@ -7,12 +7,17 @@ function Menu() {
 
     if (steps.length) {
       var parentSelector = "#" + parent;
+      if (parentSelector != "#stepList") {
+        $(parentSelector).addClass("group")
+      }
       for (var step of steps) {
         $(parentSelector).append($("<div>", {
           "id": step.id,
           "html": step.shortText,
-          "class": "stepPanelItem"
+          "class": "stepPanelItem",
+
         }))
+        $(step.id).append($("<div/>", {id:step.id+"_icon", class:"icon_bg"}))
         if (step.steps) {
           if (step.repeats) {
             $("#" + step.id).addClass("repeats")

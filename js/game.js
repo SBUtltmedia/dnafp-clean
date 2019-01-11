@@ -5,33 +5,25 @@ function Game(steps) {
   this.currentGroup = 0
   this.iteration = 0
   this.testMode = true
-  this.state=stateInit()
-  // this.setStepList = function(steps, stepNames) {
-  //   for (i of stepNames.length) {
-  //     if (step.id == stepName[i]) {
-  //       this.steps.push(step.steps)
-  //     }
-  //   }
-  //
-  //   this.stepList = steps
-  // };
-function stateInit() {
-  const tipTrayRows = 8,
-        tipTrayCols = 12;
-  var state = {
-    firstStep: 23,
-    buttonPress: [0, 0, 0, 0, 0, 0],
-    microtubeState: [0, 0, 0, 0, 0, 0],
-    TipPosition: false,
-    tipTray: Array(tipTrayRows * tipTrayCols).fill(0),
-    wellPosition: Array(7).fill(0),
-    voltage: 0,
-    volume: 0,
+  this.state = stateInit()
+  this.score = 0
+  function stateInit() {
+    const tipTrayRows = 8,
+      tipTrayCols = 12;
+    var state = {
+      firstStep: 23,
+      buttonPress: [0, 0, 0, 0, 0, 0],
+      microtubeState: [0, 0, 0, 0, 0, 0],
+      TipPosition: false,
+      tipTray: Array(tipTrayRows * tipTrayCols).fill(0),
+      wellPosition: Array(7).fill(0),
+      voltage: 0,
+      volume: 0,
+    }
+    $("#micropipette2").append($('#pipetteTip1'));
+    $("pipetteTip1").addClass(".opClass")
+    return state;
   }
-  $("#micropipette2").append($('#pipetteTip1'));
-  $("pipetteTip1").addClass(".opClass")
-  return state;
-}
   this.addToGroup = function(id, group) {
     this.groups[group] = this.groups[group] || {
       repeats: 0,
