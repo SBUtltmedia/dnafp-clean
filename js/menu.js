@@ -1,27 +1,19 @@
 function Menu() {
-
-
-
-
   this.buildMenu = function(steps, parent) { //steps.id was coming up blank, added parent variable
 
     if (steps.length) {
       var parentSelector = "#" + parent;
-      if (parentSelector != "#stepList") {
-        $(parentSelector).addClass("group")
-      }
       for (var step of steps) {
         $(parentSelector).append($("<div>", {
           "id": step.id,
-          "html": step.shortText,
           "class": "stepPanelItem",
-
+          "html": step.shortText,
         }))
-        $(step.id).append($("<div/>", {id:step.id+"_icon", class:"icon_bg"}))
+        var groupRegEx = /group[0-9]+/i
         if (step.steps) {
           if (step.repeats) {
             $("#" + step.id).addClass("repeats")
-            game.addToRepeats(step.id,step.repeats)
+            game.addToRepeats(step.id, step.repeats)
 
           }
 
@@ -37,18 +29,18 @@ function Menu() {
   }
   this.setMenuItem = function(stepNumber) {
     var group = game.getGroupMembership(stepNumber)
-    if($("#"+group).hasClass("repeats")){
-    }else{
-    $("#stepList div div").not("#"+group+">div").hide(500)}
-  if($("#"+group+">div").is(":hidden"))
-        $("#"+group+">div").show(1000)
+    if ($("#" + group).hasClass("repeats")) {} else {
+      $("#stepList div div").not("#" + group + ">div").hide(500)
+    }
+    if ($("#" + group + ">div").is(":hidden"))
+      $("#" + group + ">div").show(1000)
   }
 
- this.highlightMenuItem = function(item) {
-   $('#stepList *').removeClass("highlight")
-   $(`#${item}`).addClass("highlight")
-   console.log($(`#${item}`))
+  this.highlightMenuItem = function(item) {
+    $('#stepList *').removeClass("highlight")
+    $(`#${item}`).addClass("highlight")
+    console.log($(`#${item}`))
 
- }
+  }
 
 }

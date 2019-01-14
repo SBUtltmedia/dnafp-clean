@@ -1,4 +1,5 @@
-{ "id": "topLevel",
+{
+  "id": "topLevel",
   "steps": [{
       "id": "group1",
       "shortText": "Day One",
@@ -51,8 +52,8 @@
         }, {
           "repeats": 6,
           "id": "repeatDay1",
-          "steps": [
-            {
+          "shortText": "Load Tubes",
+          "steps": [{
               "id": "takeEnzyme",
               "shortText": "Use micropipette",
               "longText": "Add a tip to the micropipette",
@@ -168,155 +169,158 @@
                 }
               }
             }
-          ]},
-          {
-            "id": "tubeRack",
-            "shortText": "Tubes in floating rack",
-            "longText": "Place the tubes back in the floating rack",
-            "bottomText": "Click on the tube to return it back to the rack",
-            "feedbackText": "complete the first step",
-            "logic": {
-              "eventSelector": "#s0Tube",
-              "eventType": "click",
-              "eventFunction": "tubeRack",
-              "postEventFunction": "tubeRackPost",
-              "criteria": {
-                "variable": "microtubeState",
-                "value": [5, 0, 0, 0, 0, 0]
-              }
-            }
-          },
-          {
-            "id": "pressTube",
-            "shortText": "Expose tube bottoms",
-            "longText": "Press each tube down to expose bottoms to the water",
-            "bottomText": "Click on each tube to press it down",
-            "feedbackText": "complete the second step",
-            "logic": {
-              "eventSelector": ".microTube",
-              "eventType": "click",
-              "eventFunction": "pressTube",
-              "postEventFunction": "pressTubePost",
-              "criteria": {
-                "variable": "microtubeState",
-                "value": [6, 6, 6, 6, 6, 6]
-              }
-            }
-          },
-          {
-            "id": "removeLid",
-            "shortText": "Remove lid",
-            "longText": "Remove the water bath lid",
-            "bottomText": "Click on the water bath lid to remove it",
-            "feedbackText": "complete the third step",
-            "logic": {
-              "eventSelector": "#waterBathLid",
-              "eventType": "click",
-              "eventFunction": "removeLid"
-            }
-          },
-          {
-            "id": "checkTemp",
-            "shortText": "Check temperature",
-            "longText": "Check if the thermometer is at 37 degrees Celsius",
-            "bottomText": "Click on the thermometer to check it",
-            "feedbackText": "complete the third step",
-            "logic": {
-              "eventSelector": "#waterBathNoLid",
-              "eventType": "click",
-              "eventFunction": "checkTemp"
-            }
-          },
-          {
-            "id": "insertRack",
-            "shortText": "Insert floating rack",
-            "longText": "Place the floating rack of microtubes in the incubator",
-            "bottomText": "Click on the floating rack",
-            "feedbackText": "complete the third step",
-            "logic": {
-              "eventSelector": "#tubeBlock",
-              "eventType": "click",
-              "eventFunction": "insertRack"
-            }
-          },
-          {
-            "id": "closeLid",
-            "shortText": "Close incubator",
-            "longText": "Close the lid of the incubator",
-            "bottomText": "Click on the lid to close the incubator",
-            "feedbackText": "complete the third step",
-            "logic": {
-              "eventSelector": "#waterBathLid",
-              "eventType": "click",
-              "eventFunction": "closeLid"
-            }
-          },
-          {
-            "id": "setTimer",
-            "shortText": "Set timer",
-            "longText": "Incubate the tubes for 45 min at 37°C",
-            "bottomText": "Enter the time in the timer",
-            "feedbackText": "complete the third step",
-            "logic": {
-              "eventSelector": "#timerForm",
-              "eventType": "submit",
-              "eventFunction": "setTimer",
-              "postEventFunction": "setTimerPost",
-              "criteria": {
-                "variable": "time",
-                "value": 45
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "group2",
-        "shortText": "Add Loading Dye",
-        "itemsRemoved": "#shelf1 #waterBathLid #waterBathNoLid #iceBucket #enzTube",
-        "itemsAdded": "#shelf2 #tubeRack #loadDye #gelTray #gelComb #electroBoxSide",
-        "steps": [{
-          "id": "prepPipet1",
-          "shortText": "Prepare micropipet",
-          "longText": "Pick up the micropipette",
-          "bottomText": "Click to pick up the micropipette",
+          ]
+        },
+        {
+          "id": "tubeRack",
+          "shortText": "Tubes in floating rack",
+          "longText": "Place the tubes back in the floating rack",
+          "bottomText": "Click on the tube to return it back to the rack",
           "feedbackText": "complete the first step",
           "logic": {
-            "eventSelector": "#micropipet2",
+            "eventSelector": "#s0Tube",
             "eventType": "click",
-            "eventFunction": "prepPipet1"
+            "eventFunction": "tubeRack",
+            "postEventFunction": "tubeRackPost",
+            "criteria": {
+              "variable": "microtubeState",
+              "value": [5, 0, 0, 0, 0, 0]
+            }
           }
-        }, {
-          "id": "setDyeVolume",
-          "shortText": "Enter volume",
-          "longText": "Set the volume for the micropipette to 5µl",
-          "bottomText": "Enter the correct volume (in µl) of fluid to remove",
+        },
+        {
+          "id": "pressTube",
+          "shortText": "Expose tube bottoms",
+          "longText": "Press each tube down to expose bottoms to the water",
+          "bottomText": "Click on each tube to press it down",
+          "feedbackText": "complete the second step",
+          "logic": {
+            "eventSelector": ".microTube",
+            "eventType": "click",
+            "eventFunction": "pressTube",
+            "postEventFunction": "pressTubePost",
+            "criteria": {
+              "variable": "microtubeState",
+              "value": [6, 6, 6, 6, 6, 6]
+            }
+          }
+        },
+        {
+          "id": "removeLid",
+          "shortText": "Remove lid",
+          "longText": "Remove the water bath lid",
+          "bottomText": "Click on the water bath lid to remove it",
           "feedbackText": "complete the third step",
           "logic": {
-            "eventSelector": "#volumeInputForm",
+            "eventSelector": "#waterBathLid",
+            "eventType": "click",
+            "eventFunction": "removeLid"
+          }
+        },
+        {
+          "id": "checkTemp",
+          "shortText": "Check temperature",
+          "longText": "Check if the thermometer is at 37 degrees Celsius",
+          "bottomText": "Click on the thermometer to check it",
+          "feedbackText": "complete the third step",
+          "logic": {
+            "eventSelector": "#waterBathNoLid",
+            "eventType": "click",
+            "eventFunction": "checkTemp"
+          }
+        },
+        {
+          "id": "insertRack",
+          "shortText": "Insert floating rack",
+          "longText": "Place the floating rack of microtubes in the incubator",
+          "bottomText": "Click on the floating rack",
+          "feedbackText": "complete the third step",
+          "logic": {
+            "eventSelector": "#tubeBlock",
+            "eventType": "click",
+            "eventFunction": "insertRack"
+          }
+        },
+        {
+          "id": "closeLid",
+          "shortText": "Close incubator",
+          "longText": "Close the lid of the incubator",
+          "bottomText": "Click on the lid to close the incubator",
+          "feedbackText": "complete the third step",
+          "logic": {
+            "eventSelector": "#waterBathLid",
+            "eventType": "click",
+            "eventFunction": "closeLid"
+          }
+        },
+        {
+          "id": "setTimer",
+          "shortText": "Set timer",
+          "longText": "Incubate the tubes for 45 min at 37°C",
+          "bottomText": "Enter the time in the timer",
+          "feedbackText": "complete the third step",
+          "logic": {
+            "eventSelector": "#timerForm",
             "eventType": "submit",
-            "eventFunction": "setDyeVolume",
-            "postEventFunction": "setDyeVolumePost",
+            "eventFunction": "setTimer",
+            "postEventFunction": "setTimerPost",
             "criteria": {
-              "variable": "volume",
-              "value": 5,
-              "messageWrong": "Incorrect, please enter the approriate volume!"
+              "variable": "time",
+              "value": 45
             }
           }
-        }, {
-          "id": "openDye",
-          "shortText": "Open loading dye",
-          "longText": "Open the loading dye",
-          "bottomText": "Click on the loading dye tube to open it",
-          "feedbackText": "complete the first step",
-          "logic": {
-            "eventSelector": ".loadingDye",
-            "eventType": "click",
-            "eventFunction": "openDye",
-            "postEventFunction": "openDyePost"
+        }
+      ]
+    },
+    {
+      "id": "group2",
+      "shortText": "Add Loading Dye",
+      "itemsRemoved": "#shelf1 #waterBathLid #waterBathNoLid #iceBucket #enzTube",
+      "itemsAdded": "#shelf2 #tubeRack #loadDye #gelTray #gelComb #electroBoxSide",
+      "steps": [{
+        "id": "prepPipet1",
+        "shortText": "Prepare micropipet",
+        "longText": "Pick up the micropipette",
+        "bottomText": "Click to pick up the micropipette",
+        "feedbackText": "complete the first step",
+        "logic": {
+          "eventSelector": "#micropipet2",
+          "eventType": "click",
+          "eventFunction": "prepPipet1"
+        }
+      }, {
+        "id": "setDyeVolume",
+        "shortText": "Enter volume",
+        "longText": "Set the volume for the micropipette to 5µl",
+        "bottomText": "Enter the correct volume (in µl) of fluid to remove",
+        "feedbackText": "complete the third step",
+        "logic": {
+          "eventSelector": "#volumeInputForm",
+          "eventType": "submit",
+          "eventFunction": "setDyeVolume",
+          "postEventFunction": "setDyeVolumePost",
+          "criteria": {
+            "variable": "volume",
+            "value": 5,
+            "messageWrong": "Incorrect, please enter the approriate volume!"
           }
-        }, {"repeats": 6,
-          "id": "repeatDay2",
+        }
+      }, {
+        "id": "openDye",
+        "shortText": "Open loading dye",
+        "longText": "Open the loading dye",
+        "bottomText": "Click on the loading dye tube to open it",
+        "feedbackText": "complete the first step",
+        "logic": {
+          "eventSelector": ".loadingDye",
+          "eventType": "click",
+          "eventFunction": "openDye",
+          "postEventFunction": "openDyePost"
+        }
+      }, {
+        "repeats": 6,
+        "id": "repeatDay2",
+        "shortText": "Load Tubes",
         "steps": [{
           "id": "takeDye",
           "shortText": "Use micropipette",
@@ -422,269 +426,267 @@
               "value": [4, 0, 0, 0, 0, 0]
             }
           }
+        }]
+      }, {
+        "id": "tubeRack1",
+        "shortText": "Tubes in floating rack",
+        "longText": "Place the tubes back in the floating rack",
+        "bottomText": "Click on the tube to return it to the rack",
+        "feedbackText": "complete the first step",
+        "logic": {
+          "eventSelector": "#s0Tube",
+          "eventType": "click",
+          "eventFunction": "tubeRack1",
+          "postEventFunction": "tubeRackPost",
+          "criteria": {
+            "variable": "microtubeState",
+            "value": [5, 0, 0, 0, 0, 0]
+          }
         }
-        ]}, {
-          "id": "tubeRack1",
-          "shortText": "Tubes in floating rack",
-          "longText": "Place the tubes back in the floating rack",
-          "bottomText": "Click on the tube to return it to the rack",
-          "feedbackText": "complete the first step",
-          "logic": {
-            "eventSelector": "#s0Tube",
-            "eventType": "click",
-            "eventFunction": "tubeRack1",
-            "postEventFunction": "tubeRackPost",
-            "criteria": {
-              "variable": "microtubeState",
-              "value": [5, 0, 0, 0, 0, 0]
-            }
+      }, {
+        "id": "openTubes",
+        "shortText": "Open reaction tubes",
+        "longText": "Open each tube up",
+        "bottomText": "Click on each tube to open it",
+        "feedbackText": "complete the second step",
+        "logic": {
+          "eventSelector": ".microTube",
+          "eventType": "click",
+          "eventFunction": "openTubes",
+          "postEventFunction": "pressTubePost",
+          "criteria": {
+            "variable": "microtubeState",
+            "value": [6, 6, 6, 6, 6, 6]
           }
-        }, {
-          "id": "openTubes",
-          "shortText": "Open reaction tubes",
-          "longText": "Open each tube up",
-          "bottomText": "Click on each tube to open it",
-          "feedbackText": "complete the second step",
-          "logic": {
-            "eventSelector": ".microTube",
-            "eventType": "click",
-            "eventFunction": "openTubes",
-            "postEventFunction": "pressTubePost",
-            "criteria": {
-              "variable": "microtubeState",
-              "value": [6, 6, 6, 6, 6, 6]
-            }
+        }
+      }, {
+        "id": "removeComb",
+        "shortText": "Remove Comb",
+        "longText": "Remove the comb from the gel to expose the wells",
+        "bottomText": "Click on the gel comb to remove it",
+        "feedbackText": "complete the first step",
+        "logic": {
+          "eventSelector": "#gelCombHitBox",
+          "eventType": "click",
+          "eventFunction": "removeComb"
+        }
+      }, {
+        "id": "toTop",
+        "shortText": "Place gel tray",
+        "longText": "Place the gel tray in the electrophoresis chamber",
+        "bottomText": "Click on the gel electrophoresis chamber",
+        "feedbackText": "complete the second step",
+        "logic": {
+          "eventSelector": "#gelSideView",
+          "eventType": "click",
+          "eventFunction": "toTop"
+        }
+      }, {
+        "id": "orientGel",
+        "itemsRemoved": "#labBench #pipetHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #s0Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #shelf2 #tubeRack #loadDye #gelTray #gelComb #gelSideView",
+        "itemsAdded": "#labBenchTop #gelTopView #lidBase #lidSide #arrowUp #arrowDown #powerSupplyTop #microtubeHolderTop #tubeTop_0 #tubeTop_1 #tubeTop_2 #tubeTop_3 #tubeTop_4 #tubeTop_5 #tubeTop_6 #tipBoxTop #wasteBinTop",
+        "shortText": "Orient gel",
+        "longText": "Properly orient your gel in the electrophoresis chamber",
+        "bottomText": "Click on one of the arrows to select the direction you'd like the wells to face",
+        "feedbackText": "complete the third step",
+        "logic": {
+          "eventSelector": "#arrowDown",
+          "eventType": "click",
+          "eventFunction": "orientGel"
+        }
+      }]
+    },
+    {
+      "id": "group3",
+      "itemsRemoved": "#arrowUp #arrowDown",
+      "itemsAdded": "#gelFinalTop #micropipetteTopView",
+      "shortText": "Load reagent into gel",
+      "repeats": 7,
+      "steps": [{
+        "id": "addTipTop1",
+        "shortText": "Place tip",
+        "longText": "Add a tip to the micropipette",
+        "bottomText": "Click on any tip to add it to the micropipette",
+        "feedbackText": "complete the first step",
+        "logic": {
+          "eventSelector": ".tipTop",
+          "eventType": "click",
+          "eventFunction": "addTipTop"
+        }
+      }, {
+        "id": "takeHind",
+        "shortText": "DNA size marker",
+        "longText": "Remove 10 uL of HindIII DNA size marker (grey tube)",
+        "bottomText": "Click the HindIII DNA size marker (grey tube) to draw it up",
+        "feedbackText": "complete the second step",
+        "logic": {
+          "eventSelector": ".tubeTopp",
+          "eventType": "click",
+          "eventFunction": "takeMicTube",
+          "postEventFunction": "takeMicTubePost",
+          "criteria": {
+            "variable": "tubePicked",
+            "value": 0,
+            "messageWrong": "Incorrect. Please select the correct tube."
           }
-        }, {
-          "id": "removeComb",
-          "shortText": "Remove Comb",
-          "longText": "Remove the comb from the gel to expose the wells",
-          "bottomText": "Click on the gel comb to remove it",
-          "feedbackText": "complete the first step",
-          "logic": {
-            "eventSelector": "#gelCombHitBox",
-            "eventType": "click",
-            "eventFunction": "removeComb"
+        }
+      }, {
+        "id": "toLane1",
+        "shortText": "Put in Lane 1",
+        "longText": "Move the micropipette to the correct well",
+        "bottomText": "Click on the correct well to move the micropipette.",
+        "feedbackText": "complete the third step",
+        "logic": {
+          "eventSelector": ".wells",
+          "eventType": "click",
+          "eventFunction": "toLane",
+          "postEventFunction": "toLanePost",
+          "criteria": {
+            "variable": "lanePicked",
+            "value": 0,
+            "messageWrong": "Incorrect. Please select the correct well."
           }
-        }, {
-          "id": "toTop",
-          "shortText": "Place gel tray",
-          "longText": "Place the gel tray in the electrophoresis chamber",
-          "bottomText": "Click on the gel electrophoresis chamber",
-          "feedbackText": "complete the second step",
-          "logic": {
-            "eventSelector": "#gelSideView",
-            "eventType": "click",
-            "eventFunction": "toTop"
+        }
+      }, {
+        "id": "insertTip1",
+        "itemsAdded": "#gelWell #pipetteTip1",
+        "shortText": "Insert tip",
+        "longText": "Place the tip in the well. Be sure not to breach the walls!",
+        "bottomText": "Drag around the tip to position it",
+        "feedbackText": "complete the third step",
+        "logic": {
+          "eventSelector": "#gelWell",
+          "eventType": "drop",
+          "eventFunction": "insertTip",
+          "postEventFunction": "insertTipPost",
+          "criteria": {
+            "variable": "TipPosition",
+            "value": true
           }
-        }, {
-          "id": "orientGel",
-          "itemsRemoved": "#labBench #pipetHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #s0Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #shelf2 #tubeRack #loadDye #gelTray #gelComb #gelSideView",
-          "itemsAdded": "#labBenchTop #gelTopView #lidBase #lidSide #arrowUp #arrowDown #powerSupplyTop #microtubeHolderTop #tubeTop_0 #tubeTop_1 #tubeTop_2 #tubeTop_3 #tubeTop_4 #tubeTop_5 #tubeTop_6 #tipBoxTop #wasteBinTop",
-          "shortText": "Orient gel",
-          "longText": "Properly orient your gel in the electrophoresis chamber",
-          "bottomText": "Click on one of the arrows to select the direction you'd like the wells to face",
-          "feedbackText": "complete the third step",
-          "logic": {
-            "eventSelector": "#arrowDown",
-            "eventType": "click",
-            "eventFunction": "orientGel"
+        }
+      }, {
+        "id": "disposeTip1",
+        "itemsRemoved": "#gelWell #pipetteTip1",
+        "shortText": "Dispose of tip",
+        "longText": "Dispose of the used tip",
+        "bottomText": "Click on the waste bin to dispose of the tip",
+        "feedbackText": "complete the third step",
+        "logic": {
+          "eventSelector": "#wasteBinTop",
+          "eventType": "click",
+          "eventFunction": "disposeTip"
+        }
+      }]
+    },
+    {
+      "id": "group4",
+      "shortText": "Gel Electrophoresis",
+      "steps": [{
+        "id": "lidOnBox",
+        "shortText": "Place lid on the gel box",
+        "longText": "Place the lid on the gel electrophoresis chamber",
+        "bottomText": "Click on the lid to place it on the chamber",
+        "feedbackText": "complete the first step",
+        "logic": {
+          "eventSelector": "#lidSide",
+          "eventType": "click",
+          "eventFunction": "clickLid"
+        }
+      }, {
+        "id": "setVoltage",
+        "shortText": "Set the voltage",
+        "longText": "Set the power to 100 volts. Allow the gel to run for 30-40 minutes.",
+        "bottomText": "Enter the correct voltage",
+        "feedbackText": "complete the second step",
+        "logic": {
+          "eventSelector": "#voltageInputForm",
+          "eventType": "submit",
+          "eventFunction": "setVoltage",
+          "postEventFunction": "setVoltagePost",
+          "criteria": {
+            "variable": "voltage",
+            "value": 100,
+            "messageWrong": "Incorrect, please enter the approriate volume!"
           }
-        }]
-      },
-      {
-        "id": "group3",
-        "itemsRemoved": "#arrowUp #arrowDown",
-        "itemsAdded": "#gelFinalTop #micropipetteTopView",
-        "shortText": "Load reagent into gel",
-        "repeats": 7,
-        "steps": [{
-          "id": "addTipTop1",
-          "shortText": "Place tip",
-          "longText": "Add a tip to the micropipette",
-          "bottomText": "Click on any tip to add it to the micropipette",
-          "feedbackText": "complete the first step",
-          "logic": {
-            "eventSelector": ".tipTop",
-            "eventType": "click",
-            "eventFunction": "addTipTop"
+        }
+      }, {
+        "id": "removeGelLid",
+        "itemsAdded": "#stainingTray",
+        "shortText": "Remove Lid",
+        "longText": "Remove the lid from the electrophoresis chamber",
+        "bottomText": "Click on the lid to remove it from the chamber",
+        "feedbackText": "complete the third step",
+        "logic": {
+          "eventSelector": "#lidBox",
+          "eventType": "click",
+          "eventFunction": "removeGelLid"
+        }
+      }, {
+        "id": "removeGel",
+        "itemsRemoved": "#lidBox",
+        "itemsAdded": "#lidSide",
+        "shortText": "Remove gel",
+        "longText": "Remove the gel tray from the electrophoresis chamber",
+        "bottomText": "Click on the staining tray to remove the gel",
+        "feedbackText": "complete the third step",
+        "logic": {
+          "eventSelector": "#stainingTray",
+          "eventType": "click",
+          "eventFunction": "removeGel"
+        }
+      }, {
+        "id": "nudgeGel",
+        "shortText": "Nudge gel",
+        "longText": "Nudge the gel onto the staining tray",
+        "bottomText": "Click on the gel to nudge it",
+        "feedbackText": "complete the third step",
+        "logic": {
+          "eventSelector": "#gelFinalTop",
+          "eventType": "click",
+          "eventFunction": "nudgeGel"
+        }
+      }, {
+        "id": "stainGel",
+        "itemsRemoved": "#labBenchTop #gelTopView #lidBase #lidSide #arrowUp #arrowDown #powerSupplyTop #microtubeHolderTop #tubeTop_0 #tubeTop_1 #tubeTop_2 #tubeTop_3 #tubeTop_4 #tubeTop_5 #tubeTop_6 #tipBoxTop #wasteBinTop",
+        "itemsAdded": "#labBench #pipetHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #s0Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #graduatedCylinder #stainingTraySide #stainedGel",
+        "shortText": "Stain the gel",
+        "longText": "Pour the stain onto the gel in the staining tray",
+        "bottomText": "Click on the graduated cylinder to pour the stain",
+        "feedbackText": "complete the first step",
+        "logic": {
+          "eventSelector": "#graduatedCylinder",
+          "eventType": "click",
+          "eventFunction": "stainGel"
+        }
+      }, {
+        "id": "examineGel",
+        "shortText": "Examine the gel",
+        "longText": "Examine the stained gel to identify your suspect",
+        "bottomText": "Click on the stained gel to examine it",
+        "feedbackText": "complete the second step",
+        "logic": {
+          "eventSelector": "#stainedGel",
+          "eventType": "click",
+          "eventFunction": "examineGel"
+        }
+      }, {
+        "id": "pickLane",
+        "shortText": "Pick correct lane",
+        "longText": "Which suspect's DNA matches the sample found at the crime scene?",
+        "bottomText": "Click on a lane to select it",
+        "feedbackText": "complete the third step",
+        "logic": {
+          "eventSelector": ".laneFills",
+          "eventType": "click",
+          "eventFunction": "pickLane",
+          "postEventFunction": "pickLanePost",
+          "criteria": {
+            "variable": "lanePickedNumber",
+            "value": 1,
+            "messageWrong": "Incorrect. Try again."
           }
-        }, {
-          "id": "takeHind",
-          "shortText": "DNA size marker",
-          "longText": "Remove 10 uL of HindIII DNA size marker (grey tube)",
-          "bottomText": "Click the HindIII DNA size marker (grey tube) to draw it up",
-          "feedbackText": "complete the second step",
-          "logic": {
-            "eventSelector": ".tubeTopp",
-            "eventType": "click",
-            "eventFunction": "takeMicTube",
-            "postEventFunction": "takeMicTubePost",
-            "criteria": {
-              "variable": "tubePicked",
-              "value": 0,
-              "messageWrong": "Incorrect. Please select the correct tube."
-            }
-          }
-        }, {
-          "id": "toLane1",
-          "shortText": "Put in Lane 1",
-          "longText": "Move the micropipette to the correct well",
-          "bottomText": "Click on the correct well to move the micropipette.",
-          "feedbackText": "complete the third step",
-          "logic": {
-            "eventSelector": ".wells"
-              ,
-            "eventType": "click"
-              ,
-            "eventFunction": "toLane",
-            "postEventFunction": "toLanePost",
-            "criteria": {
-              "variable": "lanePicked",
-              "value": 0,
-              "messageWrong": "Incorrect. Please select the correct well."
-            }
-          }
-        }, {
-          "id": "insertTip1",
-          "itemsAdded": "#gelWell #pipetteTip1",
-          "shortText": "Insert tip",
-          "longText": "Place the tip in the well. Be sure not to breach the walls!",
-          "bottomText": "Drag around the tip to position it",
-          "feedbackText": "complete the third step",
-          "logic": {
-            "eventSelector": "#gelWell",
-            "eventType": "drop",
-            "eventFunction": "insertTip",
-            "postEventFunction": "insertTipPost",
-            "criteria": {
-              "variable": "TipPosition",
-              "value": true
-            }
-          }
-        }, {
-          "id": "disposeTip1",
-          "itemsRemoved": "#gelWell #pipetteTip1",
-          "shortText": "Dispose of tip",
-          "longText": "Dispose of the used tip",
-          "bottomText": "Click on the waste bin to dispose of the tip",
-          "feedbackText": "complete the third step",
-          "logic": {
-            "eventSelector": "#wasteBinTop",
-            "eventType": "click",
-            "eventFunction": "disposeTip"
-          }
-        }]
-      },
-      {
-        "id": "group4",
-        "shortText": "Gel Electrophoresis",
-        "steps": [{
-          "id": "lidOnBox",
-          "shortText": "Place lid on the gel box",
-          "longText": "Place the lid on the gel electrophoresis chamber",
-          "bottomText": "Click on the lid to place it on the chamber",
-          "feedbackText": "complete the first step",
-          "logic": {
-            "eventSelector": "#lidSide",
-            "eventType": "click",
-            "eventFunction": "clickLid"
-          }
-        }, {
-          "id": "setVoltage",
-          "shortText": "Set the voltage",
-          "longText": "Set the power to 100 volts. Allow the gel to run for 30-40 minutes.",
-          "bottomText": "Enter the correct voltage",
-          "feedbackText": "complete the second step",
-          "logic": {
-            "eventSelector": "#voltageInputForm",
-            "eventType": "submit",
-            "eventFunction": "setVoltage",
-            "postEventFunction": "setVoltagePost",
-            "criteria": {
-              "variable": "voltage",
-              "value": 100,
-              "messageWrong": "Incorrect, please enter the approriate volume!"
-            }
-          }
-        }, {
-          "id": "removeGelLid",
-          "itemsAdded": "#stainingTray",
-          "shortText": "Remove Lid",
-          "longText": "Remove the lid from the electrophoresis chamber",
-          "bottomText": "Click on the lid to remove it from the chamber",
-          "feedbackText": "complete the third step",
-          "logic": {
-            "eventSelector": "#lidBox",
-            "eventType": "click",
-            "eventFunction": "removeGelLid"
-          }
-        }, {
-          "id": "removeGel",
-          "itemsRemoved": "#lidBox",
-          "itemsAdded": "#lidSide",
-          "shortText": "Remove gel",
-          "longText": "Remove the gel tray from the electrophoresis chamber",
-          "bottomText": "Click on the staining tray to remove the gel",
-          "feedbackText": "complete the third step",
-          "logic": {
-            "eventSelector": "#stainingTray",
-            "eventType": "click",
-            "eventFunction": "removeGel"
-          }
-        }, {
-          "id": "nudgeGel",
-          "shortText": "Nudge gel",
-          "longText": "Nudge the gel onto the staining tray",
-          "bottomText": "Click on the gel to nudge it",
-          "feedbackText": "complete the third step",
-          "logic": {
-            "eventSelector": "#gelFinalTop",
-            "eventType": "click",
-            "eventFunction": "nudgeGel"
-          }
-        }, {
-          "id": "stainGel",
-          "itemsRemoved": "#labBenchTop #gelTopView #lidBase #lidSide #arrowUp #arrowDown #powerSupplyTop #microtubeHolderTop #tubeTop_0 #tubeTop_1 #tubeTop_2 #tubeTop_3 #tubeTop_4 #tubeTop_5 #tubeTop_6 #tipBoxTop #wasteBinTop",
-          "itemsAdded": "#labBench #pipetHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #s0Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #graduatedCylinder #stainingTraySide #stainedGel",
-          "shortText": "Stain the gel",
-          "longText": "Pour the stain onto the gel in the staining tray",
-          "bottomText": "Click on the graduated cylinder to pour the stain",
-          "feedbackText": "complete the first step",
-          "logic": {
-            "eventSelector": "#graduatedCylinder",
-            "eventType": "click",
-            "eventFunction": "stainGel"
-          }
-        }, {
-          "id": "examineGel",
-          "shortText": "Examine the gel",
-          "longText": "Examine the stained gel to identify your suspect",
-          "bottomText": "Click on the stained gel to examine it",
-          "feedbackText": "complete the second step",
-          "logic": {
-            "eventSelector": "#stainedGel",
-            "eventType": "click",
-            "eventFunction": "examineGel"
-          }
-        }, {
-          "id": "pickLane",
-          "shortText": "Pick correct lane",
-          "longText": "Which suspect's DNA matches the sample found at the crime scene?",
-          "bottomText": "Click on a lane to select it",
-          "feedbackText": "complete the third step",
-          "logic": {
-            "eventSelector": ".laneFills",
-            "eventType": "click",
-            "eventFunction": "pickLane",
-            "postEventFunction": "pickLanePost",
-            "criteria": {
-              "variable": "lanePickedNumber",
-              "value": 1,
-              "messageWrong": "Incorrect. Try again."
-            }
-          }
-        }]
-      }
-    ]
-  }
+        }
+      }]
+    }
+  ]
+}
