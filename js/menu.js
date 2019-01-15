@@ -36,11 +36,20 @@ function Menu() {
       $("#" + group + ">div").show(1000)
   }
 
+  this.setItemsCompleted = function(stepNumber) {
+    $('#stepList *').removeClass("completed")
+    for (i = 0; i < stepNumber; i++) {
+      var stepId = game.steps[i].id
+      var group = game.getGroupMembership(i)
+      $("#" + stepId).addClass("completed")
+    }
+  }
+
   this.highlightMenuItem = function(item) {
     $('#stepList *').removeClass("highlight")
     $(`#${item}`).addClass("highlight")
-    console.log($(`#${item}`))
-
+    var group = game.getGroupMembership(item)
+    $("#"+group).addClass("activeGroup")
   }
 
 }

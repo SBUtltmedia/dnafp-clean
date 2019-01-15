@@ -7,6 +7,7 @@ function Game(steps) {
   this.testMode = true
   this.state = stateInit()
   this.score = 0
+
   function stateInit() {
     const tipTrayRows = 8,
       tipTrayCols = 12;
@@ -40,14 +41,24 @@ function Game(steps) {
 
   }
   this.getGroupMembership = function(item) {
+    if (typeof item == "number") {
+      return Object.keys(this.groups).find((n) => {
 
-    return Object.keys(this.groups).find((n) => {
+        return this.groups[n].steps.indexOf(this.steps[item].id) != -1;
 
-      return this.groups[n].steps.indexOf(this.steps[item].id) != -1;
+      })
+    } else if(typeof item == "string") {
+      for (i=0; i < game.steps.length; i++) {
+        if (game.steps[i].id == item) {
+          return Object.keys(this.groups).find((n) => {
 
-    })
+            return this.groups[n].steps.indexOf(this.steps[i].id) != -1;
+
+          })
+        }
+      }
+    }
   }
-
 
   this.addToSteps = function(item) {
 
@@ -65,13 +76,12 @@ function Game(steps) {
     this.currentRepeats = this.repeats
     menu.setMenuItem(currentStepCount)
     console.log(currentStepCount)
-    menu.highlightMenuItem(this.currentStep.id)
+    menu.highlightMenuItem(currentStepCount)
+    menu.setItemsCompleted(currentStepCount)
     step.startStep(this.currentStep)
 
 
-    item.buildItemById("#enzTube").then(function() {
-      // console.log("build tuuube")
-    })
+    item.buildItemById("#enzTube").then(function() {})
   }
   this.getStep = function() {
     return this.currentStep
@@ -91,7 +101,6 @@ function Game(steps) {
 
 
     this.setStep(nextStepNum)
-    // console.log(step, this.step)
 
   }
 }

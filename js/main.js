@@ -9,15 +9,25 @@ $(function() {
     resizeWindow()
     console.log(data.steps[0].steps)
     menu.buildMenu(data.steps, "stepList")
-    item.buildAllItems(domItems).then(function() {buildStage(game.currentStep.itemsAdded)})
+    item.buildAllItems(domItems).then(function() {
+      buildStage(game.currentStep.itemsAdded)
+    })
 
 
 
-  }).then(function(){game.setStep(0)})
-$("#next").on("click", function(){
-  game.nextStep()
-})
-
+  }).then(function() {
+    game.setStep(0)
+  })
+  $("#next").click(function() {
+    game.nextStep()
+  })
+  $(".stepPanelItem").on("click", function() {
+    console.log("Hello")
+    $(this).addClass("spin")
+    setTimeout(function() {
+      $(this).removeClass("spin")
+    }, 1500)
+  })
 
 })
 
