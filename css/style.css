@@ -72,9 +72,9 @@ body {
 
 .stepPanelItem::before, .highlight::before, .activeGroup::before, .completed::before {
   background-repeat: no-repeat;
-  background-position: 10rem;
+  background-position: 0.1rem;
   display: inline-block;
-  width: .60rem;
+  width: .7rem;
   height: .5rem;
   content: "";
   position:relative;
@@ -83,14 +83,6 @@ body {
 
 .stepPanelItem::before {
   background-image: url(../img/UI/step_inactive.svg);
-  background-repeat: no-repeat;
-    background-position: .02rem;
-  display: inline-block;
-  width: .7rem;
-  height: .5rem;
-  content: "";
-  position:relative;
-  top:.12rem;
 }
 
 .step {

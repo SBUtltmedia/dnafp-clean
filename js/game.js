@@ -47,18 +47,16 @@ function Game(steps) {
         return this.groups[n].steps.indexOf(this.steps[item].id) != -1;
 
       })
-    } else if(typeof item == "string") {
-      for (i=0; i < game.steps.length; i++) {
-        if (game.steps[i].id == item) {
-          return Object.keys(this.groups).find((n) => {
-
-            return this.groups[n].steps.indexOf(this.steps[i].id) != -1;
-
-          })
+    } else if (typeof item == "string") {
+      var groupNames = Object.keys(game.groups)
+      for (i = 0; i < groupNames.length; i++) {
+        if (game.groups[groupNames[i]].steps.includes(item)) {
+          return groupNames[i]
         }
       }
     }
   }
+
 
   this.addToSteps = function(item) {
 

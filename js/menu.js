@@ -16,7 +16,7 @@ function Menu() {
             game.addToRepeats(step.id, step.repeats)
 
           }
-
+          game.addToGroup(step.id, parent)
           $(parentSelector).append(menu.buildMenu(step.steps, step.id))
         } else {
           game.addToSteps(step)
@@ -42,6 +42,7 @@ function Menu() {
       var stepId = game.steps[i].id
       var group = game.getGroupMembership(i)
       $("#" + stepId).addClass("completed")
+
     }
   }
 

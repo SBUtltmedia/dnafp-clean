@@ -532,7 +532,7 @@
         }
       }, {
         "id": "toLane1",
-        "shortText": "Put in Lane 1",
+        "shortText": "Put into correct lane",
         "longText": "Move the micropipette to the correct well",
         "bottomText": "Click on the correct well to move the micropipette.",
         "feedbackText": "complete the third step",
