@@ -67,16 +67,30 @@ body {
   width: 100%;
   color: white;
   background-color: black;
-  padding-top: 0.05rem;
-  padding-bottom: 0.05rem;
+  padding: 0.05rem 0 0.05rem 0;
+}
+
+.stepPanelItem::before, .highlight::before, .activeGroup::before, .completed::before {
+  background-repeat: no-repeat;
+  background-position: 10rem;
+  display: inline-block;
+  width: .60rem;
+  height: .5rem;
+  content: "";
+  position:relative;
+  top:.12rem;
 }
 
 .stepPanelItem::before {
   background-image: url(../img/UI/step_inactive.svg);
+  background-repeat: no-repeat;
+    background-position: .02rem;
   display: inline-block;
-  width: .5rem;
+  width: .7rem;
   height: .5rem;
   content: "";
+  position:relative;
+  top:.12rem;
 }
 
 .step {
@@ -153,10 +167,6 @@ body {
 .highlight::before {
   background-image: url(../img/UI/step_active.svg);
   animation: littleSpin 1s 0s 1 cubic-bezier(0, .5, .5, 1) normal forwards;
-  display: inline-block;
-  width: .5rem;
-  height: .5rem;
-  content: "";
 }
 
 .activeGroup {
@@ -165,10 +175,6 @@ body {
 
 .activeGroup::before {
   background-image: url(../img/UI/group_active.svg);
-  display: inline-block;
-  width: .5rem;
-  height: .5rem;
-  content: "";
 }
 
 .completed {
@@ -177,10 +183,6 @@ body {
 
 .completed::before {
   background-image: url(../img/UI/step_complete.svg);
-  display: inline-block;
-  width: .5rem;
-  height: .5rem;
-  content: "";
 }
 
 .clearTube {
