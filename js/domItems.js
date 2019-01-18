@@ -421,7 +421,7 @@ domItems = {
     },
     svg: "equipment/water_bath_lid.svg"
   },
-  "tubeRack": {
+  "dyeRack": {
     css: {
       width: "10%",
       height: "7%",
@@ -432,7 +432,7 @@ domItems = {
       "background-size": "cover",
       "z-index": "1",
     },
-    svg: "equipment/tubeRack.svg"
+    svg: "equipment/dyeRack.svg"
   },
   "loadDye": {
     css: {

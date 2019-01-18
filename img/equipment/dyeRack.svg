@@ -3,11 +3,11 @@
 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 472.9 289.8" style="enable-background:new 0 0 472.9 289.8;" xml:space="preserve">
 <style type="text/css">
-	.tubeRack_0{fill:#F89624;}
+	.dyeRack_0{fill:#F89624;}
 </style>
 <g id="rack">
-	<rect x="10.3" y="8.1" class="tubeRack_0" width="453" height="33.3"/>
-	<polygon class="tubeRack_0" points="32,282.1 10.3,282.1 10.3,41.4 53.6,41.4 	"/>
-	<polygon class="tubeRack_0" points="441.6,282.1 463.3,282.1 463.3,41.4 420,41.4 	"/>
+	<rect x="10.3" y="8.1" class="dyeRack_0" width="453" height="33.3"/>
+	<polygon class="dyeRack_0" points="32,282.1 10.3,282.1 10.3,41.4 53.6,41.4 	"/>
+	<polygon class="dyeRack_0" points="441.6,282.1 463.3,282.1 463.3,41.4 420,41.4 	"/>
 </g>
 </svg>

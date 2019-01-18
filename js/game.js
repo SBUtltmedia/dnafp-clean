@@ -61,7 +61,7 @@ function Game(steps) {
   this.addToSteps = function(item) {
 
     this.steps.push(item)
-
+    this.steps[this.steps["length"] - 1].completed = "false"
   }
 
   this.getSteps = function() {
@@ -78,8 +78,6 @@ function Game(steps) {
     menu.setItemsCompleted(currentStepCount)
     step.startStep(this.currentStep)
 
-
-    item.buildItemById("#enzTube").then(function() {})
   }
   this.getStep = function() {
     return this.currentStep
@@ -89,16 +87,26 @@ function Game(steps) {
     var currentGroup = this.groups[this.currentGroupId]
     if (currentGroup.steps.indexOf(this.currentStep.id) == currentGroup.steps.length - 1) {
       if (this.iteration < currentGroup.repeats - 1) {
-        nextStepNum -= currentGroup.steps.length;
+        for (i = 0; i < currentGroup.steps.length; i++) {
+          this.steps[nextStepNum - 1].completed = "false"
+          nextStepNum -= 1
+        }
         this.iteration++;
       } else {
         this.iteration = 0;
       }
     }
-
-
+    if (nextStepNum = 0) {
+      this.restartGame()
+    }
 
     this.setStep(nextStepNum)
 
+  }
+  this.restartGame = function() {
+    $('#stepList *').removeClass("activeGroup")
+    for (i = 0; i < this.steps.length; i++) {
+      this.steps[i].completed = "false"
+    }
   }
 }

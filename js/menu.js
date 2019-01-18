@@ -1,4 +1,5 @@
 function Menu() {
+
   this.buildMenu = function(steps, parent) { //steps.id was coming up blank, added parent variable
 
     if (steps.length) {
@@ -16,7 +17,6 @@ function Menu() {
             game.addToRepeats(step.id, step.repeats)
 
           }
-          game.addToGroup(step.id, parent)
           $(parentSelector).append(menu.buildMenu(step.steps, step.id))
         } else {
           game.addToSteps(step)
@@ -25,6 +25,13 @@ function Menu() {
         }
 
       }
+    }
+    this.groupNames = Object.keys(game.groups)
+    this.stepNames = []
+    console.log(this.stepNames)
+    for (i=0; i<game.steps.length; i++){
+      this.stepNames.push(game.steps[i].id)
+      console.log(game.steps[i].id)
     }
   }
   this.setMenuItem = function(stepNumber) {
@@ -41,16 +48,31 @@ function Menu() {
     for (i = 0; i < stepNumber; i++) {
       var stepId = game.steps[i].id
       var group = game.getGroupMembership(i)
-      $("#" + stepId).addClass("completed")
-
+      var groupPosition = this.groupNames.indexOf(group)
+      if (game.steps[i].completed) {
+        $("#" + stepId).addClass("completed")
+      }
     }
+    for (j = 0; j < this.groupNames.length; j++) {
+      var lastStep = game.groups[this.groupNames[j]].steps[game.groups[this.groupNames[j]].steps.length - 1]
+      console.log("LastStep: "+lastStep)
+      if (game.steps[this.stepNames.indexOf(lastStep)].completed == "true"){
+        $("#" + this.groupNames[j]).addClass("completed")
+        console.log("Last Step done")
+      } else {
+        console.log("Not last step")
+      }
+    }
+
   }
 
+
   this.highlightMenuItem = function(item) {
+    var stepId = game.steps[item].id
     $('#stepList *').removeClass("highlight")
-    $(`#${item}`).addClass("highlight")
+    $('#' + stepId).addClass("highlight")
     var group = game.getGroupMembership(item)
-    $("#"+group).addClass("activeGroup")
+    $("#" + group).addClass("activeGroup")
   }
 
 }
