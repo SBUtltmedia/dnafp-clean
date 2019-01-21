@@ -20,6 +20,7 @@ function Game(steps) {
       wellPosition: Array(7).fill(0),
       voltage: 0,
       volume: 0,
+      time: 0,
     }
     $("#micropipette2").append($('#pipetteTip1'));
     $("pipetteTip1").addClass(".opClass")
@@ -76,7 +77,7 @@ function Game(steps) {
     console.log(currentStepCount)
     menu.highlightMenuItem(currentStepCount)
     menu.setItemsCompleted(currentStepCount)
-    //step.startStep(this.currentStep)
+    step.startStep(this.currentStep)
 
   }
   this.getStep = function() {
@@ -88,8 +89,8 @@ function Game(steps) {
     var currentGroup = this.groups[this.currentGroupId]
     if (currentGroup.steps.indexOf(this.currentStep.id) == currentGroup.steps.length - 1) {
       if (this.iteration < this.currentRepeats - 1) {
-        for (i = 0; i < currentGroup.steps.length; i++) {
-          this.steps[nextStepNum - i+1].completed = "false"
+        for (i = 1; i < currentGroup.steps.length; i++) {
+          this.steps[nextStepNum - i].completed = "false"
         }
         nextStepNum -= currentGroup.steps.length
         this.iteration++;

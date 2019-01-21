@@ -822,6 +822,94 @@ domItems = {
     },
     svg: "equipment/stainingTray.svg"
   },
+  "volumeInput1": {
+    css: {
+      "-webkit-appearance": "none",
+      margin: "0",
+      padding: "0",
+      width: "1.6%",
+      height: "1.3%",
+      left: "23.2%",
+      top: "14%",
+      position: "absolute",
+      border: ".1rem",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "font-size": ".25rem",
+    },
+  },
+  "volumeButton": {
+    css: {
+      width: "2%",
+      height: "1.6%",
+      left: "29.1%",
+      top: "47.2%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+    },
+    svg: "UI/check.svg"
+  },
+  "volumeInput": {
+    css: {
+      "-webkit-appearance": "none",
+      width: "1.6%",
+      height: "1.8%",
+      margin: "0",
+      padding: "0",
+      border: ".1rem",
+      left: "26.5%",
+      top: "47%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "font-size": ".25rem",
+      "z-index": "10",
+    },
+  },
+  "volumeButton1": {
+    css: {
+      width: "2%",
+      height: "1.6%",
+      left: "25.7%",
+      top: "14%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+    },
+    svg: "UI/check.svg"
+  },
+  "timer": {
+    css: {
+      width: "2.2%",
+      height: "2.0%",
+      left: "61.3%",
+      top: "36.4%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      margin: "0",
+      padding: "0",
+      border: "20rem",
+      "font-size": ".35rem",
+      "z-index": "0",
+    },
+  },
+  "timerButton": {
+    css: {
+      width: "3.5%",
+      height: "2.8%",
+      left: "64%",
+      top: "36%",
+      padding: "0",
+      border: "20rem",
+      "font-size": ".25rem",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "z-index": "0",
+    },
+    svg: "UI/check.svg"
+  },
 }
 
 function highlightObject(highlight, selector) {

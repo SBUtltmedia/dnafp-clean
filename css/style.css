@@ -77,8 +77,8 @@ body {
   width: .7rem;
   height: .5rem;
   content: "";
-  position:relative;
-  top:.12rem;
+  position: relative;
+  top: .12rem;
 }
 
 .stepPanelItem::before {
@@ -120,6 +120,7 @@ body {
   position: absolute;
   text-align: center;
   background-color: black;
+  color: white;
   /*z-index: 20;*/
   font-size: 0.75rem
 }
@@ -132,6 +133,7 @@ body {
   position: absolute;
   text-align: center;
   background-color: black;
+  color: white;
   /*z-index: 20;*/
   font-size: 0.75rem
 }

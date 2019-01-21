@@ -25,8 +25,9 @@ function Step() {
 
         $(s.logic.eventSelector).off()
         if (s.logic.postEventFunction) {
-          //                console.log(s.logic.postEventFunction)
-          s.logic.postEventFunction()
+          console.log(s.logic.postEventFunction)
+          window["helperFunctions"][s.logic.postEventFunction]()
+          //s.logic.postEventFunction()
         }
         game.score = 0
         //updateScore(11);
