@@ -71,32 +71,33 @@ function Game(steps) {
   this.setStep = function(currentStepCount) {
     this.currentStep = this.steps[currentStepCount]
     this.currentGroupId = this.getGroupMembership(currentStepCount)
-    this.currentRepeats = this.repeats
+    this.currentRepeats = this.groups[this.currentGroupId].repeats
     menu.setMenuItem(currentStepCount)
     console.log(currentStepCount)
     menu.highlightMenuItem(currentStepCount)
     menu.setItemsCompleted(currentStepCount)
-    step.startStep(this.currentStep)
+    //step.startStep(this.currentStep)
 
   }
   this.getStep = function() {
     return this.currentStep
   }
   this.nextStep = function() {
-    var nextStepNum = (this.steps.indexOf(this.currentStep) + 1) % this.steps.length
+    var nextStepNum = ((this.steps.indexOf(this.currentStep) + 1) % this.steps.length)
+    console.log("NextStep: "+nextStepNum)
     var currentGroup = this.groups[this.currentGroupId]
     if (currentGroup.steps.indexOf(this.currentStep.id) == currentGroup.steps.length - 1) {
-      if (this.iteration < currentGroup.repeats - 1) {
+      if (this.iteration < this.currentRepeats - 1) {
         for (i = 0; i < currentGroup.steps.length; i++) {
-          this.steps[nextStepNum - 1].completed = "false"
-          nextStepNum -= 1
+          this.steps[nextStepNum - i+1].completed = "false"
         }
+        nextStepNum -= currentGroup.steps.length
         this.iteration++;
       } else {
         this.iteration = 0;
       }
     }
-    if (nextStepNum = 0) {
+    if (nextStepNum == 0) {
       this.restartGame()
     }
 

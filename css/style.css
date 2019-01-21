@@ -143,7 +143,7 @@ body {
 }
 
 .highlight {
-  /* color: red; */
+  color: red;
 }
 
 @keyframes littleSpin {

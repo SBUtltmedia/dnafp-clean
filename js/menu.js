@@ -55,17 +55,13 @@ function Menu() {
     }
     for (j = 0; j < this.groupNames.length; j++) {
       var lastStep = game.groups[this.groupNames[j]].steps[game.groups[this.groupNames[j]].steps.length - 1]
-      console.log("LastStep: "+lastStep)
       if (game.steps[this.stepNames.indexOf(lastStep)].completed == "true"){
         $("#" + this.groupNames[j]).addClass("completed")
-        console.log("Last Step done")
       } else {
-        console.log("Not last step")
       }
     }
 
   }
-
 
   this.highlightMenuItem = function(item) {
     var stepId = game.steps[item].id
