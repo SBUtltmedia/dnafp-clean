@@ -837,6 +837,8 @@ domItems = {
       "background-size": "contain",
       "font-size": ".25rem",
     },
+    input: "input",
+    type: "text",
   },
   "volumeButton": {
     css: {
@@ -848,7 +850,9 @@ domItems = {
       "background-repeat": "no-repeat",
       "background-size": "contain",
     },
-    svg: "UI/check.svg"
+    svg: "UI/check.svg",
+    input: "input",
+    type: "submit",
   },
   "volumeInput": {
     css: {
@@ -865,6 +869,8 @@ domItems = {
       "font-size": ".25rem",
       "z-index": "10",
     },
+    input: "input",
+    type: "text",
   },
   "volumeButton1": {
     css: {
@@ -876,7 +882,9 @@ domItems = {
       "background-repeat": "no-repeat",
       "background-size": "contain",
     },
-    svg: "UI/check.svg"
+    svg: "UI/check.svg",
+    input: "input",
+    type: "submit",
   },
   "timer": {
     css: {
@@ -893,6 +901,8 @@ domItems = {
       "font-size": ".35rem",
       "z-index": "0",
     },
+    input: "input",
+    type: "text",
   },
   "timerButton": {
     css: {
@@ -908,7 +918,8 @@ domItems = {
       "background-size": "contain",
       "z-index": "0",
     },
-    svg: "UI/check.svg"
+    svg: "UI/check.svg",
+    type: "submit",
   },
 }
 

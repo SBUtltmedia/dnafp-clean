@@ -1,3 +1,21 @@
+function rotate() {
+  this.rotateObj = [{
+    "text-indent": -120
+  }, {
+    duration: 500,
+    step: function(now) {
+      $(this).attr("transform", 'rotate('+now+')');
+    }
+  }]
+  this.reverseRotateObj=[{
+    "text-indent": 0
+  }, {
+    duration: 500,
+    step: function(now) {
+      $(this).attr("transform", 'rotate('+now+')');
+    }
+  }]
+}
 var helperFunctions = {
   commonSide : [
     "#labBench", "#pipetteHolder", "#micropipette0", "#micropipette1", "#micropipette2", "#tipHolder", "#tip1",
@@ -16,7 +34,7 @@ var helperFunctions = {
   }, //step 1
   "openEnzyme": function() {
     console.log("open")
-    // animate("#enzTube svg .Cap", 0, "animate", rotateObj)
+    animate("#enzTube svg .Cap", 0, "animate", rotate.rotateObj)
     game.state["firstStep"] = 45;
     animate("#svgfluid", 0, "animate", [{
       "y": 100
@@ -25,7 +43,7 @@ var helperFunctions = {
   "openEnzymePost": function() {
     animate("#micropipette2", 1000, "keyframe", "anim_PrepPipet")
     animate("html", 3000, zoom, [25, 46, 9.5, 1000])
-    animate("#volumeButton,#volumeInput", 3400, "show")
+    animate("#volumeButton, #volumeInput", 3400, "show")
   }, //step 2
 
   "setVolume": function() {
@@ -62,7 +80,7 @@ var helperFunctions = {
 
 
     animate("#s0Tube", 0, "keyframe", "anim_moveTube")
-    // animate("#s0Tube svg .Cap", 0, "animate", rotateObj)
+    // animate("#s0Tube svg .Cap", 0, "animate", rotate.rotateObj)
 
 
   }, //step 5
@@ -73,7 +91,7 @@ var helperFunctions = {
       "y": 35.6
     }])
     animate("#enzTube", 1500, "keyframe", "anim_moveEnzBack")
-    animate("#enzTube svg .Cap", 1000, "animate", reverseRotateObj)
+    animate("#enzTube svg .Cap", 1000, "animate", rotate.reverseRotateObj)
 
 
   }, //step 6
@@ -120,7 +138,7 @@ var helperFunctions = {
     animate("#micropipette2", 3000, "keyframe", "anim_pipetBacktoNormal")
   },
   "closeTube": function() {
-    animate("#s0Tube svg .Cap", 0, "animate", reverseRotateObj)
+    animate("#s0Tube svg .Cap", 0, "animate", rotate.reverseRotateObj)
     $("#s0Tube").css("z-index", "0")
     game.state["microtubeState"][0] = microTubeEnum[2];
   },
@@ -198,9 +216,6 @@ var helperFunctions = {
     animate("#view", 0, zoom, [65, 36, 1, 1000]);
     animate("#bothDays *, #bothDays, #day1 *", 0, "attr", ["style", ""])
     animate("#pipetteTip1", 0, "hide")
-
-    animate(".openButton", 0, "hide")
-
     animate("#day1", 1000, "hide");
     animate("#day2, #tubeBlock, .microTube, #gelSideView", 2000, "show")
     animate("#graduatedCylinder, #waterBathNoLid, #waterBathLid, #shelf1, #stainedGel, #stainingTraySide", 0, "hide")
@@ -227,7 +242,7 @@ var helperFunctions = {
 
   "openDye": function(evt) {
     animate("#loadDye", 0, "keyframe", "anim_moveLoadingDye")
-    animate("#loadDye svg .Cap", 0, "animate", rotateObj)
+    animate("#loadDye svg .Cap", 0, "animate", rotate.rotateObj)
     animate("#svgfluid", 0, "animate", [{
       "y": 100
     }])
@@ -253,7 +268,7 @@ var helperFunctions = {
   }, //step 22
   "addDye": function() {
     animate("#micropipette2", 0, "keyframe", "anim_addDyeToTube")
-    animate("#loadDye svg .Cap", 700, "animate", reverseRotateObj)
+    animate("#loadDye svg .Cap", 700, "animate", rotate.reverseRotateObj)
     animate("#loadDye", 1000, "keyframe", "anim_moveLoadingDyeback")
     $("#s0Tube").css("z-index", "5")
 
@@ -288,10 +303,10 @@ var helperFunctions = {
     var tubeId = evt.currentTarget.id.charAt(1);
     if (game.testMode) {
       for (i = 0; i <= 5; i++) {
-        animate("#s" + i + "Tube svg .Cap", 0, "animate", rotateObj)
+        animate("#s" + i + "Tube svg .Cap", 0, "animate", rotate.rotateObj)
       }
     }
-    animate("#s" + tubeId + "Tube svg .Cap", 0, "animate", rotateObj)
+    animate("#s" + tubeId + "Tube svg .Cap", 0, "animate", rotate.rotateObj)
     game.state["microtubeState"][tubeId] = microTubeEnum[6]
   }, //step 29
 
@@ -630,15 +645,16 @@ function animate(selector, delay, method, param, callback = () => {}) {
   }
 
   if (method == "show") {
+    console.log(selector)
     setTimeout(function() {
-      $("#view").append(selector);
+      $("#view").append($(selector));
       callback();
     }, delay)
   }
 
   if (method == "hide") {
     setTimeout(function() {
-      $("#storage").append(selector);
+      $("#storage").append($(selector));
       callback();
     }, delay)
   }

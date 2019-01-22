@@ -28,10 +28,8 @@ function Menu() {
     }
     this.groupNames = Object.keys(game.groups)
     this.stepNames = []
-    console.log(this.stepNames)
     for (i=0; i<game.steps.length; i++){
       this.stepNames.push(game.steps[i].id)
-      console.log(game.steps[i].id)
     }
   }
   this.setMenuItem = function(stepNumber) {

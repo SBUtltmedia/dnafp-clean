@@ -7,17 +7,13 @@ $(function() {
     step = new Step()
     item = new Item()
     resizeWindow()
-    console.log(data.steps[0].steps)
     menu.buildMenu(data.steps, "stepList")
     item.buildAllItems(domItems).then(function() {
-      buildStage(game.currentStep.itemsAdded)
+      buildStage(game.steps[0].itemsAdded)
+      game.setStep(0)
     })
-
-
-
-  }).then(function() {
-    game.setStep(0)
   })
+
   $("#next").on("click", function() {
     game.nextStep()
   })

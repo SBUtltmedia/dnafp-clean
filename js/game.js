@@ -1,10 +1,10 @@
 function Game(steps) {
   this.groups = {}
   this.steps = []
-  this.currentStep = 0
+  this.currentStep = {}
   this.currentGroup = 0
   this.iteration = 0
-  this.testMode = true
+  this.testMode = false
   this.state = stateInit()
   this.score = 0
 

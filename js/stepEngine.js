@@ -1,21 +1,23 @@
 function Step() {
   this.startStep = function(step) {
-    window.location.hash = step.id;
+    console.log("Hello", step)
+    //window.location.hash = step.id;
     //highlightObject(true,step.logic.eventSelector);
     var s = jQuery.extend(true, {}, step);
     var clicked = false;
     $("#headerText").text(s.longText);
     $("#footerText").text(s.bottomText);
-    $("#view").off()
-    $("#view").on("click", function() {
-      //updateScore(-1);
-      console.log("Score: " + game.score)
-      console.log("Test")
-    });
+    // $("#view").off()
+    // $("#view").on("click", function() {
+    //   //updateScore(-1);
+    //   console.log("Score: " + game.score)
+    //   console.log("Test")
+    // });
     var composite = function(evt) {
       evt.preventDefault();
       console.log(s)
-      helperFunctions[s.logic.eventFunction](evt)
+      console.log(evt)
+      window["helperFunctions"][s.logic.eventFunction](evt)
       if (game.testMode && s.logic && s.logic.criteria) {
         state[s.logic.criteria.variable] = JSON.parse(JSON.stringify(s.logic.criteria.value)) //returns reference to value, don't touch
       }
@@ -42,11 +44,12 @@ function Step() {
         console.log("Score: " + game.score)
       }
     }
+    console.log(  $("#enzTube"))
     //    console.log(s)
-    $(s.logic.eventSelector).on(s.logic.eventType, composite);
-
+   $(s.logic.eventSelector).on(s.logic.eventType, composite);
+    //$("#enzTube").on("click", composite);
     if (game.testMode) {
-      $(s.logic.eventSelector).trigger(s.logic.eventType);
+    $(s.logic.eventSelector).trigger(s.logic.eventType);
 
     }
 
