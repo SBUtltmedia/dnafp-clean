@@ -8,12 +8,12 @@ domItems = {
       left: "0%",
       top: "67%",
       position: "absolute",
+      "background-image": "../resources/img/equipment/labBench2.svg",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "pointer-events": "none !important",
       "z-index": "-1",
     },
-    svg: "equipment/labBench2.svg"
   },
   "shelf1": {
     css: {
@@ -22,11 +22,11 @@ domItems = {
       left: "60%",
       top: "40%",
       position: "absolute",
+      "background-image": "../resources/img/equipment/shelf.svg",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "z-index": "-1",
     },
-    svg: "equipment/shelf.svg"
   },
   "shelf2": {
     css: {
@@ -35,11 +35,11 @@ domItems = {
       left: "2.5%",
       top: "31%",
       position: "absolute",
+      "background-image": "../resources/img/equipment/shelf.svg",
       "background-repeat": "no-repeat",
       "background-size": "cover",
       "z-index": "-1",
     },
-    svg: "equipment/shelf.svg"
   },
   "enzTube": {
     css: {
@@ -48,13 +48,13 @@ domItems = {
       left: "85.5%",
       top: "62.7%",
       position: "absolute",
+      "background-image": "../resources/img/equipment/csTube.svg",
       "background-repeat": "no-repeat",
       "background-size": "contain",
       "transform-origin": "100% 0%",
       "z-index": "0",
     },
     classes: ["clearTube"],
-    svg: "equipment/csTube.svg"
   },
   "iceBucket": {
     css: {
@@ -63,13 +63,13 @@ domItems = {
       left: "80%",
       top: "67.1%",
       position: "absolute",
+      "background-image": "../resources/img/equipment/ice_bucket.svg",
       "background-repeat": "no-repeat",
       "background-size": "contain",
       "background-position": "center center",
       visibility: "visible",
       "z-index": "1",
     },
-    svg: "equipment/ice_bucket.svg"
   },
   "pipetteHolder": {
     css: {
@@ -83,7 +83,7 @@ domItems = {
       "background-position": "center center",
       "z-index": "-1",
     },
-    svg: "equipment/pipetteHolder.svg"
+    resources: "../resources/img/equipment/pipetteHolder.svg"
   },
   "micropipette0": {
     css: {
@@ -96,7 +96,7 @@ domItems = {
       "background-size": "cover",
       "z-index": "0",
     },
-    svg: "equipment/micropipette.svg"
+    resources: "../resources/img/equipment/micropipette.svg"
   },
   "micropipette1": {
     css: {
@@ -109,7 +109,7 @@ domItems = {
       "background-size": "cover",
       "z-index": "0",
     },
-    svg: "equipment/micropipette.svg"
+    resources: "../resources/img/equipment/micropipette.svg"
   },
   "micropipette2": {
     css: {
@@ -122,7 +122,7 @@ domItems = {
       "background-size": "cover",
       "z-index": "1",
     },
-    svg: "equipment/micropipette20.svg"
+    resources: "../resources/img/equipment/micropipette20.svg"
   },
   "tipHolder": {
     css: {
@@ -136,7 +136,7 @@ domItems = {
       "background-position": "center center",
       "z-index": "1",
     },
-    svg: "equipment/tipHolder.svg"
+    resources: "../resources/img/equipment/tipHolder.svg"
   },
   "tip1": {
     css: {
@@ -144,15 +144,8 @@ domItems = {
       height: "7%",
       left: "20.8%",
       top: "68.5%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
-      visibility: "visible",
-      "z-index": "0",
     },
     classes: ["tip"],
-    svg: "equipment/tip.svg"
   },
   "tip2": {
     css: {
@@ -160,14 +153,8 @@ domItems = {
       height: "7%",
       left: "21.6%",
       top: "68.5%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
-      "z-index": "0",
     },
     classes: ["tip"],
-    svg: "equipment/tip.svg"
   },
   "tip3": {
     css: {
@@ -175,14 +162,8 @@ domItems = {
       height: "7%",
       left: "22.4%",
       top: "68.5%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
-      "z-index": "0",
     },
     classes: ["tip"],
-    svg: "equipment/tip.svg"
   },
   "tip4": {
     css: {
@@ -190,14 +171,8 @@ domItems = {
       height: "7%",
       left: "23.2%",
       top: "68.5%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
-      "z-index": "0",
     },
     classes: ["tip"],
-    svg: "equipment/tip.svg"
   },
   "tip5": {
     css: {
@@ -205,14 +180,8 @@ domItems = {
       height: "7%",
       left: "24%",
       top: "68.5%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
-      "z-index": "0",
     },
     classes: ["tip"],
-    svg: "equipment/tip.svg"
   },
   "tip6": {
     css: {
@@ -220,14 +189,8 @@ domItems = {
       height: "7%",
       left: "24.8%",
       top: "68.5%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
-      "z-index": "0",
     },
     classes: ["tip"],
-    svg: "equipment/tip.svg"
   },
   "tip7": {
     css: {
@@ -235,15 +198,8 @@ domItems = {
       height: "7%",
       left: "25.6%",
       top: "68.5%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
-      "z-index": "0",
-      visibility: "visible",
     },
     classes: ["tip"],
-    svg: "equipment/tip.svg"
   },
   "tip8": {
     css: {
@@ -251,14 +207,8 @@ domItems = {
       height: "7%",
       left: "26.4%",
       top: "68.5%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
-      "z-index": "0",
     },
     classes: ["tip"],
-    svg: "equipment/tip.svg"
   },
   "tip9": {
     css: {
@@ -266,14 +216,9 @@ domItems = {
       height: "7%",
       left: "27.2%",
       top: "68.5%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
-      "z-index": "0",
+
     },
     classes: ["tip"],
-    svg: "equipment/tip.svg"
   },
   "tip10": {
     css: {
@@ -281,14 +226,9 @@ domItems = {
       height: "7%",
       left: "28%",
       top: "68.5%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
       "z-index": "0",
     },
     classes: ["tip"],
-    svg: "equipment/tip.svg"
   },
   "tip11": {
     css: {
@@ -296,14 +236,8 @@ domItems = {
       height: "7%",
       left: "28.8%",
       top: "68.5%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
-      "z-index": "0",
     },
     classes: ["tip"],
-    svg: "equipment/tip.svg"
   },
   "tip12": {
     css: {
@@ -311,14 +245,8 @@ domItems = {
       height: "7%",
       left: "29.6%",
       top: "68.5%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
-      "z-index": "0",
     },
     classes: ["tip"],
-    svg: "equipment/tip.svg"
   },
   "tubeBlock": {
     css: {
@@ -332,7 +260,7 @@ domItems = {
       "background-position": "center center",
       "z-index": "2",
     },
-    svg: "equipment/tubeBlock.svg"
+    resources: "../resources/img/equipment/tubeBlock.svg"
   },
   "s0Tube": {
     css: {
@@ -340,7 +268,7 @@ domItems = {
       "z-index": "1",
     },
     classes: ["microTube s0TubeColor"],
-    svg: "equipment/csTube.svg"
+    resources: "../resources/img/equipment/csTube.svg"
   },
   "s1Tube": {
     css: {
@@ -348,7 +276,7 @@ domItems = {
       "z-index": "1",
     },
     classes: ["microTube s1TubeColor"],
-    svg: "equipment/csTube.svg"
+    resources: "../resources/img/equipment/csTube.svg"
   },
   "s2Tube": {
     css: {
@@ -356,7 +284,7 @@ domItems = {
       "z-index": "1",
     },
     classes: ["microTube s2TubeColor"],
-    svg: "equipment/csTube.svg"
+    resources: "../resources/img/equipment/csTube.svg"
   },
   "s3Tube": {
     css: {
@@ -364,7 +292,7 @@ domItems = {
       "z-index": "1",
     },
     classes: ["microTube s3TubeColor"],
-    svg: "equipment/csTube.svg"
+    resources: "../resources/img/equipment/csTube.svg"
   },
   "s4Tube": {
     css: {
@@ -372,7 +300,7 @@ domItems = {
       "z-index": "1",
     },
     classes: ["microTube s4TubeColor"],
-    svg: "equipment/csTube.svg"
+    resources: "../resources/img/equipment/csTube.svg"
   },
   "s5Tube": {
     css: {
@@ -380,7 +308,7 @@ domItems = {
       "z-index": "1",
     },
     classes: ["microTube s5TubeColor"],
-    svg: "equipment/csTube.svg"
+    resources: "../resources/img/equipment/csTube.svg"
   },
   "wasteBasket": {
     css: {
@@ -393,7 +321,7 @@ domItems = {
       "background-size": "contain",
       "z-index": "1",
     },
-    svg: "equipment/waste_basket.svg"
+    resources: "../resources/img/equipment/waste_basket.svg"
   },
   "waterBathNoLid": {
     css: {
@@ -406,7 +334,7 @@ domItems = {
       "background-size": "cover",
       "z-index": "2",
     },
-    svg: "equipment/water_bath_no_lid.svg"
+    resources: "../resources/img/equipment/water_bath_no_lid.svg"
   },
   "waterBathLid": {
     css: {
@@ -419,7 +347,7 @@ domItems = {
       "background-size": "cover",
       "z-index": "3",
     },
-    svg: "equipment/water_bath_lid.svg"
+    resources: "../resources/img/equipment/water_bath_lid.svg"
   },
   "dyeRack": {
     css: {
@@ -432,7 +360,7 @@ domItems = {
       "background-size": "cover",
       "z-index": "1",
     },
-    svg: "equipment/dyeRack.svg"
+    resources: "../resources/img/equipment/dyeRack.svg"
   },
   "loadDye": {
     css: {
@@ -446,7 +374,7 @@ domItems = {
       "transform-origin": "100% 0%",
     },
     classes: ["clearTube"],
-    svg: "equipment/csTube.svg"
+    resources: "../resources/img/equipment/csTube.svg"
   },
   "gelTray": {
     css: {
@@ -459,7 +387,7 @@ domItems = {
       "background-size": "contain",
       "background-position": "center center",
     },
-    svg: "equipment/gelTray.svg"
+    resources: "../resources/img/equipment/gelTray.svg"
   },
   "gelComb": {
     css: {
@@ -472,7 +400,7 @@ domItems = {
       "background-size": "contain",
       "background-position": "center center",
     },
-    svg: "equipment/gelComb.svg"
+    resources: "../resources/img/equipment/gelComb.svg"
   },
   "electroBoxSide": {
     css: {
@@ -485,7 +413,7 @@ domItems = {
       "background-size": "contain",
       "background-position": "center center",
     },
-    svg: "equipment/electroBoxSide.svg"
+    resources: "../resources/img/equipment/electroBoxSide.svg"
   },
   "stainingTraySide": {
     css: {
@@ -499,7 +427,7 @@ domItems = {
       "background-position": "center center",
       "z-index": "0",
     },
-    svg: "equipment/stainingTraySide.svg"
+    resources: "../resources/img/equipment/stainingTraySide.svg"
   },
   "stainedGel": {
     css: {
@@ -513,7 +441,7 @@ domItems = {
       "background-position": "center center",
       "z-index": "0",
     },
-    svg: "equipment/stainedGel.svg"
+    resources: "../resources/img/equipment/stainedGel.svg"
   },
   "graduatedCylinder": {
     css: {
@@ -527,7 +455,7 @@ domItems = {
       "background-position": "center center",
       "z-index": "0",
     },
-    svg: "equipment/graduatedCylinder.svg"
+    resources: "../resources/img/equipment/graduatedCylinder.svg"
   },
   "labBenchTop": {
     css: {
@@ -541,7 +469,7 @@ domItems = {
       "background-position": "center center",
       "z-index": "0",
     },
-    svg: "equipment/labBenchTop.svg"
+    resources: "../resources/img/equipment/labBenchTop.svg"
   },
   "gelTopView": {
     css: {
@@ -554,7 +482,7 @@ domItems = {
       "background-size": "contain",
       "background-position": "center center",
     },
-    svg: "equipment/gelTopView.svg"
+    resources: "../resources/img/equipment/gelTopView.svg"
   },
   "lidBox": {
     css: {
@@ -567,7 +495,7 @@ domItems = {
       "background-size": "contain",
       "background-position": "center center",
     },
-    svg: "equipment/lidBox.svg"
+    resources: "../resources/img/equipment/lidBox.svg"
   },
   "lidBase": {
     css: {
@@ -580,7 +508,7 @@ domItems = {
       "background-size": "contain",
       "background-position": "center center",
     },
-    svg: "equipment/lidBase.svg"
+    resources: "../resources/img/equipment/lidBase.svg"
   },
   "lidSide": {
     css: {
@@ -595,7 +523,7 @@ domItems = {
       visibility: "visible",
       "z-index": "0",
     },
-    svg: "equipment/lidSide.svg"
+    resources: "../resources/img/equipment/lidSide.svg"
   },
   "arrowUp": {
     css: {
@@ -608,7 +536,7 @@ domItems = {
       "background-size": "contain",
       "background-position": "center center",
     },
-    svg: "equipment/arrowUp.svg"
+    resources: "../resources/img/equipment/arrowUp.svg"
   },
   "arrowDown": {
     css: {
@@ -621,7 +549,7 @@ domItems = {
       "background-size": "contain",
       "background-position": "center center",
     },
-    svg: "equipment/arrowDown.svg"
+    resources: "../resources/img/equipment/arrowDown.svg"
   },
   "powerSupplyTop": {
     css: {
@@ -635,7 +563,7 @@ domItems = {
       "background-position": "center center",
       visibility: "visible",
     },
-    svg: "equipment/powerSupplyTop.svg"
+    resources: "../resources/img/equipment/powerSupplyTop.svg"
   },
   "microTubeHolderTop": {
     css: {
@@ -650,49 +578,49 @@ domItems = {
       "background-position": "center center",
       visibility: "visible",
     },
-    svg: "equipment/microtubeHolderTop.svg"
+    resources: "../resources/img/equipment/microtubeHolderTop.svg"
   },
   "tubeTop_0": {
     css: {
       top: "20%",
     },
     classes: ["tubeTop"],
-    svg: "equipment/ladderTop.svg"
+    resources: "../resources/img/equipment/ladderTop.svg"
   },
   "tubeTop_1": {
     css: {
       top: "24.5%",
     },
     classes: ["tubeTop"],
-    svg: "equipment/csTop.svg"
+    resources: "../resources/img/equipment/csTop.svg"
   },
   "tubeTop_2": {
     css: {
       top: "29%",
     },
     classes: ["tubeTop"],
-    svg: "equipment/s1Top.svg"
+    resources: "../resources/img/equipment/s1Top.svg"
   },
   "tubeTop_3": {
     css: {
       top: "33.5%",
     },
     classes: ["tubeTop"],
-    svg: "equipment/s2Top.svg"
+    resources: "../resources/img/equipment/s2Top.svg"
   },
   "tubeTop_4": {
     css: {
       top: "38%",
     },
     classes: ["tubeTop"],
-    svg: "equipment/s3Top.svg"
+    resources: "../resources/img/equipment/s3Top.svg"
   },
   "tubeTop_5": {
     css: {
       top: "42.5%",
     },
     classes: ["tubeTop"],
-    svg: "equipment/s4Top.svg"
+    resources: "../resources/img/equipment/s4Top.svg"
   },
   "tipBoxTop": {
     css: {
@@ -707,7 +635,7 @@ domItems = {
       "visibility": "visible",
       "z-index": "0",
     },
-    svg: "equipment/tipBoxTop.svg"
+    resources: "../resources/img/equipment/tipBoxTop.svg"
   },
   "wasteBinTop": {
     css: {
@@ -721,7 +649,7 @@ domItems = {
       "background-position": "center center",
       "visibility": "visible",
     },
-    svg: "equipment/wasteBinTop.svg"
+    resources: "../resources/img/equipment/wasteBinTop.svg"
   },
   "micropipetteTopView": {
     css: {
@@ -735,7 +663,7 @@ domItems = {
       "background-position": "center center",
       "z-index": "0",
     },
-    svg: "equipment/micropipetteTopView.svg"
+    resources: "../resources/img/equipment/micropipetteTopView.svg"
   },
   "sideView": {
     css: {
@@ -751,7 +679,7 @@ domItems = {
       "visibility": "visible",
       "z-index": "0",
     },
-    svg: "equipment/sideBackground.svg"
+    resources: "../resources/img/equipment/sideBackground.svg"
   },
   "pipetteTip1": {
     css: {
@@ -820,7 +748,22 @@ domItems = {
       "background-size": "contain",
       "background-position": "center center",
     },
-    svg: "equipment/stainingTray.svg"
+    resources: "../resources/img/equipment/stainingTray.svg"
+  },
+  "volumeButton1": {
+    css: {
+      width: "2%",
+      height: "1.6%",
+      left: "25.7%",
+      top: "14%",
+      position: "absolute",
+      "background-repeat": "no-repeat",
+      "background-size": "contain",
+      "font-size": ".25rem",
+      "outline-width": "0",
+    },
+    resources: "../resources/img/UI/check.svg",
+
   },
   "volumeInput1": {
     css: {
@@ -836,9 +779,12 @@ domItems = {
       "background-repeat": "no-repeat",
       "background-size": "contain",
       "font-size": ".25rem",
+      "outline-width": "0",
     },
     input: "input",
     type: "text",
+    name: "volume",
+    form: "volumeInput1Form"
   },
   "volumeButton": {
     css: {
@@ -849,10 +795,14 @@ domItems = {
       position: "absolute",
       "background-repeat": "no-repeat",
       "background-size": "contain",
+      "font-size": ".25rem",
+      "outline-width": "0",
     },
-    svg: "UI/check.svg",
+    resources: "../resources/img/UI/check.svg",
     input: "input",
     type: "submit",
+    name: "volumeButton",
+    form: "volumeInputForm"
   },
   "volumeInput": {
     css: {
@@ -868,23 +818,12 @@ domItems = {
       "background-repeat": "no-repeat",
       "font-size": ".25rem",
       "z-index": "10",
+      "outline-width": "0",
     },
     input: "input",
     type: "text",
-  },
-  "volumeButton1": {
-    css: {
-      width: "2%",
-      height: "1.6%",
-      left: "25.7%",
-      top: "14%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-    },
-    svg: "UI/check.svg",
-    input: "input",
-    type: "submit",
+    name: "volume",
+    form: "volumeInputForm"
   },
   "timer": {
     css: {
@@ -903,6 +842,8 @@ domItems = {
     },
     input: "input",
     type: "text",
+    name: "timer",
+    form: "timerForm"
   },
   "timerButton": {
     css: {
@@ -918,8 +859,11 @@ domItems = {
       "background-size": "contain",
       "z-index": "0",
     },
-    svg: "UI/check.svg",
+    resources: "../resources/img/UI/check.svg",
+    input: "input",
     type: "submit",
+    name: "timerButton",
+    form: "timerForm"
   },
 }
 

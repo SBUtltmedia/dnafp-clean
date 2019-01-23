@@ -13,20 +13,31 @@ function Item() {
     itemId,
     css,
     classes = [],
-    svg,
-    input = [],
+    resources,
+    input,
     inputName,
-    type = []
+    type,
+    name,
+    form
   }) {
     // console.log(domItems[itemId])
     var defer = $.Deferred();
-    if (svg) {
-      url = `img/${svg}`
+    if (resources) {
+      url = resources
+    } else {
+      url = `html/${resources}`
     }
-    // } else {
-    //   url = `html/${svg}`
-    // }
-    if (input == "input") {
+    if (input) {
+      if (!$("#" + form).length) {
+        var formBlock = $('<form/>', {
+          id: form
+        })
+        $(parent).append(formBlock)
+        console.log(itemId + " New Form Made")
+      } else {
+        console.log(itemId + " Using Same Form")
+      }
+
       $.ajax({
         url: url,
         dataType: "text",
@@ -36,10 +47,11 @@ function Item() {
             id: itemId,
             class: [...classes],
             type: type,
-            html: data
+            html: data,
+            name: name
           }).css(css)
-          $(parent).append(div);
-
+          $("#" + form).append(div);
+          console.log(itemId + " Appended to form ")
           defer.resolve("h")
         },
         error: function() {
@@ -47,8 +59,7 @@ function Item() {
 
         }
       })
-    }
-    else if(css) {
+    } else if (css) {
       $.ajax({
         url: url,
         dataType: "text",

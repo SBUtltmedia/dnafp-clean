@@ -43,14 +43,14 @@ var helperFunctions = {
   "openEnzymePost": function() {
     animate("#micropipette2", 1000, "keyframe", "anim_PrepPipet")
     animate("html", 3000, zoom, [25, 46, 9.5, 1000])
-    animate("#volumeButton, #volumeInput", 3400, "show")
+    animate("#volumeButtonForm", 3400, "show")
   }, //step 2
 
   "setVolume": function() {
     game.state["volume"] = $("#volumeInput").val();
   },
   "setVolumePost": function() {
-    animate("#volumeButton,#volumeInput", 1, "hide")
+    animate("#volumeButtonForm, #volumeButtonForm *", 1, "hide")
     animate("#view", 0, zoom, [25, 46, 1, 1000])
     animate("#micropipette2", 1100, "keyframe", "anim_lowerPipet")
   },

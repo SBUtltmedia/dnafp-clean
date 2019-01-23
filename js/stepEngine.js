@@ -19,10 +19,10 @@ function Step() {
       console.log(evt)
       window["helperFunctions"][s.logic.eventFunction](evt)
       if (game.testMode && s.logic && s.logic.criteria) {
-        state[s.logic.criteria.variable] = JSON.parse(JSON.stringify(s.logic.criteria.value)) //returns reference to value, don't touch
+        game.state[s.logic.criteria.variable] = JSON.parse(JSON.stringify(s.logic.criteria.value)) //returns reference to value, don't touch
       }
 
-      if ((s.logic.criteria && isEqual(state[s.logic.criteria.variable], s.logic.criteria.value)) || !s.logic.criteria) {
+      if ((s.logic.criteria && isEqual(game.state[s.logic.criteria.variable], s.logic.criteria.value)) || !s.logic.criteria) {
         highlightObject(false, step.logic.eventSelector);
 
         $(s.logic.eventSelector).off()
@@ -38,7 +38,7 @@ function Step() {
 
         //$("#headerText").fadeTo(300, 0.25);
       } else if (s.logic.criteria.messageWrong) {
-        state[s.logic.criteria.variable] = undefined;
+        game.state[s.logic.criteria.variable] = undefined;
         message(s.logic.criteria.messageWrong);
         //updateScore(-5);
         console.log("Score: " + game.score)

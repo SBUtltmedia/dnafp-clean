@@ -17,7 +17,7 @@ body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  background-image: url("../img/UI/stripeBG.png");
+  background-image: url("../resources/img/UI/stripeBG.png");
 }
 
 #stage {
@@ -82,7 +82,7 @@ body {
 }
 
 .stepPanelItem::before {
-  background-image: url(../img/UI/step_inactive.svg);
+  background-image: url(../resources/img/UI/step_inactive.svg);
 }
 
 .step {
@@ -159,7 +159,7 @@ body {
 }
 
 .highlight::before {
-  background-image: url(../img/UI/step_active.svg);
+  background-image: url(../resources/img/UI/step_active.svg);
   animation: littleSpin 1s 0s 1 cubic-bezier(0, .5, .5, 1) normal forwards;
 }
 
@@ -168,7 +168,7 @@ body {
 }
 
 .activeGroup::before {
-  background-image: url(../img/UI/group_active.svg);
+  background-image: url(../resources/img/UI/group_active.svg);
 }
 
 .completed {
@@ -176,7 +176,7 @@ body {
 }
 
 .completed::before {
-  background-image: url(../img/UI/step_complete.svg);
+  background-image: url(../resources/img/UI/step_complete.svg);
 }
 
 .clearTube {
@@ -282,11 +282,12 @@ body {
   left: 22.4%;
   top: 70.2%;
   position: absolute;
-  background-image: url(../img/equipment/tip.svg);
+  background-image: url(../resources/img/equipment/tip.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   visibility: visible;
+  z-index: 0;
 }
 
 .tubeTop {
