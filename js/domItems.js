@@ -3,725 +3,488 @@
 domItems = {
   "labBench": {
     css: {
-      width: "100%",
-      height: "60%",
       left: "0%",
       top: "67%",
-      position: "absolute",
-      "background-image": "../resources/img/equipment/labBench2.svg",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "pointer-events": "none !important",
-      "z-index": "-1",
     },
+    classes: ["item labBench"],
+    resources: "",
   },
   "shelf1": {
     css: {
-      width: "18%",
-      height: "3%",
       left: "60%",
       top: "40%",
-      position: "absolute",
-      "background-image": "../resources/img/equipment/shelf.svg",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "z-index": "-1",
     },
+    classes: ["item shelf1"],
+    resources: "",
   },
   "shelf2": {
     css: {
-      width: "18%",
-      height: "3%",
       left: "2.5%",
       top: "31%",
-      position: "absolute",
-      "background-image": "../resources/img/equipment/shelf.svg",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "z-index": "-1",
     },
+    classes: ["item shelf2"],
+    resources: "",
   },
   "enzTube": {
     css: {
-      width: "5%",
-      height: "11%",
       left: "85.5%",
       top: "62.7%",
-      position: "absolute",
-      "background-image": "../resources/img/equipment/csTube.svg",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "transform-origin": "100% 0%",
-      "z-index": "0",
     },
-    classes: ["clearTube"],
+    classes: ["item clearTube enzTube"],
+    resources: "",
   },
   "iceBucket": {
     css: {
-      width: "20%",
-      height: "12%",
       left: "80%",
       top: "67.1%",
-      position: "absolute",
-      "background-image": "../resources/img/equipment/ice_bucket.svg",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
-      visibility: "visible",
-      "z-index": "1",
     },
+    classes: ["item iceBucket"],
+    resources: "",
   },
   "pipetteHolder": {
     css: {
-      width: "22%",
-      height: "29%",
       left: "-0.25%",
       top: "50%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
-      "z-index": "-1",
     },
-    resources: "../resources/img/equipment/pipetteHolder.svg"
+    classes: ["item pipetteHolder"]
   },
   "micropipette0": {
     css: {
-      width: "4.6%",
-      height: "23%",
       left: "0.5%",
       top: "52%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "z-index": "0",
     },
-    resources: "../resources/img/equipment/micropipette.svg"
+    classes: ["item micropipette"],
+    resources: "html/pipetteForm",
   },
   "micropipette1": {
     css: {
-      width: "4.6%",
-      height: "23%",
       left: "7.5%",
       top: "52%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "z-index": "0",
     },
-    resources: "../resources/img/equipment/micropipette.svg"
+    classes: ["item micropipette"],
+    resources: "html/pipetteForm",
   },
   "micropipette2": {
     css: {
-      width: "4.6%",
-      height: "23%",
       left: "14.5%",
       top: "52%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "z-index": "1",
+
     },
-    resources: "../resources/img/equipment/micropipette20.svg"
+    classes: ["item micropipette"],
+    resources: "html/pipetteForm",
   },
   "tipHolder": {
     css: {
-      width: "10%",
-      height: "7.5%",
       left: "20.4%",
       top: "70%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
-      "z-index": "1",
     },
-    resources: "../resources/img/equipment/tipHolder.svg"
+    classes: ["item tipHolder"],
+    resources: "",
   },
   "tip1": {
     css: {
-      width: "0.7%",
-      height: "7%",
       left: "20.8%",
       top: "68.5%",
     },
-    classes: ["tip"],
+    classes: ["item tip"],
+    resources: "",
   },
   "tip2": {
     css: {
-      width: "0.7%",
-      height: "7%",
       left: "21.6%",
       top: "68.5%",
     },
-    classes: ["tip"],
+    classes: ["item tip"],
+    resources: "",
   },
   "tip3": {
     css: {
-      width: "0.7%",
-      height: "7%",
       left: "22.4%",
       top: "68.5%",
     },
-    classes: ["tip"],
+    classes: ["item tip"],
+    resources: "",
   },
   "tip4": {
     css: {
-      width: "0.7%",
-      height: "7%",
       left: "23.2%",
       top: "68.5%",
     },
-    classes: ["tip"],
+    classes: ["item tip"],
+    resources: "",
   },
   "tip5": {
     css: {
-      width: "0.7%",
-      height: "7%",
       left: "24%",
       top: "68.5%",
     },
-    classes: ["tip"],
+    classes: ["item tip"],
+    resources: "",
   },
   "tip6": {
     css: {
-      width: "0.7%",
-      height: "7%",
       left: "24.8%",
       top: "68.5%",
     },
-    classes: ["tip"],
+    classes: ["item tip"],
+    resources: "",
   },
   "tip7": {
     css: {
-      width: "0.7%",
-      height: "7%",
       left: "25.6%",
       top: "68.5%",
     },
-    classes: ["tip"],
+    classes: ["item tip"],
+    resources: "",
   },
   "tip8": {
     css: {
-      width: "0.7%",
-      height: "7%",
       left: "26.4%",
       top: "68.5%",
     },
-    classes: ["tip"],
+    classes: ["item tip"],
+    resources: "",
   },
   "tip9": {
     css: {
-      width: "0.7%",
-      height: "7%",
       left: "27.2%",
       top: "68.5%",
-
     },
-    classes: ["tip"],
+    classes: ["item tip"],
+    resources: "",
   },
   "tip10": {
     css: {
-      width: "0.7%",
-      height: "7%",
       left: "28%",
       top: "68.5%",
-      "z-index": "0",
     },
-    classes: ["tip"],
+    classes: ["item tip"],
+    resources: "",
   },
   "tip11": {
     css: {
-      width: "0.7%",
-      height: "7%",
       left: "28.8%",
       top: "68.5%",
     },
-    classes: ["tip"],
+    classes: ["item tip"],
+    resources: "",
   },
   "tip12": {
     css: {
-      width: "0.7%",
-      height: "7%",
       left: "29.6%",
       top: "68.5%",
     },
-    classes: ["tip"],
+    classes: ["item tip"],
+    resources: "",
   },
   "tubeBlock": {
     css: {
-      width: "17%",
-      height: "4.8%",
       left: "35.2%",
       top: "73.0%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
-      "z-index": "2",
     },
-    resources: "../resources/img/equipment/tubeBlock.svg"
+    classes: ["item tubeBlock"],
+    resources: "",
   },
   "s0Tube": {
     css: {
       left: "35.5%",
-      "z-index": "1",
     },
-    classes: ["microTube s0TubeColor"],
-    resources: "../resources/img/equipment/csTube.svg"
+    classes: ["item microTube s0TubeColor"],
+    resources: "",
   },
   "s1Tube": {
     css: {
       left: "38%",
-      "z-index": "1",
     },
-    classes: ["microTube s1TubeColor"],
-    resources: "../resources/img/equipment/csTube.svg"
+    classes: ["item microTube s1TubeColor"],
+    resources: "",
   },
   "s2Tube": {
     css: {
       left: "40.5%",
-      "z-index": "1",
     },
-    classes: ["microTube s2TubeColor"],
-    resources: "../resources/img/equipment/csTube.svg"
+    classes: ["item microTube s2TubeColor"],
+    resources: "",
   },
   "s3Tube": {
     css: {
       left: "43%",
-      "z-index": "1",
     },
-    classes: ["microTube s3TubeColor"],
-    resources: "../resources/img/equipment/csTube.svg"
+    classes: ["item microTube s3TubeColor"],
+    resources: "",
   },
   "s4Tube": {
     css: {
       left: "45.5%",
-      "z-index": "1",
     },
-    classes: ["microTube s4TubeColor"],
-    resources: "../resources/img/equipment/csTube.svg"
+    classes: ["item microTube s4TubeColor"],
+    resources: "",
   },
   "s5Tube": {
     css: {
       left: "48%",
-      "z-index": "1",
     },
-    classes: ["microTube s5TubeColor"],
-    resources: "../resources/img/equipment/csTube.svg"
+    classes: ["item microTube s5TubeColor"],
+    resources: "",
   },
   "wasteBasket": {
     css: {
-      width: "11.5%",
-      height: "14%",
       left: "55%",
       top: "63.5%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "z-index": "1",
     },
-    resources: "../resources/img/equipment/waste_basket.svg"
+    classes: ["item wasteBasket"],
+    resources: "",
   },
   "waterBathNoLid": {
     css: {
-      width: "18%",
-      height: "26%",
       left: "60%",
       top: "14.8%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "z-index": "2",
     },
-    resources: "../resources/img/equipment/water_bath_no_lid.svg"
+    classes: ["item waterBathNoLid"],
+    resources: "",
   },
   "waterBathLid": {
     css: {
-      width: "16%",
-      height: "6%",
       left: "60.75%",
       top: "21%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "z-index": "3",
     },
-    resources: "../resources/img/equipment/water_bath_lid.svg"
+    classes: ["item waterBathLid"],
+    resources: "",
   },
   "dyeRack": {
     css: {
-      width: "10%",
-      height: "7%",
       left: "6.5%",
       top: "24%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "z-index": "1",
     },
-    resources: "../resources/img/equipment/dyeRack.svg"
+    classes: ["item dyeRack"],
+    resources: "",
   },
   "loadDye": {
     css: {
-      width: "5%",
-      height: "15%",
       left: "8%",
       top: "19.2%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "transform-origin": "100% 0%",
     },
-    classes: ["clearTube"],
-    resources: "../resources/img/equipment/csTube.svg"
+    classes: ["item wasteBasket clearTube"],
+    resources: "",
   },
   "gelTray": {
     css: {
-      width: "13%",
-      height: "8%",
       left: "69%",
       top: "71.8%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
     },
-    resources: "../resources/img/equipment/gelTray.svg"
+    classes: ["item gelTray"],
+    resources: "",
   },
   "gelComb": {
     css: {
-      width: "11%",
-      height: "8%",
       left: "70%",
       top: "70%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
     },
-    resources: "../resources/img/equipment/gelComb.svg"
+    classes: ["item gelComb"],
+    resources: "",
   },
   "electroBoxSide": {
     css: {
-      width: "20%",
-      height: "6%",
       left: "82%",
       top: "72.5%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
     },
-    resources: "../resources/img/equipment/electroBoxSide.svg"
+    classes: ["item electroBoxSide"],
+    resources: "",
   },
   "stainingTraySide": {
     css: {
-      width: "10%",
-      height: "4%",
       left: "88%",
       top: "74.5%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
-      "z-index": "0",
     },
-    resources: "../resources/img/equipment/stainingTraySide.svg"
+    classes: ["item stainingTraySide"],
+    resources: "",
   },
   "stainedGel": {
     css: {
-      width: "10%",
-      height: "4%",
       left: "88%",
       top: "74.5%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
-      "z-index": "0",
     },
-    resources: "../resources/img/equipment/stainedGel.svg"
+    classes: ["item stainedGel"],
+    resources: "",
   },
   "graduatedCylinder": {
     css: {
-      width: "2%",
-      height: "14%",
       left: "84%",
       top: "63.7%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
-      "z-index": "0",
     },
-    resources: "../resources/img/equipment/graduatedCylinder.svg"
+    classes: ["item graduatedCylinder"],
+    resources: "",
   },
   "labBenchTop": {
     css: {
-      width: "85%",
-      height: "175%",
       left: "-21%",
       top: "-25%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
-      "z-index": "0",
     },
-    resources: "../resources/img/equipment/labBenchTop.svg"
+    classes: ["item labBenchTop"],
+    resources: "",
   },
   "gelTopView": {
     css: {
-      width: "20%",
-      height: "30%",
       left: "7%",
       top: "55%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
     },
-    resources: "../resources/img/equipment/gelTopView.svg"
+    classes: ["item gelTopView"],
+    resources: "",
   },
   "lidBox": {
     css: {
-      width: "35%",
-      height: "45%",
       left: "-5.5%",
       top: "40%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
     },
-    resources: "../resources/img/equipment/lidBox.svg"
+    classes: ["item lidBox"],
+    resources: "",
   },
   "lidBase": {
     css: {
-      width: "35%",
-      height: "45%",
       left: "-5.5%",
       top: "40%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
     },
-    resources: "../resources/img/equipment/lidBase.svg"
+    classes: ["item lidBase"],
+    resources: "",
   },
   "lidSide": {
     css: {
-      width: "36%",
-      height: "30%",
       left: "-2%",
       top: "20.3%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
-      visibility: "visible",
-      "z-index": "0",
     },
-    resources: "../resources/img/equipment/lidSide.svg"
+    classes: ["item lidSide"],
+    resources: "",
   },
   "arrowUp": {
     css: {
-      width: "5%",
-      height: "16%",
       left: "60%",
       top: "10%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
     },
-    resources: "../resources/img/equipment/arrowUp.svg"
+    classes: ["item arrowUp"],
+    resources: "",
   },
   "arrowDown": {
     css: {
-      width: "5%",
-      height: "16%",
       left: "55%",
       top: "10%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
     },
-    resources: "../resources/img/equipment/arrowDown.svg"
+    classes: ["item arrowDown"],
+    resources: "",
   },
   "powerSupplyTop": {
     css: {
-      width: "15%",
-      height: "30%",
       left: "-3.9%",
       top: "19.4%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
-      visibility: "visible",
     },
-    resources: "../resources/img/equipment/powerSupplyTop.svg"
+    classes: ["item powerSupplyTop"],
+    resources: "",
   },
   "microTubeHolderTop": {
     css: {
-      width: "8%",
-      height: "30%",
       left: "35%",
       top: "23%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-size": "contain",
-      "background-position": "center center",
-      visibility: "visible",
     },
-    resources: "../resources/img/equipment/microtubeHolderTop.svg"
+    classes: ["item microTubeHolderTop"],
+    resources: "",
   },
+  // Do we want to make these injected like the other tubes?
   "tubeTop_0": {
     css: {
       top: "20%",
     },
-    classes: ["tubeTop"],
-    resources: "../resources/img/equipment/ladderTop.svg"
+    classes: ["item tubeTop_0 tubeTop"],
+    resources: "",
   },
   "tubeTop_1": {
     css: {
       top: "24.5%",
     },
-    classes: ["tubeTop"],
-    resources: "../resources/img/equipment/csTop.svg"
+    classes: ["item tubeTop_1 tubeTop"],
+    resources: "",
   },
   "tubeTop_2": {
     css: {
       top: "29%",
     },
-    classes: ["tubeTop"],
-    resources: "../resources/img/equipment/s1Top.svg"
+    classes: ["item tubeTop_2 tubeTop"],
+    resources: "",
   },
   "tubeTop_3": {
     css: {
       top: "33.5%",
     },
-    classes: ["tubeTop"],
-    resources: "../resources/img/equipment/s2Top.svg"
+    classes: ["item tubeTop_3 tubeTop"],
+    resources: "",
   },
   "tubeTop_4": {
     css: {
       top: "38%",
     },
-    classes: ["tubeTop"],
-    resources: "../resources/img/equipment/s3Top.svg"
+    classes: ["item tubeTop_4 tubeTop"],
+    resources: "",
   },
   "tubeTop_5": {
     css: {
       top: "42.5%",
     },
-    classes: ["tubeTop"],
-    resources: "../resources/img/equipment/s4Top.svg"
+    classes: ["item tubeTop_5 tubeTop"],
+    resources: "",
   },
   "tipBoxTop": {
     css: {
-      width: "10%",
-      height: "10%",
       left: "33%",
       top: "60%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
-      "visibility": "visible",
-      "z-index": "0",
     },
-    resources: "../resources/img/equipment/tipBoxTop.svg"
+    classes: ["item tipBoxTop"],
+    resources: "",
   },
   "wasteBinTop": {
     css: {
-      wwidth: "10% ",
-      height: "10% ",
       left: "33% ",
       top: "75% ",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
-      "visibility": "visible",
     },
-    resources: "../resources/img/equipment/wasteBinTop.svg"
+    classes: ["item wasteBinTop"],
+    resources: "",
   },
   "micropipetteTopView": {
     css: {
-      width: "5%",
-      height: "7%",
       left: "-10.5%",
       top: "71.6%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
-      "z-index": "0",
     },
-    resources: "../resources/img/equipment/micropipetteTopView.svg"
+    classes: ["item micropipetteTopView"],
+    resources: "",
   },
   "sideView": {
     css: {
-      width: "45%",
-      height: "60%",
       left: "55%",
       top: "25%",
-      position: "absolute",
-      overflow: "hidden",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
-      "visibility": "visible",
-      "z-index": "0",
     },
-    resources: "../resources/img/equipment/sideBackground.svg"
+    classes: ["item sideView"],
+    resources: "",
   },
   "pipetteTip1": {
     css: {
-      width: "15%",
-      height: "22.5%",
       left: "54%",
       top: "96%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "cover",
-      "background-position": "center center",
     },
-    class: ["tip"],
-
+    classes: ["item pipetteTip1 tip"],
+    resources: "",
   },
   "gelWell": {
     css: {
-      width: "98%",
-      height: "53%",
       left: "1%",
       top: "46%",
-      position: "absolute",
-      background: "rgba(59, 128, 194, .46)",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
-      visibility: "visible",
     },
+    classes: ["item gelWell"],
+    resources: "",
   },
   "gelWellBoundary": {
     css: {
-      width: "60%",
-      height: "80%",
       left: "20%",
       top: "0%",
-      background: "rgba(59, 128, 194, .86)",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
-      "visibility": "visible",
     },
+    classes: ["item gelWellBoundary"],
+    resources: "",
   },
   "gelFinalTop": {
     css: {
@@ -736,6 +499,8 @@ domItems = {
       "visibility": "visible",
       "z-index": "0",
     },
+    classes: ["item gelFinalTop"],
+    resources: "",
   },
   "stainingTray": {
     css: {
@@ -744,11 +509,13 @@ domItems = {
       left: "28%",
       top: "55%",
       position: "absolute",
+      "background-image": "url../resources/img/equipment/stainingTray.svg)",
       "background-repeat": "no-repeat",
       "background-size": "contain",
       "background-position": "center center",
     },
-    resources: "../resources/img/equipment/stainingTray.svg"
+    classes: ["item stainingTray"],
+    resources: "",
   },
   "volumeButton1": {
     css: {
@@ -757,13 +524,14 @@ domItems = {
       left: "25.7%",
       top: "14%",
       position: "absolute",
+      "background-image": "url../resources/img/UI/check.svg)",
       "background-repeat": "no-repeat",
       "background-size": "contain",
       "font-size": ".25rem",
       "outline-width": "0",
     },
-    resources: "../resources/img/UI/check.svg",
-
+    classes: ["item volumeButton1"],
+    resources: "",
   },
   "volumeInput1": {
     css: {
@@ -781,10 +549,8 @@ domItems = {
       "font-size": ".25rem",
       "outline-width": "0",
     },
-    input: "input",
-    type: "text",
-    name: "volume",
-    form: "volumeInput1Form"
+    classes: ["item volumeInput1"],
+    resources: "",
   },
   "volumeButton": {
     css: {
@@ -793,16 +559,14 @@ domItems = {
       left: "29.1%",
       top: "47.2%",
       position: "absolute",
+      "background-image": "url../resources/img/UI/check.svg)",
       "background-repeat": "no-repeat",
       "background-size": "contain",
       "font-size": ".25rem",
       "outline-width": "0",
     },
-    resources: "../resources/img/UI/check.svg",
-    input: "input",
-    type: "submit",
-    name: "volumeButton",
-    form: "volumeInputForm"
+    classes: ["item volumeButton"],
+    resources: "",
   },
   "volumeInput": {
     css: {
@@ -820,10 +584,8 @@ domItems = {
       "z-index": "10",
       "outline-width": "0",
     },
-    input: "input",
-    type: "text",
-    name: "volume",
-    form: "volumeInputForm"
+    classes: ["item volumeInput"],
+    resources: "",
   },
   "timer": {
     css: {
@@ -840,10 +602,8 @@ domItems = {
       "font-size": ".35rem",
       "z-index": "0",
     },
-    input: "input",
-    type: "text",
-    name: "timer",
-    form: "timerForm"
+    classes: ["item timer"],
+    resources: "",
   },
   "timerButton": {
     css: {
@@ -855,15 +615,13 @@ domItems = {
       border: "20rem",
       "font-size": ".25rem",
       position: "absolute",
+      "background-image": "url../resources/img/UI/check.svg)",
       "background-repeat": "no-repeat",
       "background-size": "contain",
       "z-index": "0",
     },
-    resources: "../resources/img/UI/check.svg",
-    input: "input",
-    type: "submit",
-    name: "timerButton",
-    form: "timerForm"
+    classes: ["item timerButton"],
+    resources: "",
   },
 }
 
