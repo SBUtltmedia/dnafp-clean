@@ -17,7 +17,7 @@ function Step() {
       evt.preventDefault();
       console.log(s)
       console.log(evt)
-      window["helperFunctions"][s.logic.eventFunction](evt)
+      window["eventFunctions"][s.logic.eventFunction](evt)
       if (game.testMode && s.logic && s.logic.criteria) {
         game.state[s.logic.criteria.variable] = JSON.parse(JSON.stringify(s.logic.criteria.value)) //returns reference to value, don't touch
       }
@@ -28,7 +28,7 @@ function Step() {
         $(s.logic.eventSelector).off()
         if (s.logic.postEventFunction) {
           console.log(s.logic.postEventFunction)
-          window["helperFunctions"][s.logic.postEventFunction]()
+          window["eventFunctions"][s.logic.postEventFunction]()
           //s.logic.postEventFunction()
         }
         game.score = 0

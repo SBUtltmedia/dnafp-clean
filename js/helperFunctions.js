@@ -1,22 +1,26 @@
-function rotate() {
-  this.rotateObj = [{
-    "text-indent": -120
-  }, {
-    duration: 500,
-    step: function(now) {
-      $(this).attr("transform", 'rotate('+now+')');
+function isEqual(a, b) {
+    if (a.length && b.length && a.length == b.length) {
+        for (i = 0; i < a.length; i++) {
+            if (a[i] != b[i]) {
+                return false;
+            }
+        }
+        return true;
     }
-  }]
-  this.reverseRotateObj=[{
-    "text-indent": 0
-  }, {
-    duration: 500,
-    step: function(now) {
-      $(this).attr("transform", 'rotate('+now+')');
-    }
-  }]
+    return a == b;
 }
-var helperFunctions = {
+function rotate(indent,duration=500) {
+  return  [{
+    "text-indent": indent
+  }, {
+    duration: duration,
+    step: function(now) {
+      $(this).attr("transform", 'rotate('+now+')');
+    }
+  }]
+
+}
+var eventFunctions = {
   commonSide : [
     "#labBench", "#pipetteHolder", "#micropipette0", "#micropipette1", "#micropipette2", "#tipHolder", "#tip1",
     "#tip2", "#tip3", "#tip4", "#tip5", "#tip6", "#tip7", "#tip8", "#tip9", "#tip10", "#tip11", "#tip12",
@@ -34,20 +38,23 @@ var helperFunctions = {
   }, //step 1
   "openEnzyme": function() {
     console.log("open")
-    animate("#enzTube svg .Cap", 0, "animate", rotate.rotateObj)
+    animate("#enzTube svg .Cap", 0, "animate", rotate(-120))
     game.state["firstStep"] = 45;
-    animate("#svgfluid", 0, "animate", [{
+    animate("#pipetteTip svg #svgfluid", 0, "animate", [{
       "y": 100
     }])
   },
   "openEnzymePost": function() {
     animate("#micropipette2", 1000, "keyframe", "anim_PrepPipet")
     animate("html", 3000, zoom, [25, 46, 9.5, 1000])
-    animate("#volumeButtonForm", 3400, "show")
+    animate("#micropipette2 *", 3400, "css", [{"display":"block"}])
   }, //step 2
 
   "setVolume": function() {
-    game.state["volume"] = $("#volumeInput").val();
+    var volume= $("#micropipette2").find("[type='text']").val();
+    console.log(volume)
+    game.state["volume"] = volume;
+    return false
   },
   "setVolumePost": function() {
     animate("#volumeButtonForm, #volumeButtonForm *", 1, "hide")
@@ -57,13 +64,10 @@ var helperFunctions = {
 
 
 
-  "takeEnzyme": function(evt) {
-    var selectedTip = evt.currentTarget.id.split("tip")[1];
+  "selectTip": function(evt) {
 
-    var tipNum = betterParseInt(evt.target.id);
-    console.log(tipNum)
-    var tipLeft = tips[(tipNum - 1)];
-    console.log(evt.target.id);
+    var tipLeft = parseInt($(evt.currentTarget).css("left"))
+    console.log(tipLeft);
     // in event
     makePipetteTipAnimation(tipLeft);
     animate("#micropipette2", 0, "keyframe", "anim_addTip1")
@@ -261,7 +265,7 @@ var helperFunctions = {
   }, //step 20
 
   "openTube1": function(evt) {
-    helperFunctions.openTube(evt)
+    eventFunctions.openTube(evt)
     animate("#svgfluid", 10, "animate", [{
       "y": 50
     }])
@@ -274,22 +278,22 @@ var helperFunctions = {
 
   }, //step 23
   "mixContents1": function() {
-    helperFunctions.mixContents()
+    eventFunctions.mixContents()
   },
   "mixContents1Post": function() {
-    helperFunctions.mixContentsPost()
+    eventFunctions.mixContentsPost()
   }, //step 24
   "replaceTip1": function() {
-    helperFunctions.replaceTip()
+    eventFunctions.replaceTip()
   }, //step 25
   "closeTube1": function(evt) {
-    helperFunctions.closeTube(evt)
+    eventFunctions.closeTube(evt)
   }, //step 26
   "flickTube1": function(evt) {
-    helperFunctions.flickTube(evt)
+    eventFunctions.flickTube(evt)
   }, //step 27
   "tapTube1": function() {
-    helperFunctions.tapTube()
+    eventFunctions.tapTube()
   }, //step 28
   "tubeRack1": function() {
     animate("#s0Tube", 0, "keyframe", "anim_tubeDown")
@@ -675,6 +679,7 @@ function animate(selector, delay, method, param, callback = () => {}) {
       $(selector).css(...param)
     } else {
       setTimeout(function() {
+        console.log(param)
         $(selector).animate(...param, function() {
 
           // if ($(selector).css("opacity") == 0) {

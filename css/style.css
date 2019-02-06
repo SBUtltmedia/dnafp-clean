@@ -305,10 +305,9 @@ body {
   z-index: -1;
 }
 
-.enzTube: {
-  width: 5%;
-  height: 11%;
-  background-image: url(../resources/img/equipment/csTube.svg);
+.enzTube {
+  width: 5% !important;
+  height: 11% !important;
   transform-origin: 100% 0%;
   z-index: 0;
 }
@@ -336,8 +335,8 @@ body {
 }
 
 .tipHolder {
-  width: 10%;
-  height: 7.5%;
+  width: 11%;
+  height: 11%;
   background-image: url(../resources/img/equipment/tipHolder.svg);
   z-index: 1;
 }
@@ -351,7 +350,7 @@ body {
 
 .tubeBlock {
   width: 17%;
-  height: 4.8%;
+  height: 5.1%;
   background-image: url(../resources/img/equipment/tubeBlock.svg);
   z-index: 2;
 }
@@ -552,4 +551,34 @@ body {
   width: 60%;
   height: 80%;
   background: rgba(59, 128, 194, .86);
+}
+
+.volumeInput {
+  display: none;
+  -webkit-appearance: none;
+  width: 45%;
+  height: 10%;
+  margin: 0;
+  padding: 0;
+  border: .1rem;
+  left: 45%;
+  top: 32%;
+  position: absolute;
+  background-repeat: no-repeat;
+  font-size: .25rem;
+  z-index: 10;
+  outline-width: 0;
+}
+
+.volumeButton {
+  display: none;
+  width: 64%;
+  height: 10%;
+  left: 100%;
+  top: 32%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../resources/img/UI/check.svg);
+  outline-width: 0;
 }

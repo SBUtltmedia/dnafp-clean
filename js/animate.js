@@ -108,3 +108,37 @@ function animate(selector, delay, method, param, callback = () => {}) {
 
   }
 }
+
+function makePipetteTipAnimation(tipLocation) {
+
+
+
+
+  $.keyframe.define({
+    name: 'addTip1',
+    '0%': {
+      left: '27.5%',
+      top: '40%',
+    },
+    '14%': {
+      left: tipLocation + "%",
+      top: '44%',
+    },
+    '20%': {
+      left: tipLocation + "%",
+      top: '47.6%',
+    },
+    '25%': {
+      left: tipLocation + "%",
+      top: '42%',
+    },
+    '90%': {
+      left: '86.4%',
+      top: '28%',
+    },
+    '100%': {
+      left: '86.4%',
+      top: '28%',
+    },
+  })
+}

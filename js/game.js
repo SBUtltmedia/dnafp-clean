@@ -21,6 +21,8 @@ function Game(steps) {
       voltage: 0,
       volume: 0,
       time: 0,
+      tip: 0,
+      // tipPositions: ,
     }
     $("#micropipette2").append($('#pipetteTip1'));
     $("pipetteTip1").addClass(".opClass")

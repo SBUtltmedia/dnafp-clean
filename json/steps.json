@@ -38,8 +38,8 @@
           "bottomText": "Enter the correct volume (in µl) of fluid to remove",
           "feedbackText": "complete the second step",
           "logic": {
-            "eventSelector": "#volumeInputForm",
-            "eventType": "submit",
+            "eventSelector": ".volumeButton",
+            "eventType": "mouseup",
             "eventFunction": "setVolume",
             "postEventFunction": "setVolumePost",
             "criteria": {
@@ -53,7 +53,7 @@
           "id": "repeatDay1",
           "shortText": "Load Tubes",
           "steps": [{
-              "id": "takeEnzyme",
+              "id": "selectTip",
               "shortText": "Use micropipette",
               "longText": "Add a tip to the micropipette",
               "bottomText": "Click on any tip to place it on the micropipette",
@@ -61,7 +61,7 @@
               "logic": {
                 "eventSelector": ".tip",
                 "eventType": "click",
-                "eventFunction": "takeEnzyme"
+                "eventFunction": "selectTip"
               }
             }
 

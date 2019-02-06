@@ -36,7 +36,7 @@ domItems = {
   "iceBucket": {
     css: {
       left: "80%",
-      top: "67.1%",
+      top: "66.4%",
     },
     classes: ["item iceBucket"],
     resources: "",
@@ -44,7 +44,7 @@ domItems = {
   "pipetteHolder": {
     css: {
       left: "-0.25%",
-      top: "50%",
+      top: "50.7%",
     },
     classes: ["item pipetteHolder"]
   },
@@ -75,8 +75,8 @@ domItems = {
   },
   "tipHolder": {
     css: {
-      left: "20.4%",
-      top: "70%",
+      left: "20%",
+      top: "69.5%",
     },
     classes: ["item tipHolder"],
     resources: "",
@@ -230,7 +230,7 @@ domItems = {
   "wasteBasket": {
     css: {
       left: "55%",
-      top: "63.5%",
+      top: "63.9%",
     },
     classes: ["item wasteBasket"],
     resources: "",
@@ -238,7 +238,7 @@ domItems = {
   "waterBathNoLid": {
     css: {
       left: "60%",
-      top: "14.8%",
+      top: "14.1%",
     },
     classes: ["item waterBathNoLid"],
     resources: "",
