@@ -14,76 +14,59 @@ function Item() {
     css,
     classes = [],
     resources,
-    input,
-    inputName,
-    type,
-    name,
-    form
   }) {
     // console.log(domItems[itemId])
     var defer = $.Deferred();
     if (resources) {
-      url = resources
-    } else {
-      url = `html/${resources}`
-    }
-    if (input) {
-      if (!$("#" + form).length) {
-        var formBlock = $('<form/>', {
-          id: form
-        })
-        $(parent).append(formBlock)
-        console.log(itemId + " New Form Made")
-      } else {
-        console.log(itemId + " Using Same Form")
-      }
-
       $.ajax({
-        url: url,
+        url: "./resources/" + resources,
         dataType: "text",
         success: function(data) {
-          // console.log(data)
-          var div = $('<input/>', {
-            id: itemId,
-            class: [...classes],
-            type: type,
-            html: data,
-            name: name
-          }).css(css)
-          $("#" + form).append(div);
-          console.log(itemId + " Appended to form ")
-          defer.resolve("h")
+          makeDOMItem({
+            parent,
+            itemId,
+            css,
+            classes,
+            data,
+            defer
+          })
         },
         error: function() {
           defer.resolve("not found")
-
-        }
-      })
-    } else if (css) {
-      $.ajax({
-        url: url,
-        dataType: "text",
-        success: function(data) {
-          // console.log(data)
-          var div = $('<div/>', {
-            id: itemId,
-            class: [...classes],
-            html: data
-          }).css(css)
-          $(parent).append(div);
-
-          defer.resolve("h")
-        },
-        error: function() {
-          defer.resolve("not found")
-
         }
       })
     }
-
-
+    else{
+      data="";
+      makeDOMItem({
+        parent ,
+        itemId,
+        css,
+        classes,
+        data,
+        defer
+      })
+    }
     return defer.promise();
   }
+
+  function makeDOMItem({
+    parent = "#storage",
+    itemId,
+    css,
+    classes = [],
+    data = "",
+    defer
+  }) {
+    var div = $('<div/>', {
+      id: itemId,
+      class: [...classes],
+      html: data
+    }).css(css)
+    $(parent).append(div);
+    defer.resolve("h")
+  }
+
 
   this.buildAllItems = function(domItems) {
     var defer = $.Deferred();

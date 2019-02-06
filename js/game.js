@@ -60,7 +60,6 @@ function Game(steps) {
 
 
   this.addToSteps = function(item) {
-
     this.steps.push(item)
     this.steps[this.steps["length"] - 1].completed = "false"
   }
@@ -76,7 +75,6 @@ function Game(steps) {
     menu.setMenuItem(currentStepCount)
     console.log(currentStepCount)
     menu.highlightMenuItem(currentStepCount)
-    menu.setItemsCompleted(currentStepCount)
     step.startStep(this.currentStep)
 
   }
@@ -84,6 +82,9 @@ function Game(steps) {
     return this.currentStep
   }
   this.nextStep = function() {
+    var currentStepNumber = this.steps.indexOf(this.currentStep)
+    menu.setItemCompleted(currentStepNumber)
+    game.steps[currentStepNumber].completed = "true"
     var nextStepNum = ((this.steps.indexOf(this.currentStep) + 1) % this.steps.length)
     console.log("NextStep: "+nextStepNum)
     var currentGroup = this.groups[this.currentGroupId]
@@ -94,8 +95,10 @@ function Game(steps) {
         }
         nextStepNum -= currentGroup.steps.length
         this.iteration++;
+        menu.resetRepeatGroup(nextStepNum)
       } else {
         this.iteration = 0;
+        menu.setGroupCompleted(this.currentGroupId)
       }
     }
     if (nextStepNum == 0) {
@@ -107,6 +110,7 @@ function Game(steps) {
   }
   this.restartGame = function() {
     $('#stepList *').removeClass("activeGroup")
+    $('#stepList *').removeClass("completed")
     for (i = 0; i < this.steps.length; i++) {
       this.steps[i].completed = "false"
     }

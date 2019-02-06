@@ -49,7 +49,7 @@ body {
 }
 
 #steps {
-  left: 85%;
+  left: 83%;
   top: 5%;
   width: 18%;
   height: 36%;
@@ -67,7 +67,7 @@ body {
   width: 100%;
   color: white;
   background-color: black;
-  padding: 0.05rem 0 0.05rem 0;
+  padding: 0.05rem 0 0.05rem 0.45rem;
 }
 
 .stepPanelItem::before, .highlight::before, .activeGroup::before, .completed::before {
@@ -179,16 +179,12 @@ body {
   background-image: url(../resources/img/UI/step_complete.svg);
 }
 
-.clearTube {
-  fill: #CFCCCC;
-}
-
 .microTube {
   width: 2.9%;
   height: 7%;
   top: 70%;
   position: absolute;
-  background-image: url(../resources/img/equipment/csTube.svg) background-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-size: contain;
   transform-origin: 100% 0%;
   z-index: 1;

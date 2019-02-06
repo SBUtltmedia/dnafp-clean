@@ -28,37 +28,30 @@ function Menu() {
     }
     this.groupNames = Object.keys(game.groups)
     this.stepNames = []
-    for (i=0; i<game.steps.length; i++){
+    for (i = 0; i < game.steps.length; i++) {
       this.stepNames.push(game.steps[i].id)
     }
   }
   this.setMenuItem = function(stepNumber) {
     var group = game.getGroupMembership(stepNumber)
-    if ($("#" + group).hasClass("repeats")) {} else {
-      $("#stepList div div").not("#" + group + ">div").hide(500)
-    }
-    if ($("#" + group + ">div").is(":hidden"))
+
       $("#" + group + ">div").show(1000)
   }
 
-  this.setItemsCompleted = function(stepNumber) {
-    $('#stepList *').removeClass("completed")
-    for (i = 0; i < stepNumber; i++) {
-      var stepId = game.steps[i].id
-      var group = game.getGroupMembership(i)
-      var groupPosition = this.groupNames.indexOf(group)
-      if (game.steps[i].completed) {
-        $("#" + stepId).addClass("completed")
-      }
-    }
-    for (j = 0; j < this.groupNames.length; j++) {
-      var lastStep = game.groups[this.groupNames[j]].steps[game.groups[this.groupNames[j]].steps.length - 1]
-      if (game.steps[this.stepNames.indexOf(lastStep)].completed == "true"){
-        $("#" + this.groupNames[j]).addClass("completed")
-      } else {
-      }
-    }
+  this.resetRepeatGroup = function(stepNumber) {
+    var stepId = game.steps[stepNumber].id
+    $("#" + stepId).parent().removeClass("completed")
+    $("#" + stepId).siblings().removeClass("completed")
+  }
 
+  this.setGroupCompleted = function(groupSelector) {
+    $("#" + groupSelector).addClass("completed").removeClass("activeGroup")
+    $("#" + groupSelector + ">div").hide(500)
+  }
+
+
+  this.setItemCompleted = function(stepNumber) {
+    $("#" + game.steps[stepNumber].id).addClass("completed")
   }
 
   this.highlightMenuItem = function(item) {

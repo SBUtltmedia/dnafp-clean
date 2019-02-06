@@ -44,7 +44,6 @@ function Step() {
         console.log("Score: " + game.score)
       }
     }
-    console.log(  $("#enzTube"))
     //    console.log(s)
    $(s.logic.eventSelector).on(s.logic.eventType, composite);
     //$("#enzTube").on("click", composite);

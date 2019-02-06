@@ -30,8 +30,8 @@ domItems = {
       left: "85.5%",
       top: "62.7%",
     },
-    classes: ["item clearTube enzTube"],
-    resources: "",
+    classes: ["item clearTube microTube enzTube"],
+    resources: "img/equipment/csTube.svg",
   },
   "iceBucket": {
     css: {
@@ -54,7 +54,7 @@ domItems = {
       top: "52%",
     },
     classes: ["item micropipette"],
-    resources: "html/pipetteForm",
+    resources: "html/pipetteForm.htm",
   },
   "micropipette1": {
     css: {
@@ -62,7 +62,7 @@ domItems = {
       top: "52%",
     },
     classes: ["item micropipette"],
-    resources: "html/pipetteForm",
+    resources: "html/pipetteForm.htm",
   },
   "micropipette2": {
     css: {
@@ -71,7 +71,7 @@ domItems = {
 
     },
     classes: ["item micropipette"],
-    resources: "html/pipetteForm",
+    resources: "html/pipetteForm.htm",
   },
   "tipHolder": {
     css: {
@@ -190,42 +190,42 @@ domItems = {
       left: "35.5%",
     },
     classes: ["item microTube s0TubeColor"],
-    resources: "",
+    resources: "img/equipment/csTube.svg",
   },
   "s1Tube": {
     css: {
       left: "38%",
     },
     classes: ["item microTube s1TubeColor"],
-    resources: "",
+    resources: "img/equipment/csTube.svg",
   },
   "s2Tube": {
     css: {
       left: "40.5%",
     },
     classes: ["item microTube s2TubeColor"],
-    resources: "",
+    resources: "img/equipment/csTube.svg",
   },
   "s3Tube": {
     css: {
       left: "43%",
     },
     classes: ["item microTube s3TubeColor"],
-    resources: "",
+    resources: "img/equipment/csTube.svg",
   },
   "s4Tube": {
     css: {
       left: "45.5%",
     },
     classes: ["item microTube s4TubeColor"],
-    resources: "",
+    resources: "img/equipment/csTube.svg",
   },
   "s5Tube": {
     css: {
       left: "48%",
     },
     classes: ["item microTube s5TubeColor"],
-    resources: "",
+    resources: "img/equipment/csTube.svg",
   },
   "wasteBasket": {
     css: {
@@ -264,8 +264,8 @@ domItems = {
       left: "8%",
       top: "19.2%",
     },
-    classes: ["item wasteBasket clearTube"],
-    resources: "",
+    classes: ["item clearTube microTube loadDye"],
+    resources: "img/equipment/csTube.svg",
   },
   "gelTray": {
     css: {
