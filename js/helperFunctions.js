@@ -57,7 +57,7 @@ var eventFunctions = {
     return false
   },
   "setVolumePost": function() {
-    animate(".volumeInput .volumeButton", 1, "hide")
+    animate(".volumeInput, .volumeButton", 1, "hide")
     animate("#view", 0, zoom, [25, 46, 1, 1000])
     animate("#micropipette2", 1100, "keyframe", "anim_lowerPipet")
   },
