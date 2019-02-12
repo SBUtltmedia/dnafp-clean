@@ -13,10 +13,6 @@ $(function() {
       game.setStep(0)
     })
   })
-
-  $("#next").on("click", function() {
-    game.nextStep()
-  })
   // setTimeout(function() {$("#next").off()}, 500)
   $(".stepPanelItem").on("click", function() {
     console.log("Hello")

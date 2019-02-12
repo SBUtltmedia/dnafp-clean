@@ -48,6 +48,7 @@ var eventFunctions = {
     animate("#micropipette2", 1000, "keyframe", "anim_PrepPipet")
     animate("html", 3000, zoom, [25, 46, 9.5, 1000])
     animate("#micropipette2 *", 3400, "css", [{"display":"block"}])
+
   }, //step 2
 
   "setVolume": function() {
@@ -60,28 +61,32 @@ var eventFunctions = {
     animate(".volumeInput, .volumeButton", 1, "hide")
     animate("#view", 0, zoom, [25, 46, 1, 1000])
     animate("#micropipette2", 1100, "keyframe", "anim_lowerPipet")
+    animate("#pipetteTip1", 0, "addClass", "opClass")
   },
 
 
 
   "selectTip": function(evt) {
-
+    var selectedTip = evt.currentTarget.id.split("tip")[1];
     var tipLeft = parseInt($(evt.currentTarget).css("left"))
+    var viewWidth = parseFloat($('#view').css("width"));
+    var pipetteWidth = parseFloat($('#micropipette2').css("width"));
+    var tipPos = (tipLeft-(pipetteWidth)/2) / (viewWidth) * 100
     console.log(tipLeft);
     // in event
-    makePipetteTipAnimation(tipLeft);
+    makePipetteTipAnimation(tipPos);
     animate("#micropipette2", 0, "keyframe", "anim_addTip1")
     animate("#tip" + selectedTip, 0, "keyframe", "anim_hideTip1")
-    animate("#pipetteTip1, #pipetteTip1 *", 600, "show")
-
+    $("#pipetteTip1").appendTo($("#micropipette2"))
+    animate("#pipetteTip1", 500, "removeClass", "opClass")
 
   }, //step 3
   //step 4
   "openTube": function(evt) {
 
 
-    game.state["microtubeState"][0] = microTubeEnum[1];
-
+    game.state["microtubeState"][0] = 1;
+    animate("#s0Tube svg .Cap", 1000, "animate", rotate(-120))
 
     animate("#s0Tube", 0, "keyframe", "anim_moveTube")
     // animate("#s0Tube svg .Cap", 0, "animate", rotate.rotateObj)
@@ -95,7 +100,8 @@ var eventFunctions = {
       "y": 35.6
     }])
     animate("#enzTube", 1500, "keyframe", "anim_moveEnzBack")
-    animate("#enzTube svg .Cap", 1000, "animate", rotate.reverseRotateObj)
+
+    animate("#enzTube svg .Cap", 1000, "animate", rotate(0))
 
 
   }, //step 6
@@ -142,17 +148,17 @@ var eventFunctions = {
     animate("#micropipette2", 3000, "keyframe", "anim_pipetBacktoNormal")
   },
   "closeTube": function() {
-    animate("#s0Tube svg .Cap", 0, "animate", rotate.reverseRotateObj)
+    animate("#s0Tube svg .Cap", 0, "animate", rotate(0))
     $("#s0Tube").css("z-index", "0")
-    game.state["microtubeState"][0] = microTubeEnum[2];
+    game.state["microtubeState"][0] = 2;
   },
   "flickTube": function() {
     animate("#s0Tube", 0, "keyframe", "anim_flickTube");
-    game.state["microtubeState"][0] = microTubeEnum[3];
+    game.state["microtubeState"][0] = 3;
   },
   "tapTube": function() {
     animate("#s0Tube", 0, "keyframe", "anim_tapTube")
-    game.state["microtubeState"][0] = microTubeEnum[4];
+    game.state["microtubeState"][0] = 4;
   },
   "tubeRack": function() {
     animate("#s0Tube", 0, "keyframe", "anim_tubeDown")
@@ -161,7 +167,7 @@ var eventFunctions = {
     }
     animate("#tubeBlock", 1500, "keyframe", "anim_moveBlock");
 
-    game.state["microtubeState"][0] = microTubeEnum[5];
+    game.state["microtubeState"][0] = 5;
     for (i = 0; i <= 5; i++) {
       animate("#s" + i + "Tube", 0, "addClass", "microTube");
     }
@@ -179,7 +185,7 @@ var eventFunctions = {
       }
     }
     animate("#s" + tubeId + "Tube", 0, "keyframe", "anim_pressTube" + tubeId);
-    game.state["microtubeState"][tubeId] = microTubeEnum[6]
+    game.state["microtubeState"][tubeId] = 6
   }, //step 13
   "pressTubePost": function() {
     animate("html", 0, zoom, [35, 65, 1, 1000]);
@@ -224,7 +230,7 @@ var eventFunctions = {
     animate("#day2, #tubeBlock, .microTube, #gelSideView", 2000, "show")
     animate("#graduatedCylinder, #waterBathNoLid, #waterBathLid, #shelf1, #stainedGel, #stainingTraySide", 0, "hide")
 
-    game.state["microtubeState"] = Array(6).fill(microTubeEnum[0])
+    game.state["microtubeState"] = Array(6).fill(0)
 
   }, //step 18
   "prepPipet1": function(evt) {
@@ -301,7 +307,7 @@ var eventFunctions = {
       animate("#s" + i + "Tube", 1000, "keyframe", "anim_tube" + i + "ToBath");
     }
     animate("#tubeBlock", 1000, "keyframe", "anim_moveBlock");
-    game.state["microtubeState"][0] = microTubeEnum[5];
+    game.state["microtubeState"][0] = 5;
   }, //step 29
   "openTubes": function(evt) {
     var tubeId = evt.currentTarget.id.charAt(1);
@@ -311,7 +317,7 @@ var eventFunctions = {
       }
     }
     animate("#s" + tubeId + "Tube svg .Cap", 0, "animate", rotate.rotateObj)
-    game.state["microtubeState"][tubeId] = microTubeEnum[6]
+    game.state["microtubeState"][tubeId] = 6
   }, //step 29
 
   "removeComb": function() {

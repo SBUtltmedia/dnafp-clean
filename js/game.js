@@ -7,6 +7,12 @@ function Game(steps) {
   this.testMode = false
   this.state = stateInit()
   this.score = 0
+  this.hash = location.hash.split("#")[1];
+
+  if (this.hash) {
+      this.testMode = true;
+  }
+
 
   function stateInit() {
     const tipTrayRows = 8,
@@ -15,6 +21,7 @@ function Game(steps) {
       firstStep: 23,
       buttonPress: [0, 0, 0, 0, 0, 0],
       microtubeState: [0, 0, 0, 0, 0, 0],
+      //state numbers for reference [0:"untouched", 1:"opened", 2:"closed", 3:"flicked", 4:"tapped", 5:"returned", 6:"exposed"]
       TipPosition: false,
       tipTray: Array(tipTrayRows * tipTrayCols).fill(0),
       wellPosition: Array(7).fill(0),

@@ -15,7 +15,7 @@ function Step() {
     // });
     var composite = function(evt) {
       evt.preventDefault();
-      console.log(s)
+      console.log(s.id)
       console.log(evt)
       window["eventFunctions"][s.logic.eventFunction](evt)
       if (game.testMode && s.logic && s.logic.criteria) {
@@ -47,9 +47,12 @@ function Step() {
     //    console.log(s)
    $(s.logic.eventSelector).on(s.logic.eventType, composite);
     //$("#enzTube").on("click", composite);
-    if (game.testMode) {
+    console.log(game.id,game.hash)
+    if (game.testMode && s.id!=game.hash) {
     $(s.logic.eventSelector).trigger(s.logic.eventType);
-
+    }
+    if (game.testMode && s.id==game.hash) {
+    game.testMode = false
     }
 
   }

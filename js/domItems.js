@@ -467,8 +467,8 @@ domItems = {
       left: "54%",
       top: "96%",
     },
-    classes: ["item pipetteTip1 tip"],
-    resources: "",
+    classes: ["item pipetteTip1 activeTip"],
+    resources: "img/equipment/tip.svg",
   },
   "gelWell": {
     css: {

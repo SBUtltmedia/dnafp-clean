@@ -110,10 +110,6 @@ function animate(selector, delay, method, param, callback = () => {}) {
 }
 
 function makePipetteTipAnimation(tipLocation) {
-
-
-
-
   $.keyframe.define({
     name: 'addTip1',
     '0%': {

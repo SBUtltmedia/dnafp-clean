@@ -89,7 +89,7 @@
               "bottomText": "Click on the micropipette to take up the enzyme mix",
               "feedbackText": "complete the third step",
               "logic": {
-                "eventSelector": "#micropipet2",
+                "eventSelector": "#micropipette2",
                 "eventType": "click",
                 "eventFunction": "addEnzyme"
               }
@@ -101,7 +101,7 @@
               "bottomText": "Click on the micropipette to mix the contents",
               "feedbackText": "complete the third step",
               "logic": {
-                "eventSelector": "#micropipet2",
+                "eventSelector": "#micropipette2",
                 "eventType": "click",
                 "eventFunction": "mixContents",
                 "postEventFunction": "mixContentsPost"
@@ -277,15 +277,15 @@
       "itemsRemoved": "#shelf1 #waterBathLid #waterBathNoLid #iceBucket #enzTube",
       "itemsAdded": "#shelf2 #tubeRack #loadDye #gelTray #gelComb #electroBoxSide",
       "steps": [{
-        "id": "prepPipet1",
+        "id": "prepPipette1",
         "shortText": "Prepare micropipet",
         "longText": "Pick up the micropipette",
         "bottomText": "Click to pick up the micropipette",
         "feedbackText": "complete the first step",
         "logic": {
-          "eventSelector": "#micropipet2",
+          "eventSelector": "#micropipette2",
           "eventType": "click",
-          "eventFunction": "prepPipet1"
+          "eventFunction": "prepPipette1"
         }
       }, {
         "id": "setDyeVolume",
@@ -353,7 +353,7 @@
           "bottomText": "Click on the micropipette to add the loading dye",
           "feedbackText": "complete the third step",
           "logic": {
-            "eventSelector": "#micropipet2",
+            "eventSelector": "#micropipette2",
             "eventType": "click",
             "eventFunction": "addDye"
           }
@@ -364,7 +364,7 @@
           "bottomText": "Click on the micropipette to mix the contents",
           "feedbackText": "complete the third step",
           "logic": {
-            "eventSelector": "#micropipet2",
+            "eventSelector": "#micropipette2",
             "eventType": "click",
             "eventFunction": "mixContents1",
             "postEventFunction": "mixContents1Post"

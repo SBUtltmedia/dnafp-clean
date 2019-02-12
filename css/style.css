@@ -2,11 +2,6 @@
     font-family: "Helvetica";
     src: url("../resources/fonts/helvetica.woff");
 } */
-#next {
-  top: 35%;
-  left: 5%;
-  position: absolute;
-}
 
 body {
   margin: 0;
@@ -345,6 +340,12 @@ body {
   width: 0.7%;
   height: 7%;
   background-image: url(../resources/img/equipment/tip.svg);
+  background-size: cover;
+}
+
+.activeTip {
+  width: 0.7%;
+  height: 7%;
   background-size: cover;
 }
 
