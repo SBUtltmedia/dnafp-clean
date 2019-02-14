@@ -13,6 +13,9 @@ function Step() {
     //   console.log("Score: " + game.score)
     //   console.log("Test")
     // });
+    var eventSelector=s.logic.eventSelector.replace("$iter$", game.iteration)
+    console.log("iteration: ",game.iteration)
+    console.log("eventSelector: ",eventSelector, s.logic.eventSelector)
     var composite = function(evt) {
       evt.preventDefault();
       console.log(s.id)
@@ -21,11 +24,14 @@ function Step() {
       if (game.testMode && s.logic && s.logic.criteria) {
         game.state[s.logic.criteria.variable] = JSON.parse(JSON.stringify(s.logic.criteria.value)) //returns reference to value, don't touch
       }
+      if (s.logic.criteria) {
+        var criteriaVar = game.state[s.logic.criteria.variable]
+      }
+      console.log("Volume: ",game.state.volume)
+      if (true||(s.logic.criteria && isEqual(criteriaVar[game.iteration], s.logic.criteria.value)) || !s.logic.criteria) {
+        highlightObject(false, eventSelector);
 
-      if ((s.logic.criteria && isEqual(game.state[s.logic.criteria.variable], s.logic.criteria.value)) || !s.logic.criteria) {
-        highlightObject(false, step.logic.eventSelector);
-
-        $(s.logic.eventSelector).off()
+        $(eventSelector).off()
         if (s.logic.postEventFunction) {
           console.log(s.logic.postEventFunction)
           window["eventFunctions"][s.logic.postEventFunction]()
@@ -45,11 +51,11 @@ function Step() {
       }
     }
     //    console.log(s)
-   $(s.logic.eventSelector).on(s.logic.eventType, composite);
+   $(eventSelector).on(s.logic.eventType, composite);
     //$("#enzTube").on("click", composite);
     console.log(game.id,game.hash)
     if (game.testMode && s.id!=game.hash) {
-    $(s.logic.eventSelector).trigger(s.logic.eventType);
+    $(eventSelector).trigger(s.logic.eventType);
     }
     if (game.testMode && s.id==game.hash) {
     game.testMode = false

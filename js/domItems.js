@@ -462,7 +462,7 @@ domItems = {
     classes: ["item sideView"],
     resources: "",
   },
-  "pipetteTip1": {
+  "": {
     css: {
       left: "54%",
       top: "96%",

@@ -73,12 +73,12 @@
               "bottomText": "Click on the green reaction tube to open it",
               "feedbackText": "complete the third step",
               "logic": {
-                "eventSelector": "#s0Tube",
+                "eventSelector": "#s$iter$Tube",
                 "eventType": "click",
                 "eventFunction": "openTube",
                 "criteria": {
                   "variable": "microtubeState",
-                  "value": [1, 0, 0, 0, 0, 0]
+                  "value": 1
                 }
               }
             },
@@ -126,12 +126,12 @@
               "bottomText": "Click on the green reaction tube to close the cap",
               "feedbackText": "complete the first step",
               "logic": {
-                "eventSelector": "#s0Tube",
+                "eventSelector": "#s$iter$Tube",
                 "eventType": "click",
                 "eventFunction": "closeTube",
                 "criteria": {
                   "variable": "microtubeState",
-                  "value": [2, 0, 0, 0, 0, 0]
+                  "value": 2
                 }
               }
             },
@@ -142,12 +142,12 @@
               "bottomText": "Click on the tube to gently flick it",
               "feedbackText": "complete the second step",
               "logic": {
-                "eventSelector": "#s0Tube",
+                "eventSelector": "#s$iter$Tube",
                 "eventType": "click",
                 "eventFunction": "flickTube",
                 "criteria": {
                   "variable": "microtubeState",
-                  "value": [3, 0, 0, 0, 0, 0]
+                  "value": 3
                 }
               }
             },
@@ -158,51 +158,55 @@
               "bottomText": "Click on the tube to tap it on the lab bench",
               "feedbackText": "complete the third step",
               "logic": {
-                "eventSelector": "#s0Tube",
+                "eventSelector": "#s$iter$Tube",
                 "eventType": "click",
                 "eventFunction": "tapTube",
-                "postEventFunction": "afterTapTube",
                 "criteria": {
                   "variable": "microtubeState",
-                  "value": [4, 0, 0, 0, 0, 0]
+                  "value": 4
+                }
+              }
+            },
+            {
+              "id": "tubeRack",
+              "shortText": "Tubes in floating rack",
+              "longText": "Place the tubes back in the floating rack",
+              "bottomText": "Click on the tube to return it back to the rack",
+              "feedbackText": "complete the first step",
+              "logic": {
+                "eventSelector": "#s$iter$Tube",
+                "eventType": "click",
+                "eventFunction": "tubeRack",
+                "postEventFunction": "tubeRackPost",
+                "criteria": {
+                  "variable": "microtubeState",
+                  "value": 5
                 }
               }
             }
           ]
         },
         {
-          "id": "tubeRack",
-          "shortText": "Tubes in floating rack",
-          "longText": "Place the tubes back in the floating rack",
-          "bottomText": "Click on the tube to return it back to the rack",
-          "feedbackText": "complete the first step",
-          "logic": {
-            "eventSelector": "#s0Tube",
-            "eventType": "click",
-            "eventFunction": "tubeRack",
-            "postEventFunction": "tubeRackPost",
-            "criteria": {
-              "variable": "microtubeState",
-              "value": [5, 0, 0, 0, 0, 0]
-            }
-          }
-        },
-        {
+          "repeats": 2,
           "id": "pressTube",
           "shortText": "Expose tube bottoms",
-          "longText": "Press each tube down to expose bottoms to the water",
-          "bottomText": "Click on each tube to press it down",
-          "feedbackText": "complete the second step",
-          "logic": {
-            "eventSelector": ".microTube",
-            "eventType": "click",
-            "eventFunction": "pressTube",
-            "postEventFunction": "pressTubePost",
-            "criteria": {
-              "variable": "microtubeState",
-              "value": [6, 6, 6, 6, 6, 6]
+          "steps": [{
+            "id": "pressTubes",
+            "shortText": "Press tubes down",
+            "longText": "Press each tube down to expose bottoms to the water",
+            "bottomText": "Click on each tube to press it down",
+            "feedbackText": "complete the second step",
+            "logic": {
+              "eventSelector": ".microTube",
+              "eventType": "click",
+              "eventFunction": "pressTube",
+              "postEventFunction": "pressTubePost",
+              "criteria": {
+                "variable": "microtubeState",
+                "value": 6
+              }
             }
-          }
+          }]
         },
         {
           "id": "removeLid",
@@ -338,7 +342,7 @@
           "bottomText": "Click on the crime scene DNA reaction tube (green tube) to open it",
           "feedbackText": "complete the third step",
           "logic": {
-            "eventSelector": "#s0Tube",
+            "eventSelector": "#s$iter$Tube",
             "eventType": "click",
             "eventFunction": "openTube1",
             "criteria": {
@@ -387,7 +391,7 @@
           "bottomText": "Click on the reaction tube to close the cap",
           "feedbackText": "complete the first step",
           "logic": {
-            "eventSelector": "#s0Tube",
+            "eventSelector": "#s$iter$Tube",
             "eventType": "click",
             "eventFunction": "closeTube1",
             "criteria": {
@@ -402,7 +406,7 @@
           "bottomText": "Click on the tube to gently flick it",
           "feedbackText": "complete the second step",
           "logic": {
-            "eventSelector": "#s0Tube",
+            "eventSelector": "#s$iter$Tube",
             "eventType": "click",
             "eventFunction": "flickTube1",
             "criteria": {
@@ -417,7 +421,7 @@
           "bottomText": "Click on the tube to tap it on the lab bench",
           "feedbackText": "complete the third step",
           "logic": {
-            "eventSelector": "#s0Tube",
+            "eventSelector": "#s$iter$Tube",
             "eventType": "click",
             "eventFunction": "tapTube1",
             "criteria": {
@@ -433,7 +437,7 @@
         "bottomText": "Click on the tube to return it to the rack",
         "feedbackText": "complete the first step",
         "logic": {
-          "eventSelector": "#s0Tube",
+          "eventSelector": "#s$iter$Tube",
           "eventType": "click",
           "eventFunction": "tubeRack1",
           "postEventFunction": "tubeRackPost",
@@ -482,7 +486,7 @@
         }
       }, {
         "id": "orientGel",
-        "itemsRemoved": "#labBench #pipetHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #s0Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #shelf2 #tubeRack #loadDye #gelTray #gelComb #gelSideView",
+        "itemsRemoved": "#labBench #pipetHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #s$iter$Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #shelf2 #tubeRack #loadDye #gelTray #gelComb #gelSideView",
         "itemsAdded": "#labBenchTop #gelTopView #lidBase #lidSide #arrowUp #arrowDown #powerSupplyTop #microtubeHolderTop #tubeTop_0 #tubeTop_1 #tubeTop_2 #tubeTop_3 #tubeTop_4 #tubeTop_5 #tubeTop_6 #tipBoxTop #wasteBinTop",
         "shortText": "Orient gel",
         "longText": "Properly orient your gel in the electrophoresis chamber",
@@ -647,7 +651,7 @@
       }, {
         "id": "stainGel",
         "itemsRemoved": "#labBenchTop #gelTopView #lidBase #lidSide #arrowUp #arrowDown #powerSupplyTop #microtubeHolderTop #tubeTop_0 #tubeTop_1 #tubeTop_2 #tubeTop_3 #tubeTop_4 #tubeTop_5 #tubeTop_6 #tipBoxTop #wasteBinTop",
-        "itemsAdded": "#labBench #pipetHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #s0Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #graduatedCylinder #stainingTraySide #stainedGel",
+        "itemsAdded": "#labBench #pipetHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #s$iter$Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #graduatedCylinder #stainingTraySide #stainedGel",
         "shortText": "Stain the gel",
         "longText": "Pour the stain onto the gel in the staining tray",
         "bottomText": "Click on the graduated cylinder to pour the stain",

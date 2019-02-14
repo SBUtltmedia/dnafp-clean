@@ -18,17 +18,16 @@ function Game(steps) {
     const tipTrayRows = 8,
       tipTrayCols = 12;
     var state = {
-      firstStep: 23,
       buttonPress: [0, 0, 0, 0, 0, 0],
       microtubeState: [0, 0, 0, 0, 0, 0],
       //state numbers for reference [0:"untouched", 1:"opened", 2:"closed", 3:"flicked", 4:"tapped", 5:"returned", 6:"exposed"]
       TipPosition: false,
       tipTray: Array(tipTrayRows * tipTrayCols).fill(0),
       wellPosition: Array(7).fill(0),
-      voltage: 0,
-      volume: 0,
-      time: 0,
-      tip: 0,
+      voltage: [0],
+      volume: [0],
+      time: [0],
+      tip: [0],
       // tipPositions: ,
     }
     $("#micropipette2").append($('#pipetteTip1'));

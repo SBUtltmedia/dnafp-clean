@@ -38,7 +38,7 @@ var keyframes = [{
   },
 
   {
-    name: 'movePipet',
+    name: 'movePipette',
     '0%': {
       left: '0.5%',
       top: '52%',
@@ -179,7 +179,7 @@ var keyframes = [{
 
 
   {
-    name: 'PrepPipet',
+    name: 'PrepPipette',
     '0%': {
       left: '14.5%',
       top: '52%',
@@ -192,6 +192,14 @@ var keyframes = [{
 
   //addTip1 is in eventLogic
   {
+    name: 'tipReset',
+    '100%': {
+      left: "54%",
+      top: "96%",
+    }
+
+  },
+  {
     name: 'addTip1',
     '0': {
 
@@ -202,11 +210,7 @@ var keyframes = [{
     }
   },
   {
-    name: 'pipetBacktoNormal',
-    '0%': {
-      left: '52.7%',
-      top: '34.7%',
-    },
+    name: 'pipetteBacktoNormal',
     '60%': {
       left: '27.5%',
       top: '40%',
@@ -243,7 +247,7 @@ var keyframes = [{
 
 
   {
-    name: 'lowerPipet',
+    name: 'lowerPipette',
     '0%': {
       left: '24.5%',
       top: '38%',
@@ -557,7 +561,7 @@ var keyframes = [{
   },
 
   {
-    name: 'pipetToBin',
+    name: 'pipetteToBin',
     '0%': {
       left: '34.8%',
       top: '39%',
@@ -717,7 +721,7 @@ var keyframes = [{
 
 
   {
-    name: 'pipetToTube1',
+    name: 'pipetteToTube1',
     '0%': {
       left: '86.4%',
       top: '28%',
