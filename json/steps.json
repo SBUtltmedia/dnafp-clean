@@ -13,7 +13,7 @@
           "logic": {
             "eventSelector": "#enzTube",
             "eventType": "mouseenter",
-            "eventFunction": "liftEnzyme"
+            "eventFunction": "liftEnzyme" 
           }
         }
 
