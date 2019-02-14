@@ -8,10 +8,10 @@ var animdefs = {
     "anim_toTopView2": "toTopView2 1s 0s 1 linear normal forwards",
     "anim_moveLoadingDye2": "moveLoadingDye2 2s linear 0s 1 normal forwards",
     "anim_tipToBin": "tipToBin .5s linear 0s 1 normal forwards",
-    "anim_tipReset": "tipReset 0s linear 0s 1 normal forwards",
+    "anim_tipReset": "tipReset .1s linear 0s 1 normal forwards",
     "anim_moveBlock": "moveBlock 1s linear 0s 1 normal forwards",
     "anim_flickTube": "flickTube 0.6s linear 0s 1 normal forwards",
-
+    "anim_pipetteFromBinToPrep": "pipetteFromBinToPrep 1.6s linear 0s 1 normal forwards",
     "anim_quickFadeIn": "quickFadeIn .125s 0s 1 linear normal forwards",
     "anim_quickFadeOut": "quickFadeOut .125s 0s 1 linear normal forwards",
     "anim_slowFadeIn": "slowFadeIn 2s 0s 1 linear normal forwards",
@@ -33,7 +33,7 @@ var animdefs = {
     "anim_pipetteToTube5": "pipetteToTube5 3.4s linear 0s 1 normal forwards",
     "anim_pipetteToTube6": "pipetteToTube6 3.4s linear 0s 1 normal forwards",
     "anim_pipetteToBin": "pipetteToBin 1.6s linear 0s 1 normal forwards",
-    "anim_pipetteToTube1": "pipetteToTube1 3.4s linear 0s 1 normal forwards",
+    "anim_pipetteToTube": "pipetteToTube 3.4s linear 0s 1 normal forwards",
 
 
     "anim_mixTubeContent": "mixTubeContent .9s linear 0s 5 normal forwards",

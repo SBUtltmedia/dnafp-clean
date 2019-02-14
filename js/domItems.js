@@ -241,7 +241,7 @@ domItems = {
       top: "14.1%",
     },
     classes: ["item waterBathNoLid"],
-    resources: "",
+    resources: "html/waterBathForm.htm",
   },
   "waterBathLid": {
     css: {
@@ -462,9 +462,9 @@ domItems = {
     classes: ["item sideView"],
     resources: "",
   },
-  "": {
+  "pipetteTip1": {
     css: {
-      left: "54%",
+      left: "54.7%",
       top: "96%",
     },
     classes: ["item pipetteTip1 activeTip"],

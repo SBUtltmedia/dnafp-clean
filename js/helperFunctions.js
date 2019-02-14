@@ -61,6 +61,7 @@ var eventFunctions = {
     animate("#view", 0, zoom, [25, 46, 1, 1000])
     animate("#micropipette2", 1100, "keyframe", "anim_lowerPipette")
     animate("#pipetteTip1", 0, "addClass", "opClass")
+    $("#micropipette2").append($("#pipetteTip1"))
   },
 
 
@@ -70,37 +71,55 @@ var eventFunctions = {
     var tipLeft = parseInt($(evt.currentTarget).css("left"))
     var viewWidth = parseFloat($('#view').css("width"));
     var pipetteWidth = parseFloat($('#micropipette2').css("width"));
-    var tipPos = (tipLeft-(pipetteWidth)/2) / (viewWidth) * 100
+    var tipWidth = parseFloat($("#pipetteTip1").css("width"));
+    var tipPos = (tipLeft+tipWidth/2-(pipetteWidth)/2) / (viewWidth) * 100
     console.log(tipLeft);
     // in event
+    if (game.testMode){
+      tipPos = "0"
+    }
     makePipetteTipAnimation(tipPos);
     animate("#micropipette2", 0, "keyframe", "anim_addTip1")
     animate("#tip" + selectedTip, 0, "keyframe", "anim_hideTip1")
-    $("#pipetteTip1").appendTo($("#micropipette2"))
-    animate("#pipetteTip1", 500, "removeClass", "opClass")
 
+    animate("#pipetteTip1", 500, "removeClass", "opClass")
+    console.log($("#pipetteTip1").class);
   }, //step 3
   //step 4
   "openTube": function(evt) {
 
 
-    game.state["microtubeState"][0] = 1;
-    animate("#s0Tube svg .Cap", 1000, "animate", rotate(-120))
-
-    animate("#s0Tube", 0, "keyframe", "anim_moveTube")
+    game.state["microtubeState"][game.iteration] = 1;
+    animate("#s"+game.iteration+"Tube svg .Cap", 1000, "animate", rotate(-120))
+    animate("#s"+game.iteration+"Tube", 0, "keyframe", "anim_moveTube")
     // animate("#s0Tube svg .Cap", 0, "animate", rotate.rotateObj)
 
 
   }, //step 5
   "addEnzyme": function() {
-    $("#s0Tube").css("z-index", "5")
-    animate("#micropipette2", 0, "keyframe", "anim_pipetteToTube1")
+    $("#s"+game.iteration+"Tube").css("z-index", "5")
     animate("#svgfluid", 10, "animate", [{
       "y": 35.6
     }])
-    animate("#enzTube", 1500, "keyframe", "anim_moveEnzBack")
+    var viewWidth = parseFloat($('#view').css("width"));
+    var tubeLeft = parseFloat($("#s"+game.iteration+"Tube").css("left"))
+    var pipLeft = parseFloat($("#micropipette2").css("left"))
+    var pipWidth = parseFloat($("#micropipette2").css("width"));
+    var tubeWidth = parseFloat($("#s"+game.iteration+"Tube").css("width"));
+    var tubePos = (tubeLeft+tubeWidth/2-pipWidth/2) / (viewWidth) * 100
+    console.log("Tube Pos: ",tubePos);
+    // in event
+    if (game.testMode){
+      tubePos = "0"
+    }
+    makePipetteTubeAnimation(tubePos);
+    animate("#micropipette2", 0, "keyframe", "anim_pipetteToTube")
 
-    animate("#enzTube svg .Cap", 1000, "animate", rotate(0))
+
+
+    //animate("#enzTube", 1500, "keyframe", "anim_moveEnzBack")
+
+    //animate("#enzTube svg .Cap", 1000, "animate", rotate(0))
 
 
   }, //step 6
@@ -136,35 +155,35 @@ var eventFunctions = {
 
   }, //step 7
 
-  "replaceTip": function() {
+  "discardTip": function() {
     animate("#micropipette2", 0, "keyframe", "anim_pipetteToBin")
     animate("#pipetteTip1", 2300, "keyframe", "anim_tipToBin")
     animate("#pipetteTip1", 2700, "keyframe", "anim_tipReset")
-    animate("#pipetteTip1", 2700, "hide")
+    animate("#pipetteTip1", 2700, "addClass", "opClass")
 
 
 
-    animate("#micropipette2", 3000, "keyframe", "anim_pipetteBacktoTips")
+    animate("#micropipette2", 3000, "keyframe", "anim_pipetteFromBinToPrep")
   },
   "closeTube": function() {
-    animate("#s0Tube svg .Cap", 0, "animate", rotate(0))
+    animate("#s"+game.iteration+"Tube svg .Cap", 0, "animate", rotate(0))
     $("#s0Tube").css("z-index", "0")
     game.state["microtubeState"][game.iteration] = 2;
   },
   "flickTube": function() {
-    animate("#s0Tube", 0, "keyframe", "anim_flickTube");
+    animate("#s"+game.iteration+"Tube", 0, "keyframe", "anim_flickTube");
     game.state["microtubeState"][game.iteration] = 3;
   },
   "tapTube": function() {
-    animate("#s0Tube", 0, "keyframe", "anim_tapTube")
+    animate("#s"+game.iteration+"Tube", 0, "keyframe", "anim_tapTube")
     game.state["microtubeState"][game.iteration] = 4;
   },
   "tubeRack": function() {
-    animate("#s0Tube", 0, "keyframe", "anim_tubeDown")
-    for (i = 0; i <= 5; i++) {
-      animate("#s" + i + "Tube", 1500, "keyframe", "anim_tube" + i + "ToBath");
-    }
-    animate("#tubeBlock", 1500, "keyframe", "anim_moveBlock");
+    animate("#s"+game.iteration+"Tube", 0, "keyframe", "anim_tubeDown")
+    // for (i = 0; i <= 5; i++) {
+    //   animate("#s" + i + "Tube", 1500, "keyframe", "anim_tube" + i + "ToBath");
+    // }
+  //  animate("#tubeBlock", 1500, "keyframe", "anim_moveBlock");
 
     game.state["microtubeState"][game.iteration] = 5;
     for (i = 0; i <= 5; i++) {
@@ -214,15 +233,17 @@ var eventFunctions = {
   "closeLid": function() {
     animate("#waterBathLid", 0, "keyframe", "anim_replaceLid")
     animate("#view", 1000, zoom, [65, 36, 5, 1500])
-    animate("#timerButton,#timer", 1000, "show");
+
 
   }, //step 17
   "setTimer": function() {
-    game.state["time"] = $("#timer").val();
+    animate("#waterBathNoLid *", 1000, "show");
+    var time= $("#waterBathNoLid").find("[type='text']").val();
+    game.state["time"] = [time]
   },
   "setTimerPost": function() {
 
-    animate("#timer,#timerButton", 1, "hide");
+    animate("#waterBathNoLid *", 1000, "hide");
     animate("#view", 0, zoom, [65, 36, 1, 1000]);
     animate("#bothDays *, #bothDays, #day1 *", 0, "attr", ["style", ""])
     animate("#pipetteTip1", 0, "hide")

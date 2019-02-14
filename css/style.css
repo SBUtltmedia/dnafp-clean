@@ -326,7 +326,7 @@ body {
   height: 23%;
   background-image: url(../resources/img/equipment/micropipette20.svg);
   background-size: cover;
-  z-index: 1;
+  z-index: 4;
 }
 
 .tipHolder {
@@ -572,6 +572,35 @@ body {
 }
 
 .volumeButton {
+  display: none;
+  width: 64%;
+  height: 10%;
+  left: 100%;
+  top: 32%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-image: url(../resources/img/UI/check.svg);
+  outline-width: 0;
+}
+.timerInput {
+  display: none;
+  -webkit-appearance: none;
+  width: 45%;
+  height: 10%;
+  margin: 0;
+  padding: 0;
+  border: .1rem;
+  left: 45%;
+  top: 32%;
+  position: absolute;
+  background-repeat: no-repeat;
+  font-size: .25rem;
+  z-index: 10;
+  outline-width: 0;
+}
+
+.timerButton {
   display: none;
   width: 64%;
   height: 10%;

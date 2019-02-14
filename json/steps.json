@@ -108,15 +108,15 @@
               }
             },
             {
-              "id": "replaceTip",
-              "shortText": "Replace tip",
+              "id": "discardTip",
+              "shortText": "Discard the tip",
               "longText": "Discard the tip and return the micropipette to the rack",
               "bottomText": "Click on the waste bin to eject the tip",
               "feedbackText": "complete the third step",
               "logic": {
                 "eventSelector": "#wasteBasket",
                 "eventType": "click",
-                "eventFunction": "replaceTip"
+                "eventFunction": "discardTip"
               }
             },
             {
@@ -263,7 +263,7 @@
           "bottomText": "Enter the time in the timer",
           "feedbackText": "complete the third step",
           "logic": {
-            "eventSelector": "#timerForm",
+            "eventSelector": "#waterBathNoLid",
             "eventType": "submit",
             "eventFunction": "setTimer",
             "postEventFunction": "setTimerPost",

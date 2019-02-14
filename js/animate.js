@@ -138,3 +138,33 @@ function makePipetteTipAnimation(tipLocation) {
     },
   })
 }
+
+function makePipetteTubeAnimation(tubeLocation) {
+  $.keyframe.define({
+    name: 'pipetteToTube',
+    '0%': {
+      left: '86.4%',
+      top: '28%',
+    },
+    '5%': {
+      left: '86.4%',
+      top: '35%',
+    },
+    '25%': {
+      left: '86.4%',
+      top: '28%',
+    },
+    '85%': {
+      left: '50%',
+      top: '35%'
+    },
+    '90%': {
+      left: tubeLocation+'%',
+      top: '31.7%',
+    },
+    '100%': {
+      left: tubeLocation+'%',
+      top: '39%',
+    }
+  })
+}
