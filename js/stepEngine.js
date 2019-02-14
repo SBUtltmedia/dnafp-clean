@@ -22,13 +22,15 @@ function Step() {
       console.log(evt)
       window["eventFunctions"][s.logic.eventFunction](evt)
       if (game.testMode && s.logic && s.logic.criteria) {
-        game.state[s.logic.criteria.variable] = JSON.parse(JSON.stringify(s.logic.criteria.value)) //returns reference to value, don't touch
+        var criteriaVar = game.state[s.logic.criteria.variable]
+        criteriaVar[game.iteration] = JSON.parse(JSON.stringify(s.logic.criteria.value)) //returns reference to value, don't touch
       }
       if (s.logic.criteria) {
         var criteriaVar = game.state[s.logic.criteria.variable]
+
       }
       console.log("Volume: ",game.state.volume)
-      if (true||(s.logic.criteria && isEqual(criteriaVar[game.iteration], s.logic.criteria.value)) || !s.logic.criteria) {
+      if ((s.logic.criteria && isEqual(criteriaVar[game.iteration], s.logic.criteria.value)) || !s.logic.criteria) {
         highlightObject(false, eventSelector);
 
         $(eventSelector).off()

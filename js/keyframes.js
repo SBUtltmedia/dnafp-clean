@@ -224,6 +224,16 @@ var keyframes = [{
     }
   },
   {
+    name: 'pipetteToTube',
+    '0': {
+
+    },
+    '100%': {
+      left: '86.4%',
+      top: '28%',
+    }
+  },
+  {
     name: 'pipetteBacktoNormal',
     '60%': {
       left: '27.5%',

@@ -233,13 +233,14 @@ var eventFunctions = {
   "closeLid": function() {
     animate("#waterBathLid", 0, "keyframe", "anim_replaceLid")
     animate("#view", 1000, zoom, [65, 36, 5, 1500])
-
+    animate("#waterBathNoLid *", 1000, "css", [{"display":"block"}])
 
   }, //step 17
   "setTimer": function() {
-    animate("#waterBathNoLid *", 1000, "show");
     var time= $("#waterBathNoLid").find("[type='text']").val();
+    console.log(time)
     game.state["time"] = [time]
+    return false
   },
   "setTimerPost": function() {
 
@@ -255,13 +256,16 @@ var eventFunctions = {
 
   }, //step 18
   "prepPipette1": function(evt) {
-    animate("#volumeButton,#volumeInput", 2400, "show");
     animate("#micropipette2", 0, "keyframe", "anim_PrepPipette")
     animate("#view", 2000, zoom, [25, 46, 9.5, 1000])
+    animate("#micropipette2 *", 3400, "show")
   },
 
   "setDyeVolume": function() {
-    game.state["volume"] = $("#volumeInput").val();
+    var volume= $("#micropipette2").find("[type='text']").val();
+    console.log(volume)
+    game.state["volume"] = [volume];
+    return false
   },
 
   "setDyeVolumePost": function() {

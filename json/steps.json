@@ -13,7 +13,7 @@
           "logic": {
             "eventSelector": "#enzTube",
             "eventType": "mouseenter",
-            "eventFunction": "liftEnzyme" 
+            "eventFunction": "liftEnzyme"
           }
         }
 
@@ -263,13 +263,14 @@
           "bottomText": "Enter the time in the timer",
           "feedbackText": "complete the third step",
           "logic": {
-            "eventSelector": "#waterBathNoLid",
-            "eventType": "submit",
+            "eventSelector": ".timerButton",
+            "eventType": "mouseup",
             "eventFunction": "setTimer",
             "postEventFunction": "setTimerPost",
             "criteria": {
               "variable": "time",
-              "value": 45
+              "value": 45,
+              "messageWrong": "Incorrect, please enter the approriate time!"
             }
           }
         }
@@ -298,8 +299,8 @@
         "bottomText": "Enter the correct volume (in µl) of fluid to remove",
         "feedbackText": "complete the third step",
         "logic": {
-          "eventSelector": "#volumeInputForm",
-          "eventType": "submit",
+          "eventSelector": ".volumeButton",
+          "eventType": "mouseup",
           "eventFunction": "setDyeVolume",
           "postEventFunction": "setDyeVolumePost",
           "criteria": {
