@@ -113,8 +113,8 @@ function makePipetteTipAnimation(tipLocation) {
   $.keyframe.define({
     name: 'addTip1',
     '0%': {
-      left: '27.5%',
-      top: '40%',
+      left: '24.5%',
+      top: '38%',
     },
     '14%': {
       left: tipLocation + "%",
@@ -154,17 +154,35 @@ function makePipetteTubeAnimation(tubeLocation) {
       left: '86.4%',
       top: '28%',
     },
-    '85%': {
-      left: '50%',
-      top: '35%'
+    '80%': {
+      left: (tubeLocation+10)+'%',
+      top: '23%'
     },
     '90%': {
-      left: tubeLocation+'%',
-      top: '31.7%',
+      left: (tubeLocation)+'%',
+      top: '28%',
     },
     '100%': {
       left: tubeLocation+'%',
       top: '39%',
+    }
+  })
+}
+
+function makePipetteToBinAnimation(tubeLocation) {
+  $.keyframe.define({
+    name: 'pipetteToBin',
+    '0%': {
+      left: tubeLocation+'%',
+      top: '39%',
+    },
+    '15%': {
+      left: tubeLocation+'%',
+      top: '31%',
+    },
+    '100%': {
+      left: '57.7%',
+      top: '34.7%',
     }
   })
 }

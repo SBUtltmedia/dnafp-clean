@@ -16,34 +16,21 @@ var animdefs = {
     "anim_quickFadeOut": "quickFadeOut .125s 0s 1 linear normal forwards",
     "anim_slowFadeIn": "slowFadeIn 2s 0s 1 linear normal forwards",
     "anim_slowFadeOut": "slowFadeOut 2s 0s 1 linear normal forwards",
-
-
-    "anim_pipetteToTube3": "pipetteToTube3 3.4s linear 0s 1 normal forwards",
     "anim_tipHidden": "tipHidden 0.1s linear 0s normal forwards",
     "anim_tipVisible": "tipVisible 0.1s linear 0s normal forwards",
     "anim_pressTube3": "pressTube3 0.3s linear 0s 1 normal forwards",
     "anim_hideTip1": "hideTip1 .7s linear 0s 1 normal forwards",
-
     "anim_hideTipp1": "hideTipp1 .9s linear 0s 1 normal forwards",
-
     "anim_tube2ToBath": "tube2ToBath 1s linear 0s 1 normal forwards",
     "anim_closeCap": "closeCap 0.5s linear normal forwards",
     "anim_moveTube": "moveTube 0.5s linear 0s 1 normal forwards",
-    "anim_pipetteToTube4": "pipetteToTube4 3.4s linear 0s 1 normal forwards",
-    "anim_pipetteToTube5": "pipetteToTube5 3.4s linear 0s 1 normal forwards",
-    "anim_pipetteToTube6": "pipetteToTube6 3.4s linear 0s 1 normal forwards",
     "anim_pipetteToBin": "pipetteToBin 1.6s linear 0s 1 normal forwards",
     "anim_pipetteToTube": "pipetteToTube 3.4s linear 0s 1 normal forwards",
-
-
     "anim_mixTubeContent": "mixTubeContent .9s linear 0s 5 normal forwards",
     "anim_mixs0TubeBody": "mixs0TubeBody .9s linear 0s 5 normal forwards",
-
-    "anim_pipetteToTube2": "pipetteToTube2 3.4s linear 0s 1 normal forwards",
     "anim_returnLoadingDye1": "returnLoadingDye1 2s linear 0s 1 normal forwards",
     "anim_moveLoadingDye": "moveLoadingDye 2s linear 0s 1 normal forwards",
     "anim_moveLoadingDyeback": "moveLoadingDyeback 2s linear 0s 1 normal forwards",
-
     "anim_moveEnz": "moveEnz 0.5s linear 0s 1 normal forwards",
     "anim_moveEnzBack": "moveEnzBack 1.5s linear 0s 1 normal forwards",
     "anim_removeComb": "removeComb 1s 0s 1 linear normal forwards",
@@ -58,19 +45,13 @@ var animdefs = {
     "anim_insertTube3": "insertTube3 1.8s linear 0s 1 normal forwards",
     "anim_insertTube4": "insertTube4 1.8s linear 0s 1 normal forwards",
     "anim_insertTube5": "insertTube5 1.8s linear 0s 1 normal forwards",
-
     "anim_addTip1": "addTip1 3s linear 0s 1 normal forwards",
     "anim_PrepPipette": "PrepPipette 1s linear 0s 1 normal forwards",
     "anim_pipetteBacktoNormal": "pipetteBacktoNormal 2s linear 0s 1 normal forwards",
     "anim_addTipp1": "addTipp1 3s linear 0s 1 normal forwards",
-
     "anim_addDyeToTube": "addDyeToTube 3s linear 0s 1 normal forwards",
-
     "anim_tubeDown": "tubeDown 0.5s linear 0s 1 normal forwards",
     "anim_tipToTube4": "tipToTube4 3.4s linear 0s 1 normal forwards",
-    "anim_oscillate3": "oscillate3 0.75s linear 0s infinite normal forwards",
-    "anim_oscillate2": "oscillate2 0.75s linear 0s infinite normal forwards",
-    "anim_oscillate1": "oscillate1 0.75s linear 0s infinite normal forwards",
     "anim_removeLid": "removeLid 0.9s linear 0s 1 normal forwards",
     "anim_pressTube0": "pressTube0 0.3s linear 0s 1 normal forwards",
     "anim_pressTube1": "pressTube1 0.3s linear 0s 1 normal forwards",
@@ -80,18 +61,12 @@ var animdefs = {
     "anim_moveTip3": "moveTip3 5s linear 0s 1 normal forwards",
     "anim_pressTube5": "pressTube5 0.3s linear 0s 1 normal forwards",
     "anim_tube0ToBath": "tube0ToBath 1s linear 0s 1 normal forwards",
-    "anim_tipToTube6": "tipToTube6 3.4s linear 0s 1 normal forwards",
-    "anim_tipToTube5": "tipToTube5 3.4s linear 0s 1 normal forwards",
     "anim_tapTube": "tapTube 1.6s linear 0s 1 normal forwards",
-    "anim_tipToTube3": "tipToTube3 3.4s linear 0s 1 normal forwards",
-    "anim_tipToTube2": "tipToTube2 3.4s linear 0s 1 normal forwards",
     "anim_tipToTube1": "tipToTube1 3.4s linear 0s 1 normal forwards",
 
     "anim_movePipette": "movePipette 8s linear 0s 1 normal forwards",
     "anim_ejectTip": "ejectTip 0.8s linear 0s 1 normal forwards",
-    "anim_oscillate4": "oscillate4 0.75s linear 0s infinite normal forwards",
     "anim_lowerPipette": "lowerPipette 0.4s linear 0s normal forwards",
-    "anim_oscillate": "oscillate 0.75s linear 0s infinite normal forwards",
     "anim_tube5ToBath": "tube5ToBath 1s linear 0s 1 normal forwards",
     "anim_moveTip1": "moveTip1 5s linear 0s 1 normal forwards",
     "anim_mooveTip": "mooveTip 5s linear 0s 1 normal forwards",

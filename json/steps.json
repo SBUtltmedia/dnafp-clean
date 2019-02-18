@@ -49,7 +49,7 @@
             }
           }
         }, {
-          "repeats": 2,
+          "repeats": 6,
           "id": "repeatDay1",
           "shortText": "Load Tubes",
           "steps": [{

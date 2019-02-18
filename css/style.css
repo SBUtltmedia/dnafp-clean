@@ -158,6 +158,25 @@ body {
   animation: littleSpin 1s 0s 1 cubic-bezier(0, .5, .5, 1) normal forwards;
 }
 
+.highLighted {
+  animation: pulse 1.5s linear 10s infinite normal forwards;
+}
+
+@keyframes pulse {
+    0% {
+
+      box-shadow: 1px 1px 1rem 0.2rem red;
+    },
+    50% {
+
+      box-shadow: 1px 1px 5rem 2rem red;
+    },
+    100% {
+
+      box-shadow: 1px 1px 1rem 0.2rem red;
+    }
+}
+
 .activeGroup {
   color: yellow;
 }

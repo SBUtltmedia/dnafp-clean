@@ -84,6 +84,8 @@ function Game(steps) {
     console.log(currentStepCount)
     menu.highlightMenuItem(currentStepCount)
     step.startStep(this.currentStep)
+    highlightObject(true,this.currentStep.logic.eventSelector);
+
 
   }
   this.getStep = function() {
@@ -93,6 +95,8 @@ function Game(steps) {
     var currentStepNumber = this.steps.indexOf(this.currentStep)
     menu.setItemCompleted(currentStepNumber)
     game.steps[currentStepNumber].completed = "true"
+    highlightObject(false,this.currentStep.logic.eventSelector);
+
     var nextStepNum = ((this.steps.indexOf(this.currentStep) + 1) % this.steps.length)
     console.log("NextStep: "+nextStepNum)
     var currentGroup = this.groups[this.currentGroupId]

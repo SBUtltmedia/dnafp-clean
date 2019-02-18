@@ -464,7 +464,7 @@ domItems = {
   },
   "pipetteTip1": {
     css: {
-      left: "54.7%",
+      left: "56.7%",
       top: "96%",
     },
     classes: ["item pipetteTip1 activeTip"],
