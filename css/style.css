@@ -159,7 +159,7 @@ body {
 }
 
 .highLighted {
-  animation: pulse 1.5s linear 10s infinite normal forwards;
+  animation: pulse 1.5s linear .1s infinite normal forwards;
 }
 
 @keyframes pulse {

@@ -626,7 +626,15 @@ domItems = {
 }
 
 function highlightObject(highlight, selector) {
+  console.log(highlight, selector);
   if (highlight) {
+    var style= $(selector).attr("style")
+    $(selector).attr("style","")
+    // setTimeout(function(){
+    // $(selector).attr("style",style)},10)
+
+
+    //  animate(selector, 0, "removeClass", "highLighted")
     animate(selector, 0, "addClass", "highLighted")
   } else {
     animate(selector, 0, "removeClass", "highLighted")

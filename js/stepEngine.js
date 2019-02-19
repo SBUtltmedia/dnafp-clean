@@ -2,9 +2,11 @@ function Step() {
   this.startStep = function(step) {
     console.log("Hello", step)
     //window.location.hash = step.id;
-    //highlightObject(true,step.logic.eventSelector);
+    //highlightObject(true,step.logic.s.logic.eventSelector);
     var s = jQuery.extend(true, {}, step);
     var clicked = false;
+    console.log(game)
+    s.logic.eventSelector= s.logic.eventSelector.replace("$iter$", game.iteration)
     $("#headerText").text(s.longText);
     $("#footerText").text(s.bottomText);
     // $("#view").off()
@@ -13,9 +15,9 @@ function Step() {
     //   console.log("Score: " + game.score)
     //   console.log("Test")
     // });
-    var eventSelector=s.logic.eventSelector.replace("$iter$", game.iteration)
-    console.log("iteration: ",game.iteration)
-    console.log("eventSelector: ",eventSelector, s.logic.eventSelector)
+
+    highlightObject(true,s.logic.eventSelector);
+
     var composite = function(evt) {
       evt.preventDefault();
       console.log(s.id)
@@ -31,9 +33,9 @@ function Step() {
       }
       console.log("Volume: ",game.state.volume)
       if ((s.logic.criteria && isEqual(criteriaVar[game.iteration], s.logic.criteria.value)) || !s.logic.criteria) {
-        highlightObject(false, eventSelector);
+        highlightObject(false, s.logic.eventSelector);
 
-        $(eventSelector).off()
+        $(s.logic.eventSelector).off()
         if (s.logic.postEventFunction) {
           console.log(s.logic.postEventFunction)
           window["eventFunctions"][s.logic.postEventFunction]()
@@ -53,11 +55,11 @@ function Step() {
       }
     }
     //    console.log(s)
-   $(eventSelector).on(s.logic.eventType, composite);
+   $(s.logic.eventSelector).on(s.logic.eventType, composite);
     //$("#enzTube").on("click", composite);
     console.log(game.id,game.hash)
     if (game.testMode && s.id!=game.hash) {
-    $(eventSelector).trigger(s.logic.eventType);
+    $(s.logic.eventSelector).trigger(s.logic.eventType);
     }
     if (game.testMode && s.id==game.hash) {
     game.testMode = false

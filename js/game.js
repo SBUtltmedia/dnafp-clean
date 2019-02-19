@@ -80,14 +80,16 @@ function Game(steps) {
     this.currentStep = this.steps[currentStepCount]
     this.currentGroupId = this.getGroupMembership(currentStepCount)
     this.currentRepeats = this.groups[this.currentGroupId].repeats
+    console.log(  this.currentStep.logic.eventSelector)
     menu.setMenuItem(currentStepCount)
     console.log(currentStepCount)
     menu.highlightMenuItem(currentStepCount)
     step.startStep(this.currentStep)
-    highlightObject(true,this.currentStep.logic.eventSelector);
-
 
   }
+
+
+
   this.getStep = function() {
     return this.currentStep
   }
@@ -95,8 +97,6 @@ function Game(steps) {
     var currentStepNumber = this.steps.indexOf(this.currentStep)
     menu.setItemCompleted(currentStepNumber)
     game.steps[currentStepNumber].completed = "true"
-    highlightObject(false,this.currentStep.logic.eventSelector);
-
     var nextStepNum = ((this.steps.indexOf(this.currentStep) + 1) % this.steps.length)
     console.log("NextStep: "+nextStepNum)
     var currentGroup = this.groups[this.currentGroupId]
