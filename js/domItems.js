@@ -30,7 +30,7 @@ domItems = {
       left: "85.5%",
       top: "62.7%",
     },
-    classes: ["item clearTube microTube enzTube"],
+    classes: ["item clearTube enzTube"],
     resources: "img/equipment/csTube.svg",
   },
   "iceBucket": {
@@ -188,6 +188,7 @@ domItems = {
   "s0Tube": {
     css: {
       left: "35.5%",
+      top: "70%",
     },
     classes: ["item microTube s0TubeColor"],
     resources: "img/equipment/csTube.svg",
@@ -195,6 +196,7 @@ domItems = {
   "s1Tube": {
     css: {
       left: "38%",
+      top: "70%",
     },
     classes: ["item microTube s1TubeColor"],
     resources: "img/equipment/csTube.svg",
@@ -202,6 +204,7 @@ domItems = {
   "s2Tube": {
     css: {
       left: "40.5%",
+      top: "70%",
     },
     classes: ["item microTube s2TubeColor"],
     resources: "img/equipment/csTube.svg",
@@ -209,6 +212,7 @@ domItems = {
   "s3Tube": {
     css: {
       left: "43%",
+      top: "70%",
     },
     classes: ["item microTube s3TubeColor"],
     resources: "img/equipment/csTube.svg",
@@ -216,6 +220,7 @@ domItems = {
   "s4Tube": {
     css: {
       left: "45.5%",
+      top: "70%",
     },
     classes: ["item microTube s4TubeColor"],
     resources: "img/equipment/csTube.svg",
@@ -223,6 +228,7 @@ domItems = {
   "s5Tube": {
     css: {
       left: "48%",
+      top: "70%"
     },
     classes: ["item microTube s5TubeColor"],
     resources: "img/equipment/csTube.svg",
@@ -464,7 +470,7 @@ domItems = {
   },
   "pipetteTip1": {
     css: {
-      left: "56.7%",
+      left: "54.7%",
       top: "96%",
     },
     classes: ["item pipetteTip1 activeTip"],
@@ -628,13 +634,6 @@ domItems = {
 function highlightObject(highlight, selector) {
   console.log(highlight, selector);
   if (highlight) {
-    var style= $(selector).attr("style")
-    $(selector).attr("style","")
-    // setTimeout(function(){
-    // $(selector).attr("style",style)},10)
-
-
-    //  animate(selector, 0, "removeClass", "highLighted")
     animate(selector, 0, "addClass", "highLighted")
   } else {
     animate(selector, 0, "removeClass", "highLighted")

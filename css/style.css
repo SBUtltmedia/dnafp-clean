@@ -159,7 +159,7 @@ body {
 }
 
 .highLighted {
-  animation: pulse 1.5s linear .1s infinite normal forwards;
+  animation: pulse 1.5s linear 10s infinite normal forwards;
 }
 
 @keyframes pulse {
@@ -196,10 +196,6 @@ body {
 .microTube {
   width: 2.9%;
   height: 7%;
-  top: 70%;
-  position: absolute;
-  background-repeat: no-repeat;
-  background-size: contain;
   transform-origin: 100% 0%;
   z-index: 1;
 }
@@ -323,7 +319,6 @@ body {
   width: 5% !important;
   height: 11% !important;
   transform-origin: 100% 0%;
-  z-index: 0;
 }
 
 .iceBucket {

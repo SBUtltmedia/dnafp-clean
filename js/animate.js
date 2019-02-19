@@ -159,7 +159,7 @@ function makePipetteTubeAnimation(tubeLocation) {
       top: '23%'
     },
     '90%': {
-      left: (tubeLocation)+'%',
+      left: tubeLocation+'%',
       top: '28%',
     },
     '100%': {

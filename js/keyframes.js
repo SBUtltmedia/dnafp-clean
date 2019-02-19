@@ -208,7 +208,7 @@ var keyframes = [{
 
     },
     '100%': {
-      left: "55%",
+      left: "54.7%",
       top: "96%",
     }
 
@@ -229,6 +229,7 @@ var keyframes = [{
 
     },
     '100%': {
+
       left: '34.8%',
       top: '39%',
     }
@@ -719,7 +720,8 @@ var keyframes = [{
 
   {
     name: 'insertTube1',
-    '0%': {
+    '0%':
+     {
       left: '33.52%',
       top: '56.3%',
     },
