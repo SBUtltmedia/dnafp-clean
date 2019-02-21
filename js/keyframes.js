@@ -223,17 +223,6 @@ var keyframes = [{
       top: '28%',
     }
   },
-  {
-    name: 'pipetteToTube',
-    '0': {
-
-    },
-    '100%': {
-
-      left: '34.8%',
-      top: '39%',
-    }
-  },
 
   {
     name: 'pipetteBacktoNormal',
@@ -720,8 +709,7 @@ var keyframes = [{
 
   {
     name: 'insertTube1',
-    '0%':
-     {
+    '0%': {
       left: '33.52%',
       top: '56.3%',
     },
@@ -1017,19 +1005,75 @@ var keyframes = [{
     }
   },
 ]
-for (i of keyframes) {
-  try {
-    $.keyframe.define(i);
-  } catch (error) {
-    console.error(error);
-    console.log(i);
-  }
 
+for (i = 0; i < 6; i++) {
+
+  var viewWidth = parseFloat($('#view').css("width"));
+  var tubeLeft = parseFloat($("#s" + i + "Tube").css("left"))
+
+  var pipWidth = parseFloat($("#micropipette2").css("width"));
+  var tubeWidth = parseFloat($("#s" + i + "Tube").css("width"));
+  var tubePos = (tubeLeft + ((tubeWidth / 7) * 4) - pipWidth / 2) / (viewWidth) * 100
+  keyframes.push({
+    name: `pipetteToTube${i}`,
+    '0%': {
+      left: '86.4%',
+      top: '28%',
+    },
+    '5%': {
+      left: '86.4%',
+      top: '35%',
+    },
+    '25%': {
+      left: '86.4%',
+      top: '28%',
+    },
+    '80%': {
+      left: (tubePos + 10) + '%',
+      top: '23%'
+    },
+    '90%': {
+      left: `${tubePos}%`,
+      top: '28%',
+    },
+    '100%': {
+      left: `${tubePos}%`,
+      top: '39%',
+    }
+  })
+  animdefs[`anim_pipetteToTube${i}`] = `pipetteToTube${i} 3.4s linear 0s 1 normal forwards`
+}
+var newObjarray={}
+
+for (i of keyframes) {
+var obj={}
+var name =i.name;
+
+obj.props= animdefs[`anim_${name}`]
+delete i.name
+obj.keyframes=i;
+
+
+newObjarray[name]= obj
 }
 
 
+
+
+
+// for (i of keyframes) {
+//   try {
+//     $.keyframe.define(i);
+//   } catch (error) {
+//     console.error(error);
+//     console.log(i);
+//   }
+//
+// }
+
+
 function findKeyFrameDef(defName) {
-  console.log(defName)
+
   return keyframes.find(function(element) {
     return element.name == defName;
   })["100%"]

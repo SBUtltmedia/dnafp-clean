@@ -1,5 +1,5 @@
 function Item() {
-  console.log("Test")
+  
 
   this.buildItemById = function(itemId) {
     return this.buildItem(Object.assign({}, domItems[itemId], {
@@ -15,7 +15,7 @@ function Item() {
     classes = [],
     resources,
   }) {
-    // console.log(domItems[itemId])
+    // 
     var defer = $.Deferred();
     if (resources) {
       $.ajax({
@@ -77,7 +77,7 @@ function Item() {
           buildItemsRecurse(domItems, itemIndex + 1)
         })
       } else {
-        console.log("done")
+        
         defer.resolve("done building item")
       }
     }

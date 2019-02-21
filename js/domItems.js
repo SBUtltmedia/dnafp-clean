@@ -471,7 +471,7 @@ domItems = {
   "pipetteTip1": {
     css: {
       left: "54.7%",
-      top: "96%",
+      top: "95%",
     },
     classes: ["item pipetteTip1 activeTip"],
     resources: "img/equipment/tip.svg",

@@ -25,7 +25,7 @@ var animdefs = {
     "anim_closeCap": "closeCap 0.5s linear normal forwards",
     "anim_moveTube": "moveTube 0.5s linear 0s 1 normal forwards",
     "anim_pipetteToBin": "pipetteToBin 1.6s linear 0s 1 normal forwards",
-    "anim_pipetteToTube": "pipetteToTube 3.4s linear 0s 1 normal forwards",
+
     "anim_mixTubeContent": "mixTubeContent .9s linear 0s 5 normal forwards",
     "anim_mixs0TubeBody": "mixs0TubeBody .9s linear 0s 5 normal forwards",
     "anim_returnLoadingDye1": "returnLoadingDye1 2s linear 0s 1 normal forwards",

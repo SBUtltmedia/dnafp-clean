@@ -28,26 +28,46 @@ function animate(selector, delay, method, param, callback = () => {}) {
 
 
   if (method == "keyframe")
+    {
 
-  {
+    try {
+      $.keyframe.define({
+        name: param,
+        ...animations[param].keyframes
+      });
+    } catch (error) {
+      console.error(error);
+      console.log(param);
+    }
+    console.log(param)
     if (game.testMode) {
       var endState = findKeyFrameDef(param.split("_")[1])
 
       $(selector).css(endState)
       callback();
     }
-
     //$(selector).attr("style","")
     else {
       setTimeout(function() {
-        //          console.log(param)
-        //          console.log(animdefs[param])
-        $(selector).playKeyframe(animdefs[param], function() {});
+        //
+        //
+        console.log(param)
+        $(selector).playKeyframe(animations[param].props, function() {
+
+          var style = $(selector).attr("style");
+          var keyframe = animations[param].keyframes
+          if (style) {
+            style = style.replace(/animation:[^;]*;/g, "")
+            $(selector).attr("style", style);
+          }
+          $(selector).css(keyframe["100%"])
+        });
         callback();
       }, delay)
     }
     //$(selector).delay(delay).playKeyframe(param, function () {});
   }
+
 
   if (method == "addClass")
 
@@ -65,6 +85,20 @@ function animate(selector, delay, method, param, callback = () => {}) {
     }, delay)
   }
 
+  if (method == "show") {
+
+    setTimeout(function() {
+      $("#view").append($(selector));
+      callback();
+    }, delay)
+  }
+
+  if (method == "hide") {
+    setTimeout(function() {
+      $("#storage").append($(selector));
+      callback();
+    }, delay)
+  }
 
   if (method == "attr")
 
@@ -82,6 +116,7 @@ function animate(selector, delay, method, param, callback = () => {}) {
       $(selector).css(...param)
     } else {
       setTimeout(function() {
+
         $(selector).animate(...param, function() {
 
           // if ($(selector).css("opacity") == 0) {
@@ -107,82 +142,4 @@ function animate(selector, delay, method, param, callback = () => {}) {
 
 
   }
-}
-
-function makePipetteTipAnimation(tipLocation) {
-  $.keyframe.define({
-    name: 'addTip1',
-    '0%': {
-      left: '24.5%',
-      top: '38%',
-    },
-    '14%': {
-      left: tipLocation + "%",
-      top: '44%',
-    },
-    '20%': {
-      left: tipLocation + "%",
-      top: '47.6%',
-    },
-    '25%': {
-      left: tipLocation + "%",
-      top: '42%',
-    },
-    '90%': {
-      left: '86.4%',
-      top: '28%',
-    },
-    '100%': {
-      left: '86.4%',
-      top: '28%',
-    },
-  })
-}
-
-function makePipetteTubeAnimation(tubeLocation) {
-  $.keyframe.define({
-    name: 'pipetteToTube',
-    '0%': {
-      left: '86.4%',
-      top: '28%',
-    },
-    '5%': {
-      left: '86.4%',
-      top: '35%',
-    },
-    '25%': {
-      left: '86.4%',
-      top: '28%',
-    },
-    '80%': {
-      left: (tubeLocation+10)+'%',
-      top: '23%'
-    },
-    '90%': {
-      left: tubeLocation+'%',
-      top: '28%',
-    },
-    '100%': {
-      left: tubeLocation+'%',
-      top: '39%',
-    }
-  })
-}
-
-function makePipetteToBinAnimation(tubeLocation) {
-  $.keyframe.define({
-    name: 'pipetteToBin',
-    '0%': {
-      left: tubeLocation+'%',
-      top: '39%',
-    },
-    '15%': {
-      left: tubeLocation+'%',
-      top: '31%',
-    },
-    '100%': {
-      left: '57.7%',
-      top: '34.7%',
-    }
-  })
 }

@@ -11,11 +11,14 @@ $(function() {
     item.buildAllItems(domItems).then(function() {
       buildStage(game.steps[0].itemsAdded)
       game.setStep(0)
+      // console.log(makeDynamicAnimation(dynamicDefs[0], 3))
     })
+
+
   })
   // setTimeout(function() {$("#next").off()}, 500)
   $(".stepPanelItem").on("click", function() {
-    console.log("Hello")
+
     $(this).addClass("spin")
     setTimeout(function() {
       $(this).removeClass("spin")
@@ -29,7 +32,7 @@ $(function() {
 
 function loadStep(steps) {
   var stepCount = $(".baseStep").length
-  console.log(stepCount)
+
 
 
   return
@@ -37,9 +40,9 @@ function loadStep(steps) {
 
 function buildStage(initialItemList) {
   initialItems = initialItemList.split(" ")
-  console.log(initialItems.length)
+
   for (i = 0; i < initialItems.length; i++) {
     $("#view").append($(initialItems[i]))
   }
-  console.log("Items Added!")
+
 }
