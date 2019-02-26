@@ -47,9 +47,7 @@ var eventFunctions = {
   "openEnzymePost": function() {
     animate("#micropipette2", 800, "keyframe", "PrepPipette")
     animate("html", 2000, zoom, [25, 46, 9.5, 1000])
-    animate("#micropipette2 *", 2500, "css", [{
-      "display": "block"
-    }])
+    animate("#micropipette2 *", 2500, "removeClass", "opClass")
 
   }, //step 2
 
@@ -94,7 +92,6 @@ var eventFunctions = {
 
   }, //step 5
   "addEnzyme": function() {
-    // $("#s" + game.iteration + "Tube").css("z-index", "5")
     animate("#svgfluid", 10, "animate", [{
       "y": 35.6
     }])
@@ -111,6 +108,7 @@ var eventFunctions = {
 
   }, //step 6
   "mixContents": function() {
+    $(".micropipette").css("z-index", "-1")
     var zoomLeft = 35 + 3 * (game.iteration)
     animate("#view", 0, zoom, [zoomLeft, 66, 12, 1050])
     for (i = 1; i < 4; i++) {
@@ -144,6 +142,7 @@ var eventFunctions = {
   }, //step 7
 
   "discardTip": function() {
+    $(".micropipette").css("z-index", "4")
 
     // in event
     // makeDynamicAnimation("pipetteToBin", game.iteration)
@@ -233,9 +232,8 @@ var eventFunctions = {
   "closeLid": function() {
     animate("#waterBathLid", 0, "keyframe", "replaceLid")
     animate("#view", 1000, zoom, [65, 36, 5, 1500])
-    animate("#waterBathNoLid *", 1000, "css", [{
-      "display": "block"
-    }])
+    animate("#waterBathNoLid *", 2500, "removeClass", "opClass")
+
 
   }, //step 17
   "setTimer": function() {
@@ -246,7 +244,7 @@ var eventFunctions = {
   },
   "setTimerPost": function() {
 
-    animate("#waterBathNoLid *", 1000, "hide");
+    animate("#waterBathNoLid *", 1000, "addClass", "opClass");
     animate("#view", 0, zoom, [65, 36, 1, 1000]);
     animate("#bothDays *, #bothDays, #day1 *", 0, "attr", ["style", ""])
     animate("#pipetteTip1", 0, "hide")

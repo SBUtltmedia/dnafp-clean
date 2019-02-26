@@ -1053,20 +1053,23 @@ animations = {
 
 
 function makeAnimation(name, value) {
+  console.log(name, value)
   var animDef = animations[name];
+  console.log(animDef)
   if(animDef.method){
     keyframes = JSON.parse(replaceKeys(JSON.stringify(animDef.keyframes), animDef.method(value)))
-    console.log(keyframes)
-    console.log(name)
+     console.log(keyframes)
+    // console.log(name)
   }
   else {
     keyframes = animDef.keyframes
   }
   var animation = {
     "props": `${animDef.props}`,
-    "keyframes": keyframes
+    "keyframes": keyframes,
+
   }
-  animations[name] = animation
+    return animation
 }
 
 

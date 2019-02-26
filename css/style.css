@@ -568,7 +568,6 @@ body {
 }
 
 .volumeInput {
-  display: none;
   -webkit-appearance: none;
   width: 45%;
   height: 10%;
@@ -585,7 +584,6 @@ body {
 }
 
 .volumeButton {
-  display: none;
   width: 64%;
   height: 10%;
   left: 100%;
@@ -597,7 +595,6 @@ body {
   outline-width: 0;
 }
 .timerInput {
-  display: none;
   -webkit-appearance: none;
   width: 12%;
   height: 8%;
@@ -614,7 +611,6 @@ body {
 }
 
 .timerButton {
-  display: none;
   width: 13%;
   height: 8%;
   left: 24%;

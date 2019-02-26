@@ -54,7 +54,7 @@ domItems = {
       top: "52%",
     },
     classes: ["item micropipette"],
-    resources: "html/pipetteForm.htm",
+    resources: "",
   },
   "micropipette1": {
     css: {
@@ -62,7 +62,7 @@ domItems = {
       top: "52%",
     },
     classes: ["item micropipette"],
-    resources: "html/pipetteForm.htm",
+    resources: "",
   },
   "micropipette2": {
     css: {
@@ -632,7 +632,7 @@ domItems = {
 }
 
 function highlightObject(highlight, selector) {
-  
+
   if (highlight) {
     animate(selector, 0, "addClass", "highLighted")
   } else {

@@ -29,13 +29,13 @@ console.log(method)
 
   if (method == "keyframe")
     {
-    makeAnimation(param, inputs)
-    var keyframe = animations[param].keyframes
+    var animation = makeAnimation(param, inputs)
+    var keyframe = animation.keyframes
     try {
       $(selector).resetKeyframe(callback);
       $.keyframe.define({
         name: param,
-        ...animations[param].keyframes
+        ...animation.keyframes
       });
     } catch (error) {
       console.error(error);
@@ -48,11 +48,11 @@ console.log(method)
     //$(selector).attr("style","")
     else {
       setTimeout(function() {
-    console.log(animations[param].props)
-        $(selector).playKeyframe(`${param} ${animations[param].props}`, function() {
+    console.log(animation.props)
+        $(selector).playKeyframe(`${param} ${animation.props}`, function() {
 
           var style = $(selector).attr("style");
-          var keyframe = animations[param].keyframes
+          // var keyframe = animation.keyframes
           if (style) {
             style = style.replace(/animation:[^;]*;/g, "")
             $(selector).attr("style", style);
