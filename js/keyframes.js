@@ -1066,7 +1066,7 @@ newObjarray[name]= obj
 //     $.keyframe.define(i);
 //   } catch (error) {
 //     console.error(error);
-//     console.log(i);
+//
 //   }
 //
 // }

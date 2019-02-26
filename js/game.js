@@ -80,9 +80,9 @@ function Game(steps) {
     this.currentStep = this.steps[currentStepCount]
     this.currentGroupId = this.getGroupMembership(currentStepCount)
     this.currentRepeats = this.groups[this.currentGroupId].repeats
-    
+
     menu.setMenuItem(currentStepCount)
-    
+
     menu.highlightMenuItem(currentStepCount)
     step.startStep(this.currentStep)
 
@@ -98,11 +98,11 @@ function Game(steps) {
     menu.setItemCompleted(currentStepNumber)
     game.steps[currentStepNumber].completed = "true"
     var nextStepNum = ((this.steps.indexOf(this.currentStep) + 1) % this.steps.length)
-    
+
     var currentGroup = this.groups[this.currentGroupId]
     if (currentGroup.steps.indexOf(this.currentStep.id) == currentGroup.steps.length - 1) {
       if (this.iteration < this.currentRepeats - 1) {
-        for (i = 1; i < currentGroup.steps.length; i++) {
+        for (i = 0; i < currentGroup.steps.length; i++) {
           this.steps[nextStepNum - i].completed = "false"
         }
         nextStepNum -= currentGroup.steps.length

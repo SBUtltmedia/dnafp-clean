@@ -632,7 +632,7 @@ domItems = {
 }
 
 function highlightObject(highlight, selector) {
-  console.log(highlight, selector);
+  
   if (highlight) {
     animate(selector, 0, "addClass", "highLighted")
   } else {

@@ -1,6 +1,6 @@
 animations = {
   "moveTube": {
-    "props": "moveTube 0.5s linear 0s 1 normal forwards",
+    "props": "0.5s linear 0s 1 normal forwards",
     "keyframes": {
       "100%": {
         "top": "63%"
@@ -8,7 +8,7 @@ animations = {
     }
   },
   "closeCap": {
-    "props": "closeCap 0.5s linear normal forwards",
+    "props": "0.5s linear normal forwards",
     "keyframes": {
       "0%": {
         "transform": "rotate(-135deg)"
@@ -19,7 +19,7 @@ animations = {
     }
   },
   "tubeDown": {
-    "props": "tubeDown 0.5s linear 0s 1 normal forwards",
+    "props": "0.5s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "top": "63%"
@@ -30,7 +30,7 @@ animations = {
     }
   },
   "movePipette": {
-    "props": "movePipette 8s linear 0s 1 normal forwards",
+    "props": "8s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "0.5%",
@@ -63,7 +63,7 @@ animations = {
     }
   },
   "removeLid": {
-    "props": "removeLid 0.9s linear 0s 1 normal forwards",
+    "props": "0.9s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "top": "21.58%",
@@ -85,7 +85,7 @@ animations = {
     }
   },
   "replaceLid": {
-    "props": "replaceLid 0.9s linear 0s 1 normal forwards",
+    "props": "0.9s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "top": "11.6%",
@@ -107,7 +107,7 @@ animations = {
     }
   },
   "flickTube": {
-    "props": "flickTube 0.6s linear 0s 1 normal forwards",
+    "props": "0.6s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "top": "63%",
@@ -132,7 +132,7 @@ animations = {
     }
   },
   "tapTube": {
-    "props": "tapTube 1.6s linear 0s 1 normal forwards",
+    "props": "1.6s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "top": "63%"
@@ -167,7 +167,7 @@ animations = {
     }
   },
   "PrepPipette": {
-    "props": "PrepPipette 1s linear 0s 1 normal forwards",
+    "props": "1s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "14.5%",
@@ -179,21 +179,8 @@ animations = {
       }
     }
   },
-  "pipetteFromBinToPrep": {
-    "props": "pipetteFromBinToPrep 1.6s linear 0s 1 normal forwards",
-    "keyframes": {
-      "0%": {
-        "left": "57.7%",
-        "top": "34.7%"
-      },
-      "100%": {
-        "left": "24.5%",
-        "top": "38%"
-      }
-    }
-  },
   "tipReset": {
-    "props": "tipReset .1s linear 0s 1 normal forwards",
+    "props": ".1s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {},
       "100%": {
@@ -203,7 +190,7 @@ animations = {
     }
   },
   "addTip1": {
-    "props": "addTip1 3s linear 0s 1 normal forwards",
+    "props": "3s linear 0s 1 normal forwards",
     "keyframes": {
       "0": {},
       "100%": {
@@ -213,7 +200,7 @@ animations = {
     }
   },
   "pipetteBacktoNormal": {
-    "props": "pipetteBacktoNormal 2s linear 0s 1 normal forwards",
+    "props": "2s linear 0s 1 normal forwards",
     "keyframes": {
       "60%": {
         "left": "27.5%",
@@ -226,7 +213,7 @@ animations = {
     }
   },
   "addTipp1": {
-    "props": "addTipp1 3s linear 0s 1 normal forwards",
+    "props": "3s linear 0s 1 normal forwards",
     "keyframes": {
       "100%": {
         "left": "22.9%",
@@ -234,25 +221,8 @@ animations = {
       }
     }
   },
-  "addTip2": {
-    "props": "addTip2 5s linear 0s 1 normal forwards",
-    "keyframes": {
-      "0%": {
-        "left": "1.5%",
-        "top": "52%"
-      },
-      "90%": {
-        "left": "17%",
-        "top": "47.6%"
-      },
-      "100%": {
-        "left": "17%",
-        "top": "42%"
-      }
-    }
-  },
   "lowerPipette": {
-    "props": "lowerPipette 0.4s linear 0s normal forwards",
+    "props": "0.4s linear 0s normal forwards",
     "keyframes": {
       "0%": {
         "left": "24.5%",
@@ -265,7 +235,7 @@ animations = {
     }
   },
   "moveTip1": {
-    "props": "moveTip1 5s linear 0s 1 normal forwards",
+    "props": "5s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "20.8%",
@@ -290,7 +260,7 @@ animations = {
     }
   },
   "tipToBin": {
-    "props": "tipToBin .5s linear 0s 1 normal forwards",
+    "props": ".5s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "top": "100%"
@@ -310,7 +280,7 @@ animations = {
     }
   },
   "pipetteToBin": {
-    "props": "pipetteToBin 1.6s linear 0s 1 normal forwards",
+    "props": "1.6s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {},
       "100%": {
@@ -320,7 +290,7 @@ animations = {
     }
   },
   "moveLoadingDye": {
-    "props": "moveLoadingDye 2s linear 0s 1 normal forwards",
+    "props": "2s linear 0s 1 normal forwards",
     "keyframes": {
       "15%": {
         "top": "16%",
@@ -337,7 +307,7 @@ animations = {
     }
   },
   "moveLoadingDyeback": {
-    "props": "moveLoadingDyeback 2s linear 0s 1 normal forwards",
+    "props": "2s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "top": "28%",
@@ -358,7 +328,7 @@ animations = {
     }
   },
   "addDyeToTube": {
-    "props": "addDyeToTube 3s linear 0s 1 normal forwards",
+    "props": "3s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "22.9%",
@@ -379,7 +349,7 @@ animations = {
     }
   },
   "returnLoadingDye1": {
-    "props": "returnLoadingDye1 2s linear 0s 1 normal forwards",
+    "props": "2s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "top": "28%",
@@ -400,7 +370,7 @@ animations = {
     }
   },
   "moveLoadingDye2": {
-    "props": "moveLoadingDye2 2s linear 0s 1 normal forwards",
+    "props": "2s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "11.7%",
@@ -421,7 +391,7 @@ animations = {
     }
   },
   "ejectTip": {
-    "props": "ejectTip 0.8s linear 0s 1 normal forwards",
+    "props": "0.8s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "55.3%",
@@ -434,7 +404,7 @@ animations = {
     }
   },
   "tipToTube1": {
-    "props": "tipToTube1 3.4s linear 0s 1 normal forwards",
+    "props": "3.4s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "89%",
@@ -459,7 +429,7 @@ animations = {
     }
   },
   "moveBlock": {
-    "props": "moveBlock 1s linear 0s 1 normal forwards",
+    "props": "1s linear 0s 1 normal forwards",
     "keyframes": {
       "100%": {
         "left": "30.72%",
@@ -468,7 +438,7 @@ animations = {
     }
   },
   "tube0ToBath": {
-    "props": "tube0ToBath 1s linear 0s 1 normal forwards",
+    "props": "1s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "35.5%",
@@ -481,7 +451,7 @@ animations = {
     }
   },
   "tube1ToBath": {
-    "props": "tube1ToBath 1s linear 0s 1 normal forwards",
+    "props": "1s linear 0s 1 normal forwards",
     "keyframes": {
       "100%": {
         "left": "33.52%",
@@ -490,7 +460,7 @@ animations = {
     }
   },
   "tube2ToBath": {
-    "props": "tube2ToBath 1s linear 0s 1 normal forwards",
+    "props": "1s linear 0s 1 normal forwards",
     "keyframes": {
       "100%": {
         "left": "36.02%",
@@ -499,7 +469,7 @@ animations = {
     }
   },
   "tube3ToBath": {
-    "props": "tube3ToBath 1s linear 0s 1 normal forwards",
+    "props": "1s linear 0s 1 normal forwards",
     "keyframes": {
       "100%": {
         "left": "38.52%",
@@ -508,7 +478,7 @@ animations = {
     }
   },
   "tube4ToBath": {
-    "props": "tube4ToBath 1s linear 0s 1 normal forwards",
+    "props": "1s linear 0s 1 normal forwards",
     "keyframes": {
       "100%": {
         "left": "41.02%",
@@ -517,7 +487,7 @@ animations = {
     }
   },
   "tube5ToBath": {
-    "props": "tube5ToBath 1s linear 0s 1 normal forwards",
+    "props": "1s linear 0s 1 normal forwards",
     "keyframes": {
       "100%": {
         "left": "43.52%",
@@ -526,7 +496,7 @@ animations = {
     }
   },
   "pressTube0": {
-    "props": "pressTube0 0.3s linear 0s 1 normal forwards",
+    "props": "0.3s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "31.02%",
@@ -539,7 +509,7 @@ animations = {
     }
   },
   "pressTube1": {
-    "props": "pressTube1 0.3s linear 0s 1 normal forwards",
+    "props": "0.3s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "33.52%",
@@ -552,7 +522,7 @@ animations = {
     }
   },
   "pressTube2": {
-    "props": "pressTube2 0.3s linear 0s 1 normal forwards",
+    "props": "0.3s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "36.02%",
@@ -565,7 +535,7 @@ animations = {
     }
   },
   "pressTube3": {
-    "props": "pressTube3 0.3s linear 0s 1 normal forwards",
+    "props": "0.3s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "38.52%",
@@ -578,7 +548,7 @@ animations = {
     }
   },
   "pressTube4": {
-    "props": "pressTube4 0.3s linear 0s 1 normal forwards",
+    "props": "0.3s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "41.02%",
@@ -591,7 +561,7 @@ animations = {
     }
   },
   "pressTube5": {
-    "props": "pressTube5 0.3s linear 0s 1 normal forwards",
+    "props": "0.3s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "43.52%",
@@ -604,7 +574,7 @@ animations = {
     }
   },
   "insertRack": {
-    "props": "insertRack 1.8s linear 0s 1 normal forwards",
+    "props": "1.8s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "30.72%",
@@ -625,7 +595,7 @@ animations = {
     }
   },
   "insertTube0": {
-    "props": "insertTube0 1.8s linear 0s 1 normal forwards",
+    "props": "1.8s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "31.02%",
@@ -646,7 +616,7 @@ animations = {
     }
   },
   "insertTube1": {
-    "props": "insertTube1 1.8s linear 0s 1 normal forwards",
+    "props": "1.8s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "33.52%",
@@ -667,7 +637,7 @@ animations = {
     }
   },
   "insertTube2": {
-    "props": "insertTube2 1.8s linear 0s 1 normal forwards",
+    "props": "1.8s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "36.02%",
@@ -688,7 +658,7 @@ animations = {
     }
   },
   "insertTube3": {
-    "props": "insertTube3 1.8s linear 0s 1 normal forwards",
+    "props": "1.8s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "38.52%",
@@ -709,7 +679,7 @@ animations = {
     }
   },
   "insertTube4": {
-    "props": "insertTube4 1.8s linear 0s 1 normal forwards",
+    "props": "1.8s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "41.02%",
@@ -730,7 +700,7 @@ animations = {
     }
   },
   "insertTube5": {
-    "props": "insertTube5 1.8s linear 0s 1 normal forwards",
+    "props": "1.8s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "left": "43.52%",
@@ -751,7 +721,7 @@ animations = {
     }
   },
   "tipVisible": {
-    "props": "tipVisible 0.1s linear 0s normal forwards",
+    "props": "0.1s linear 0s normal forwards",
     "keyframes": {
       "0%": {
         "visibility": "hidden"
@@ -762,7 +732,7 @@ animations = {
     }
   },
   "tipHidden": {
-    "props": "tipHidden 0.1s linear 0s normal forwards",
+    "props": "0.1s linear 0s normal forwards",
     "keyframes": {
       "0%": {
         "visibility": "visible"
@@ -772,19 +742,19 @@ animations = {
       }
     }
   },
-  "rotateCap": {
-    "props": "rotateCap 0.5s linear forwards",
-    "keyframes": {
-      "0%": {
-        "transform": "rotate(0deg)"
-      },
-      "100%": {
-        "transform": "rotate(-135deg)"
-      }
-    }
-  },
+  // "roootateCap": {
+  //   "props": "0.5s linear forwards",
+  //   "keyframes": {
+  //     "0%": {
+  //       "transform": "rotate(0deg)"
+  //     },
+  //     "100%": {
+  //       "transform": "rotate(-135deg)"
+  //     }
+  //   }
+  // },
   "quickFadeIn": {
-    "props": "quickFadeIn .125s 0s 1 linear normal forwards",
+    "props": ".125s 0s 1 linear normal forwards",
     "keyframes": {
       "0%": {
         "opacity": 0
@@ -795,7 +765,7 @@ animations = {
     }
   },
   "slowFadeIn": {
-    "props": "slowFadeIn 2s 0s 1 linear normal forwards",
+    "props": "2s 0s 1 linear normal forwards",
     "keyframes": {
       "0%": {
         "opacity": 0
@@ -806,7 +776,7 @@ animations = {
     }
   },
   "quickFadeOut": {
-    "props": "quickFadeOut .125s 0s 1 linear normal forwards",
+    "props": ".125s 0s 1 linear normal forwards",
     "keyframes": {
       "0%": {
         "opacity": 1
@@ -817,7 +787,7 @@ animations = {
     }
   },
   "slowFadeOut": {
-    "props": "slowFadeOut 2s 0s 1 linear normal forwards",
+    "props": "2s 0s 1 linear normal forwards",
     "keyframes": {
       "0%": {
         "opacity": 1
@@ -828,7 +798,7 @@ animations = {
     }
   },
   "removeComb": {
-    "props": "removeComb 1s 0s 1 linear normal forwards",
+    "props": "1s 0s 1 linear normal forwards",
     "keyframes": {
       "0%": {
         "top": "70%"
@@ -842,7 +812,7 @@ animations = {
     }
   },
   "placeItem": {
-    "props": "placeTray 1s 0s 1 linear normal forwards",
+    "props": "1s 0s 1 linear normal forwards",
     "keyframes": {
       "0%": {
         "visibility": "hidden"
@@ -853,7 +823,7 @@ animations = {
     }
   },
   "pourStain": {
-    "props": "pourStain 2s 0s 1 linear normal forwards",
+    "props": "2s 0s 1 linear normal forwards",
     "keyframes": {
       "0%": {
         "transform": "rotate(0deg)"
@@ -868,7 +838,7 @@ animations = {
     }
   },
   "pourStainRev": {
-    "props": "pourStainRev 2s 0s 1 linear normal forwards",
+    "props": "2s 0s 1 linear normal forwards",
     "keyframes": {
       "0%": {
         "transform": "rotate(105deg)"
@@ -883,7 +853,7 @@ animations = {
     }
   },
   "moveEnz": {
-    "props": "moveEnz 0.5s linear 0s 1 normal forwards",
+    "props": "0.5s linear 0s 1 normal forwards",
     "keyframes": {
       "100%": {
         "top": "54%"
@@ -891,7 +861,7 @@ animations = {
     }
   },
   "moveEnzBack": {
-    "props": "moveEnzBack 1.5s linear 0s 1 normal forwards",
+    "props": "1.5s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "top": "54%"
@@ -901,8 +871,8 @@ animations = {
       }
     }
   },
-  "hideTip1": {
-    "props": "hideTip1 .7s linear 0s 1 normal forwards",
+  "hideTip": {
+    "props": ".7s linear 0s 1 normal forwards",
     "keyframes": {
       "0%": {
         "opacity": 1
@@ -915,53 +885,89 @@ animations = {
       }
     }
   },
-  "hideTipp1": {
-    "props": "hideTipp1 .9s linear 0s 1 normal forwards",
+  "pipetteFromBinToPrep": {
+    "props": "1.6s linear 0s 1 normal forwards",
     "keyframes": {
-      "0%": {
-        "opacity": 1
-      },
-      "47%": {
-        "opacity": 1
-      },
-      "100%": {
-        "opacity": 0
-      }
+      '0%': {
+      "left": '57.7%',
+      "top": '34.7%',
+    },
+    '100%': {
+      "left": '24.5%',
+      "top": '38%',
     }
   }
-
-}
-
-
-dynamicDefs = {
-  "pipetteToTube": {
-    keytemplate: {
+  },
+  "pipetteFromBinToOrigin": {
+    "props": "1.8s linear 0s 1 normal forwards",
+    "keyframes": {
       '0%': {
-        left: '86.4%',
-        top: '28%',
-      },
-      '5%': {
-        left: '86.4%',
-        top: '35%',
-      },
-      '25%': {
-        left: '86.4%',
-        top: '28%',
-      },
-      '80%': {
-        left: 'var2%',
-        top: '23%'
-      },
-      '90%': {
-        left: 'var1%',
-        top: '28%',
+      "left": '57.7%',
+      "top": '34.7%',
       },
       '100%': {
-        left: 'var1%',
-        top: '39%',
+      "left": "14.5%",
+      "top": "52%"
+      }
+    }
+  },
+  // "rootateCap":{
+  //   "props": "0.5s linear 0s 1 normal forwards",
+  //   "keyframes": {
+  //     '100%': {
+  //       "transform": "rotate(var1deg)"
+  //     }
+  //   },
+  //   method(degrees) {
+  //     var degreeeee = degrees
+  //     return {
+  //       var1: degreeeee
+  //     }
+  //   }
+  // },
+  "rotateCap": {
+    "keyframes": {
+      '100%': {
+        "transform": "rotate(var1deg)"
       }
     },
-    props: "3.4s linear 0s 1 normal forwards",
+    "props": "0.5s linear 0s 1 normal forwards",
+    method(degrees) {
+      return {
+        var1: degrees
+      }
+    }
+  },
+
+
+  "pipetteToTube": {
+    "keyframes": {
+      '0%': {
+        "left": '86.4%',
+        "top": '28%',
+      },
+      '5%': {
+        "left": '86.4%',
+        "top": '35%',
+      },
+      '25%': {
+        "left": '86.4%',
+        "top": '28%',
+      },
+      '80%': {
+        "left": 'var2%',
+        "top": '23%'
+      },
+      '90%': {
+        "left": 'var1%',
+        "top": '28%',
+      },
+      '100%': {
+        "left": 'var1%',
+        "top": '39%',
+      }
+    },
+    "props": "3.4s linear 0s 1 normal forwards",
     method(iteration) {
       var viewWidth = parseFloat($('#view').css("width"));
       var tubeLeft = parseFloat($(`#s${iteration}Tube`).css("left"))
@@ -975,35 +981,34 @@ dynamicDefs = {
     }
   },
   "addTip1": {
-    keytemplate: {
+    "keyframes": {
       '0%': {
-        left: '24.5%',
-        top: '38%',
+        "left": '24.5%',
+        "top": '38%',
       },
       '14%': {
-        left: 'var1%',
-        top: '44%',
+        "left": 'var1%',
+        "top": '44%',
       },
       '20%': {
-        left: 'var1%',
-        top: '47.6%',
+        "left": 'var1%',
+        "top": '47.6%',
       },
       '25%': {
-        left: 'var1%',
-        top: '42%',
+        "left": 'var1%',
+        "top": '42%',
       },
       '90%': {
-        left: '86.4%',
-        top: '28%',
+        "left": '86.4%',
+        "top": '28%',
       },
       '100%': {
-        left: '86.4%',
-        top: '28%',
+        "left": '86.4%',
+        "top": '28%',
       }
     },
-    props: "3s linear 0s 1 normal forwards",
+    "props": "3s linear 0s 1 normal forwards",
     method(selector) {
-      console.log(selector)
       var selectedTip = selector.split("tip")[1];
       var tipLeft = parseInt($(`#${selector}`).css("left"))
       var viewWidth = parseFloat($('#view').css("width"));
@@ -1016,21 +1021,21 @@ dynamicDefs = {
     }
   },
   "pipetteToBin": {
-    keytemplate: {
+    "keyframes": {
       '0%': {
-        left: 'var1%',
-        top: '39%',
+        "left": 'var1%',
+        "top": '39%',
       },
       '25%': {
-        left: 'var1%',
-        top: '31%',
+        "left": 'var1%',
+        "top": '31%',
       },
       '100%': {
-        left: '57.7%',
-        top: '34.7%',
+        "left": '57.7%',
+        "top": '34.7%',
       }
     },
-    props: "1.6s linear 0s 1 normal forwards",
+    "props": "1.6s linear 0s 1 normal forwards",
     method(iteration) {
       var viewWidth = parseFloat($('#view').css("width"));
       var tubeLeft = parseFloat($(`#s${iteration}Tube`).css("left"))
@@ -1041,19 +1046,27 @@ dynamicDefs = {
         var1: tubePos
       }
     }
-  }
+  },
+
 }
 
 
-function makeDynamicAnimation(name, value) {
-  var animDef = dynamicDefs[name];
-  console.log(animDef)
+
+function makeAnimation(name, value) {
+  var animDef = animations[name];
+  if(animDef.method){
+    keyframes = JSON.parse(replaceKeys(JSON.stringify(animDef.keyframes), animDef.method(value)))
+    console.log(keyframes)
+    console.log(name)
+  }
+  else {
+    keyframes = animDef.keyframes
+  }
   var animation = {
-    props: `${name} ${animDef.props}`,
-    keyframes: JSON.parse(replaceKeys(JSON.stringify(animDef.keytemplate), animDef.method(value)))
+    "props": `${animDef.props}`,
+    "keyframes": keyframes
   }
   animations[name] = animation
-  console.log(animation.keyframes)
 }
 
 

@@ -1,5 +1,5 @@
-function animate(selector, delay, method, param, callback = () => {}) {
-
+function animate(selector, delay, method, param, inputs = [], callback = () => {}) {
+console.log(method)
   var animateDur = 400;
   if (game.testMode) {
     delay = 0
@@ -29,30 +29,27 @@ function animate(selector, delay, method, param, callback = () => {}) {
 
   if (method == "keyframe")
     {
-
+    makeAnimation(param, inputs)
+    var keyframe = animations[param].keyframes
     try {
+      $(selector).resetKeyframe(callback);
       $.keyframe.define({
         name: param,
         ...animations[param].keyframes
       });
     } catch (error) {
       console.error(error);
-      console.log(param);
-    }
-    console.log(param)
-    if (game.testMode) {
-      var endState = findKeyFrameDef(param.split("_")[1])
 
-      $(selector).css(endState)
+    }
+    if (game.testMode) {
+      $(selector).css(keyframe["100%"])
       callback();
     }
     //$(selector).attr("style","")
     else {
       setTimeout(function() {
-        //
-        //
-        console.log(param)
-        $(selector).playKeyframe(animations[param].props, function() {
+    console.log(animations[param].props)
+        $(selector).playKeyframe(`${param} ${animations[param].props}`, function() {
 
           var style = $(selector).attr("style");
           var keyframe = animations[param].keyframes
@@ -117,14 +114,7 @@ function animate(selector, delay, method, param, callback = () => {}) {
     } else {
       setTimeout(function() {
 
-        $(selector).animate(...param, function() {
-
-          // if ($(selector).css("opacity") == 0) {
-          //     $(selector).css("display", "none")
-          //
-          // }
-          callback();
-        });
+        $(selector).animate(...param);
       }, delay)
     }
     //$(selector).delay(delay).playKeyframe(param, function () {});

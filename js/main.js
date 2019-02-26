@@ -11,7 +11,6 @@ $(function() {
     item.buildAllItems(domItems).then(function() {
       buildStage(game.steps[0].itemsAdded)
       game.setStep(0)
-      // console.log(makeDynamicAnimation(dynamicDefs[0], 3))
     })
 
 
