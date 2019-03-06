@@ -7,10 +7,14 @@ function Game(steps) {
   this.testMode = false
   this.state = stateInit()
   this.score = 0
-  this.hash = location.hash.split("#")[1];
+  if(location.hash)
+  {
+  [,this.hash,this.hashLoop] = location.hash.replace("_","#").split("#")
+
+  }
 
   if (this.hash) {
-      this.testMode = true;
+    this.testMode = true;
   }
 
 
@@ -102,7 +106,7 @@ function Game(steps) {
     var currentGroup = this.groups[this.currentGroupId]
     if (currentGroup.steps.indexOf(this.currentStep.id) == currentGroup.steps.length - 1) {
       if (this.iteration < this.currentRepeats - 1) {
-        for (i = 0; i < currentGroup.steps.length; i++) {
+        for (i = 1; i < currentGroup.steps.length; i++) {
           this.steps[nextStepNum - i].completed = "false"
         }
         nextStepNum -= currentGroup.steps.length

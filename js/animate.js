@@ -42,13 +42,6 @@ function animate(selector, delay, method, param, inputs = [], callback = () => {
     }
     var propDef = `${randParam} ${animation.props}`
 
-
-    console.log(propDef)
-
-    console.log(animDef)
-
-console.log(game.testMode)
-
     if (game.testMode) {
       $(selector).css(keyframe["100%"])
       callback();

@@ -5,7 +5,7 @@ function Step() {
     //highlightObject(true,step.logic.s.logic.eventSelector);
     var s = jQuery.extend(true, {}, step);
     var clicked = false;
-    s.logic.eventSelector= s.logic.eventSelector.replace("$iter$", game.iteration)
+    s.logic.eventSelector = s.logic.eventSelector.replace("$iter$", game.iteration)
     $("#headerText").text(s.longText);
     $("#footerText").text(s.bottomText);
     // $("#view").off()
@@ -15,13 +15,22 @@ function Step() {
     //
     // });
 
-    highlightObject(true,s.logic.eventSelector);
+    highlightObject(true, s.logic.eventSelector);
 
     var composite = function(evt) {
       evt.preventDefault();
 
-
+      curGroup = game.getGroupMembership(s.id)
       window["eventFunctions"][s.logic.eventFunction](evt)
+      if (game.testMode && game.groups[curGroup].repeats) {
+        if (game.hashLoop) {
+          console.log(game.hashLoop)
+          game.iteration = game.hashLoop - 1
+        } else {
+          game.iteration = game.groups[curGroup].repeats - 1
+          console.log("Game loop value is: ", game.hashLoop)
+        }
+      }
       if (game.testMode && s.logic && s.logic.criteria) {
         var criteriaVar = game.state[s.logic.criteria.variable]
         criteriaVar[game.iteration] = JSON.parse(JSON.stringify(s.logic.criteria.value)) //returns reference to value, don't touch
@@ -54,14 +63,14 @@ function Step() {
       }
     }
     //
-   $(s.logic.eventSelector).on(s.logic.eventType, composite);
+    $(s.logic.eventSelector).on(s.logic.eventType, composite);
     //$("#enzTube").on("click", composite);
 
-    if (game.testMode && s.id!=game.hash) {
-    $(s.logic.eventSelector).trigger(s.logic.eventType);
+    if (game.testMode && s.id != game.hash) {
+      $(s.logic.eventSelector).trigger(s.logic.eventType);
     }
-    if (game.testMode && s.id==game.hash) {
-    game.testMode = false
+    if (game.testMode && s.id == game.hash) {
+      game.testMode = false
     }
 
   }

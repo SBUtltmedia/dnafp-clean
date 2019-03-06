@@ -187,7 +187,7 @@
           ]
         },
         {
-          "repeats": 2,
+          "repeats": 6,
           "id": "pressTube",
           "shortText": "Expose tube bottoms",
           "steps": [{
