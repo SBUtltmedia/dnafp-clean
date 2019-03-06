@@ -1,9 +1,10 @@
 function animate(selector, delay, method, param, inputs = [], callback = () => {}) {
-console.log(method)
-  var animateDur = 400;
+
+
+  var defer = $.Deferred();
   if (game.testMode) {
     delay = 0
-    animateDur = 0;
+
   }
 
 
@@ -21,45 +22,64 @@ console.log(method)
     setTimeout(function() {
       $(selector).css(...param);
       callback();
+      defer.resolve("css")
     }, delay)
-
+    defer.resolve(method)
     //$(selector).delay(delay).playKeyframe(param, function () {});
   }
 
 
-  if (method == "keyframe")
-    {
+  if (method == "keyframe") {
     var animation = makeAnimation(param, inputs)
     var keyframe = animation.keyframes
-    try {
-      $(selector).resetKeyframe(callback);
-      $.keyframe.define({
-        name: param,
-        ...animation.keyframes
-      });
-    } catch (error) {
-      console.error(error);
 
+    //    $(selector).resetKeyframe(callback);
+
+    var randParam = param + Math.floor(Math.random() * 10000000)
+    var animDef = {
+      name: randParam,
+      ...animation.keyframes
     }
+    var propDef = `${randParam} ${animation.props}`
+
+
+    console.log(propDef)
+
+    console.log(animDef)
+
+console.log(game.testMode)
+
     if (game.testMode) {
       $(selector).css(keyframe["100%"])
       callback();
+      defer.resolve("keyframetestmode")
     }
     //$(selector).attr("style","")
     else {
       setTimeout(function() {
-    console.log(animation.props)
-        $(selector).playKeyframe(`${param} ${animation.props}`, function() {
 
-          var style = $(selector).attr("style");
-          // var keyframe = animation.keyframes
-          if (style) {
-            style = style.replace(/animation:[^;]*;/g, "")
-            $(selector).attr("style", style);
-          }
+        //
+
+        $.keyframe.define(animDef)
+
+        $(selector).playKeyframe(propDef, function() {
+
           $(selector).css(keyframe["100%"])
+          $(selector).resetKeyframe(function() {
+
+            var style = $(selector).attr("style");
+            // var keyframe = animation.keyframes
+            if (style) {
+              style = style.replace(/animation:[^;]*;/g, "")
+              $(selector).attr("style", style);
+
+            }
+            defer.resolve(method)
+          });
         });
         callback();
+
+
       }, delay)
     }
     //$(selector).delay(delay).playKeyframe(param, function () {});
@@ -72,6 +92,7 @@ console.log(method)
     setTimeout(function() {
       $(selector).addClass(param);
       callback();
+      defer.resolve(method)
     }, delay)
   }
 
@@ -79,6 +100,7 @@ console.log(method)
     setTimeout(function() {
       $(selector).removeClass(param);
       callback();
+      defer.resolve(method)
     }, delay)
   }
 
@@ -87,6 +109,8 @@ console.log(method)
     setTimeout(function() {
       $("#view").append($(selector));
       callback();
+      defer.resolve(method)
+
     }, delay)
   }
 
@@ -94,6 +118,7 @@ console.log(method)
     setTimeout(function() {
       $("#storage").append($(selector));
       callback();
+      defer.resolve(method)
     }, delay)
   }
 
@@ -103,16 +128,16 @@ console.log(method)
     setTimeout(function() {
       $(selector).attr(param[0], param[1]);
       callback();
+      defer.resolve(method)
     }, delay)
   }
 
-  if (method == "animate")
-
-  {
+  if (method == "animate") {
     if (game.testMode) {
       $(selector).css(...param)
     } else {
       setTimeout(function() {
+        defer.resolve(method)
 
         $(selector).animate(...param);
       }, delay)
@@ -122,14 +147,21 @@ console.log(method)
     if (method.name == "zoom" && game.testMode) {
       zoomInstant(param[0], param[1], param[2])
       callback()
+      defer.resolve(method)
+
     } else {
       $(selector).delay(delay).queue(function() {
         method(...param, game.testMode)
         $(this).dequeue();
         callback();
+        defer.resolve(method)
       })
     }
 
 
   }
+  return defer.promise();
+
+
+
 }

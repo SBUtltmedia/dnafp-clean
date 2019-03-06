@@ -74,8 +74,8 @@ var eventFunctions = {
     }
     // makeDynamicAnimation("addTip1", selector)
     animate("#micropipette2", 0, "keyframe", "addTip1", selector)
-    animate("#"+selector, 0, "keyframe", "hideTip")
-    animate("#pipetteTip1", 500, "removeClass", "opClass")
+    animate("#" + selector, 0, "keyframe", "hideTip")
+    animate("#pipetteTip1", 750, "removeClass", "opClass")
 
   }, //step 3
   //step 4
@@ -83,7 +83,7 @@ var eventFunctions = {
 
 
     game.state["microtubeState"][game.iteration] = 1;
-     // animate("#enzTube svg .Cap", 0, "keyframe", "rotateCap", -120)
+    // animate("#enzTube svg .Cap", 0, "keyframe", "rotateCap", -120)
     animate("#s" + game.iteration + "Tube svg .Cap", 1000, "keyframe", "rotateCap", -120)
 
     animate("#s" + game.iteration + "Tube", 0, "keyframe", "moveTube")
@@ -100,9 +100,11 @@ var eventFunctions = {
     // in event
     // makeDynamicAnimation("pipetteToTube", game.iteration)
     animate("#micropipette2", 0, "keyframe", "pipetteToTube", game.iteration)
-    if (game.iteration == 5){
-      animate("#enzTube", 1500, "keyframe", "moveEnzBack")
+    if (game.iteration == 5) {
+
       animate("#enzTube svg .Cap", 1000, "keyframe", "rotateCap", 0)
+      animate("#enzTube", 500, "keyframe", "moveEnzBack")
+      //   .then(function(){animate("#enzTube", 500, "keyframe", "moveEnzBack")})
     }
 
 
@@ -147,24 +149,30 @@ var eventFunctions = {
     // in event
     // makeDynamicAnimation("pipetteToBin", game.iteration)
     animate("#micropipette2", 0, "keyframe", "pipetteToBin", game.iteration)
+      .then(function() {
+        animate("#pipetteTip1", 0, "keyframe", "tipToBin")
+          .then(function() {
+            animate("#pipetteTip1", 0, "addClass", "opClass")
+              .then(function() {$("#pipetteTip1").resetKeyframe(()=>{})
+                console.log("Resetting")
+                $("#pipetteTip1").css("top", "96%")
+                })
+                  .then(function() {
+                    if (game.iteration == 5) {
+                      animate("#micropipette2", 0, "keyframe", "pipetteFromBinToOrigin")
+                    } else {
+                      animate("#micropipette2", 0, "keyframe", "pipetteFromBinToPrep")
+                    }
 
-
-    animate("#pipetteTip1", 2300, "keyframe", "tipToBin")
-    animate("#pipetteTip1", 2700, "keyframe", "tipReset")
-    animate("#pipetteTip1", 2700, "addClass", "opClass")
-
-    if (game.iteration == 5){
-      animate("#micropipette2", 3000, "keyframe", "pipetteFromBinToOrigin")
-    }
-    else {
-      animate("#micropipette2", 3000, "keyframe", "pipetteFromBinToPrep")
-
-    }
+              })
+          })
+      })
 
 
   },
   "closeTube": function() {
     animate("#s" + game.iteration + "Tube svg .Cap", 0, "keyframe", "rotateCap", 0)
+
     $("#s" + game.iteration + "Tube").css("z-index", "0")
     game.state["microtubeState"][game.iteration] = 2;
   },

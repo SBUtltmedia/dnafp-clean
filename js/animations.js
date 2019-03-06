@@ -179,16 +179,6 @@ animations = {
       }
     }
   },
-  "tipReset": {
-    "props": ".1s linear 0s 1 normal forwards",
-    "keyframes": {
-      "0%": {},
-      "100%": {
-        "left": "54.7%",
-        "top": "96%"
-      }
-    }
-  },
   "addTip1": {
     "props": "3s linear 0s 1 normal forwards",
     "keyframes": {
@@ -268,7 +258,7 @@ animations = {
       "10.9091%": {
         "top": "105%"
       },
-      "72.72727%": {
+      "100%": {
         "top": "120%"
       },
       "90%": {
@@ -886,28 +876,28 @@ animations = {
     }
   },
   "pipetteFromBinToPrep": {
-    "props": "1.6s linear 0s 1 normal forwards",
+    "props": "1.7s linear 0s 1 normal forwards",
     "keyframes": {
       '0%': {
-      "left": '57.7%',
-      "top": '34.7%',
-    },
-    '100%': {
-      "left": '24.5%',
-      "top": '38%',
+        // "left": '57.7%',
+        // "top": '34.7%',
+      },
+      '100%': {
+        "left": '24.5%',
+        "top": '38%',
+      }
     }
-  }
   },
   "pipetteFromBinToOrigin": {
     "props": "1.8s linear 0s 1 normal forwards",
     "keyframes": {
       '0%': {
-      "left": '57.7%',
-      "top": '34.7%',
+        "left": '57.7%',
+        "top": '34.7%',
       },
       '100%': {
-      "left": "14.5%",
-      "top": "52%"
+        "left": "14.5%",
+        "top": "52%"
       }
     }
   },
@@ -1053,15 +1043,10 @@ animations = {
 
 
 function makeAnimation(name, value) {
-  console.log(name, value)
   var animDef = animations[name];
-  console.log(animDef)
-  if(animDef.method){
+  if (animDef.method) {
     keyframes = JSON.parse(replaceKeys(JSON.stringify(animDef.keyframes), animDef.method(value)))
-     console.log(keyframes)
-    // console.log(name)
-  }
-  else {
+  } else {
     keyframes = animDef.keyframes
   }
   var animation = {
@@ -1069,7 +1054,7 @@ function makeAnimation(name, value) {
     "keyframes": keyframes,
 
   }
-    return animation
+  return animation
 }
 
 
