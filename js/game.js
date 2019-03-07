@@ -7,9 +7,8 @@ function Game(steps) {
   this.testMode = false
   this.state = stateInit()
   this.score = 0
-  if(location.hash)
-  {
-  [,this.hash,this.hashLoop] = location.hash.replace("_","#").split("#")
+  if (location.hash) {
+    [, this.hash, this.hashLoop] = location.hash.replace("_", "#").split("#")
 
   }
 
@@ -122,7 +121,10 @@ function Game(steps) {
     }
 
     this.setStep(nextStepNum)
-
+    if (this.steps[nextStepNum].itemsAdded || this.steps[nextStepNum].itemsRemoved) {
+      console.log("Building new stage")
+      buildStage(nextStepNum)
+    }
   }
   this.restartGame = function() {
     $('#stepList *').removeClass("activeGroup")

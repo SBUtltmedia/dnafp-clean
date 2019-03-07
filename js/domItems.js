@@ -251,7 +251,7 @@ domItems = {
   },
   "waterBathLid": {
     css: {
-      left: "60.75%",
+      left: "61%",
       top: "21%",
     },
     classes: ["item waterBathLid"],

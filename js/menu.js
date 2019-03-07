@@ -35,7 +35,7 @@ function Menu() {
   this.setMenuItem = function(stepNumber) {
     var group = game.getGroupMembership(stepNumber)
 
-      $("#" + group + ">div").show(1000)
+    $("#" + group + ">div").show(1000)
   }
 
   this.resetRepeatGroup = function(stepNumber) {
@@ -62,4 +62,11 @@ function Menu() {
     $("#" + group).addClass("activeGroup")
   }
 
+  this.hideGroups = function() {
+    for (i of this.groupNames) {
+      if (!$("#" + i).hasClass("activeGroup")) {
+        $("#" + i + " *").hide()
+      }
+    }
+  }
 }

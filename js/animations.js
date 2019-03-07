@@ -85,8 +85,8 @@ animations = {
         "top": "18.5%"
       },
       "100%": {
-        "top": "21.58%",
-        "left": "59.88%",
+        "top": "21%",
+        "left": "61%",
         "transform": "rotate(0deg)"
       }
     }
@@ -153,16 +153,6 @@ animations = {
       "100%": {
         "left": "24.5%",
         "top": "38%"
-      }
-    }
-  },
-  "addTip1": {
-    "props": "3s linear 0s 1 normal forwards",
-    "keyframes": {
-      "0": { },
-      "100%": {
-        "left": "86.4%",
-        "top": "28%"
       }
     }
   },
@@ -696,7 +686,7 @@ animations = {
       "60%": {
         "transform": "rotate(105deg)"
       },
-      "95%": { },
+      "95%": {},
       "100%": {
         "transform": "rotate(105deg)"
       }
@@ -709,7 +699,7 @@ animations = {
       "60%": {
         "transform": "rotate(0deg)"
       },
-      "95%": { },
+      "95%": {},
       "100%": {
         "transform": "rotate(0deg)"
       }
@@ -747,10 +737,6 @@ animations = {
   "pipetteFromBinToPrep": {
     "props": "1.7s linear 0s 1 normal forwards",
     "keyframes": {
-      '0%': {
-        // "left": '57.7%',
-        // "top": '34.7%',
-      },
       '100%': {
         "left": '24.5%',
         "top": '38%',
@@ -760,13 +746,72 @@ animations = {
   "pipetteFromBinToOrigin": {
     "props": "1.8s linear 0s 1 normal forwards",
     "keyframes": {
-      '0%': {
-        "left": '57.7%',
-        "top": '34.7%',
-      },
       '100%': {
         "left": "14.5%",
         "top": "52%"
+      }
+    }
+  },
+  "resetTubeBlock": {
+    "props": "0.1s linear 0s 1 normal forwards",
+    "keyframes": {
+      '100%': {
+        "left": "35.2%",
+        "top": "73.0%"
+      }
+    }
+  },
+  "resetTube0": {
+    "props": "0.1s linear 0s 1 normal forwards",
+    "keyframes": {
+      '100%': {
+        "left": "35.5%",
+        "top": "70%"
+      }
+    }
+  },
+  "resetTube1": {
+    "props": "0.1s linear 0s 1 normal forwards",
+    "keyframes": {
+      '100%': {
+        "left": "38%",
+        "top": "70%"
+      }
+    }
+  },
+  "resetTube2": {
+    "props": "0.1s linear 0s 1 normal forwards",
+    "keyframes": {
+      '100%': {
+        "left": "40.5%",
+        "top": "70%"
+      }
+    }
+  },
+  "resetTube3": {
+    "props": "0.1s linear 0s 1 normal forwards",
+    "keyframes": {
+      '100%': {
+        "left": "43%",
+        "top": "70%"
+      }
+    }
+  },
+  "resetTube4": {
+    "props": "0.1s linear 0s 1 normal forwards",
+    "keyframes": {
+      '100%': {
+        "left": "45.5%",
+        "top": "70%"
+      }
+    }
+  },
+  "resetTube5": {
+    "props": "0.1s linear 0s 1 normal forwards",
+    "keyframes": {
+      '100%': {
+        "left": "48%",
+        "top": "70%"
       }
     }
   },
@@ -851,6 +896,46 @@ animations = {
       '100%': {
         "left": '86.4%',
         "top": '28%',
+      }
+    },
+    "props": "3s linear 0s 1 normal forwards",
+    method(selector) {
+      var selectedTip = selector.split("tip")[1];
+      var tipLeft = parseInt($(`#${selector}`).css("left"))
+      var viewWidth = parseFloat($('#view').css("width"));
+      var pipetteWidth = parseFloat($('#micropipette2').css("width"));
+      var tipWidth = parseFloat($("#pipetteTip1").css("width"));
+      var tipPos = (tipLeft + tipWidth / 2 - (pipetteWidth) / 2) / (viewWidth) * 100
+      return {
+        var1: tipPos
+      }
+    }
+  },
+  "addTip2": {
+    "keyframes": {
+      '0%': {
+        "left": '24.5%',
+        "top": '38%',
+      },
+      '14%': {
+        "left": 'var1%',
+        "top": '44%',
+      },
+      '20%': {
+        "left": 'var1%',
+        "top": '47.6%',
+      },
+      '25%': {
+        "left": 'var1%',
+        "top": '42%',
+      },
+      "90%": {
+        "left": "22.9%",
+        "top": "1.4%"
+      },
+      "100%": {
+        "left": "22.9%",
+        "top": "5.4%"
       }
     },
     "props": "3s linear 0s 1 normal forwards",

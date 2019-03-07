@@ -24,11 +24,9 @@ function Step() {
       window["eventFunctions"][s.logic.eventFunction](evt)
       if (game.testMode && game.groups[curGroup].repeats) {
         if (game.hashLoop) {
-          console.log(game.hashLoop)
           game.iteration = game.hashLoop - 1
         } else {
           game.iteration = game.groups[curGroup].repeats - 1
-          console.log("Game loop value is: ", game.hashLoop)
         }
       }
       if (game.testMode && s.logic && s.logic.criteria) {

@@ -77,7 +77,7 @@ body {
 }
 
 .stepPanelItem::before {
-  background-image: url(../resources/img/UI/step_inactive.svg);
+  background-image: url("../resources/img/UI/step_inactive.svg");
 }
 
 .step {
@@ -154,7 +154,7 @@ body {
 }
 
 .highlight::before {
-  background-image: url(../resources/img/UI/step_active.svg);
+  background-image: url("../resources/img/UI/step_active.svg");
   animation: littleSpin 1s 0s 1 cubic-bezier(0, .5, .5, 1) normal forwards;
 }
 
@@ -182,7 +182,7 @@ body {
 }
 
 .activeGroup::before {
-  background-image: url(../resources/img/UI/group_active.svg);
+  background-image: url("../resources/img/UI/group_active.svg");
 }
 
 .completed {
@@ -190,7 +190,7 @@ body {
 }
 
 .completed::before {
-  background-image: url(../resources/img/UI/step_complete.svg);
+  background-image: url("../resources/img/UI/step_complete.svg");
 }
 
 .microTube {
@@ -293,7 +293,7 @@ body {
 .labBench {
   width: 100%;
   height: 60%;
-  background-image: url(../resources/img/equipment/labBench2.svg);
+  background-image: url("../resources/img/equipment/labBench2.svg");
   pointer-events: none !important;
   z-index: -1;
 }
@@ -301,7 +301,7 @@ body {
 .shelf1 {
   width: 18%;
   height: 3%;
-  background-image: url(../resources/img/equipment/shelf.svg);
+  background-image: url("../resources/img/equipment/shelf.svg");
   background-size: cover;
   z-index: -1;
 }
@@ -310,7 +310,7 @@ body {
 .shelf2 {
   width: 18%;
   height: 3%;
-  background-image: url(../resources/img/equipment/shelf.svg);
+  background-image: url("../resources/img/equipment/shelf.svg");
   background-size: cover;
   z-index: -1;
 }
@@ -324,21 +324,21 @@ body {
 .iceBucket {
   width: 20%;
   height: 12%;
-  background-image: url(../resources/img/equipment/ice_bucket.svg);
+  background-image: url("../resources/img/equipment/ice_bucket.svg");
   z-index: 1;
 }
 
 .pipetteHolder {
   width: 22%;
   height: 29%;
-  background-image: url(../resources/img/equipment/pipetteHolder.svg);
+  background-image: url("../resources/img/equipment/pipetteHolder.svg");
   z-index: -1;
 }
 
 .micropipette {
   width: 4.6%;
   height: 23%;
-  background-image: url(../resources/img/equipment/micropipette20.svg);
+  background-image: url("../resources/img/equipment/micropipette20.svg");
   background-size: cover;
   z-index: 4;
 }
@@ -346,14 +346,14 @@ body {
 .tipHolder {
   width: 11%;
   height: 11%;
-  background-image: url(../resources/img/equipment/tipHolder.svg);
+  background-image: url("../resources/img/equipment/tipHolder.svg");
   z-index: 1;
 }
 
 .tip {
   width: 0.7%;
   height: 7%;
-  background-image: url(../resources/img/equipment/tip.svg);
+  background-image: url("../resources/img/equipment/tip.svg");
   background-size: cover;
 }
 
@@ -366,35 +366,35 @@ body {
 .tubeBlock {
   width: 17%;
   height: 5.1%;
-  background-image: url(../resources/img/equipment/tubeBlock.svg);
+  background-image: url("../resources/img/equipment/tubeBlock.svg");
   z-index: 2;
 }
 
 .wasteBasket {
   width: 11.5%;
   height: 14%;
-  background-image: url(../resources/img/equipment/waste_basket.svg);
+  background-image: url("../resources/img/equipment/waste_basket.svg");
   z-index: 1;
 }
 
 .waterBathNoLid {
   width: 18%;
   height: 26%;
-  background-image: url(../resources/img/equipment/water_bath_no_lid.svg);
+  background-image: url("../resources/img/equipment/water_bath_no_lid.svg");
   z-index: 2;
 }
 
 .waterBathLid {
   width: 16%;
   height: 6%;
-  background-image: url(../resources/img/equipment/water_bath_lid.svg);
+  background-image: url("../resources/img/equipment/water_bath_lid.svg");
   z-index: 3;
 }
 
 .dyeRack {
   width: 10%;
   height: 7%;
-  background-image: url(../resources/img/equipment/dyeRack.svg);
+  background-image: url("../resources/img/equipment/dyeRack.svg");
   z-index: 1;
 }
 
@@ -407,91 +407,91 @@ body {
 .gelTray {
   width: 13%;
   height: 8%;
-  background-image: url../resources/img/equipment/gelTray.svg);
+  background-image: url("../resources/img/equipment/gelTray.svg");
 }
 
 .gelComb {
   width: 11%;
   height: 8%;
-  background-image: url../resources/img/equipment/gelComb.svg);
+  background-image: url("../resources/img/equipment/gelComb.svg");
 }
 
 .electroBoxSide {
   width: 20%;
   height: 6%;
-  "background-image": url../resources/img/equipment/electroBoxSide.svg);
+  background-image: url("../resources/img/equipment/electroBoxSide.svg");
 }
 
 .stainingTraySide {
   width: 10%;
   height: 4%;
-  background-image: url../resources/img/equipment/stainingTraySide.svg);
+  background-image: url("../resources/img/equipment/stainingTraySide.svg");
 }
 
 .stainedGel {
   width: 10%;
   height: 4%;
-  background-image: url../resources/img/equipment/stainedGel.svg);
+  background-image: url("../resources/img/equipment/stainedGel.svg");
 }
 
 .graduatedCylinder {
   width: 2%;
   height: 14%;
-  background-image: url../resources/img/equipment/graduatedCylinder.svg);
+  background-image: url("../resources/img/equipment/graduatedCylinder.svg");
 }
 
 .labBenchTop {
   width: 85%;
   height: 175%;
-  background-image: url../resources/img/equipment/labBenchTop.svg);
+  background-image: url("../resources/img/equipment/labBenchTop.svg");
 }
 
 .gelTopView {
   width: 20%;
   height: 30%;
-  background-image: url../resources/img/equipment/gelTopView.svg);
+  background-image: url("../resources/img/equipment/gelTopView.svg");
 }
 
 .lidBox {
   width: 35%;
   height: 45%;
-  background-image: url../resources/img/equipment/lidBox.svg);
+  background-image: url("../resources/img/equipment/lidBox.svg");
 }
 
 .lidBase {
   width: 35%;
   height: 45%;
-  background-image: url../resources/img/equipment/lidBase.svg);
+  background-image: url("../resources/img/equipment/lidBase.svg");
 }
 
 .lidSide {
   width: 36%;
   height: 30%;
-  background-image: url../resources/img/equipment/lidSide.svg);
+  background-image: url("../resources/img/equipment/lidSide.svg");
 }
 
 .arrowUp {
   width: 5%;
   height: 16%;
-  background-image: url../resources/img/equipment/arrowUp.svg);
+  background-image: url("../resources/img/equipment/arrowUp.svg");
 }
 
 .arrowDown {
   width: 5%;
   height: 16%;
-  background-image: url../resources/img/equipment/arrowDown.svg);
+  background-image: url("../resources/img/equipment/arrowDown.svg");
 }
 
 .powerSupplyTop {
   width: 15%;
   height: 30%;
-  background-image: url../resources/img/equipment/powerSupplyTop.svg);
+  background-image: url("../resources/img/equipment/powerSupplyTop.svg");
 }
 
 .microTubeHolderTop {
   width: 8%;
   height: 30%;
-  background-image: url../resources/img/equipment/microtubeHolderTop.svg);
+  background-image: url("../resources/img/equipment/microtubeHolderTop.svg");
 }
 
 .tubeTop {
@@ -502,51 +502,51 @@ body {
 
 /* Would like to combine these into one svg like other tubes */
 .tubeTop_0 {
-  background-image: url../resources/img/equipment/ladderTop.svg);
+  background-image: url("../resources/img/equipment/ladderTop.svg");
 }
 
 .tubeTop_1 {
-  background-image: url../resources/img/equipment/csTop.svg);
+  background-image: url("../resources/img/equipment/csTop.svg");
 }
 
 .tubeTop_2 {
-  background-image: url../resources/img/equipment/s1Top.svg);
+  background-image: url("../resources/img/equipment/s1Top.svg");
 }
 
 .tubeTop_3 {
-  background-image: url../resources/img/equipment/s2Top.svg);
+  background-image: url("../resources/img/equipment/s2Top.svg");
 }
 
 .tubeTop_4 {
-  background-image: url../resources/img/equipment/s3Top.svg);
+  background-image: url("../resources/img/equipment/s3Top.svg");
 }
 
 .tubeTop_5 {
-  background-image: url../resources/img/equipment/s4Top.svg);
+  background-image: url("../resources/img/equipment/s4Top.svg");
 }
 
 .tipBoxTop {
   width: 10%;
   height: 10%;
-  background-image: url../resources/img/equipment/tipBoxTop.svg);
+  background-image: url("../resources/img/equipment/tipBoxTop.svg");
 }
 
 .wasteBinTop {
   width: 10%;
   height: 10%;
-  background-image: url../resources/img/equipment/wasteBinTop.svg);
+  background-image: url("../resources/img/equipment/wasteBinTop.svg");
 }
 
 .micropipetteTopView {
   width: 5%;
   height: 7%;
-  background-image: url../resources/img/equipment/micropipetteTopView.svg);
+  background-image: url("../resources/img/equipment/micropipetteTopView.svg");
 }
 
 .sideView {
   width: 45%;
   height: 60%;
-  background-image: url../resources/img/equipment/sideBackground.svg);
+  background-image: url("../resources/img/equipment/sideBackground.svg");
   overflow: hidden;
 }
 
@@ -591,7 +591,7 @@ body {
   position: absolute;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(../resources/img/UI/check.svg);
+  background-image: url("../resources/img/UI/check.svg");
   outline-width: 0;
 }
 .timerInput {
@@ -617,7 +617,7 @@ body {
   top: 82%;
   position: absolute;
   background-repeat: no-repeat;
-  background-image: url(../resources/img/UI/check.svg);
+  background-image: url("../resources/img/UI/check.svg");
   background-size: cover;
   outline-width: 0;
 }

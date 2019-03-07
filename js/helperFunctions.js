@@ -10,17 +10,6 @@ function isEqual(a, b) {
   return a == b;
 }
 
-// function rotate(indent, duration = 500) {
-//   return [{
-//     "text-indent": indent
-//   }, {
-//     duration: duration,
-//     step: function(now) {
-//       $(this).attr("transform", 'rotate(' + now + ')');
-//     }
-//   }]
-//
-// }
 var eventFunctions = {
   commonSide: [
     "#labBench", "#pipetteHolder", "#micropipette0", "#micropipette1", "#micropipette2", "#tipHolder", "#tip1",
@@ -112,7 +101,7 @@ var eventFunctions = {
   "mixContents": function() {
     $(".micropipette").css("z-index", "-1")
     var zoomLeft = 35 + 3 * (game.iteration)
-    animate("#view", 0, zoom, [zoomLeft, 66, 12, 1050])
+    animate("#view", 0, zoom, [zoomLeft, 68, 12, 1050])
     for (i = 1; i < 4; i++) {
       animate("#svgfluid", 1000 * i + 500, "animate", [{
         "y": 70
@@ -138,7 +127,7 @@ var eventFunctions = {
 
   "mixContentsPost": function() {
     var zoomLeft = 35 + 3 * (game.iteration)
-    animate("#view", 5000, zoom, [zoomLeft, 66, 1, 1000]);
+    animate("#view", 5000, zoom, [zoomLeft, 68, 1, 1000]);
 
 
   }, //step 7
@@ -184,10 +173,8 @@ var eventFunctions = {
   "tapTube": function() {
     animate("#s" + game.iteration + "Tube", 0, "keyframe", "tapTube")
     game.state["microtubeState"][game.iteration] = 4;
-    console.log("tapping the tube")
   },
   "tubeRack": function() {
-    console.log("tubes are racking")
     animate("#s" + game.iteration + "Tube", 0, "keyframe", "tubeDown")
     game.state["microtubeState"][game.iteration] = 5;
 
@@ -250,20 +237,26 @@ var eventFunctions = {
 
   }, //step 17
   "setTimer": function() {
+    animate("#tubeBlock", -500, "keyframe", "resetTubeBlock")
+    for (i = 0; i <= 5; i++) {
+      //animate("#s" + i + "Tube", 0, "addClass", "microTube");
+      animate("#s" + i + "Tube", -500, "keyframe", "resetTube" + i);
+
+    }
     var time = $("#waterBathNoLid").find("[type='text']").val();
 
     game.state["time"] = [time]
     return false
   },
   "setTimerPost": function() {
-
-    animate("#waterBathNoLid *", 1000, "addClass", "opClass");
+    // buildStage(game.steps.indexOf(game.currentStep) % game.steps.length)
+    // animate("#waterBathNoLid *", 1000, "addClass", "opClass");
     animate("#view", 0, zoom, [65, 36, 1, 1000]);
-    animate("#bothDays *, #bothDays, #day1 *", 0, "attr", ["style", ""])
-    animate("#pipetteTip1", 0, "hide")
-    animate("#day1", 1000, "hide");
-    animate("#day2, #tubeBlock, .microTube, #gelSideView", 2000, "show")
-    animate("#graduatedCylinder, #waterBathNoLid, #waterBathLid, #shelf1, #stainedGel, #stainingTraySide", 0, "hide")
+    // animate("#bothDays *, #bothDays, #day1 *", 0, "attr", ["style", ""])
+    // animate("#pipetteTip1", 0, "hide")
+    // animate("#day1", 1000, "hide");
+    animate(".microTube, #tubeBlock", 0, "show")
+    // animate("#graduatedCylinder, #waterBathNoLid, #waterBathLid, #shelf1, #stainedGel, #stainingTraySide", 0, "hide")
 
     game.state["microtubeState"] = Array(6).fill(0)
 
@@ -271,7 +264,7 @@ var eventFunctions = {
   "prepPipette1": function(evt) {
     animate("#micropipette2", 0, "keyframe", "PrepPipette")
     animate("#view", 2000, zoom, [25, 46, 9.5, 1000])
-    animate(".volumeInput, .volumeButton", 1, "removeClass", "opClass")
+    animate(".volumeInput, .volumeButton", 2000, "removeClass", "opClass")
   },
 
   "setDyeVolume": function() {
@@ -290,22 +283,21 @@ var eventFunctions = {
 
   "openDye": function(evt) {
     animate("#loadDye", 0, "keyframe", "moveLoadingDye")
-    animate("#loadDye svg .Cap", 0, "animate", rotate.rotateObj)
-    animate("#svgfluid", 0, "animate", [{
+    animate("#loadDye svg .Cap", 1500, "keyframe", "rotateCap", -120)
+    animate("#svgfluid", 2000, "animate", [{
       "y": 100
     }])
 
   }, //step 19
-  "openDyePost": function() {},
-  "takeDye": function(evt) {
-    var tippNum = betterParseInt(evt.target.id);
-    var tippLeft = tips[(tippNum - 1)];
+  "selectTip1": function(evt) {
+    var selector = evt.currentTarget.id
     // in event
-    makePipetteTippAnimation(tippLeft);
-    animate("#micropipette2", 0, "keyframe", "addTipp1")
-    animate("#" + evt.target.id, 0, "keyframe", "hideTip")
-    animate("#pipetteTip1", 700, "show")
-    $("#holder").css('z-index', '3');
+    if (game.testMode) {
+      tipPos = "0"
+    }
+    animate("#micropipette2", 0, "keyframe", "addTip2", selector)
+    animate("#" + selector, 0, "keyframe", "hideTip")
+    animate("#pipetteTip1", 750, "removeClass", "opClass")
   }, //step 20
 
   "openTube1": function(evt) {
@@ -316,7 +308,7 @@ var eventFunctions = {
   }, //step 22
   "addDye": function() {
     animate("#micropipette2", 0, "keyframe", "addDyeToTube")
-    animate("#loadDye svg .Cap", 700, "animate", rotate.reverseRotateObj)
+    animate("#loadDye svg .Cap", 700, "keyframe", "rotateCap", 0)
     animate("#loadDye", 1000, "keyframe", "moveLoadingDyeback")
     $("#s0Tube").css("z-index", "5")
 

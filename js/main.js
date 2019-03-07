@@ -8,10 +8,12 @@ $(function() {
     item = new Item()
     resizeWindow()
     menu.buildMenu(data.steps, "stepList")
+    menu.hideGroups()
     item.buildAllItems(domItems).then(function() {
-      buildStage(game.steps[0].itemsAdded)
+      buildStage(0)
       game.setStep(0)
     })
+    menu.hideGroups()
 
 
   })
@@ -37,11 +39,14 @@ function loadStep(steps) {
   return
 }
 
-function buildStage(initialItemList) {
-  initialItems = initialItemList.split(" ")
-
-  for (i = 0; i < initialItems.length; i++) {
-    $("#view").append($(initialItems[i]))
+function buildStage(stepNumber) {
+  itemsAdded = game.steps[stepNumber].itemsAdded.split(" ")
+  itemsRemoved = game.steps[stepNumber].itemsRemoved.split(" ")
+  for (i of itemsAdded) {
+    $("#view").append($(i))
+  }
+  for (j of itemsRemoved) {
+    $("#storage").append($(j))
   }
 
 }
