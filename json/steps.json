@@ -188,7 +188,7 @@
           ]
         },
         {
-          "repeats": 6,
+          "repeats": 5,
           "id": "pressTube",
           "shortText": "Expose tube bottoms",
           "steps": [{
@@ -371,11 +371,11 @@
           "logic": {
             "eventSelector": "#micropipette2",
             "eventType": "click",
-            "eventFunction": "mixContents1",
-            "postEventFunction": "mixContents1Post"
+            "eventFunction": "mixContents",
+            "postEventFunction": "mixContentsPost"
           }
         }, {
-          "id": "replaceTip1",
+          "id": "discardTip1",
           "shortText": "Replace tip",
           "longText": "Discard the tip and return the micropipette to the rack",
           "bottomText": "Click on the waste bin to eject the tip",
@@ -383,7 +383,7 @@
           "logic": {
             "eventSelector": "#wasteBasket",
             "eventType": "click",
-            "eventFunction": "replaceTip1"
+            "eventFunction": "discardTip"
           }
         }, {
           "id": "closeTube1",
@@ -394,7 +394,7 @@
           "logic": {
             "eventSelector": "#s$iter$Tube",
             "eventType": "click",
-            "eventFunction": "closeTube1",
+            "eventFunction": "closeTube",
             "criteria": {
               "variable": "microtubeState",
               "value": 2
@@ -409,7 +409,7 @@
           "logic": {
             "eventSelector": "#s$iter$Tube",
             "eventType": "click",
-            "eventFunction": "flickTube1",
+            "eventFunction": "flickTube",
             "criteria": {
               "variable": "microtubeState",
               "value": 3
@@ -424,45 +424,50 @@
           "logic": {
             "eventSelector": "#s$iter$Tube",
             "eventType": "click",
-            "eventFunction": "tapTube1",
+            "eventFunction": "tapTube",
             "criteria": {
               "variable": "microtubeState",
               "value": 4
             }
           }
-        }]
-      }, {
-        "id": "tubeRack1",
-        "shortText": "Tubes in floating rack",
-        "longText": "Place the tubes back in the floating rack",
-        "bottomText": "Click on the tube to return it to the rack",
-        "feedbackText": "complete the first step",
-        "logic": {
-          "eventSelector": "#s$iter$Tube",
-          "eventType": "click",
-          "eventFunction": "tubeRack1",
-          "postEventFunction": "tubeRackPost",
-          "criteria": {
-            "variable": "microtubeState",
-            "value": 5
+        },{
+          "id": "tubeRack1",
+          "shortText": "Tubes in floating rack",
+          "longText": "Place the tubes back in the floating rack",
+          "bottomText": "Click on the tube to return it to the rack",
+          "feedbackText": "complete the first step",
+          "logic": {
+            "eventSelector": "#s$iter$Tube",
+            "eventType": "click",
+            "eventFunction": "tubeRack",
+            "postEventFunction": "tubeRackPost",
+            "criteria": {
+              "variable": "microtubeState",
+              "value": 5
+            }
           }
-        }
-      }, {
+        }]
+      },{
+        "repeats": 5,
         "id": "openTubes",
         "shortText": "Open reaction tubes",
-        "longText": "Open each tube up",
-        "bottomText": "Click on each tube to open it",
-        "feedbackText": "complete the second step",
-        "logic": {
-          "eventSelector": ".microTube",
-          "eventType": "click",
-          "eventFunction": "openTubes",
-          "postEventFunction": "pressTubePost",
-          "criteria": {
-            "variable": "microtubeState",
-            "value": [6, 6, 6, 6, 6, 6]
+        "steps": [{
+          "id": "pressTubes",
+          "shortText": "Open reaction tubes",
+          "longText": "Open each tube up",
+          "bottomText": "Click on each tube to open it",
+          "feedbackText": "complete the second step",
+          "logic": {
+            "eventSelector": ".microTube",
+            "eventType": "click",
+            "eventFunction": "openTubes",
+            "postEventFunction": "pressTubePost",
+            "criteria": {
+              "variable": "microtubeState",
+              "value": 6
+            }
           }
-        }
+        }]
       }, {
         "id": "removeComb",
         "shortText": "Remove Comb",
@@ -470,7 +475,7 @@
         "bottomText": "Click on the gel comb to remove it",
         "feedbackText": "complete the first step",
         "logic": {
-          "eventSelector": "#gelCombHitBox",
+          "eventSelector": "#gelComb",
           "eventType": "click",
           "eventFunction": "removeComb"
         }
@@ -481,13 +486,13 @@
         "bottomText": "Click on the gel electrophoresis chamber",
         "feedbackText": "complete the second step",
         "logic": {
-          "eventSelector": "#gelSideView",
+          "eventSelector": "#electroBoxSide",
           "eventType": "click",
           "eventFunction": "toTop"
         }
       }, {
         "id": "orientGel",
-        "itemsRemoved": "#labBench #pipetHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #s$iter$Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #shelf2 #dyeRack #loadDye #gelTray #gelComb #gelSideView",
+        "itemsRemoved": "#labBench #pipetteHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #dyeRack #s0Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #shelf2 #dyeRack #loadDye #gelTray #gelComb #gelSideView #electroBoxSide #gelLid",
         "itemsAdded": "#labBenchTop #gelTopView #lidBase #lidSide #arrowUp #arrowDown #powerSupplyTop #microtubeHolderTop #tubeTop_0 #tubeTop_1 #tubeTop_2 #tubeTop_3 #tubeTop_4 #tubeTop_5 #tubeTop_6 #tipBoxTop #wasteBinTop",
         "shortText": "Orient gel",
         "longText": "Properly orient your gel in the electrophoresis chamber",

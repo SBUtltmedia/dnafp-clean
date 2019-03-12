@@ -63,7 +63,7 @@ var eventFunctions = {
     }
     // makeDynamicAnimation("addTip1", selector)
     animate("#micropipette2", 0, "keyframe", "addTip1", selector)
-    animate("#" + selector, 0, "keyframe", "hideTip")
+    animate("#" + selector, 740, "addClass", "opClass")
     animate("#pipetteTip1", 750, "removeClass", "opClass")
 
   }, //step 3
@@ -194,7 +194,6 @@ var eventFunctions = {
     }
   },
   "pressTube": function(evt) {
-
     var tubeId = evt.currentTarget.id.charAt(1);
 
     if (game.testMode) {
@@ -278,6 +277,7 @@ var eventFunctions = {
     //updateScore(10);
     animate(".volumeInput, .volumeButton", 1, "addClass", "opClass")
     animate("#view", 0, zoom, [25, 46, 1, 1000])
+    animate(".tip", 0, "removeClass", "opClass")
 
   }, //step 21
 
@@ -296,57 +296,37 @@ var eventFunctions = {
       tipPos = "0"
     }
     animate("#micropipette2", 0, "keyframe", "addTip2", selector)
-    animate("#" + selector, 0, "keyframe", "hideTip")
+    animate("#" + selector, 740, "addClass", "opClass")
     animate("#pipetteTip1", 750, "removeClass", "opClass")
   }, //step 20
 
   "openTube1": function(evt) {
     eventFunctions.openTube(evt)
-    animate("#svgfluid", 10, "animate", [{
-      "y": 50
-    }])
+
   }, //step 22
   "addDye": function() {
-    animate("#micropipette2", 0, "keyframe", "addDyeToTube")
-    animate("#loadDye svg .Cap", 700, "keyframe", "rotateCap", 0)
-    animate("#loadDye", 1000, "keyframe", "moveLoadingDyeback")
-    $("#s0Tube").css("z-index", "5")
+    animate("#svgfluid", 00, "animate", [{
+      "y": 50
+    }])
+
+    animate("#micropipette2", 400, "keyframe", "addDyeToTube", game.iteration)
+
+    if (game.iteration==5){
+      animate("#loadDye svg .Cap", 1100, "keyframe", "rotateCap", 0)
+      animate("#loadDye", 1350, "keyframe", "moveLoadingDyeback")
+    }
 
   }, //step 23
-  "mixContents1": function() {
-    eventFunctions.mixContents()
-  },
-  "mixContents1Post": function() {
-    eventFunctions.mixContentsPost()
-  }, //step 24
-  "replaceTip1": function() {
-    eventFunctions.replaceTip()
-  }, //step 25
-  "closeTube1": function(evt) {
-    eventFunctions.closeTube(evt)
-  }, //step 26
-  "flickTube1": function(evt) {
-    eventFunctions.flickTube(evt)
-  }, //step 27
-  "tapTube1": function() {
-    eventFunctions.tapTube()
-  }, //step 28
-  "tubeRack1": function() {
-    animate("#s0Tube", 0, "keyframe", "tubeDown")
-    for (i = 0; i <= 5; i++) {
-      animate("#s" + i + "Tube", 1000, "keyframe", "tube" + i + "ToBath");
-    }
-    animate("#tubeBlock", 1000, "keyframe", "moveBlock");
-    game.state["microtubeState"][0] = 5;
-  }, //step 29
+  // REPEATING STEPS~~~~~~~~~~~~~~~~~~~~~~~~~~
+  // ~~~~~~~~~~~~~~~~~~~~~~~~~REAPEATING STEPS
   "openTubes": function(evt) {
     var tubeId = evt.currentTarget.id.charAt(1);
     if (game.testMode) {
       for (i = 0; i <= 5; i++) {
-        animate("#s" + i + "Tube svg .Cap", 0, "animate", rotate.rotateObj)
+        animate("#s" + i + "Tube svg .Cap", 0, "keyframe", "rotateCap", -120)
       }
     }
-    animate("#s" + tubeId + "Tube svg .Cap", 0, "animate", rotate.rotateObj)
+    animate("#s" + tubeId + "Tube svg .Cap", 0, "keyframe", "rotateCap", -120)
     game.state["microtubeState"][tubeId] = 6
   }, //step 29
 
@@ -356,17 +336,15 @@ var eventFunctions = {
   }, //step 30
 
   "toTop": function() {
-    animate("#day2, #day2 *", 0, "hide");
-    animate("#day1", 0, "hide");
-    animate("#bothDays, #bothDays *", 0, "hide");
-    animate("#topView, #topView *", 0, "show");
-    animate("#sideView, #gelFinalTop, #gelVoltageCover, #micropipetteTopView, #stainingTray, #zoomOutButton2, #lidBox", 0, "hide")
-    animate(".bands, .laneFill", 0, "hide");
-    $("#sideView").append($('#pipetteTip1'));
+    // animate("#day1, #day2, #day2 *", 0, "hide");
+    // animate("#bothDays, #bothDays *", 0, "hide");
+    // animate("#topView, #topView *", 0, "show");
+    // animate(".bands, .laneFill", 0, "hide");
+    // $("#sideView").append($('#pipetteTip1'));
 
   }, //step 31
   "orientGel": function() {
-    animate("#arrowDown,#arrowUp", 0, "hide")
+    animate("#arrowDown, #arrowUp", 0, "addClass", "opClass")
     animate("#micropipetteTopView, #gelFinalTop", 0, "show")
 
   }, //step 32, 37, 42

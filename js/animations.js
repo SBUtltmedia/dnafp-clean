@@ -267,24 +267,6 @@ animations = {
       }
     }
   },
-  "addDyeToTube": {
-    "props": "3s linear 0s 1 normal forwards",
-    "keyframes": {
-
-      "20%": {
-        "left": "22.9%",
-        "top": "0%"
-      },
-      "60%": {
-        "left": "34.75%",
-        "top": "15%"
-      },
-      "100%": {
-        "left": "34.75%",
-        "top": "39%"
-      }
-    }
-  },
   "returnLoadingDye1": {
     "props": "2s linear 0s 1 normal forwards",
     "keyframes": {
@@ -948,6 +930,38 @@ animations = {
       var tipPos = (tipLeft + tipWidth / 2 - (pipetteWidth) / 2) / (viewWidth) * 100
       return {
         var1: tipPos
+      }
+    }
+  },
+  "addDyeToTube": {
+    "keyframes": {
+      "20%": {
+        "left": "22.9%",
+        "top": "0%"
+      },
+      '60%': {
+        "left": 'var2%',
+        "top": "15%"
+      },
+      '90%': {
+        "left": 'var1%',
+        "top": '28%',
+      },
+      '100%': {
+        "left": 'var1%',
+        "top": '39%',
+      }
+    },
+    "props": "2s linear 0s 1 normal forwards",
+    method(iteration) {
+      var viewWidth = parseFloat($('#view').css("width"));
+      var tubeLeft = parseFloat($(`#s${iteration}Tube`).css("left"))
+      var pipWidth = parseFloat($("#micropipette2").css("width"));
+      var tubeWidth = parseFloat($(`#s${iteration}Tube`).css("width"));
+      var tubePos = (tubeLeft + ((tubeWidth / 7) * 4) - pipWidth / 2) / (viewWidth) * 100
+      return {
+        var1: tubePos,
+        var2: tubePos - 10
       }
     }
   },
