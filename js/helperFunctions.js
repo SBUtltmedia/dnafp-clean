@@ -8,7 +8,7 @@ function isEqual(a, b) {
     return true;
   }
   return a == b;
-}
+} 
 
 var eventFunctions = {
   commonSide: [
