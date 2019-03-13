@@ -8,7 +8,7 @@ function isEqual(a, b) {
     return true;
   }
   return a == b;
-} 
+}
 
 var eventFunctions = {
   commonSide: [
@@ -63,7 +63,7 @@ var eventFunctions = {
     }
     // makeDynamicAnimation("addTip1", selector)
     animate("#micropipette2", 0, "keyframe", "addTip1", selector)
-    animate("#" + selector, 740, "addClass", "opClass")
+    animate("#" + selector, 740, "hide")
     animate("#pipetteTip1", 750, "removeClass", "opClass")
 
   }, //step 3
@@ -254,7 +254,7 @@ var eventFunctions = {
     // animate("#bothDays *, #bothDays, #day1 *", 0, "attr", ["style", ""])
     // animate("#pipetteTip1", 0, "hide")
     // animate("#day1", 1000, "hide");
-    animate(".microTube, #tubeBlock", 0, "show")
+    animate(".microTube, .tip, #tubeBlock", 0, "show")
     // animate("#graduatedCylinder, #waterBathNoLid, #waterBathLid, #shelf1, #stainedGel, #stainingTraySide", 0, "hide")
 
     game.state["microtubeState"] = Array(6).fill(0)
@@ -322,7 +322,7 @@ var eventFunctions = {
   "openTubes": function(evt) {
     var tubeId = evt.currentTarget.id.charAt(1);
     if (game.testMode) {
-      for (i = 0; i <= 5; i++) {
+      for (i = 0; i < 5; i++) {
         animate("#s" + i + "Tube svg .Cap", 0, "keyframe", "rotateCap", -120)
       }
     }

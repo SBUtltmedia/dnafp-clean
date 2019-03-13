@@ -887,7 +887,7 @@ animations = {
       var viewWidth = parseFloat($('#view').css("width"));
       var pipetteWidth = parseFloat($('#micropipette2').css("width"));
       var tipWidth = parseFloat($("#pipetteTip1").css("width"));
-      var tipPos = (tipLeft + tipWidth / 2 - (pipetteWidth) / 2) / (viewWidth) * 100
+      var tipPos = ((tipLeft + tipWidth / 2 - (pipetteWidth) / 2) / (viewWidth)) * 100 - 0.5
       return {
         var1: tipPos
       }

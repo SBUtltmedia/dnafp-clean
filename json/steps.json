@@ -7,7 +7,7 @@
           "id": "liftEnzyme",
           "itemsAdded": "#labBench #shelf1 #pipetteHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #s0Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #iceBucket #enzTube #waterBathLid #waterBathNoLid",
           "itemsRemoved": "",
-          "shortText": "Enzyme mix",
+          "shortText": "Lift enzyme mix",
           "longText": "Remove the tube containing enzyme mix from the ice",
           "bottomText": "Hover over the tube containing the enzyme mix",
           "feedbackText": "complete the first step",
@@ -71,7 +71,7 @@
               "id": "openTube",
               "shortText": "Open reaction tube",
               "longText": "Open the next reaction tube",
-              "bottomText": "Click on the green reaction tube to open it",
+              "bottomText": "Click on the reaction tube to open it",
               "feedbackText": "complete the third step",
               "logic": {
                 "eventSelector": "#s$iter$Tube",
@@ -124,7 +124,7 @@
               "id": "closeTube",
               "shortText": "Close tube cap",
               "longText": "Close the crime scene DNA reaction tube cap",
-              "bottomText": "Click on the green reaction tube to close the cap",
+              "bottomText": "Click on the reaction tube to close the cap",
               "feedbackText": "complete the first step",
               "logic": {
                 "eventSelector": "#s$iter$Tube",
@@ -339,8 +339,8 @@
         }, {
           "id": "openTube1",
           "shortText": "Open reaction tube",
-          "longText": "Open the crime scene DNA reaction tube (green tube)",
-          "bottomText": "Click on the crime scene DNA reaction tube (green tube) to open it",
+          "longText": "Open the next reaction tube",
+          "bottomText": "Click on the next reaction tube to open it",
           "feedbackText": "complete the third step",
           "logic": {
             "eventSelector": "#s$iter$Tube",
@@ -354,7 +354,7 @@
         }, {
           "id": "addDye",
           "shortText": "Add enzyme mix",
-          "longText": "Add the loading dye to the crime scene DNA reaction tube (green tube)",
+          "longText": "Add the loading dye to the reaction tube",
           "bottomText": "Click on the micropipette to add the loading dye",
           "feedbackText": "complete the third step",
           "logic": {

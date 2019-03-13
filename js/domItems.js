@@ -398,43 +398,50 @@ domItems = {
     css: {
       top: "20%",
     },
-    classes: ["item tubeTop_0 tubeTop"],
-    resources: "",
+    classes: ["item tubeTop ladderTubeColor"],
+    resources: "img/equipment/csTop.svg",
   },
   "tubeTop_1": {
     css: {
       top: "24.5%",
     },
-    classes: ["item tubeTop_1 tubeTop"],
-    resources: "",
+    classes: ["item tubeTop s0TubeColor"],
+    resources: "img/equipment/csTop.svg",
   },
   "tubeTop_2": {
     css: {
       top: "29%",
     },
-    classes: ["item tubeTop_2 tubeTop"],
-    resources: "",
+    classes: ["item tubeTop s1TubeColor"],
+    resources: "img/equipment/csTop.svg",
   },
   "tubeTop_3": {
     css: {
       top: "33.5%",
     },
-    classes: ["item tubeTop_3 tubeTop"],
-    resources: "",
+    classes: ["item tubeTop s2TubeColor"],
+    resources: "img/equipment/csTop.svg",
   },
   "tubeTop_4": {
     css: {
       top: "38%",
     },
-    classes: ["item tubeTop_4 tubeTop"],
-    resources: "",
+    classes: ["item tubeTop s3TubeColor"],
+    resources: "img/equipment/csTop.svg",
   },
   "tubeTop_5": {
     css: {
       top: "42.5%",
     },
-    classes: ["item tubeTop_5 tubeTop"],
-    resources: "",
+    classes: ["item tubeTop s4TubeColor"],
+    resources: "img/equipment/csTop.svg",
+  },
+  "tubeTop_6": {
+    css: {
+      top: "47%",
+    },
+    classes: ["item tubeTop s5TubeColor"],
+    resources: "img/equipment/csTop.svg",
   },
   "tipBoxTop": {
     css: {
