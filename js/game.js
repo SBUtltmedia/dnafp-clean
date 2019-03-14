@@ -31,6 +31,7 @@ function Game(steps) {
       volume: [0],
       time: [0],
       tip: [0],
+      
       // tipPositions: ,
     }
     $("#micropipette2").append($('#pipetteTip1'));

@@ -493,7 +493,7 @@
       }, {
         "id": "orientGel",
         "itemsRemoved": "#labBench #pipetteHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #dyeRack #s0Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #shelf2 #dyeRack #loadDye #gelTray #gelComb #gelSideView #electroBoxSide #gelLid",
-        "itemsAdded": "#labBenchTop #gelTopView #lidBase #lidSide #arrowUp #arrowDown #powerSupplyTop #microtubeHolderTop #tubeTop_0 #tubeTop_1 #tubeTop_2 #tubeTop_3 #tubeTop_4 #tubeTop_5 #tubeTop_6 #tipBoxTop #wasteBinTop",
+        "itemsAdded": "#labBenchTop #gelTopView #electroBoxBase #lidSide #arrowUp #arrowDown #powerSupplyTop #tubeBlockTop #tubeTop_0 #tubeTop_1 #tubeTop_2 #tubeTop_3 #tubeTop_4 #tubeTop_5 #tubeTop_6 #tipBoxTop #wasteBinTop #micropipetteTopView",
         "shortText": "Orient gel",
         "longText": "Properly orient your gel in the electrophoresis chamber",
         "bottomText": "Click on one of the arrows to select the direction you'd like the wells to face",
@@ -523,21 +523,15 @@
           "eventFunction": "addTipTop"
         }
       }, {
-        "id": "takeHind",
+        "id": "takeFluid",
         "shortText": "DNA size marker",
-        "longText": "Remove 10 uL of HindIII DNA size marker (grey tube)",
-        "bottomText": "Click the HindIII DNA size marker (grey tube) to draw it up",
+        "longText": "Remove 10 uL of fluid from reaction tube $iter$",
+        "bottomText": "Click reaction tube $iter$ to draw the fluid up",
         "feedbackText": "complete the second step",
         "logic": {
-          "eventSelector": ".tubeTopp",
+          "eventSelector": "#tubeTop_$iter$",
           "eventType": "click",
-          "eventFunction": "takeMicTube",
-          "postEventFunction": "takeMicTubePost",
-          "criteria": {
-            "variable": "tubePicked",
-            "value": 0,
-            "messageWrong": "Incorrect. Please select the correct tube."
-          }
+          "eventFunction": "takeMicTube"
         }
       }, {
         "id": "toLane1",
@@ -546,19 +540,13 @@
         "bottomText": "Click on the correct well to move the micropipette.",
         "feedbackText": "complete the third step",
         "logic": {
-          "eventSelector": ".wells",
+          "eventSelector": "#well_$iter$",
           "eventType": "click",
           "eventFunction": "toLane",
-          "postEventFunction": "toLanePost",
-          "criteria": {
-            "variable": "lanePicked",
-            "value": 0,
-            "messageWrong": "Incorrect. Please select the correct well."
-          }
+          "postEventFunction": "toLanePost"
         }
       }, {
         "id": "insertTip1",
-        "itemsAdded": "#gelWell #pipetteTip1",
         "shortText": "Insert tip",
         "longText": "Place the tip in the well. Be sure not to breach the walls!",
         "bottomText": "Drag around the tip to position it",
@@ -656,7 +644,7 @@
         }
       }, {
         "id": "stainGel",
-        "itemsRemoved": "#labBenchTop #gelTopView #lidBase #lidSide #arrowUp #arrowDown #powerSupplyTop #microtubeHolderTop #tubeTop_0 #tubeTop_1 #tubeTop_2 #tubeTop_3 #tubeTop_4 #tubeTop_5 #tubeTop_6 #tipBoxTop #wasteBinTop",
+        "itemsRemoved": "#labBenchTop #gelTopView #electroBoxBase #lidSide #arrowUp #arrowDown #powerSupplyTop #microtubeHolderTop #tubeTop_0 #tubeTop_1 #tubeTop_2 #tubeTop_3 #tubeTop_4 #tubeTop_5 #tubeTop_6 #tipBoxTop #wasteBinTop",
         "itemsAdded": "#labBench #pipetHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #s$iter$Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #graduatedCylinder #stainingTraySide #stainedGel",
         "shortText": "Stain the gel",
         "longText": "Pour the stain onto the gel in the staining tray",

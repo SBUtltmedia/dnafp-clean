@@ -63,7 +63,7 @@ var eventFunctions = {
     }
     // makeDynamicAnimation("addTip1", selector)
     animate("#micropipette2", 0, "keyframe", "addTip1", selector)
-    animate("#" + selector, 740, "hide")
+    animate("#" + selector, 740, "storage")
     animate("#pipetteTip1", 750, "removeClass", "opClass")
 
   }, //step 3
@@ -139,6 +139,7 @@ var eventFunctions = {
     // makeDynamicAnimation("pipetteToBin", game.iteration)
     animate("#micropipette2", 0, "keyframe", "pipetteToBin", game.iteration)
       .then(function() {
+        console.log("asd")
         animate("#pipetteTip1", 0, "keyframe", "tipToBin")
           .then(function() {
             animate("#pipetteTip1", 0, "addClass", "opClass")
@@ -148,7 +149,7 @@ var eventFunctions = {
                 $("#wasteBasket").css("z-index", "1")
               })
               .then(function() {
-                if (game.iteration == 5) {
+                if (game.iteration == 5 || game.testMode) {
                   animate("#micropipette2", 0, "keyframe", "pipetteFromBinToOrigin")
                 } else {
                   animate("#micropipette2", 0, "keyframe", "pipetteFromBinToPrep")
@@ -224,7 +225,7 @@ var eventFunctions = {
       animate("#s" + i + "Tube", 0, "keyframe", "insertTube" + i);
 
     }
-    animate("#tubeBlock, .microTube", 1750, "hide");
+    animate("#tubeBlock, .microTube", 1750, "storage");
 
 
   }, //step 16
@@ -254,7 +255,7 @@ var eventFunctions = {
     // animate("#bothDays *, #bothDays, #day1 *", 0, "attr", ["style", ""])
     // animate("#pipetteTip1", 0, "hide")
     // animate("#day1", 1000, "hide");
-    animate(".microTube, .tip, #tubeBlock", 0, "show")
+    animate(".microTube, .tip, #tubeBlock", 0, "view")
     // animate("#graduatedCylinder, #waterBathNoLid, #waterBathLid, #shelf1, #stainedGel, #stainingTraySide", 0, "hide")
 
     game.state["microtubeState"] = Array(6).fill(0)
@@ -332,7 +333,7 @@ var eventFunctions = {
 
   "removeComb": function() {
     animate("#gelComb", 0, "keyframe", "removeComb")
-    animate("#gelComb", 1000, "hide")
+    animate("#gelComb", 1000, "storage")
   }, //step 30
 
   "toTop": function() {
@@ -345,7 +346,7 @@ var eventFunctions = {
   }, //step 31
   "orientGel": function() {
     animate("#arrowDown, #arrowUp", 0, "addClass", "opClass")
-    animate("#micropipetteTopView, #gelFinalTop", 0, "show")
+    animate("#micropipetteTopView, #gelFinalTop", 0, "view")
 
   }, //step 32, 37, 42
   "addTipTop": function(evt) {
@@ -353,12 +354,12 @@ var eventFunctions = {
     //
     // }
     var totalRows = 8;
-    var totalCols = 16;
+    var totalCols = 12;
 
     var tip = game.state["tipTray"].indexOf(0)
 
-    var nextColumn = tip % tipTrayCols
-    var nextRow = Math.floor(tip / tipTrayCols);
+    var nextColumn = tip % totalCols
+    var nextRow = Math.floor(tip / totalRows);
     var nextSelector = "tip" + nextColumn + "_" + nextRow
     if (game.testMode) {
       var [column, row] = [nextColumn, nextRow]
@@ -389,15 +390,13 @@ var eventFunctions = {
       "left": micropipetteTopViewLeft + '%',
       "top": micropipetteTopViewTop + '%'
     }]);
-    game.state["tipTray"][column + (row * tipTrayRows)] = 1;;
+    game.state["tipTray"][column + (row * totalRows)] = 1;;
 
   }, //step 33
 
   "takeMicTube": function(evt) {
-    game.state["tubePicked"] = parseInt(evt.currentTarget.id.split("_")[1]);
-  }, //step 34
-  "takeMicTubePost": function() {
-    var tubePickedIndex = game.state["tubePicked"]
+    console.log(evt.currentTarget.id)
+    var tubePickedIndex = game.iteration
     var tubeTopPosition = 17.5
     var tubeTopAdd = 4.5
     var tubeTop = tubeTopPosition + tubeTopAdd * tubePickedIndex
@@ -410,21 +409,21 @@ var eventFunctions = {
   }, //step 34
 
   "toLane": function(evt) {
-    game.state["lanePicked"] = parseInt(evt.currentTarget.id.split("_")[1]);
-  },
-  "toLanePost": function() {
-    var laneIndex = game.state["lanePicked"]
+    var laneIndex = game.iteration
     var laneLeftPosition = 10.3
     var laneLeftAdd = 1.4
     var laneLeft = laneLeftPosition + laneLeftAdd * laneIndex
     animate("#micropipetteTopView", 0, "animate", [{
       "left": laneLeft + '%', //+=1.4%
       "top": '71.6%',
+      "z-index": 3
     }]);
 
     animate("html", 1000, zoom, [10, 74, 1, 500]) //zoomout
-    animate(".side", 1200, "show")
-    animate("#pipetteTip1 *, #pipetteTip1", 0, "show")
+  }, //step 35,40
+  "toLanePost": function() {
+    animate("#sideView", 0, "view")
+    animate("#pipetteTip1 *, #pipetteTip1", 0, "view")
     animate("#pipetteTip1", 0, "css", [{
       "width": "15%",
       "height": "121%",
@@ -439,9 +438,7 @@ var eventFunctions = {
       disabled: false,
       revert: true
     });
-
-
-  }, //step 35,40
+  },
   "insertTip": function(evt) {
     var sideViewWidth = parseFloat($('#sideView').css("width"));
     var sideViewHeight = parseFloat($('#sideView').css("height"));
@@ -479,7 +476,7 @@ var eventFunctions = {
       "background-image": "radial-gradient(blue, #5555ff, #5555ff)"
     }])
 
-    animate(".side", 3000, "hide")
+    animate(".side", 3000, "storage")
     animate("#gelWellBoundary", 3400, "css", [{
       "background-image": "radial-gradient(rgba(59,128,194,.86), rgba(59,128,194,.86), rgba(59,128,194,.86))"
     }])
@@ -506,11 +503,11 @@ var eventFunctions = {
   //To Day3
 
   "clickLid": function() {
-    animate("#lidSide, #micropipetteTopView", 0, "hide")
-    animate("#lidBox", 0, "show")
-    animate(".gelVoltage", 1000, "show")
-    animate("#gelVoltageCover, #voltage", 1000, "show")
-    animate("#tipBoxTop, #wasteBinTop", 0, "hide")
+    animate("#lidSide, #micropipetteTopView", 0, "storage")
+    animate("#lidBox", 0, "view")
+    animate(".gelVoltage", 1000, "view")
+    animate("#gelVoltageCover, #voltage", 1000, "view")
+    animate("#tipBoxTop, #wasteBinTop", 0, "storage")
   }, //step 73
   "setVoltage": function(evt) {
 
@@ -518,13 +515,13 @@ var eventFunctions = {
 
   },
   "setVoltagePost": function() {
-    animate("#gelVoltageCover", 1000, "hide")
-    animate("#stainingTray", 0, "show")
+    animate("#gelVoltageCover", 1000, "storage")
+    animate("#stainingTray", 0, "view")
 
   }, //step 74
   "removeGelLid": function() {
-    animate("#lidBox", 0, "hide")
-    animate("#lidSide", 0, "show")
+    animate("#lidBox", 0, "storage")
+    animate("#lidSide", 0, "view")
 
   }, //step 75
   "removeGel": function() {
@@ -540,10 +537,10 @@ var eventFunctions = {
       top: '58.5%',
       left: '30.6%',
     }])
-    animate("#topView, #topView *", 2000, "hide")
-    animate("#graduatedCylinder, #stainingTraySide", 2000, "show")
-    animate("#waterBathNoLid, #waterBathLid, #gelComb, #wasteBasket, #shelf1, #loadDyeCap", 2000, "hide")
-    animate("#bothDays, #day2, .day3, .day3 *, .microTube, .microTube *, #graduatedCylinder, #stainingTraySide", 2000, "show")
+    animate("#topView, #topView *", 2000, "storage")
+    animate("#graduatedCylinder, #stainingTraySide", 2000, "view")
+    animate("#waterBathNoLid, #waterBathLid, #gelComb, #wasteBasket, #shelf1, #loadDyeCap", 2000, "storage")
+    animate("#bothDays, #day2, .day3, .day3 *, .microTube, .microTube *, #graduatedCylinder, #stainingTraySide", 2000, "view")
     animate("#stainedGel", 2000, "css", [{
       opacity: 0 //left it with opacity, because of slowFadeIn animation
     }])
@@ -555,7 +552,7 @@ var eventFunctions = {
       "y": -270
     }])
 
-    animate(".bands, .laneFill", 0, "show");
+    animate(".bands, .laneFill", 0, "view");
     animate("#stainedGel", 600, "keyframe", "slowFadeIn")
     animate("#graduatedCylinder", 2000, "keyframe", "pourStainRev")
   }, //step 78
@@ -564,7 +561,7 @@ var eventFunctions = {
     $("#gelFinalTop").empty();
     $("#gel").append(contents);
     loadSVGLogic();
-    animate("#gel, #gel *", 0, "show")
+    animate("#gel, #gel *", 0, "view")
 
     $("#gel, #gel *").css({
       opacity: 1.0,
@@ -583,8 +580,6 @@ var eventFunctions = {
     game.state["lanePickedNumber"] = studentAnswer
   },
   "pickLanePost": function() {
-    animate("#day1, #day1 *, #bothDays, #bothDays *", 0, "show")
-    animate("#day2, #day2 *, #timer, #timerButton, #volumeInput, #volumeButton", 0, "hide")
   }
 
 }

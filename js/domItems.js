@@ -345,14 +345,6 @@ domItems = {
     classes: ["item lidBox"],
     resources: "",
   },
-  "lidBase": {
-    css: {
-      left: "-5.5%",
-      top: "40%",
-    },
-    classes: ["item lidBase"],
-    resources: "",
-  },
   "lidSide": {
     css: {
       left: "-2%",
@@ -385,12 +377,12 @@ domItems = {
     classes: ["item powerSupplyTop"],
     resources: "",
   },
-  "microTubeHolderTop": {
+  "tubeBlockTop": {
     css: {
       left: "35%",
-      top: "23%",
+      top: "19%",
     },
-    classes: ["item microTubeHolderTop"],
+    classes: ["item tubeBlockTop"],
     resources: "",
   },
   // Do we want to make these injected like the other tubes?
@@ -449,7 +441,7 @@ domItems = {
       top: "60%",
     },
     classes: ["item tipBoxTop"],
-    resources: "",
+    resources: "img/equipment/tipBoxTop.svg",
   },
   "wasteBinTop": {
     css: {
@@ -499,143 +491,63 @@ domItems = {
     classes: ["item gelWellBoundary"],
     resources: "",
   },
-  "gelFinalTop": {
+  "electroBoxBase": {
     css: {
-      width: "9.9%",
-      height: "11%",
+      left: "11%",
+      top: "55.3%",
+    },
+    classes: ["item electroBoxBase"],
+    resources: "",
+  },
+  "gelTopView": {
+    css: {
       left: "12%",
       top: "65.5%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
-      "visibility": "visible",
-      "z-index": "0",
+      "z-index": "1"
     },
-    classes: ["item gelFinalTop"],
-    resources: "",
+    classes: ["item gelTopView"],
+    resources: "/img/equipment/gelWithLane.svg",
   },
   "stainingTray": {
     css: {
-      width: "15%",
-      height: "18%",
       left: "28%",
       top: "55%",
-      position: "absolute",
-      "background-image": "url../resources/img/equipment/stainingTray.svg)",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "background-position": "center center",
     },
     classes: ["item stainingTray"],
     resources: "",
   },
-  "volumeButton1": {
-    css: {
-      width: "2%",
-      height: "1.6%",
-      left: "25.7%",
-      top: "14%",
-      position: "absolute",
-      "background-image": "url../resources/img/UI/check.svg)",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "font-size": ".25rem",
-      "outline-width": "0",
-    },
-    classes: ["item volumeButton1"],
-    resources: "",
-  },
-  "volumeInput1": {
-    css: {
-      "-webkit-appearance": "none",
-      margin: "0",
-      padding: "0",
-      width: "1.6%",
-      height: "1.3%",
-      left: "23.2%",
-      top: "14%",
-      position: "absolute",
-      border: ".1rem",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "font-size": ".25rem",
-      "outline-width": "0",
-    },
-    classes: ["item volumeInput1"],
-    resources: "",
-  },
   "volumeButton": {
     css: {
-      width: "2%",
-      height: "1.6%",
       left: "29.1%",
       top: "47.2%",
-      position: "absolute",
-      "background-image": "url../resources/img/UI/check.svg)",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "font-size": ".25rem",
-      "outline-width": "0",
     },
     classes: ["item volumeButton"],
     resources: "",
   },
   "volumeInput": {
     css: {
-      "-webkit-appearance": "none",
-      width: "1.6%",
-      height: "1.8%",
-      margin: "0",
-      padding: "0",
-      border: ".1rem",
       left: "26.5%",
       top: "47%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "font-size": ".25rem",
-      "z-index": "10",
-      "outline-width": "0",
     },
     classes: ["item volumeInput"],
     resources: "",
   },
-  "timer": {
-    css: {
-      width: "2.2%",
-      height: "2.0%",
-      left: "61.3%",
-      top: "36.4%",
-      position: "absolute",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      margin: "0",
-      padding: "0",
-      border: "20rem",
-      "font-size": ".35rem",
-      "z-index": "0",
-    },
-    classes: ["item timer"],
-    resources: "",
-  },
   "timerButton": {
     css: {
-      width: "3.5%",
-      height: "2.8%",
       left: "64%",
       top: "36%",
-      padding: "0",
-      border: "20rem",
-      "font-size": ".25rem",
-      position: "absolute",
-      "background-image": "url../resources/img/UI/check.svg)",
-      "background-repeat": "no-repeat",
-      "background-size": "contain",
-      "z-index": "0",
     },
     classes: ["item timerButton"],
     resources: "",
   },
+  "sideView": {
+    css: {
+      left: "55%",
+      top: "25%",
+    },
+    classes: ["item sideView"],
+    resources: "/html/sideView.htm"
+  }
 }
 
 function highlightObject(highlight, selector) {

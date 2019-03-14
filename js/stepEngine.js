@@ -5,7 +5,12 @@ function Step() {
     //highlightObject(true,step.logic.s.logic.eventSelector);
     var s = jQuery.extend(true, {}, step);
     var clicked = false;
+
+
+
     s.logic.eventSelector = s.logic.eventSelector.replace("$iter$", game.iteration)
+    s.longText = s.longText.replace("$iter$", game.iteration+1)
+    s.bottomText = s.bottomText.replace("$iter$", game.iteration+1)
     $("#headerText").text(s.longText);
     $("#footerText").text(s.bottomText);
     // $("#view").off()
@@ -68,7 +73,9 @@ function Step() {
       $(s.logic.eventSelector).trigger(s.logic.eventType);
     }
     if (game.testMode && s.id == game.hash) {
-      game.testMode = false
+      setTimeout(() => {
+        game.testMode = false
+      }, 100)
     }
 
   }

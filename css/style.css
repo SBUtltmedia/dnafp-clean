@@ -2,7 +2,6 @@
     font-family: "Helvetica";
     src: url("../resources/fonts/helvetica.woff");
 } */
-
 body {
   margin: 0;
   padding: 0;
@@ -163,18 +162,19 @@ body {
 }
 
 @keyframes pulse {
-    0% {
+  0% {
+    box-shadow: 1px 1px 1rem 0.2rem red;
+  }
 
-      box-shadow: 1px 1px 1rem 0.2rem red;
-    },
-    50% {
+  ,
+  50% {
+    box-shadow: 1px 1px 5rem 2rem red;
+  }
 
-      box-shadow: 1px 1px 5rem 2rem red;
-    },
-    100% {
-
-      box-shadow: 1px 1px 1rem 0.2rem red;
-    }
+  ,
+  100% {
+    box-shadow: 1px 1px 1rem 0.2rem red;
+  }
 }
 
 .activeGroup {
@@ -201,7 +201,6 @@ body {
 }
 
 .tubeColor {
-  opacity: 1;
   stroke: #000000;
 }
 
@@ -451,9 +450,8 @@ body {
 }
 
 .gelTopView {
-  width: 20%;
-  height: 30%;
-  background-image: url("../resources/img/equipment/gelTopView.svg");
+  width: 9%;
+  height: 10%;
 }
 
 .lidBox {
@@ -462,10 +460,10 @@ body {
   background-image: url("../resources/img/equipment/lidBox.svg");
 }
 
-.lidBase {
-  width: 35%;
-  height: 45%;
-  background-image: url("../resources/img/equipment/lidBase.svg");
+.electroBoxBase {
+  width: 11%;
+  height: 29%;
+  background-image: url("../resources/img/equipment/electroBoxBase.svg");
 }
 
 .lidSide {
@@ -492,10 +490,10 @@ body {
   background-image: url("../resources/img/equipment/powerSupplyTop.svg");
 }
 
-.microTubeHolderTop {
+.tubeBlockTop {
   width: 8%;
-  height: 30%;
-  background-image: url("../resources/img/equipment/microtubeHolderTop.svg");
+  height: 33%;
+  background-image: url("../resources/img/equipment/tubeBlockTop.svg");
 }
 
 .tubeTop {
@@ -504,35 +502,9 @@ body {
   left: 33.5%;
 }
 
-/* Would like to combine these into one svg like other tubes */
-/* .tubeTop_0 {
-  background-image: url("../resources/img/equipment/ladderTop.svg");
-}
-
-.tubeTop_1 {
-  background-image: url("../resources/img/equipment/csTop.svg");
-}
-
-.tubeTop_2 {
-  background-image: url("../resources/img/equipment/s1Top.svg");
-}
-
-.tubeTop_3 {
-  background-image: url("../resources/img/equipment/s2Top.svg");
-}
-
-.tubeTop_4 {
-  background-image: url("../resources/img/equipment/s3Top.svg");
-}
-
-.tubeTop_5 {
-  background-image: url("../resources/img/equipment/s4Top.svg");
-} */
-
 .tipBoxTop {
   width: 10%;
   height: 10%;
-  background-image: url("../resources/img/equipment/tipBoxTop.svg");
 }
 
 .wasteBinTop {
@@ -598,6 +570,7 @@ body {
   background-image: url("../resources/img/UI/check.svg");
   outline-width: 0;
 }
+
 .timerInput {
   -webkit-appearance: none;
   width: 12%;
@@ -624,4 +597,10 @@ body {
   background-image: url("../resources/img/UI/check.svg");
   background-size: cover;
   outline-width: 0;
+}
+
+.sideView {
+  width: 45%;
+  height: 60%;
+  background-image: url("../resources/img/UI/sideBackground.svg");
 }
