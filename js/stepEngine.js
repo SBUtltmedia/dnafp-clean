@@ -9,8 +9,8 @@ function Step() {
 
 
     s.logic.eventSelector = s.logic.eventSelector.replace("$iter$", game.iteration)
-    s.longText = s.longText.replace("$iter$", game.iteration+1)
-    s.bottomText = s.bottomText.replace("$iter$", game.iteration+1)
+    s.longText = s.longText.replace("$iter$", game.iteration + 1)
+    s.bottomText = s.bottomText.replace("$iter$", game.iteration + 1)
     $("#headerText").text(s.longText);
     $("#footerText").text(s.bottomText);
     // $("#view").off()
@@ -21,61 +21,56 @@ function Step() {
     // });
 
     highlightObject(true, s.logic.eventSelector);
+    var criteria;
+
+    if (!s.logic.criteria) {
+      criteria = {
+        variable: "noCriteria",
+        value: 0
+      }
+    } else {
+      console.log(criteria = s.logic.criteria)
+    }
 
     var composite = function(evt) {
       evt.preventDefault();
-
-      curGroup = game.getGroupMembership(s.id)
+    console.log(s.logic.eventType)
       window["eventFunctions"][s.logic.eventFunction](evt)
-      if (game.testMode && game.groups[curGroup].repeats) {
-        if (game.hashLoop) {
-          game.iteration = game.hashLoop - 1
-        } else {
-          game.iteration = game.groups[curGroup].repeats - 1
-        }
-      }
-      if (game.testMode && s.logic && s.logic.criteria) {
-        var criteriaVar = game.state[s.logic.criteria.variable]
-        criteriaVar[game.iteration] = JSON.parse(JSON.stringify(s.logic.criteria.value)) //returns reference to value, don't touch
-      }
-      if (s.logic.criteria) {
-        var criteriaVar = game.state[s.logic.criteria.variable]
 
+      if (game.testMode) {
+        game.state[criteria.variable] = criteria.value
       }
-
-      if ((s.logic.criteria && isEqual(criteriaVar[game.iteration], s.logic.criteria.value)) || !s.logic.criteria) {
+      if (game.state[criteria.variable] == criteria.value) {
         highlightObject(false, s.logic.eventSelector);
 
         $(s.logic.eventSelector).off()
         if (s.logic.postEventFunction) {
-
           window["eventFunctions"][s.logic.postEventFunction]()
-          //s.logic.postEventFunction()
         }
         game.score = 0
-        //updateScore(11);
-
         game.nextStep()
 
-        //$("#headerText").fadeTo(300, 0.25);
       } else if (s.logic.criteria.messageWrong) {
-        game.state[s.logic.criteria.variable] = undefined;
-        message(s.logic.criteria.messageWrong);
-        //updateScore(-5);
-
+        // game.state[s.logic.criteria.variable] = "fd";
+        //message(s.logic.criteria.messageWrong);
       }
     }
-    //
-    $(s.logic.eventSelector).on(s.logic.eventType, composite);
-    //$("#enzTube").on("click", composite);
 
-    if (game.testMode && s.id != game.hash) {
-      $(s.logic.eventSelector).trigger(s.logic.eventType);
-    }
-    if (game.testMode && s.id == game.hash) {
-      setTimeout(() => {
-        game.testMode = false
-      }, 100)
+    $(s.logic.eventSelector).on(s.logic.eventType, composite);
+
+    if (game.testMode) {
+      if (s.id != game.hash) {
+        $(s.logic.eventSelector).trigger(s.logic.eventType);
+      } else {
+        setTimeout(() => {
+          game.testMode = false
+        }, 100)
+      }
+      // if (game.hashLoop) {
+      //   game.iteration = game.hashLoop - 1
+      // } else {
+      //   game.iteration = game.groups[game.getGroupMembership(s.id)].repeats - 1
+      // }
     }
 
   }

@@ -486,7 +486,7 @@ domItems = {
   "gelWellBoundary": {
     css: {
       left: "20%",
-      top: "0%",
+      top: "46%",
     },
     classes: ["item gelWellBoundary"],
     resources: "",

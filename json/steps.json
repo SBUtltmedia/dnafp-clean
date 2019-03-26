@@ -55,7 +55,7 @@
           "shortText": "Load Tubes",
           "steps": [{
               "id": "selectTip",
-              "shortText": "Use micropipette",
+              "shortText": "Add tip",
               "longText": "Add a tip to the micropipette",
               "bottomText": "Click on any tip to place it on the micropipette",
               "feedbackText": "complete the second step",
@@ -188,26 +188,21 @@
           ]
         },
         {
-          "repeats": 5,
-          "id": "pressTube",
-          "shortText": "Expose tube bottoms",
-          "steps": [{
-            "id": "pressTubes",
-            "shortText": "Press tubes down",
-            "longText": "Press each tube down to expose bottoms to the water",
-            "bottomText": "Click on each tube to press it down",
-            "feedbackText": "complete the second step",
-            "logic": {
-              "eventSelector": ".microTube",
-              "eventType": "click",
-              "eventFunction": "pressTube",
-              "postEventFunction": "pressTubePost",
-              "criteria": {
-                "variable": "microtubeState",
-                "value": 6
-              }
+          "id": "pressTubes",
+          "shortText": "Press tubes down",
+          "longText": "Press each tube down to expose bottoms to the water",
+          "bottomText": "Click on each tube to press it down",
+          "feedbackText": "complete the second step",
+          "logic": {
+            "eventSelector": ".microTube",
+            "eventType": "click",
+            "eventFunction": "pressTubes",
+            "postEventFunction": "pressTubePost",
+            "criteria": {
+              "variable": "microtubeState",
+              "value": 6
             }
-          }]
+          }
         },
         {
           "id": "removeLid",
@@ -558,7 +553,7 @@
           "postEventFunction": "insertTipPost",
           "criteria": {
             "variable": "TipPosition",
-            "value": true
+            "value": 1
           }
         }
       }, {

@@ -42,8 +42,7 @@ var eventFunctions = {
 
   "setVolume": function() {
     var volume = $("#micropipette2").find("[type='text']").val();
-
-    game.state["volume"] = [volume];
+    game.state["volume"] = volume;
     return false
   },
   "setVolumePost": function() {
@@ -71,7 +70,7 @@ var eventFunctions = {
   "openTube": function(evt) {
 
 
-    game.state["microtubeState"][game.iteration] = 1;
+    game.state["microtubeState"] = 1;
     // animate("#enzTube svg .Cap", 0, "keyframe", "rotateCap", -120)
     animate("#s" + game.iteration + "Tube svg .Cap", 1000, "keyframe", "rotateCap", -120)
 
@@ -139,7 +138,6 @@ var eventFunctions = {
     // makeDynamicAnimation("pipetteToBin", game.iteration)
     animate("#micropipette2", 0, "keyframe", "pipetteToBin", game.iteration)
       .then(function() {
-        console.log("asd")
         animate("#pipetteTip1", 0, "keyframe", "tipToBin")
           .then(function() {
             animate("#pipetteTip1", 0, "addClass", "opClass")
@@ -165,19 +163,19 @@ var eventFunctions = {
     animate("#s" + game.iteration + "Tube svg .Cap", 0, "keyframe", "rotateCap", 0)
 
     $("#s" + game.iteration + "Tube").css("z-index", "0")
-    game.state["microtubeState"][game.iteration] = 2;
+    game.state["microtubeState"] = 2;
   },
   "flickTube": function() {
     animate("#s" + game.iteration + "Tube", 0, "keyframe", "flickTube");
-    game.state["microtubeState"][game.iteration] = 3;
+    game.state["microtubeState"] = 3;
   },
   "tapTube": function() {
     animate("#s" + game.iteration + "Tube", 0, "keyframe", "tapTube")
-    game.state["microtubeState"][game.iteration] = 4;
+    game.state["microtubeState"] = 4;
   },
   "tubeRack": function() {
     animate("#s" + game.iteration + "Tube", 0, "keyframe", "tubeDown")
-    game.state["microtubeState"][game.iteration] = 5;
+    game.state["microtubeState"] = 5;
 
 
 
@@ -194,7 +192,7 @@ var eventFunctions = {
       animate("#tubeBlock", 1500, "keyframe", "moveBlock");
     }
   },
-  "pressTube": function(evt) {
+  "pressTubes": function(evt) {
     var tubeId = evt.currentTarget.id.charAt(1);
 
     if (game.testMode) {
@@ -203,7 +201,8 @@ var eventFunctions = {
       }
     }
     animate("#s" + tubeId + "Tube", 0, "keyframe", "pressTube" + tubeId);
-    game.state["microtubeState"][tubeId] = 6
+    game.state["microtubeState"] = 6
+
   }, //step 13
   "pressTubePost": function() {
 
@@ -245,7 +244,7 @@ var eventFunctions = {
     }
     var time = $("#waterBathNoLid").find("[type='text']").val();
 
-    game.state["time"] = [time]
+    game.state["time"] = time
     return false
   },
   "setTimerPost": function() {
@@ -258,7 +257,7 @@ var eventFunctions = {
     animate(".microTube, .tip, #tubeBlock", 0, "view")
     // animate("#graduatedCylinder, #waterBathNoLid, #waterBathLid, #shelf1, #stainedGel, #stainingTraySide", 0, "hide")
 
-    game.state["microtubeState"] = Array(6).fill(0)
+    game.state["microtubeState"] = 0
 
   }, //step 18
   "prepPipette1": function(evt) {
@@ -270,7 +269,7 @@ var eventFunctions = {
   "setDyeVolume": function() {
     var volume = $("#micropipette2").find("[type='text']").val();
 
-    game.state["volume"] = [volume];
+    game.state["volume"] = volume;
     return false
   },
 
@@ -328,7 +327,7 @@ var eventFunctions = {
       }
     }
     animate("#s" + tubeId + "Tube svg .Cap", 0, "keyframe", "rotateCap", -120)
-    game.state["microtubeState"][tubeId] = 6
+    game.state["microtubeState"] = 6
   }, //step 29
 
   "removeComb": function() {
@@ -357,7 +356,7 @@ var eventFunctions = {
     var totalCols = 12;
 
     var tip = game.state["tipTray"].indexOf(0)
-
+$(`#${evt.currentTarget.id}`).removeClass("tipTop")
     var nextColumn = tip % totalCols
     var nextRow = Math.floor(tip / totalRows);
     var nextSelector = "tip" + nextColumn + "_" + nextRow
@@ -395,7 +394,6 @@ var eventFunctions = {
   }, //step 33
 
   "takeMicTube": function(evt) {
-    console.log(evt.currentTarget.id)
     var tubePickedIndex = game.iteration
     var tubeTopPosition = 17.5
     var tubeTopAdd = 4.5
@@ -423,7 +421,8 @@ var eventFunctions = {
   }, //step 35,40
   "toLanePost": function() {
     animate("#sideView", 0, "view")
-    animate("#pipetteTip1 *, #pipetteTip1", 0, "view")
+    $("#sideView").append($("#pipetteTip1"), $("#gelWell"), $("#gelWellBoundary"))
+    $("#pipetteTip1").removeClass("opClass")
     animate("#pipetteTip1", 0, "css", [{
       "width": "15%",
       "height": "121%",
@@ -436,7 +435,7 @@ var eventFunctions = {
     }])
     $('#pipetteTip1').draggable({
       disabled: false,
-      revert: true
+      revert: false
     });
   },
   "insertTip": function(evt) {
@@ -444,24 +443,23 @@ var eventFunctions = {
     var sideViewHeight = parseFloat($('#sideView').css("height"));
     var currentBot = parseFloat($('#pipetteTip1').css("bottom")) / sideViewHeight * 100;
     var currentLeft = parseFloat($('#pipetteTip1').css("left")) / sideViewWidth * 100;
-    game.state["TipPosition"] = false
-    //
-    if (currentBot < 53.5) {
+    // game.state["TipPosition"] = 0
+    console.log(currentLeft)
+    if (currentBot < 68) {
       if (currentBot < 12 || currentLeft > 67.8 || currentLeft < 19.5) {
-        message("Make sure the tip is not breaching the wall!")
+        console.log("Make sure the tip is not breaching the wall!")
       } else if (currentBot > 40) {
-        message("Make sure the tip stays deep enough within the well!")
+        console.log("Make sure the tip stays deep enough within the well!")
       } else if (currentBot < 15) {
-
-        message("Your tip is going too deep into the well. Don't risk it to breach the wall!")
+        console.log("Your tip is going too deep into the well. Don't risk it to breach the wall!")
       } else {
-        game.state["TipPosition"] = true
+        game.state["TipPosition"] = 1
         $('#pipetteTip1').draggable({
           disabled: true,
           revert: false
         });
       }
-      if (game.state["TipPosition"] == false) {
+      if (game.state["TipPosition"] == 0) {
         $('#pipetteTip1').css("top", "-80%")
         $('#pipetteTip1').css("left", "42%")
       }
