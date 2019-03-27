@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <link rel="shortcut icon"  href="resources/img/UI/favicon.ico">
+  <link rel="shortcut icon" href="resources/img/UI/favicon.ico">
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/jquerykeyframes@1.0.7/dist/jquery.keyframes.min.js"></script>
@@ -19,6 +19,7 @@
   <!-- <script src="js/keyframes.js"></script> -->
   <script src="js/zoom.js"></script>
   <script src="js/animations.js"></script>
+  <script src="js/overlay.js"></script>
   <link href="css/style.css" type="text/css" rel="stylesheet">
   <link href="css/menuStyle.css" type="text/css" rel="stylesheet">
 </head>
@@ -40,7 +41,16 @@
     <div id="footer">
       <div id="footerText"></div>
     </div>
-
+    <div id="overlay" class="screen">
+      <div id="results" class="rounded stripes">
+        <div id="messageBox">
+          <div id="messageText">
+          </div>
+          <div id="messageButton" class="rounded stripes">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </body>
 

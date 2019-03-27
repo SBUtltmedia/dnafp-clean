@@ -1,19 +1,54 @@
 .endOptionUnlocked {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .endOptionLocked {
-    cursor: not-allowed;
+  cursor: not-allowed;
 }
 
 .medal {
-    pointer-events: none;
+  pointer-events: none;
+}
+
+.rounded {
+    border-radius: .5rem;
 }
 
 #challengeButton {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #viewLeaderboard {
-    cursor: pointer;
+  cursor: pointer;
+}
+
+#messageBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  justify-content: center;
+}
+
+#messageButton {
+  background-image: url("../resources/img/UI/GreenStripe2.png");
+}
+
+#messageBox #messageButton {
+  width: 20%;
+  text-align: center;
+}
+
+#results {
+  width: 75%;
+  height: 55%;
+  left: 12.5%;
+  top: 22.5%;
+  background-color: #ffffff;
+  background-image: url("../resources/img/UI/DarkStripeBG.png");
+  z-index: 150;
+  /*z-index: 5001;*/
+  opacity: 1;
+  position: absolute;
+  box-shadow: .5% .5% .5% #000000;
 }

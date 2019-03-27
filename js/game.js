@@ -21,10 +21,10 @@ function Game(steps) {
     const tipTrayRows = 8,
       tipTrayCols = 12;
     var state = {
-      noCriteria:0,
+      noCriteria: 0,
       microtubeState: 0,
       //state numbers for reference [0:"untouched", 1:"opened", 2:"closed", 3:"flicked", 4:"tapped", 5:"returned", 6:"exposed"]
-      TipPosition: 0,
+      TipPosition: false,
       tipTray: Array(tipTrayRows * tipTrayCols).fill(0),
       wellPosition: Array(7).fill(0),
       voltage: 0,

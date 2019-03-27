@@ -347,7 +347,7 @@ domItems = {
   },
   "lidSide": {
     css: {
-      left: "-2%",
+      left: "6%",
       top: "20.3%",
     },
     classes: ["item lidSide"],
@@ -493,7 +493,7 @@ domItems = {
   },
   "electroBoxBase": {
     css: {
-      left: "11%",
+      left: "11.6%",
       top: "55.3%",
     },
     classes: ["item electroBoxBase"],
@@ -501,7 +501,7 @@ domItems = {
   },
   "gelTopView": {
     css: {
-      left: "12%",
+      left: "12.6%",
       top: "65.5%",
       "z-index": "1"
     },

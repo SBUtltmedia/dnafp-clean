@@ -6,9 +6,11 @@ $(function() {
     menu = new Menu()
     step = new Step()
     item = new Item()
+    overlay = new Overlay()
     resizeWindow()
     menu.buildMenu(data.steps, "stepList")
     menu.hideGroups()
+    overlay.message("Click \"OK\" to start the lab", "OK")
     item.buildAllItems(domItems).then(function() {
       buildStage(0)
       game.setStep(0)
@@ -25,7 +27,6 @@ $(function() {
       $(this).removeClass("spin")
     }, 1500)
   })
-
 })
 
 

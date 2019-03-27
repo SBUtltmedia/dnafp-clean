@@ -967,10 +967,6 @@ animations = {
   },
   "pipetteToBin": {
     "keyframes": {
-      '0%': {
-        "left": 'var1%',
-        "top": '39%',
-      },
       '25%': {
         "left": 'var1%',
         "top": '31%',
@@ -992,7 +988,26 @@ animations = {
       }
     }
   },
-
+  "pipetteTopToTube": {
+    "keyframes": {
+      '100%': {
+        "left": '36.7%',
+        "top": 'var1%',
+      }
+    },
+    "props": "0.5s linear 0s 1 normal forwards",
+    method(iteration) {
+      var viewHeight = parseFloat($('#view').css("height"));
+      var pipetteHeight = parseFloat($('#micropipetteTopView').css("height"));
+      var currentTubeTop = parseFloat($(`#tubeTop_${iteration}`).css("top"))
+      var tubeHeight = parseFloat($(`#tubeTop_${iteration}`).css("height"))
+      var tubePos = ((currentTubeTop-pipetteHeight*0.3)/viewHeight)*100
+      console.log(viewHeight, currentTubeTop, tubeHeight, tubePos)
+      return {
+        var1: tubePos
+      }
+    }
+  },
 }
 
 

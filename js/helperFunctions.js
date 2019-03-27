@@ -311,7 +311,7 @@ var eventFunctions = {
 
     animate("#micropipette2", 400, "keyframe", "addDyeToTube", game.iteration)
 
-    if (game.iteration==5){
+    if (game.iteration == 5) {
       animate("#loadDye svg .Cap", 1100, "keyframe", "rotateCap", 0)
       animate("#loadDye", 1350, "keyframe", "moveLoadingDyeback")
     }
@@ -356,7 +356,7 @@ var eventFunctions = {
     var totalCols = 12;
 
     var tip = game.state["tipTray"].indexOf(0)
-$(`#${evt.currentTarget.id}`).removeClass("tipTop")
+    $(`#${evt.currentTarget.id}`).removeClass("tipTop")
     var nextColumn = tip % totalCols
     var nextRow = Math.floor(tip / totalRows);
     var nextSelector = "tip" + nextColumn + "_" + nextRow
@@ -380,7 +380,7 @@ $(`#${evt.currentTarget.id}`).removeClass("tipTop")
     animate(selectorTip, 500, "attr", ["class", "st3"])
 
     var topMost = 56.6,
-      leftMost = 31.2,
+      leftMost = 32.8,
       rowHeight = 1.1,
       colWidth = .78
     var micropipetteTopViewLeft = leftMost + (colWidth * column)
@@ -394,15 +394,7 @@ $(`#${evt.currentTarget.id}`).removeClass("tipTop")
   }, //step 33
 
   "takeMicTube": function(evt) {
-    var tubePickedIndex = game.iteration
-    var tubeTopPosition = 17.5
-    var tubeTopAdd = 4.5
-    var tubeTop = tubeTopPosition + tubeTopAdd * tubePickedIndex
-
-    animate("#micropipetteTopView", 0, "animate", [{
-      "left": '36.7%',
-      "top": tubeTop + '%'
-    }]);
+    animate("#micropipetteTopView", 0, "keyframe", "pipetteTopToTube", game.iteration);
     animate("html", 1000, zoom, [10, 74, 6, 1000])
   }, //step 34
 
@@ -422,7 +414,8 @@ $(`#${evt.currentTarget.id}`).removeClass("tipTop")
   "toLanePost": function() {
     animate("#sideView", 0, "view")
     $("#sideView").append($("#pipetteTip1"), $("#gelWell"), $("#gelWellBoundary"))
-    $("#pipetteTip1").removeClass("opClass")
+    $("#sideView, #sideView *").removeClass("opClass")
+    //$("#pipetteTip1").removeClass("opClass")
     animate("#pipetteTip1", 0, "css", [{
       "width": "15%",
       "height": "121%",
@@ -433,9 +426,12 @@ $(`#${evt.currentTarget.id}`).removeClass("tipTop")
     animate("#svgfluid", 0, "animate", [{
       y: "40"
     }])
+    $('#gelWell').droppable({
+      tolerance: "touch"
+    });
     $('#pipetteTip1').draggable({
       disabled: false,
-      revert: false
+      revert: true
     });
   },
   "insertTip": function(evt) {
@@ -443,17 +439,16 @@ $(`#${evt.currentTarget.id}`).removeClass("tipTop")
     var sideViewHeight = parseFloat($('#sideView').css("height"));
     var currentBot = parseFloat($('#pipetteTip1').css("bottom")) / sideViewHeight * 100;
     var currentLeft = parseFloat($('#pipetteTip1').css("left")) / sideViewWidth * 100;
-    // game.state["TipPosition"] = 0
-    console.log(currentLeft)
+    game.state["TipPosition"] = false
     if (currentBot < 68) {
       if (currentBot < 12 || currentLeft > 67.8 || currentLeft < 19.5) {
-        console.log("Make sure the tip is not breaching the wall!")
+        overlay.message("Make sure the tip is not breaching the wall!")
       } else if (currentBot > 40) {
-        console.log("Make sure the tip stays deep enough within the well!")
+        overlay.message("Make sure the tip stays deep enough within the well!")
       } else if (currentBot < 15) {
-        console.log("Your tip is going too deep into the well. Don't risk it to breach the wall!")
+        overlay.message("Your tip is going too deep into the well. Don't risk it to breach the wall!")
       } else {
-        game.state["TipPosition"] = 1
+        game.state["TipPosition"] = true
         $('#pipetteTip1').draggable({
           disabled: true,
           revert: false
@@ -485,6 +480,9 @@ $(`#${evt.currentTarget.id}`).removeClass("tipTop")
       "fill": "#5555ff"
     }])
     game.state["wellPosition"][well] = 1;
+    setTimeout(function() {
+      $("#sideView").addClass("opClass")
+    }, 1500)
     // setTimeout(function () {
     //     $('#pipetteTip1').css("top", "-80%")
     //     $('#pipetteTip1').css("left", "42%")
@@ -577,8 +575,7 @@ $(`#${evt.currentTarget.id}`).removeClass("tipTop")
 
     game.state["lanePickedNumber"] = studentAnswer
   },
-  "pickLanePost": function() {
-  }
+  "pickLanePost": function() {}
 
 }
 

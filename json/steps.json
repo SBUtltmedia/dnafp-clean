@@ -425,7 +425,7 @@
               "value": 4
             }
           }
-        },{
+        }, {
           "id": "tubeRack1",
           "shortText": "Tubes in floating rack",
           "longText": "Place the tubes back in the floating rack",
@@ -442,7 +442,7 @@
             }
           }
         }]
-      },{
+      }, {
         "repeats": 5,
         "id": "openTubes",
         "shortText": "Open reaction tubes",
@@ -505,7 +505,7 @@
       "itemsRemoved": "#arrowUp #arrowDown",
       "itemsAdded": "#gelFinalTop #micropipetteTopView",
       "shortText": "Load Gel",
-      "repeats": 2,
+      "repeats": 7,
       "steps": [{
         "id": "addTipTop1",
         "shortText": "Place tip",
@@ -553,12 +553,11 @@
           "postEventFunction": "insertTipPost",
           "criteria": {
             "variable": "TipPosition",
-            "value": 1
+            "value": true
           }
         }
       }, {
         "id": "disposeTip1",
-        "itemsRemoved": "#gelWell #pipetteTip1",
         "shortText": "Dispose of tip",
         "longText": "Dispose of the used tip",
         "bottomText": "Click on the waste bin to dispose of the tip",

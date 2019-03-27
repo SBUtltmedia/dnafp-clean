@@ -29,12 +29,11 @@ function Step() {
         value: 0
       }
     } else {
-      console.log(criteria = s.logic.criteria)
+      criteria = s.logic.criteria
     }
 
     var composite = function(evt) {
       evt.preventDefault();
-    console.log(s.logic.eventType)
       window["eventFunctions"][s.logic.eventFunction](evt)
 
       if (game.testMode) {
@@ -52,7 +51,7 @@ function Step() {
 
       } else if (s.logic.criteria.messageWrong) {
         // game.state[s.logic.criteria.variable] = "fd";
-        //message(s.logic.criteria.messageWrong);
+        overlay.message(s.logic.criteria.messageWrong, "OK");
       }
     }
 

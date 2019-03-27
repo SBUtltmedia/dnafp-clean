@@ -48,7 +48,7 @@ body {
   width: 18%;
   height: 36%;
   position: absolute;
-  z-index: 500;
+  z-index: 100;
   font-size: .33rem
 }
 
@@ -467,7 +467,7 @@ body {
 }
 
 .lidSide {
-  width: 36%;
+  width: 21%;
   height: 30%;
   background-image: url("../resources/img/equipment/lidSide.svg");
 }
@@ -497,9 +497,9 @@ body {
 }
 
 .tubeTop {
-  width: 7%;
-  height: 3.5%;
-  left: 33.5%;
+  width: 5%;
+  height: 2.7%;
+  left: 35.2%;
 }
 
 .tipBoxTop {
@@ -514,7 +514,7 @@ body {
 }
 
 .micropipetteTopView {
-  width: 5%;
+  width: 2%;
   height: 7%;
   background-image: url("../resources/img/equipment/micropipetteTopView.svg");
 }
