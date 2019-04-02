@@ -12,6 +12,7 @@ function Game(steps) {
 
   }
 
+
   if (this.hash) {
     this.testMode = true;
   }
@@ -22,6 +23,7 @@ function Game(steps) {
       tipTrayCols = 12;
     var state = {
       noCriteria: 0,
+      totalTubesPressed:0,
       microtubeState: 0,
       //state numbers for reference [0:"untouched", 1:"opened", 2:"closed", 3:"flicked", 4:"tapped", 5:"returned", 6:"exposed"]
       TipPosition: false,
@@ -122,8 +124,9 @@ function Game(steps) {
     }
 
     this.setStep(nextStepNum)
-    if (this.steps[nextStepNum].itemsAdded || this.steps[nextStepNum].itemsRemoved) {
-      console.log("Building new stage")
+
+    if ((this.steps[nextStepNum].itemsAdded || this.steps[nextStepNum].itemsRemoved)) {
+
       buildStage(nextStepNum)
     }
   }

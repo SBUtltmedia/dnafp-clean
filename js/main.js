@@ -8,14 +8,19 @@ $(function() {
     item = new Item()
     overlay = new Overlay()
     resizeWindow()
-    menu.buildMenu(data.steps, "stepList")
-    menu.hideGroups()
+    menu.buildMenu(data.steps, "stepList").then(() => {
+      menu.hideGroups()
+    })
+    //  menu.hideGroups()
     overlay.message("Click \"OK\" to start the lab", "OK")
-    item.buildAllItems(domItems).then(function() {
-      buildStage(0)
+    buildStage(0).then(() => {
       game.setStep(0)
     })
-    menu.hideGroups()
+    // item.buildAllItems(domItems).then(function() {
+    //   buildStage(0)
+    //   game.setStep(0)
+    // })
+
 
 
   })
@@ -41,13 +46,40 @@ function loadStep(steps) {
 }
 
 function buildStage(stepNumber) {
-  itemsAdded = game.steps[stepNumber].itemsAdded.split(" ")
+  var defer = $.Deferred();
+  var itemsDetached = [];
+
+  itemsAdded =  game.steps[stepNumber].itemsAdded.split(" ")
   itemsRemoved = game.steps[stepNumber].itemsRemoved.split(" ")
-  for (i of itemsAdded) {
-    $("#view").append($(i))
+  item.buildAllItems(itemsAdded).then(()=>{
+
+
+
+  //   for (i of itemsAdded) {
+  //
+  // item.buildItemById(i.split("#")[1])
+  //
+  //     //$("#view").append($(i))
+  //   }
+
+if(itemsRemoved[0] !=""){
+  for (j of itemsRemoved) {    //$(j).detach().appendTo("#storage")
+    itemsDetached.push($(`#${j}`).detach());
+    //  $(j).remove()
   }
-  for (j of itemsRemoved) {
-    $("#storage").append($(j))
-  }
+}
+console.log("Stage built")
+  defer.resolve("Stage built")
+  })
+  return defer.promise();
+  // $("#storage").prepend(...itemsDetached)
+  // setTimeout(function(){
+  //
+  //
+  //
+  // },1)
+  //
+  //$("#storage").hide();
+
 
 }

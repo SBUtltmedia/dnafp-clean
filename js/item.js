@@ -1,7 +1,8 @@
 function Item() {
-  
+
 
   this.buildItemById = function(itemId) {
+
     return this.buildItem(Object.assign({}, domItems[itemId], {
       itemId
     }))
@@ -9,13 +10,13 @@ function Item() {
 
 
   this.buildItem = function({
-    parent = "#storage",
+    parent = "#view",
     itemId,
     css,
     classes = [],
     resources,
   }) {
-    // 
+    //
     var defer = $.Deferred();
     if (resources) {
       $.ajax({
@@ -32,7 +33,8 @@ function Item() {
           })
         },
         error: function() {
-          defer.resolve("not found")
+
+          defer.reject("not found")
         }
       })
     }
@@ -51,37 +53,39 @@ function Item() {
   }
 
   function makeDOMItem({
-    parent = "#storage",
+    parent = "#view",
     itemId,
     css,
     classes = [],
     data = "",
     defer
   }) {
+
     var div = $('<div/>', {
       id: itemId,
       class: [...classes],
       html: data
     }).css(css)
+
     $(parent).append(div);
     defer.resolve("h")
   }
 
 
-  this.buildAllItems = function(domItems) {
+  this.buildAllItems = function(domItemsIds) {
     var defer = $.Deferred();
-    var buildItemsRecurse = (domItems, itemIndex = 0) => {
-      itemIds = Object.keys(domItems)
-      if (itemIndex < itemIds.length) {
-        this.buildItemById(itemIds[itemIndex]).then(() => {
-          buildItemsRecurse(domItems, itemIndex + 1)
-        })
+
+    var buildItemsRecurse = (domItemsIds, itemIndex = 0) => {
+  //    itemIds = Object.keys(domItems)
+      if (itemIndex < domItemsIds.length) {
+        this.buildItemById(domItemsIds[itemIndex]).then(() => {
+          buildItemsRecurse(domItemsIds, itemIndex + 1)
+        }).fail(()=>{})
       } else {
-        
         defer.resolve("done building item")
       }
     }
-    buildItemsRecurse(domItems)
+    buildItemsRecurse(domItemsIds)
     return defer.promise()
   }
 }

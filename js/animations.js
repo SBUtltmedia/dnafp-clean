@@ -149,7 +149,6 @@ animations = {
   "PrepPipette": {
     "props": "1s linear 0s 1 normal forwards",
     "keyframes": {
-
       "100%": {
         "left": "24.5%",
         "top": "38%"
@@ -991,7 +990,7 @@ animations = {
   "pipetteTopToTube": {
     "keyframes": {
       '100%': {
-        "left": '36.7%',
+        "left": '38.1%',
         "top": 'var1%',
       }
     },
@@ -1001,10 +1000,28 @@ animations = {
       var pipetteHeight = parseFloat($('#micropipetteTopView').css("height"));
       var currentTubeTop = parseFloat($(`#tubeTop_${iteration}`).css("top"))
       var tubeHeight = parseFloat($(`#tubeTop_${iteration}`).css("height"))
-      var tubePos = ((currentTubeTop-pipetteHeight*0.3)/viewHeight)*100
-      console.log(viewHeight, currentTubeTop, tubeHeight, tubePos)
+      var tubePos = ((currentTubeTop-pipetteHeight*0.4)/viewHeight)*100
       return {
         var1: tubePos
+      }
+    }
+  },
+  "pipetteTopToLane": {
+    "keyframes": {
+      '100%': {
+        "left": 'var1%',
+        "top": '70.6%',
+        "z-index": 3
+      }
+    },
+    "props": "0.5s linear 0s 1 normal forwards",
+    method(iteration) {
+      var laneIndex = game.iteration
+      var laneLeftPosition = 12.5 //13.7
+      var laneLeftAdd = 1.2
+      var laneLeft = laneLeftPosition + laneLeftAdd * iteration
+      return {
+        var1: laneLeft
       }
     }
   },
@@ -1014,6 +1031,7 @@ animations = {
 
 function makeAnimation(name, value) {
   var animDef = animations[name];
+  console.log(name, animDef.method,animDef,animations[name])
   if (animDef.method) {
     keyframes = JSON.parse(replaceKeys(JSON.stringify(animDef.keyframes), animDef.method(value)))
   } else {

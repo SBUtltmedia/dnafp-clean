@@ -63,7 +63,7 @@ function Step() {
       } else {
         setTimeout(() => {
           game.testMode = false
-        }, 100)
+        }, 50000)
       }
       // if (game.hashLoop) {
       //   game.iteration = game.hashLoop - 1

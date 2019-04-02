@@ -5,7 +5,7 @@
       "shortText": "Digest DNA",
       "steps": [{
           "id": "liftEnzyme",
-          "itemsAdded": "#labBench #shelf1 #pipetteHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #s0Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #iceBucket #enzTube #waterBathLid #waterBathNoLid",
+          "itemsAdded": "labBench shelf1 pipetteHolder loadDye micropipette0 micropipette1 pipetteTip1 micropipette2 tip1 tip2 tip3 tip4 tip5 tip6 tip7 tip8 tip9 tip10 tip11 tip12 tipHolder tubeBlock s0Tube s1Tube s2Tube s3Tube s4Tube s5Tube wasteBasket iceBucket enzTube waterBathLid waterBathNoLid",
           "itemsRemoved": "",
           "shortText": "Lift enzyme mix",
           "longText": "Remove the tube containing enzyme mix from the ice",
@@ -199,7 +199,7 @@
             "eventFunction": "pressTubes",
             "postEventFunction": "pressTubePost",
             "criteria": {
-              "variable": "microtubeState",
+              "variable": "totalTubesPressed",
               "value": 6
             }
           }
@@ -276,8 +276,8 @@
       "id": "group2",
       "shortText": "Dye DNA",
       "steps": [{
-        "itemsRemoved": "#shelf1 #waterBathLid #waterBathNoLid #iceBucket #enzTube",
-        "itemsAdded": "#shelf2 #dyeRack #loadDye #gelTray #gelComb #electroBoxSide #gelLid ",
+        "itemsRemoved": "shelf1 waterBathLid waterBathNoLid iceBucket enzTube",
+        "itemsAdded": "shelf2 dyeRack gelTray gelComb electroBoxSide",
         "id": "prepPipette1",
         "shortText": "Prepare micropipet",
         "longText": "Pick up the micropipette",
@@ -312,7 +312,7 @@
         "bottomText": "Click on the loading dye tube to open it",
         "feedbackText": "complete the first step",
         "logic": {
-          "eventSelector": ".loadDye",
+          "eventSelector": "#loadDye",
           "eventType": "click",
           "eventFunction": "openDye"
         }
@@ -443,26 +443,21 @@
           }
         }]
       }, {
-        "repeats": 5,
         "id": "openTubes",
         "shortText": "Open reaction tubes",
-        "steps": [{
-          "id": "pressTubes",
-          "shortText": "Open reaction tubes",
-          "longText": "Open each tube up",
-          "bottomText": "Click on each tube to open it",
-          "feedbackText": "complete the second step",
-          "logic": {
-            "eventSelector": ".microTube",
-            "eventType": "click",
-            "eventFunction": "openTubes",
-            "postEventFunction": "pressTubePost",
-            "criteria": {
-              "variable": "microtubeState",
-              "value": 6
-            }
+        "longText": "Open each tube up",
+        "bottomText": "Click on each tube to open it",
+        "feedbackText": "complete the second step",
+        "logic": {
+          "eventSelector": ".microTube",
+          "eventType": "click",
+          "eventFunction": "openTubes",
+          "postEventFunction": "pressTubePost",
+          "criteria": {
+            "variable": "totalTubesPressed",
+            "value": 6
           }
-        }]
+        }
       }, {
         "id": "removeComb",
         "shortText": "Remove Comb",
@@ -487,8 +482,8 @@
         }
       }, {
         "id": "orientGel",
-        "itemsRemoved": "#labBench #pipetteHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #dyeRack #s0Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #shelf2 #dyeRack #loadDye #gelTray #gelComb #gelSideView #electroBoxSide #gelLid",
-        "itemsAdded": "#labBenchTop #gelTopView #electroBoxBase #lidSide #arrowUp #arrowDown #powerSupplyTop #tubeBlockTop #tubeTop_0 #tubeTop_1 #tubeTop_2 #tubeTop_3 #tubeTop_4 #tubeTop_5 #tubeTop_6 #tipBoxTop #wasteBinTop #micropipetteTopView",
+        "itemsRemoved": "labBench pipetteHolder micropipette0 micropipette1 micropipette2 tip1 tip2 tip3 tip4 tip5 tip6 tip7 tip8 tip9 tip10 tip11 tip12 tipHolder tubeBlock dyeRack s0Tube s1Tube s2Tube s3Tube s4Tube s5Tube wasteBasket shelf2 dyeRack loadDye gelTray gelComb gelSideView electroBoxSide gelLid",
+        "itemsAdded": "labBenchTop gelTopView electroBoxBase lidSide arrowUp arrowDown powerSupplyTop tubeBlockTop tubeTop_0 tubeTop_1 tubeTop_2 tubeTop_3 tubeTop_4 tubeTop_5 tubeTop_6 tipBoxTop wasteBinTop micropipetteTopView",
         "shortText": "Orient gel",
         "longText": "Properly orient your gel in the electrophoresis chamber",
         "bottomText": "Click on one of the arrows to select the direction you'd like the wells to face",
@@ -529,7 +524,7 @@
           "eventFunction": "takeMicTube"
         }
       }, {
-        "id": "toLane1",
+        "id": "toLane",
         "shortText": "Put into correct lane",
         "longText": "Move the micropipette to the correct well",
         "bottomText": "Click on the correct well to move the micropipette.",
@@ -541,7 +536,7 @@
           "postEventFunction": "toLanePost"
         }
       }, {
-        "id": "insertTip1",
+        "id": "insertTip",
         "shortText": "Insert tip",
         "longText": "Place the tip in the well. Be sure not to breach the walls!",
         "bottomText": "Drag around the tip to position it",
@@ -557,7 +552,7 @@
           }
         }
       }, {
-        "id": "disposeTip1",
+        "id": "disposeTip",
         "shortText": "Dispose of tip",
         "longText": "Dispose of the used tip",
         "bottomText": "Click on the waste bin to dispose of the tip",
@@ -638,8 +633,8 @@
         }
       }, {
         "id": "stainGel",
-        "itemsRemoved": "#labBenchTop #gelTopView #electroBoxBase #lidSide #arrowUp #arrowDown #powerSupplyTop #microtubeHolderTop #tubeTop_0 #tubeTop_1 #tubeTop_2 #tubeTop_3 #tubeTop_4 #tubeTop_5 #tubeTop_6 #tipBoxTop #wasteBinTop",
-        "itemsAdded": "#labBench #pipetHolder #micropipette0 #micropipette1 #micropipette2 #tip1 #tip2 #tip3 #tip4 #tip5 #tip6 #tip7 #tip8 #tip9 #tip10 #tip11 #tip12 #tipHolder #tubeBlock #s$iter$Tube #s1Tube #s2Tube #s3Tube #s4Tube #s5Tube #wasteBasket #graduatedCylinder #stainingTraySide #stainedGel",
+        "itemsRemoved": "labBenchTop gelTopView electroBoxBase lidSide arrowUp arrowDown powerSupplyTop microtubeHolderTop tubeTop_0 tubeTop_1 tubeTop_2 tubeTop_3 tubeTop_4 tubeTop_5 tubeTop_6 tipBoxTop wasteBinTop",
+        "itemsAdded": "labBench pipetHolder micropipette0 micropipette1 micropipette2 tip1 tip2 tip3 tip4 tip5 tip6 tip7 tip8 tip9 tip10 tip11 tip12 tipHolder tubeBlock s$iter$Tube s1Tube s2Tube s3Tube s4Tube s5Tube wasteBasket graduatedCylinder stainingTraySide stainedGel",
         "shortText": "Stain the gel",
         "longText": "Pour the stain onto the gel in the staining tray",
         "bottomText": "Click on the graduated cylinder to pour the stain",

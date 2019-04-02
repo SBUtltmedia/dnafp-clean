@@ -135,7 +135,13 @@ var eventFunctions = {
     $(".micropipette").css("z-index", "4")
     $("#wasteBasket").css("z-index", "4")
     // in event
-    // makeDynamicAnimation("pipetteToBin", game.iteration)
+
+    if( game.testMode){
+      animate("#micropipette2", 0, "keyframe", "pipetteFromBinToOrigin")
+
+    }
+  else  // makeDynamicAnimation("pipetteToBin", game.iteration)
+{
     animate("#micropipette2", 0, "keyframe", "pipetteToBin", game.iteration)
       .then(function() {
         animate("#pipetteTip1", 0, "keyframe", "tipToBin")
@@ -156,12 +162,11 @@ var eventFunctions = {
               })
           })
       })
-
+}
 
   },
-  "closeTube": function() {
+  "closeTube": function(evt) {
     animate("#s" + game.iteration + "Tube svg .Cap", 0, "keyframe", "rotateCap", 0)
-
     $("#s" + game.iteration + "Tube").css("z-index", "0")
     game.state["microtubeState"] = 2;
   },
@@ -193,19 +198,24 @@ var eventFunctions = {
     }
   },
   "pressTubes": function(evt) {
-    var tubeId = evt.currentTarget.id.charAt(1);
+    var tubeId = game.iteration;
+    // var tubeState = [0,0,0,0,0,0];
+    // $(`#${ evt.currentTarget.id}`).off();
+    game.state["totalTubesPressed"]++;
 
     if (game.testMode) {
       for (i = 0; i <= 5; i++) {
         animate("#s" + i + "Tube", 0, "keyframe", "pressTube" + i);
+            game.state["totalTubesPressed"]++;
       }
     }
+    console.log("#s" + tubeId + "Tube", 0, "keyframe", "pressTube" + tubeId);
     animate("#s" + tubeId + "Tube", 0, "keyframe", "pressTube" + tubeId);
-    game.state["microtubeState"] = 6
+
 
   }, //step 13
   "pressTubePost": function() {
-
+    game.state["totalTubesPressed"] = 0;
   },
   "removeLid": function(evt) {
     var top1 = document.getElementsByClassName("topView")
@@ -249,7 +259,7 @@ var eventFunctions = {
   },
   "setTimerPost": function() {
     // buildStage(game.steps.indexOf(game.currentStep) % game.steps.length)
-    // animate("#waterBathNoLid *", 1000, "addClass", "opClass");
+    animate("#waterBathNoLid *", 1000, "addClass", "opClass");
     animate("#view", 0, zoom, [65, 36, 1, 1000]);
     // animate("#bothDays *, #bothDays, #day1 *", 0, "attr", ["style", ""])
     // animate("#pipetteTip1", 0, "hide")
@@ -321,13 +331,18 @@ var eventFunctions = {
   // ~~~~~~~~~~~~~~~~~~~~~~~~~REAPEATING STEPS
   "openTubes": function(evt) {
     var tubeId = evt.currentTarget.id.charAt(1);
+    $(`#${ evt.currentTarget.id}`).off();
+    game.state["totalTubesPressed"]++;
+
     if (game.testMode) {
       for (i = 0; i < 5; i++) {
         animate("#s" + i + "Tube svg .Cap", 0, "keyframe", "rotateCap", -120)
+        game.state["totalTubesPressed"]++;
+
       }
     }
     animate("#s" + tubeId + "Tube svg .Cap", 0, "keyframe", "rotateCap", -120)
-    game.state["microtubeState"] = 6
+
   }, //step 29
 
   "removeComb": function() {
@@ -363,10 +378,10 @@ var eventFunctions = {
     if (game.testMode) {
       var [column, row] = [nextColumn, nextRow]
       var currentSelector = nextSelector
-    } else {
+      } else {
       var currentSelector = evt.currentTarget.id;
       var [column, row] = currentSelector.split("tip")[1].split("_")
-    }
+      }
 
     var selectorTip = "#" + currentSelector + " ellipse,#" + currentSelector + " circle";
     while ($(selectorTip).hasClass("st3")) {
@@ -374,15 +389,15 @@ var eventFunctions = {
       [column, row] = [nextColumn, nextRow]
       nextColumn++
       nextSelector = "tip" + nextColumn + "_" + nextRow
-    }
+      }
 
 
     animate(selectorTip, 500, "attr", ["class", "st3"])
 
     var topMost = 56.6,
-      leftMost = 32.8,
-      rowHeight = 1.1,
-      colWidth = .78
+        leftMost = 32.8,
+        rowHeight = 1.1,
+        colWidth = .78
     var micropipetteTopViewLeft = leftMost + (colWidth * column)
     var micropipetteTopViewTop = topMost + (rowHeight * row)
     animate("#micropipetteTopView", 0, "animate", [{ //TopMost left:31.2%, 56.6% left= +=.78%,, top= +=1.1%
@@ -399,16 +414,7 @@ var eventFunctions = {
   }, //step 34
 
   "toLane": function(evt) {
-    var laneIndex = game.iteration
-    var laneLeftPosition = 10.3
-    var laneLeftAdd = 1.4
-    var laneLeft = laneLeftPosition + laneLeftAdd * laneIndex
-    animate("#micropipetteTopView", 0, "animate", [{
-      "left": laneLeft + '%', //+=1.4%
-      "top": '71.6%',
-      "z-index": 3
-    }]);
-
+    animate("#micropipetteTopView", 0, "keyframe", "pipetteTopToLane", game.iteration);
     animate("html", 1000, zoom, [10, 74, 1, 500]) //zoomout
   }, //step 35,40
   "toLanePost": function() {
@@ -491,8 +497,8 @@ var eventFunctions = {
 
   "disposeTip": function() {
     animate("#micropipetteTopView", 0, "animate", [{
-      "left": '35%',
-      "top": '76%'
+      "left": '37%',
+      "top": '5.3%'
     }]);
   }, //step 72
 

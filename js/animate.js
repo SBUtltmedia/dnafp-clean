@@ -50,11 +50,7 @@ function animate(selector, delay, method, param, inputs = [], callback = () => {
           //$(selector).attr("style","")
           else {
             setTimeout(function() {
-              console.log(randParam, delay)
-              //
-
               $.keyframe.define(animDef)
-
               $(selector).playKeyframe(propDef, function() {
 
                 $(selector).css(keyframe["100%"])
@@ -65,14 +61,11 @@ function animate(selector, delay, method, param, inputs = [], callback = () => {
                   if (style) {
                     style = style.replace(/animation:[^;]*;/g, "")
                     $(selector).attr("style", style);
-
                   }
                   resolve(method)
                 });
               });
               callback();
-
-
             }, delay)
           }
         }

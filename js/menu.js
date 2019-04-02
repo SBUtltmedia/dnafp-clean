@@ -1,7 +1,7 @@
 function Menu() {
 
   this.buildMenu = function(steps, parent) { //steps.id was coming up blank, added parent variable
-
+    var defer = $.Deferred();
     if (steps.length) {
       var parentSelector = "#" + parent;
       for (var step of steps) {
@@ -31,6 +31,8 @@ function Menu() {
     for (i = 0; i < game.steps.length; i++) {
       this.stepNames.push(game.steps[i].id)
     }
+    defer.resolve("Menu built")
+    return defer.promise();
   }
   this.setMenuItem = function(stepNumber) {
     var group = game.getGroupMembership(stepNumber)
