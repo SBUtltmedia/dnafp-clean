@@ -78,10 +78,14 @@ function Item() {
     var buildItemsRecurse = (domItemsIds, itemIndex = 0) => {
   //    itemIds = Object.keys(domItems)
       if (itemIndex < domItemsIds.length) {
+        // console.log(itemIndex, domItemsIds.length)
         this.buildItemById(domItemsIds[itemIndex]).then(() => {
           buildItemsRecurse(domItemsIds, itemIndex + 1)
-        }).fail(()=>{})
+        }).fail(()=>{
+          defer.resolve("failed")
+        console.log("failed")})
       } else {
+        // console.log("resolving")
         defer.resolve("done building item")
       }
     }

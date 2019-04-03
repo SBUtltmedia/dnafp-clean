@@ -51,8 +51,8 @@ function buildStage(stepNumber) {
 
   itemsAdded =  game.steps[stepNumber].itemsAdded.split(" ")
   itemsRemoved = game.steps[stepNumber].itemsRemoved.split(" ")
+  console.log(itemsRemoved[0])
   item.buildAllItems(itemsAdded).then(()=>{
-
 
 
   //   for (i of itemsAdded) {
@@ -61,14 +61,16 @@ function buildStage(stepNumber) {
   //
   //     //$("#view").append($(i))
   //   }
-
+console.log(itemsRemoved[0])
 if(itemsRemoved[0] !=""){
+
   for (j of itemsRemoved) {    //$(j).detach().appendTo("#storage")
-    itemsDetached.push($(`#${j}`).detach());
+    $(`#${j}`).remove();
+    console.log(j)
     //  $(j).remove()
   }
 }
-console.log("Stage built")
+
   defer.resolve("Stage built")
   })
   return defer.promise();

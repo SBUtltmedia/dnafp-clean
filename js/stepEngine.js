@@ -34,25 +34,31 @@ function Step() {
 
     var composite = function(evt) {
       evt.preventDefault();
-      window["eventFunctions"][s.logic.eventFunction](evt)
+      console.log(s.logic.eventFunction)
+      var bar = window["eventFunctions"][s.logic.eventFunction](evt)
+      console.log(window["eventFunctions"][s.logic.eventFunction])
+      console.log(bar)
+      bar.then(function() {
 
-      if (game.testMode) {
-        game.state[criteria.variable] = criteria.value
-      }
-      if (game.state[criteria.variable] == criteria.value) {
-        highlightObject(false, s.logic.eventSelector);
+          if (game.testMode) {
+            game.state[criteria.variable] = criteria.value
+          }
+          if (game.state[criteria.variable] == criteria.value) {
+            highlightObject(false, s.logic.eventSelector);
 
-        $(s.logic.eventSelector).off()
-        if (s.logic.postEventFunction) {
-          window["eventFunctions"][s.logic.postEventFunction]()
-        }
-        game.score = 0
-        game.nextStep()
+            $(s.logic.eventSelector).off()
+            if (s.logic.postEventFunction) {
+              window["eventFunctions"][s.logic.postEventFunction]()
+            }
+            game.score = 0
+            game.nextStep()
 
-      } else if (s.logic.criteria.messageWrong) {
-        // game.state[s.logic.criteria.variable] = "fd";
-        overlay.message(s.logic.criteria.messageWrong, "OK");
-      }
+          } else if (s.logic.criteria.messageWrong) {
+            // game.state[s.logic.criteria.variable] = "fd";
+            overlay.message(s.logic.criteria.messageWrong, "OK");
+          }
+        return false;
+      })
     }
 
     $(s.logic.eventSelector).on(s.logic.eventType, composite);
@@ -61,9 +67,8 @@ function Step() {
       if (s.id != game.hash) {
         $(s.logic.eventSelector).trigger(s.logic.eventType);
       } else {
-        setTimeout(() => {
-          game.testMode = false
-        }, 50000)
+        console.log("DSRg")
+        game.testMode = false
       }
       // if (game.hashLoop) {
       //   game.iteration = game.hashLoop - 1

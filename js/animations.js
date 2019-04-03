@@ -796,7 +796,32 @@ animations = {
       }
     }
   },
-
+  "mixFluid": {
+    "props": "5s linear 0s 1 normal forwards",
+    "keyframes": {
+      "10%": {
+        "transform": "translateY(35.6px)"
+      },
+      "20%": {
+        "transform": "translateY(70px)"
+      },
+      "30%": {
+        "transform": "translateY(35.6px)"
+      },
+      "40%": {
+        "transform": "translateY(70px)"
+      },
+      "50%": {
+        "transform": "translateY(35.6px)"
+      },
+      "60%": {
+        "transform": "translateY(70px)"
+      },
+      "100%": {
+        "transform": "translateY(0px)"
+      }
+    }
+  },
   "rotateCap": {
     "keyframes": {
       '100%': {
@@ -1000,7 +1025,7 @@ animations = {
       var pipetteHeight = parseFloat($('#micropipetteTopView').css("height"));
       var currentTubeTop = parseFloat($(`#tubeTop_${iteration}`).css("top"))
       var tubeHeight = parseFloat($(`#tubeTop_${iteration}`).css("height"))
-      var tubePos = ((currentTubeTop-pipetteHeight*0.4)/viewHeight)*100
+      var tubePos = ((currentTubeTop - pipetteHeight * 0.4) / viewHeight) * 100
       return {
         var1: tubePos
       }
@@ -1031,7 +1056,7 @@ animations = {
 
 function makeAnimation(name, value) {
   var animDef = animations[name];
-  console.log(name, animDef.method,animDef,animations[name])
+
   if (animDef.method) {
     keyframes = JSON.parse(replaceKeys(JSON.stringify(animDef.keyframes), animDef.method(value)))
   } else {

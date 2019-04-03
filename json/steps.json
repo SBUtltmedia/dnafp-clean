@@ -20,6 +20,8 @@
 
         , {
           "id": "openEnzyme",
+          "itemsAdded": "gelComb",
+          "itemsRemoved": "",
           "shortText": "Open enzyme mix",
           "longText": "Open the enzyme mix",
           "bottomText": "Click on the tube containing the enzyme mix to open it",
@@ -50,7 +52,7 @@
             }
           }
         }, {
-          "repeats": 6,
+          "repeats": 1,
           "id": "repeatDay1",
           "shortText": "Load Tubes",
           "steps": [{
