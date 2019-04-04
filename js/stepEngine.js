@@ -1,11 +1,13 @@
-function Step() {
-  this.startStep = function(step) {
+function StepEngine() {
+  this.startStep = function(stepIndex) {
 
+    step = game.steps[stepIndex];
     //window.location.hash = step.id;
     //highlightObject(true,step.logic.s.logic.eventSelector);
     var s = jQuery.extend(true, {}, step);
-    var clicked = false;
 
+    var clicked = false;
+    var nextStepIndex;
 
 
     s.logic.eventSelector = s.logic.eventSelector.replace("$iter$", game.iteration)
@@ -19,7 +21,6 @@ function Step() {
     //
     //
     // });
-
     highlightObject(true, s.logic.eventSelector);
     var criteria;
 
@@ -32,31 +33,62 @@ function Step() {
       criteria = s.logic.criteria
     }
 
-    var composite = function(evt) {
+ function composite(evt) {
+      $(s.logic.eventSelector).off()
       evt.preventDefault();
-      console.log(s.logic.eventFunction)
-      var bar = window["eventFunctions"][s.logic.eventFunction](evt)
-      console.log(window["eventFunctions"][s.logic.eventFunction])
-      console.log(bar)
-      bar.then(function() {
+      var bar = window["eventFunctions"][s.logic.eventFunction]
+      //
 
-          if (game.testMode) {
-            game.state[criteria.variable] = criteria.value
+      bar(evt).then(function() {
+
+        if (game.testMode) {
+          game.state[criteria.variable] = criteria.value
+          highlightObject(false, s.logic.eventSelector)
+        }
+        if (game.state[criteria.variable] == criteria.value) {
+          highlightObject(false, s.logic.eventSelector);
+
+          $(s.logic.eventSelector).off()
+          if (s.logic.postEventFunction) {
+            window["eventFunctions"][s.logic.postEventFunction]()
           }
-          if (game.state[criteria.variable] == criteria.value) {
-            highlightObject(false, s.logic.eventSelector);
+          game.score = 0
 
-            $(s.logic.eventSelector).off()
-            if (s.logic.postEventFunction) {
-              window["eventFunctions"][s.logic.postEventFunction]()
+          var currentGroupId = game.getGroupMembership(stepIndex)
+
+          var currentGroup = game.groups[currentGroupId]
+          var currentRepeats = game.groups[currentGroupId].repeats
+
+
+
+          if (currentGroup.steps.indexOf(s.id) + 1 == currentGroup.steps.length) {
+
+
+            if (game.iteration + 1 < currentRepeats) {
+              // for (i = 1; i < currentGroup.steps.length; i++) {
+              //   this.steps[stepIndex - i].completed = "false"
+              // }
+              nextStepIndex = stepIndex - currentGroup.steps.length + 1
+              game.iteration++;
+              menu.resetRepeatGroup(nextStepIndex)
+            } else {
+              game.iteration = 0;
+              menu.setGroupCompleted(currentGroupId)
+              nextStepIndex = stepIndex + 1
             }
-            game.score = 0
-            game.nextStep()
+          } else {
+            nextStepIndex = stepIndex + 1;
+          }
+          game.nextStep(nextStepIndex)
 
-          } else if (s.logic.criteria.messageWrong) {
+        } else {
+
+          $(s.logic.eventSelector).on(s.logic.eventType, composite);
+          if (s.logic.criteria.messageWrong) {
             // game.state[s.logic.criteria.variable] = "fd";
             overlay.message(s.logic.criteria.messageWrong, "OK");
           }
+        }
         return false;
       })
     }
@@ -65,9 +97,11 @@ function Step() {
 
     if (game.testMode) {
       if (s.id != game.hash) {
+        if(game.groups[game.getGroupMembership(s.id)].repeats){
+          game.iteration = game.groups[game.getGroupMembership(s.id)].repeats - 1
+        }
         $(s.logic.eventSelector).trigger(s.logic.eventType);
       } else {
-        console.log("DSRg")
         game.testMode = false
       }
       // if (game.hashLoop) {

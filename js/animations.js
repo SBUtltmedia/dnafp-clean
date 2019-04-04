@@ -797,28 +797,28 @@ animations = {
     }
   },
   "mixFluid": {
-    "props": "5s linear 0s 1 normal forwards",
+    "props": "4s linear 0s 1 normal forwards",
     "keyframes": {
       "10%": {
-        "transform": "translateY(35.6px)"
+        "y": "35.6"
       },
       "20%": {
-        "transform": "translateY(70px)"
+        "y": "70"
       },
       "30%": {
-        "transform": "translateY(35.6px)"
+        "y": "35.6"
       },
       "40%": {
-        "transform": "translateY(70px)"
+        "y": "70"
       },
       "50%": {
-        "transform": "translateY(35.6px)"
+        "y": "35.6"
       },
       "60%": {
-        "transform": "translateY(70px)"
+        "y": "70"
       },
       "100%": {
-        "transform": "translateY(0px)"
+        "y": "100"
       }
     }
   },
@@ -976,7 +976,7 @@ animations = {
         "top": '39%',
       }
     },
-    "props": "2s linear 0s 1 normal forwards",
+    "props": "1.75s linear 0s 1 normal forwards",
     method(iteration) {
       var viewWidth = parseFloat($('#view').css("width"));
       var tubeLeft = parseFloat($(`#s${iteration}Tube`).css("left"))

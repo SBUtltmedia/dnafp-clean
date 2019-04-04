@@ -31,7 +31,7 @@ var eventFunctions = {
     var foo = animate("#pipetteTip svg #svgfluid", 0, "animate", [{
       "y": 100
     }])
-    console.log(foo)
+
     return foo
   },
   "openEnzymePost": function() {
@@ -129,7 +129,7 @@ var eventFunctions = {
     //     asd = animate("#svgfluid", 4500, "animate", [{
     //       "y": 100
     //     }])
-    //     console.log(asd)
+    //
     //     return asd
     //   }
     // }
@@ -141,7 +141,7 @@ var eventFunctions = {
 
   "mixContentsPost": function() {
     var zoomLeft = 35 + 3 * (game.iteration)
-    animate("#view", 5000, zoom, [zoomLeft, 68, 1, 1000]);
+    animate("#view", 200, zoom, [zoomLeft, 68, 1, 1000]);
 
 
   }, //step 7
@@ -154,7 +154,7 @@ var eventFunctions = {
     if (game.testMode) {
       return animate("#micropipette2", 0, "keyframe", "pipetteFromBinToOrigin")
     } else {
-      animate("#micropipette2", 0, "keyframe", "pipetteToBin", game.iteration)
+      return animate("#micropipette2", 0, "keyframe", "pipetteToBin", game.iteration)
         .then(function() {
           animate("#pipetteTip1", 0, "keyframe", "tipToBin")
             .then(function() {
@@ -166,9 +166,9 @@ var eventFunctions = {
                 })
                 .then(function() {
                   if (game.iteration == 5) {
-                    return animate("#micropipette2", 0, "keyframe", "pipetteFromBinToOrigin")
+                    animate("#micropipette2", 0, "keyframe", "pipetteFromBinToOrigin")
                   } else {
-                    return animate("#micropipette2", 0, "keyframe", "pipetteFromBinToPrep")
+                    animate("#micropipette2", 0, "keyframe", "pipetteFromBinToPrep")
                   }
 
                 })
@@ -212,7 +212,7 @@ var eventFunctions = {
     }
   },
   "pressTubes": function(evt) {
-    var tubeId = game.iteration;
+    var tubeId = evt.currentTarget.id.charAt(1);
     // var tubeState = [0,0,0,0,0,0];
     // $(`#${ evt.currentTarget.id}`).off();
     game.state["totalTubesPressed"]++;
@@ -224,7 +224,7 @@ var eventFunctions = {
       }
     };
     animate("#s" + tubeId + "Tube", 0, "keyframe", "pressTube" + tubeId);
-
+    return animate("html", 100, "null")
 
   }, //step 13
   "pressTubePost": function() {
@@ -232,13 +232,13 @@ var eventFunctions = {
   },
   "removeLid": function(evt) {
     var top1 = document.getElementsByClassName("topView")
-    animate("#waterBathLid", 0, "keyframe", "removeLid")
+    return animate("#waterBathLid", 0, "keyframe", "removeLid")
 
   }, //step 14
   "checkTemp": function() {
     //        criteriaPassed = true;
     animate("#view", 0, zoom, [65, 21, 10, 1000])
-    animate("#view", 3500, zoom, [65, 21, 1, 1000]);
+    return animate("#view", 3500, zoom, [65, 21, 1, 1000]);
   }, //step 15
   "insertRack": function() {
     animate("#tubeBlock", 0, "keyframe", "insertRack")
@@ -248,13 +248,15 @@ var eventFunctions = {
 
     }
     animate("#tubeBlock, .microTube", 1750, "storage");
+    return animate("html", 500, "null")
+
 
 
   }, //step 16
   "closeLid": function() {
     animate("#waterBathLid", 0, "keyframe", "replaceLid")
     animate("#view", 1000, zoom, [65, 36, 5, 1500])
-    animate("#waterBathNoLid *", 2500, "removeClass", "opClass")
+    return animate("#waterBathNoLid *", 2500, "removeClass", "opClass")
 
 
   }, //step 17
@@ -268,7 +270,7 @@ var eventFunctions = {
     var time = $("#waterBathNoLid").find("[type='text']").val();
 
     game.state["time"] = time
-    return false
+    return animate("html", 500, "null")
   },
   "setTimerPost": function() {
     // buildStage(game.steps.indexOf(game.currentStep) % game.steps.length)
@@ -286,28 +288,28 @@ var eventFunctions = {
   "prepPipette1": function(evt) {
     animate("#micropipette2", 0, "keyframe", "PrepPipette")
     animate("#view", 2000, zoom, [25, 46, 9.5, 1000])
-    animate(".volumeInput, .volumeButton", 2000, "removeClass", "opClass")
+    return animate(".volumeInput, .volumeButton", 2000, "removeClass", "opClass")
   },
 
   "setDyeVolume": function() {
     var volume = $("#micropipette2").find("[type='text']").val();
 
     game.state["volume"] = volume;
-    return false
+    return animate("html", 0, "null")
   },
 
   "setDyeVolumePost": function() {
     //updateScore(10);
-    animate(".volumeInput, .volumeButton", 1, "addClass", "opClass")
+    animate(".volumeInput, .volumeButton", 0, "addClass", "opClass")
     animate("#view", 0, zoom, [25, 46, 1, 1000])
-    animate(".tip", 0, "removeClass", "opClass")
+    return animate(".tip", 0, "removeClass", "opClass")
 
   }, //step 21
 
   "openDye": function(evt) {
     animate("#loadDye", 0, "keyframe", "moveLoadingDye")
     animate("#loadDye svg .Cap", 1500, "keyframe", "rotateCap", -120)
-    animate("#svgfluid", 2000, "animate", [{
+    return animate("#svgfluid", 2000, "animate", [{
       "y": 100
     }])
 
@@ -320,11 +322,11 @@ var eventFunctions = {
     }
     animate("#micropipette2", 0, "keyframe", "addTip2", selector)
     animate("#" + selector, 740, "addClass", "opClass")
-    animate("#pipetteTip1", 750, "removeClass", "opClass")
+    return animate("#pipetteTip1", 750, "removeClass", "opClass")
   }, //step 20
 
   "openTube1": function(evt) {
-    eventFunctions.openTube(evt)
+    return eventFunctions.openTube(evt)
 
   }, //step 22
   "addDye": function() {
@@ -338,7 +340,7 @@ var eventFunctions = {
       animate("#loadDye svg .Cap", 1100, "keyframe", "rotateCap", 0)
       animate("#loadDye", 1350, "keyframe", "moveLoadingDyeback")
     }
-
+    return animate("html", 2000, "null")
   }, //step 23
   // REPEATING STEPS~~~~~~~~~~~~~~~~~~~~~~~~~~
   // ~~~~~~~~~~~~~~~~~~~~~~~~~REAPEATING STEPS
@@ -354,13 +356,13 @@ var eventFunctions = {
 
       }
     }
-    animate("#s" + tubeId + "Tube svg .Cap", 0, "keyframe", "rotateCap", -120)
+    return animate("#s" + tubeId + "Tube svg .Cap", 0, "keyframe", "rotateCap", -120)
 
   }, //step 29
 
   "removeComb": function() {
     animate("#gelComb", 0, "keyframe", "removeComb")
-    animate("#gelComb", 1000, "storage")
+    return animate("#gelComb", 1000, "storage")
   }, //step 30
 
   "toTop": function() {
@@ -369,11 +371,12 @@ var eventFunctions = {
     // animate("#topView, #topView *", 0, "show");
     // animate(".bands, .laneFill", 0, "hide");
     // $("#sideView").append($('#pipetteTip1'));
+    return animate("html", 0, "null")
 
   }, //step 31
   "orientGel": function() {
     animate("#arrowDown, #arrowUp", 0, "addClass", "opClass")
-    animate("#micropipetteTopView, #gelFinalTop", 0, "view")
+    return animate("#micropipetteTopView, #gelFinalTop", 0, "view")
 
   }, //step 32, 37, 42
   "addTipTop": function(evt) {
@@ -418,17 +421,17 @@ var eventFunctions = {
       "top": micropipetteTopViewTop + '%'
     }]);
     game.state["tipTray"][column + (row * totalRows)] = 1;;
-
+    return animate("html", 100, "null")
   }, //step 33
 
   "takeMicTube": function(evt) {
     animate("#micropipetteTopView", 0, "keyframe", "pipetteTopToTube", game.iteration);
-    animate("html", 1000, zoom, [10, 74, 6, 1000])
+    return animate("html", 1000, zoom, [10, 74, 6, 1000])
   }, //step 34
 
   "toLane": function(evt) {
     animate("#micropipetteTopView", 0, "keyframe", "pipetteTopToLane", game.iteration);
-    animate("html", 1000, zoom, [10, 74, 1, 500]) //zoomout
+    return animate("html", 1000, zoom, [10, 74, 1, 500]) //zoomout
   }, //step 35,40
   "toLanePost": function() {
     animate("#sideView", 0, "view")
@@ -478,6 +481,7 @@ var eventFunctions = {
         $('#pipetteTip1').css("left", "42%")
       }
     }
+    return animate("html", 0, "null")
   }, //step 36
 
   "insertTipPost": function() {
@@ -509,7 +513,7 @@ var eventFunctions = {
   },
 
   "disposeTip": function() {
-    animate("#micropipetteTopView", 0, "animate", [{
+    return animate("#micropipetteTopView", 0, "animate", [{
       "left": '37%',
       "top": '5.3%'
     }]);
@@ -521,26 +525,24 @@ var eventFunctions = {
     animate("#lidSide, #micropipetteTopView", 0, "storage")
     animate("#lidBox", 0, "view")
     animate(".gelVoltage", 1000, "view")
-    animate("#gelVoltageCover, #voltage", 1000, "view")
     animate("#tipBoxTop, #wasteBinTop", 0, "storage")
+    return animate("#gelVoltageCover, #voltage", 1000, "view")
   }, //step 73
   "setVoltage": function(evt) {
-
     game.state["voltage"] = $("#voltage").val()
-
+    return animate("html", 0, "null")
   },
   "setVoltagePost": function() {
-    animate("#gelVoltageCover", 1000, "storage")
     animate("#stainingTray", 0, "view")
-
+    return animate("#gelVoltageCover", 1000, "storage")
   }, //step 74
   "removeGelLid": function() {
     animate("#lidBox", 0, "storage")
-    animate("#lidSide", 0, "view")
+    return animate("#lidSide", 0, "view")
 
   }, //step 75
   "removeGel": function() {
-    animate("#gelFinalTop", 0, "animate", [{
+    return animate("#gelFinalTop", 0, "animate", [{
       top: '73.5%',
       left: '30.1%',
     }])
@@ -556,7 +558,7 @@ var eventFunctions = {
     animate("#graduatedCylinder, #stainingTraySide", 2000, "view")
     animate("#waterBathNoLid, #waterBathLid, #gelComb, #wasteBasket, #shelf1, #loadDyeCap", 2000, "storage")
     animate("#bothDays, #day2, .day3, .day3 *, .microTube, .microTube *, #graduatedCylinder, #stainingTraySide", 2000, "view")
-    animate("#stainedGel", 2000, "css", [{
+    return animate("#stainedGel", 2000, "css", [{
       opacity: 0 //left it with opacity, because of slowFadeIn animation
     }])
 
@@ -569,14 +571,14 @@ var eventFunctions = {
 
     animate(".bands, .laneFill", 0, "view");
     animate("#stainedGel", 600, "keyframe", "slowFadeIn")
-    animate("#graduatedCylinder", 2000, "keyframe", "pourStainRev")
+    return animate("#graduatedCylinder", 2000, "keyframe", "pourStainRev")
   }, //step 78
   "examineGel": function() {
     var contents = $("#gelFinalTop").contents();
     $("#gelFinalTop").empty();
     $("#gel").append(contents);
     loadSVGLogic();
-    animate("#gel, #gel *", 0, "view")
+
 
     $("#gel, #gel *").css({
       opacity: 1.0,
@@ -585,6 +587,7 @@ var eventFunctions = {
     }).animate({
       opacity: 1
     }, 200)
+    return animate("html", 300, "null")
 
   }, //step 79
   "pickLane": function(evt) {
@@ -593,6 +596,7 @@ var eventFunctions = {
 
 
     game.state["lanePickedNumber"] = studentAnswer
+    return animate("html", 300, "null")
   },
   "pickLanePost": function() {}
 

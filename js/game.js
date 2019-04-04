@@ -1,7 +1,8 @@
 function Game(steps) {
+
+  this.stepEngine = new StepEngine();
   this.groups = {}
   this.steps = []
-  this.currentStep = {}
   this.currentGroup = 0
   this.iteration = 0
   this.testMode = false
@@ -23,7 +24,7 @@ function Game(steps) {
       tipTrayCols = 12;
     var state = {
       noCriteria: 0,
-      totalTubesPressed:0,
+      totalTubesPressed: 0,
       microtubeState: 0,
       //state numbers for reference [0:"untouched", 1:"opened", 2:"closed", 3:"flicked", 4:"tapped", 5:"returned", 6:"exposed"]
       TipPosition: false,
@@ -78,58 +79,59 @@ function Game(steps) {
     this.steps[this.steps["length"] - 1].completed = "false"
   }
 
-  this.getSteps = function() {
-    return this.steps
-  };
+  // this.getSteps = function() {
+  //   return this.steps
+  // };
 
-  this.setStep = function(currentStepCount) {
-    this.currentStep = this.steps[currentStepCount]
-    this.currentGroupId = this.getGroupMembership(currentStepCount)
-    this.currentRepeats = this.groups[this.currentGroupId].repeats
+  this.nextStep = function(stepIndex) {
 
-    menu.setMenuItem(currentStepCount)
-
-    menu.highlightMenuItem(currentStepCount)
-    step.startStep(this.currentStep)
-
-  }
-
-
-
-  this.getStep = function() {
-    return this.currentStep
-  }
-  this.nextStep = function() {
-    var currentStepNumber = this.steps.indexOf(this.currentStep)
-    menu.setItemCompleted(currentStepNumber)
-    game.steps[currentStepNumber].completed = "true"
-    var nextStepNum = ((this.steps.indexOf(this.currentStep) + 1) % this.steps.length)
-
-    var currentGroup = this.groups[this.currentGroupId]
-    if (currentGroup.steps.indexOf(this.currentStep.id) == currentGroup.steps.length - 1) {
-      if (this.iteration < this.currentRepeats - 1) {
-        for (i = 1; i < currentGroup.steps.length; i++) {
-          this.steps[nextStepNum - i].completed = "false"
-        }
-        nextStepNum -= currentGroup.steps.length
-        this.iteration++;
-        menu.resetRepeatGroup(nextStepNum)
-      } else {
-        this.iteration = 0;
-        menu.setGroupCompleted(this.currentGroupId)
-      }
+    var nextStepNum = ((stepIndex + 1) % this.steps.length)
+    // var currentStep = this.steps[stepIndex]
+    var prevStepNum = stepIndex - 1
+    if (prevStepNum >= 0) {
+      game.steps[prevStepNum].completed = "true"
+      menu.setItemCompleted(prevStepNum)
     }
+
+
     if (nextStepNum == 0) {
       this.restartGame()
     }
+    menu.setMenuItem(stepIndex)
 
-    this.setStep(nextStepNum)
-
-    if ((this.steps[nextStepNum].itemsAdded || this.steps[nextStepNum].itemsRemoved)) {
-
-      buildStage(nextStepNum)
+    menu.highlightMenuItem(stepIndex)
+    if ((this.steps[stepIndex].itemsAdded || this.steps[stepIndex].itemsRemoved)&&stepIndex!=0) { //try while item doesnt exist, add item
+      console.log(this.steps[stepIndex].logic.eventSelector)
+      var qwe = buildStage(stepIndex)
+      console.log(qwe)
+      qwe.then(this.stepEngine.startStep(stepIndex))
+    } else {
+      this.stepEngine.startStep(stepIndex)
     }
+
   }
+
+
+
+  // this.getStep = function() {
+  //   return this.currentStep
+  // }
+  // this.nextStep = function(step) {
+    //
+
+
+
+
+
+
+
+
+
+
+    // this.setStep(nextStepNum)
+
+
+
   this.restartGame = function() {
     $('#stepList *').removeClass("activeGroup")
     $('#stepList *').removeClass("completed")

@@ -5,7 +5,7 @@
       "shortText": "Digest DNA",
       "steps": [{
           "id": "liftEnzyme",
-          "itemsAdded": "labBench shelf1 pipetteHolder loadDye micropipette0 micropipette1 pipetteTip1 micropipette2 tip1 tip2 tip3 tip4 tip5 tip6 tip7 tip8 tip9 tip10 tip11 tip12 tipHolder tubeBlock s0Tube s1Tube s2Tube s3Tube s4Tube s5Tube wasteBasket iceBucket enzTube waterBathLid waterBathNoLid",
+          "itemsAdded": "labBench shelf1 pipetteHolder micropipette0 micropipette1 pipetteTip1 micropipette2 tip1 tip2 tip3 tip4 tip5 tip6 tip7 tip8 tip9 tip10 tip11 tip12 tipHolder tubeBlock s0Tube s1Tube s2Tube s3Tube s4Tube s5Tube wasteBasket iceBucket enzTube waterBathLid waterBathNoLid",
           "itemsRemoved": "",
           "shortText": "Lift enzyme mix",
           "longText": "Remove the tube containing enzyme mix from the ice",
@@ -20,8 +20,6 @@
 
         , {
           "id": "openEnzyme",
-          "itemsAdded": "gelComb",
-          "itemsRemoved": "",
           "shortText": "Open enzyme mix",
           "longText": "Open the enzyme mix",
           "bottomText": "Click on the tube containing the enzyme mix to open it",
@@ -52,7 +50,7 @@
             }
           }
         }, {
-          "repeats": 1,
+          "repeats": 6,
           "id": "repeatDay1",
           "shortText": "Load Tubes",
           "steps": [{
@@ -279,7 +277,7 @@
       "shortText": "Dye DNA",
       "steps": [{
         "itemsRemoved": "shelf1 waterBathLid waterBathNoLid iceBucket enzTube",
-        "itemsAdded": "shelf2 dyeRack gelTray gelComb electroBoxSide",
+        "itemsAdded": "shelf2 dyeRack gelTray gelComb electroBoxSide loadDye",
         "id": "prepPipette1",
         "shortText": "Prepare micropipet",
         "longText": "Pick up the micropipette",

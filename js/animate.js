@@ -100,6 +100,12 @@ function animate(selector, delay, method, param, inputs = [], callback = () => {
         }, delay)
       }
       //$(selector).delay(delay).playKeyframe(param, function () {});
+    } else if (method == "view" || method == "storage") {
+      setTimeout(function() {
+        $(`#${method}`).append($(selector));
+        callback();
+        resolve(method)
+      }, delay)
     } else if (typeof(method) == "function") {
       if (method.name == "zoom" && game.testMode) {
         zoomInstant(param[0], param[1], param[2])
