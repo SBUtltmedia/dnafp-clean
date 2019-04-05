@@ -15,7 +15,6 @@ function Menu() {
           if (step.repeats) {
             $("#" + step.id).addClass("repeats")
             game.addToRepeats(step.id, step.repeats)
-
           }
           $(parentSelector).append(menu.buildMenu(step.steps, step.id))
         } else {
@@ -23,7 +22,6 @@ function Menu() {
           game.addToGroup(step.id, parent)
           $("#" + step.id).addClass("baseStep").hide()
         }
-
       }
     }
     this.groupNames = Object.keys(game.groups)
@@ -36,7 +34,6 @@ function Menu() {
   }
   this.setMenuItem = function(stepNumber) {
     var group = game.getGroupMembership(stepNumber)
-
     $("#" + group + ">div").show(1000)
   }
 
@@ -50,7 +47,6 @@ function Menu() {
     $("#" + groupSelector).addClass("completed").removeClass("activeGroup")
     $("#" + groupSelector + ">div").hide(500)
   }
-
 
   this.setItemCompleted = function(stepNumber) {
     $("#" + game.steps[stepNumber].id).addClass("completed")

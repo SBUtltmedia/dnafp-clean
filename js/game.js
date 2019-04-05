@@ -24,6 +24,7 @@ function Game(steps) {
       tipTrayCols = 12;
     var state = {
       noCriteria: 0,
+      tubesPressed: [0,0,0,0,0,0],
       totalTubesPressed: 0,
       microtubeState: 0,
       //state numbers for reference [0:"untouched", 1:"opened", 2:"closed", 3:"flicked", 4:"tapped", 5:"returned", 6:"exposed"]

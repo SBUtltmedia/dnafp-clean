@@ -5,7 +5,7 @@
       "shortText": "Digest DNA",
       "steps": [{
           "id": "liftEnzyme",
-          "itemsAdded": "labBench shelf1 pipetteHolder micropipette0 micropipette1 pipetteTip1 micropipette2 tip1 tip2 tip3 tip4 tip5 tip6 tip7 tip8 tip9 tip10 tip11 tip12 tipHolder tubeBlock s0Tube s1Tube s2Tube s3Tube s4Tube s5Tube wasteBasket iceBucket enzTube waterBathLid waterBathNoLid",
+          "itemsAdded": "labBench loadDye shelf1 pipetteHolder micropipette0 micropipette1 pipetteTip1 micropipette2 tip1 tip2 tip3 tip4 tip5 tip6 tip7 tip8 tip9 tip10 tip11 tip12 tipHolder tubeBlock s5Tube s4Tube s3Tube s2Tube s1Tube s0Tube wasteBasket iceBucket enzTube waterBathLid waterBathNoLid",
           "itemsRemoved": "",
           "shortText": "Lift enzyme mix",
           "longText": "Remove the tube containing enzyme mix from the ice",
@@ -277,7 +277,7 @@
       "shortText": "Dye DNA",
       "steps": [{
         "itemsRemoved": "shelf1 waterBathLid waterBathNoLid iceBucket enzTube",
-        "itemsAdded": "shelf2 dyeRack gelTray gelComb electroBoxSide loadDye",
+        "itemsAdded": "shelf2 dyeRack gelTray gelComb electroBoxSide arrowDown",
         "id": "prepPipette1",
         "shortText": "Prepare micropipet",
         "longText": "Pick up the micropipette",
@@ -366,7 +366,7 @@
           "logic": {
             "eventSelector": "#micropipette2",
             "eventType": "click",
-            "eventFunction": "mixContents",
+            "eventFunction": "mixContents2",
             "postEventFunction": "mixContentsPost"
           }
         }, {
@@ -483,7 +483,7 @@
       }, {
         "id": "orientGel",
         "itemsRemoved": "labBench pipetteHolder micropipette0 micropipette1 micropipette2 tip1 tip2 tip3 tip4 tip5 tip6 tip7 tip8 tip9 tip10 tip11 tip12 tipHolder tubeBlock dyeRack s0Tube s1Tube s2Tube s3Tube s4Tube s5Tube wasteBasket shelf2 dyeRack loadDye gelTray gelComb gelSideView electroBoxSide gelLid",
-        "itemsAdded": "labBenchTop gelTopView electroBoxBase lidSide arrowUp arrowDown powerSupplyTop tubeBlockTop tubeTop_0 tubeTop_1 tubeTop_2 tubeTop_3 tubeTop_4 tubeTop_5 tubeTop_6 tipBoxTop wasteBinTop micropipetteTopView",
+        "itemsAdded": "labBenchTop gelTopView electroBoxBase lidSide arrowUp powerSupplyTop tubeBlockTop tubeTop_0 tubeTop_1 tubeTop_2 tubeTop_3 tubeTop_4 tubeTop_5 tubeTop_6 tipBoxTop wasteBinTop micropipetteTopView",
         "shortText": "Orient gel",
         "longText": "Properly orient your gel in the electrophoresis chamber",
         "bottomText": "Click on one of the arrows to select the direction you'd like the wells to face",

@@ -815,7 +815,33 @@ animations = {
         "y": "35.6"
       },
       "60%": {
+        "y": "85"
+      },
+      "100%": {
+        "y": "100"
+      }
+    }
+  },
+  "mixFluid2": {
+    "props": "3.5s linear 0s 1 normal forwards",
+    "keyframes": {
+      "10%": {
+        "y": "50"
+      },
+      "20%": {
         "y": "70"
+      },
+      "30%": {
+        "y": "50"
+      },
+      "40%": {
+        "y": "70"
+      },
+      "50%": {
+        "y": "50"
+      },
+      "60%": {
+        "y": "80"
       },
       "100%": {
         "y": "100"
@@ -1057,16 +1083,24 @@ animations = {
 function makeAnimation(name, value) {
   var animDef = animations[name];
 
-  if (animDef.method) {
+
+  try {
+    if (animDef.method) {
     keyframes = JSON.parse(replaceKeys(JSON.stringify(animDef.keyframes), animDef.method(value)))
-  } else {
+    } else {
     keyframes = animDef.keyframes
+    }
+  } catch(err){
+keyframes="df"
   }
+
+  console.log(animDef,name)
   var animation = {
     "props": `${animDef.props}`,
     "keyframes": keyframes,
 
   }
+
   return animation
 }
 

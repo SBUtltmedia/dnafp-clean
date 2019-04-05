@@ -74,18 +74,19 @@ function Item() {
 
   this.buildAllItems = function(domItemsIds) {
     var defer = $.Deferred();
-
-    var buildItemsRecurse = (domItemsIds, itemIndex = 0) => {
+    var _this =this;
+    function buildItemsRecurse(domItemsIds, itemIndex = 0){
   //    itemIds = Object.keys(domItems)
       if (itemIndex < domItemsIds.length) {
-        // 
-        this.buildItemById(domItemsIds[itemIndex]).then(() => {
+        //
+        _this.buildItemById(domItemsIds[itemIndex]).then(() => {
+
           buildItemsRecurse(domItemsIds, itemIndex + 1)
         }).fail(()=>{
           defer.resolve("failed")
         })
       } else {
-        // 
+        //
         defer.resolve("done building item")
       }
     }

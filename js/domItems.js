@@ -270,7 +270,7 @@ domItems = {
       left: "8%",
       top: "19.2%",
     },
-    classes: ["item clearTube microTube loadDye"],
+    classes: ["item clearTube microTube loadDye opClass"],
     resources: "img/equipment/csTube.svg",
   },
   "gelTray": {
@@ -365,8 +365,9 @@ domItems = {
     css: {
       left: "55%",
       top: "10%",
+      "z-index": "3",
     },
-    classes: ["item arrowDown"],
+    classes: ["item arrowDown opClass"],
     resources: "",
   },
   "powerSupplyTop": {
@@ -385,7 +386,7 @@ domItems = {
     classes: ["item tubeBlockTop"],
     resources: "",
   },
-  // Do we want to make these injected like the other tubes?
+  // Do we want to make these injected like the other tubes? //Joochan - I think it's fine the way it is now
   "tubeTop_0": {
     css: {
       top: "20%",
