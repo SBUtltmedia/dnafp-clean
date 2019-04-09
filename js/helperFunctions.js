@@ -64,7 +64,8 @@ var eventFunctions = {
     }
     // makeDynamicAnimation("addTip1", selector)
     animate("#micropipette2", 0, "keyframe", "addTip1", selector)
-    animate("#" + selector, 740, "storage")
+    console.log(`#${selector}`)
+    animate("#" + selector, 700, "hide")
     return animate("#pipetteTip1", 750, "removeClass", "opClass")
 
   }, //step 3
@@ -99,7 +100,7 @@ var eventFunctions = {
 
   "mixContentsPost": function() {
     var zoomLeft = 35 + 3 * (game.iteration)
-    animate("#view", 200, zoom, [zoomLeft, 68, 1, 500]);
+    animate("#view", 0, zoom, [zoomLeft, 68, 1, 500]);
 
 
   }, //step 7
@@ -201,7 +202,7 @@ var eventFunctions = {
       animate("#s" + i + "Tube", 0, "keyframe", "insertTube" + i);
 
     }
-    animate("#tubeBlock, .microTube", 1750, "storage");
+    animate("#tubeBlock, .microTube", 1750, "hide");
     return animate("html", 500, "null")
 
 
@@ -230,9 +231,9 @@ var eventFunctions = {
   "setTimerPost": function() {
     animate("#waterBathNoLid *", 1000, "addClass", "opClass");
     animate("#view", 0, zoom, [65, 36, 1, 1000]);
-    animate(".microTube, .tip, #tubeBlock", 0, "view")
+    animate(".microTube, .tip, #tubeBlock", 0, "show")
     game.state["microtubeState"] = 0
-    animate("#loadDye", 1000, "removeClass", "opClass"); //For somereason, we cannot add loadDye by adding a line to itemsAdded
+    // animate("#loadDye", 1000, "removeClass", "opClass"); //For somereason, we cannot add loadDye by adding a line to itemsAdded
                                                         // Don't know the reason why, and Joochan added opClass to the item itself
                                                         // and added a removeclass here to show.                    (domitems)
 
@@ -347,7 +348,7 @@ var eventFunctions = {
   }, //step 31
   "orientGel": function() {
     animate("#arrowDown, #arrowUp", 0, "addClass", "opClass")
-    return animate("#micropipetteTopView, #gelFinalTop", 0, "view")
+    return animate("#micropipetteTopView, #gelFinalTop", 0, "show")
   }, //step 32, 37, 42
   "addTipTop": function(evt) {
     // if (evt.currentTarget.classList.contains("st3") == false) {

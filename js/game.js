@@ -102,10 +102,7 @@ function Game(steps) {
 
     menu.highlightMenuItem(stepIndex)
     if ((this.steps[stepIndex].itemsAdded || this.steps[stepIndex].itemsRemoved)&&stepIndex!=0) { //try while item doesnt exist, add item
-      
-      var qwe = buildStage(stepIndex)
-      
-      qwe.then(this.stepEngine.startStep(stepIndex))
+      buildStage(stepIndex).then(this.stepEngine.startStep(stepIndex))
     } else {
       this.stepEngine.startStep(stepIndex)
     }

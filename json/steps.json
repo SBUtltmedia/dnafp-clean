@@ -5,7 +5,7 @@
       "shortText": "Digest DNA",
       "steps": [{
           "id": "liftEnzyme",
-          "itemsAdded": "labBench loadDye shelf1 pipetteHolder micropipette0 micropipette1 pipetteTip1 micropipette2 tip1 tip2 tip3 tip4 tip5 tip6 tip7 tip8 tip9 tip10 tip11 tip12 tipHolder tubeBlock s5Tube s4Tube s3Tube s2Tube s1Tube s0Tube wasteBasket iceBucket enzTube waterBathLid waterBathNoLid",
+          "itemsAdded": "labBench shelf1 pipetteHolder micropipette0 micropipette1 pipetteTip1 micropipette2 tip1 tip2 tip3 tip4 tip5 tip6 tip7 tip8 tip9 tip10 tip11 tip12 tipHolder s5Tube s4Tube s3Tube s2Tube s1Tube s0Tube iceBucket enzTube waterBathLid waterBathNoLid",
           "itemsRemoved": "",
           "shortText": "Lift enzyme mix",
           "longText": "Remove the tube containing enzyme mix from the ice",
@@ -34,6 +34,8 @@
 
         , {
           "id": "setVolume",
+          "itemsAdded": "tubeBlock",
+          "itemsRemoved": "",
           "shortText": "Enter volume",
           "longText": "Set the volume for the micropipette to 10µl",
           "bottomText": "Enter the correct volume (in µl) of fluid to remove",

@@ -39,9 +39,7 @@ function loadStep(steps) {
 }
 
 function buildStage(stepNumber) {
-  var defer = $.Deferred();
-  var itemsDetached = [];
-
+  var defer2 = $.Deferred();
   itemsAdded = game.steps[stepNumber].itemsAdded.split(" ")
   itemsRemoved = game.steps[stepNumber].itemsRemoved.split(" ")
   item.buildAllItems(itemsAdded).then(() => {
@@ -61,15 +59,19 @@ function buildStage(stepNumber) {
 
         //  $(j).remove()
       }
-      defer.resolve("Stage built")
+      // setTimeout(function() {
+      defer2.resolve("Stage built")
+    // }, 10000)
     }
     else {
-      defer.resolve("Stage built, no items removed")
+      // setTimeout(function() {
+      defer2.resolve("Stage built, no items removed")
+    // }, 10000)
     }
 
 
   })
-  return defer.promise();
+  return defer2.promise();
   // $("#storage").prepend(...itemsDetached)
   // setTimeout(function(){
   //

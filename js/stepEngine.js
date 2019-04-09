@@ -1,5 +1,5 @@
 function StepEngine() {
-  this.startStep = function(stepIndex) {
+  this.startStep = function(stepIndex, prevCalled = 0) {
 
     step = game.steps[stepIndex];
 
@@ -12,11 +12,10 @@ function StepEngine() {
 
 
     s.logic.eventSelector = s.logic.eventSelector.replace("$iter$", game.iteration)
-        console.log(s)
-        // if(!$(s.logic.eventSelector).length){
-        //
-        //     item = new Item()
-        //   }
+    // if(!$(s.logic.eventSelector).length){
+    //
+    //     item = new Item()
+    //   }
     s.longText = s.longText.replace("$iter$", game.iteration + 1)
     s.bottomText = s.bottomText.replace("$iter$", game.iteration + 1)
     $("#headerText").text(s.longText);
@@ -39,7 +38,7 @@ function StepEngine() {
       criteria = s.logic.criteria
     }
 
- function composite(evt) {
+    function composite(evt) {
       $(s.logic.eventSelector).off()
       evt.preventDefault();
       var bar = window["eventFunctions"][s.logic.eventFunction]
@@ -99,24 +98,37 @@ function StepEngine() {
         return false;
       })
     }
-    $(s.logic.eventSelector).on(s.logic.eventType, composite);
-
-
-    if (game.testMode) {
-      if (s.id != game.hash) {
-        if(game.groups[game.getGroupMembership(s.id)].repeats){
-          game.iteration = game.groups[game.getGroupMembership(s.id)].repeats - 1
-        }
-        $(s.logic.eventSelector).trigger(s.logic.eventType);
-      } else {
-        game.testMode = false
+    if ($(s.logic.eventSelector).length) {
+      $(s.logic.eventSelector).on(s.logic.eventType, composite);
+    } else if (prevCalled < 5) {
+      console.log("item not found", stepIndex, prevCalled)
+      console.log(s.logic.eventSelector.split("#")[1])
+      item.buildAllItems([s.logic.eventSelector.split("#")[1]]).then(
+        setTimeout(function() {
+          game.stepEngine.startStep(stepIndex, prevCalled + 1)
+        }, 10)
+      )}
+      else {
+        console.log("item refuses to build")
       }
-      // if (game.hashLoop) {
-      //   game.iteration = game.hashLoop - 1
-      // } else {
-      //   game.iteration = game.groups[game.getGroupMembership(s.id)].repeats - 1
-      // }
-    }
 
+      if (game.testMode) {
+        if (s.id != game.hash) {
+          if (game.groups[game.getGroupMembership(s.id)].repeats) {
+            game.iteration = game.groups[game.getGroupMembership(s.id)].repeats - 1
+          }
+          if ($(s.logic.eventSelector).length) {
+            $(s.logic.eventSelector).trigger(s.logic.eventType);
+          }
+        } else {
+          game.testMode = false
+        }
+        // if (game.hashLoop) {
+        //   game.iteration = game.hashLoop - 1
+        // } else {
+        //   game.iteration = game.groups[game.getGroupMembership(s.id)].repeats - 1
+        // }
+      }
+
+    }
   }
-}

@@ -270,7 +270,7 @@ domItems = {
       left: "8%",
       top: "19.2%",
     },
-    classes: ["item clearTube microTube loadDye opClass"],
+    classes: ["item clearTube loadDye"],
     resources: "img/equipment/csTube.svg",
   },
   "gelTray": {

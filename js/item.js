@@ -15,7 +15,10 @@ function Item() {
     css,
     classes = [],
     resources,
-  }) {
+  })
+
+
+  {
     //
     var defer = $.Deferred();
     if (resources) {
@@ -23,31 +26,35 @@ function Item() {
         url: "./resources/" + resources,
         dataType: "text",
         success: function(data) {
-          makeDOMItem({
+           makeDOMItem({
             parent,
             itemId,
             css,
             classes,
-            data,
-            defer
+            data
           })
+
+
+
+            defer.resolve("resource")
+
         },
         error: function() {
 
-          defer.reject("not found")
+      defer.resolve("no found")
         }
       })
-    }
-    else{
-      data="";
+    } else {
+      data = "";
       makeDOMItem({
-        parent ,
+        parent,
         itemId,
         css,
         classes,
-        data,
-        defer
+        data
+
       })
+            defer.resolve("no resource")
     }
     return defer.promise();
   }
@@ -57,8 +64,8 @@ function Item() {
     itemId,
     css,
     classes = [],
-    data = "",
-    defer
+    data = ""
+
   }) {
 
     var div = $('<div/>', {
@@ -68,23 +75,25 @@ function Item() {
     }).css(css)
 
     $(parent).append(div);
-    defer.resolve("h")
+
   }
 
 
   this.buildAllItems = function(domItemsIds) {
     var defer = $.Deferred();
-    var _this =this;
-    function buildItemsRecurse(domItemsIds, itemIndex = 0){
-  //    itemIds = Object.keys(domItems)
+    var _this = this;
+
+    function buildItemsRecurse(domItemsIds, itemIndex = 0) {
+      //    itemIds = Object.keys(domItems)
       if (itemIndex < domItemsIds.length) {
         //
-        _this.buildItemById(domItemsIds[itemIndex]).then(() => {
+          _this.buildItemById(domItemsIds[itemIndex]).then(() => {
 
-          buildItemsRecurse(domItemsIds, itemIndex + 1)
-        }).fail(()=>{
-          defer.resolve("failed")
-        })
+            buildItemsRecurse(domItemsIds, itemIndex + 1)
+          }).fail(() => {
+            defer.resolve("failed")
+          })
+
       } else {
         //
         defer.resolve("done building item")

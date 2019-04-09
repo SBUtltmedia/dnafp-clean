@@ -100,9 +100,15 @@ function animate(selector, delay, method, param, inputs = [], callback = () => {
         }, delay)
       }
       //$(selector).delay(delay).playKeyframe(param, function () {});
-    } else if (method == "view" || method == "storage") {
+    } else if (method == "show") {
       setTimeout(function() {
-        $(`#${method}`).append($(selector));
+        $(selector).show();
+        callback();
+        resolve(method)
+      }, delay)
+    } else if (method == "hide") {
+      setTimeout(function() {
+        $(selector).hide();
         callback();
         resolve(method)
       }, delay)
