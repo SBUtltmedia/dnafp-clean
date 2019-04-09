@@ -460,20 +460,20 @@ domItems = {
     classes: ["item micropipetteTopView"],
     resources: "",
   },
-  "sideView": {
-    css: {
-      left: "55%",
-      top: "25%",
-    },
-    classes: ["item sideView"],
-    resources: "",
-  },
+  // "sideView": {
+  //   css: {
+  //     left: "55%",
+  //     top: "25%",
+  //   },
+  //   classes: ["item sideView"],
+  //   resources: "",
+  // },
   "pipetteTip1": {
     css: {
       left: "54.7%",
       top: "95%",
     },
-    classes: ["item pipetteTip1 activeTip"],
+    classes: ["item pipetteTip1 activeTip opClass"],
     resources: "img/equipment/tip.svg",
   },
   "gelWell": {
@@ -483,6 +483,7 @@ domItems = {
     },
     classes: ["item gelWell"],
     resources: "",
+    parent: "#sideView",
   },
   "gelWellBoundary": {
     css: {
@@ -491,6 +492,7 @@ domItems = {
     },
     classes: ["item gelWellBoundary"],
     resources: "",
+    parent: "#sideView",
   },
   "electroBoxBase": {
     css: {
@@ -546,7 +548,7 @@ domItems = {
       left: "55%",
       top: "25%",
     },
-    classes: ["item sideView"],
+    classes: ["item sideView opClass"],
     resources: "/html/sideView.htm"
   }
 }

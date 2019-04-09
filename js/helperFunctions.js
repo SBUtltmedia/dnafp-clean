@@ -50,8 +50,7 @@ var eventFunctions = {
   "setVolumePost": function() {
     $("#micropipette2").append($("#pipetteTip1"))
     animate(".volumeInput, .volumeButton", 1, "addClass", "opClass")
-    animate("#view", 0, zoom, [25, 46, 1, 1000])
-    return animate("#pipetteTip1", 0, "addClass", "opClass")
+    return animate("#view", 0, zoom, [25, 46, 1, 1000])
 
   },
 
@@ -95,37 +94,6 @@ var eventFunctions = {
     var zoomLeft = 35 + 3 * (game.iteration)
     animate("#view", 0, zoom, [zoomLeft, 68, 12, 1050])
     return animate("#svgfluid", 1000, "keyframe", "mixFluid")
-    // function loop(i) {
-    //
-    //   animate("#svgfluid", 1000 * i + 500, "animate", [{
-    //     "y": 70
-    //   }, {
-    //     duration: 500,
-    //     step: function(now) {
-    //       $(this).attr("y", now);
-    //     }
-    //   }]);
-    //   animate("#svgfluid", 1000 * (i + 1), "animate", [{
-    //     "y": 35.6
-    //   }, {
-    //     duration: 500,
-    //     step: function(now) {
-    //       $(this).attr("y", now);
-    //     }
-    //   }]);
-    //   if (i < 4) {
-    //     loop(i + 1)
-    //   } else {
-    //     asd = animate("#svgfluid", 4500, "animate", [{
-    //       "y": 100
-    //     }])
-    //
-    //     return asd
-    //   }
-    // }
-    //
-    //
-    // loop(1)
 
   },
 
@@ -142,6 +110,7 @@ var eventFunctions = {
     // in event
 
     if (game.testMode) {
+      animate("#pipetteTip1", 0, "addClass", "opClass")
       return animate("#micropipette2", 0, "keyframe", "pipetteFromBinToOrigin")
     } else {
       return animate("#micropipette2", 0, "keyframe", "pipetteToBin", game.iteration)
@@ -342,11 +311,11 @@ var eventFunctions = {
     }
 
     var tubeId = evt.currentTarget.id.charAt(1);
-        console.log($(`#${evt.currentTarget.id} .Cap`).attr("style"))
+
     if(!$(`#${evt.currentTarget.id} .Cap`).attr("style")){
     game.state["totalTubesPressed"]++;
     }
-    console.log(game.state["totalTubesPressed"])
+
     if (game.testMode) {
       for (i = 0; i < 5; i++) {
         animate("#s" + i + "Tube svg .Cap", 0, "keyframe", "rotateCap", -120)
@@ -363,12 +332,11 @@ var eventFunctions = {
 
   "removeComb": function() {
     animate("#gelComb", 0, "keyframe", "removeComb")
-    return animate("#gelComb", 1000, "storage")
+    return animate("#gelComb", 1000, "addClass", "opClass")
   }, //step 30
 
   "toTop": function() {
     animate("#arrowDown", 0, "removeClass", "opClass")
-
     // animate("#day1, #day2, #day2 *", 0, "hide");
     // animate("#bothDays, #bothDays *", 0, "hide");
     // animate("#topView, #topView *", 0, "show");
@@ -380,7 +348,6 @@ var eventFunctions = {
   "orientGel": function() {
     animate("#arrowDown, #arrowUp", 0, "addClass", "opClass")
     return animate("#micropipetteTopView, #gelFinalTop", 0, "view")
-
   }, //step 32, 37, 42
   "addTipTop": function(evt) {
     // if (evt.currentTarget.classList.contains("st3") == false) {
@@ -437,16 +404,8 @@ var eventFunctions = {
     return animate("html", 1000, zoom, [10, 74, 1, 500]) //zoomout
   }, //step 35,40
   "toLanePost": function() {
-    while(!($('#sideView').length)){
-    $("#view").append($("<div/>",{id:"sideView"}))
-  }
-      $("#sideView").append($("#pipetteTip1"), $("#gelWell"), $("#gelWellBoundary"))
-      $("#sideView, #sideView *").removeClass("opClass")
-
-
-  //   animate("#sideView", 0, "view")
-
-    //$("#pipetteTip1").removeClass("opClass")
+    $("#sideView").append($("#pipetteTip1"))
+    animate("#sideView, #sideView *", 0, "removeClass", "opClass")
     animate("#pipetteTip1", 0, "css", [{
       "width": "15%",
       "height": "121%",
@@ -501,7 +460,6 @@ var eventFunctions = {
       "background-image": "radial-gradient(blue, #5555ff, #5555ff)"
     }])
 
-    animate(".side", 3000, "storage")
     animate("#gelWellBoundary", 3400, "css", [{
       "background-image": "radial-gradient(rgba(59,128,194,.86), rgba(59,128,194,.86), rgba(59,128,194,.86))"
     }])
@@ -512,9 +470,10 @@ var eventFunctions = {
       "fill": "#5555ff"
     }])
     game.state["wellPosition"][well] = 1;
-    setTimeout(function() {
-      $("#sideView").addClass("opClass")
-    }, 1500)
+    animate("#sideView", 1500, "addClass", "opClass")
+    // setTimeout(function() {
+    //   $("#sideView").addClass("opClass")
+    // }, 1500)
     // setTimeout(function () {
     //     $('#pipetteTip1').css("top", "-80%")
     //     $('#pipetteTip1').css("left", "42%")

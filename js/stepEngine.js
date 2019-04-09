@@ -2,6 +2,7 @@ function StepEngine() {
   this.startStep = function(stepIndex) {
 
     step = game.steps[stepIndex];
+
     //window.location.hash = step.id;
     //highlightObject(true,step.logic.s.logic.eventSelector);
     var s = jQuery.extend(true, {}, step);
@@ -11,6 +12,11 @@ function StepEngine() {
 
 
     s.logic.eventSelector = s.logic.eventSelector.replace("$iter$", game.iteration)
+        console.log(s)
+        // if(!$(s.logic.eventSelector).length){
+        //
+        //     item = new Item()
+        //   }
     s.longText = s.longText.replace("$iter$", game.iteration + 1)
     s.bottomText = s.bottomText.replace("$iter$", game.iteration + 1)
     $("#headerText").text(s.longText);
@@ -75,6 +81,8 @@ function StepEngine() {
               game.iteration = 0;
               menu.setGroupCompleted(currentGroupId)
               nextStepIndex = stepIndex + 1
+
+
             }
           } else {
             nextStepIndex = stepIndex + 1;
@@ -82,7 +90,6 @@ function StepEngine() {
           game.nextStep(nextStepIndex)
 
         } else {
-
           $(s.logic.eventSelector).on(s.logic.eventType, composite);
           if (s.logic.criteria.messageWrong) {
             // game.state[s.logic.criteria.variable] = "fd";
@@ -92,8 +99,8 @@ function StepEngine() {
         return false;
       })
     }
-
     $(s.logic.eventSelector).on(s.logic.eventType, composite);
+
 
     if (game.testMode) {
       if (s.id != game.hash) {

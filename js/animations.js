@@ -1094,7 +1094,7 @@ function makeAnimation(name, value) {
 keyframes="df"
   }
 
-  console.log(animDef,name)
+
   var animation = {
     "props": `${animDef.props}`,
     "keyframes": keyframes,

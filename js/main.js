@@ -19,19 +19,13 @@ $(function() {
     //   buildStage(0)
     //   game.setStep(0)
     // })
+  })
 
 
 
   })
   // setTimeout(function() {$("#next").off()}, 500)
-  $(".stepPanelItem").on("click", function() {
 
-    $(this).addClass("spin")
-    setTimeout(function() {
-      $(this).removeClass("spin")
-    }, 1500)
-  })
-})
 
 
 
