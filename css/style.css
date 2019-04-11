@@ -431,6 +431,12 @@ body {
   background-image: url("../resources/img/equipment/stainingTraySide.svg");
 }
 
+.stainingTray {
+  width: 20%;
+  height: 20%;
+  background-image: url("../resources/img/equipment/stainingTray.svg");
+}
+
 .stainedGel {
   width: 10%;
   height: 4%;
@@ -599,8 +605,37 @@ body {
   outline-width: 0;
 }
 
+.powerInput {
+  -webkit-appearance: none;
+  width: 25%;
+  height: 10%;
+  margin: 0;
+  padding: 0;
+  border: .1rem;
+  left: 45%;
+  top: 42%;
+  position: absolute;
+  background-repeat: no-repeat;
+  font-size: .25rem;
+  z-index: 10;
+  outline-width: 0;
+}
+
+.powerButton {
+  width: 26%;
+  height: 10%;
+  left: 90%;
+  top: 42%;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../resources/img/UI/check.svg");
+  outline-width: 0;
+}
+
 .sideView {
   width: 45%;
   height: 60%;
   background-image: url("../resources/img/UI/sideBackground.svg");
 }
+ .bands rect{y:150}

@@ -376,7 +376,7 @@ domItems = {
       top: "19.4%",
     },
     classes: ["item powerSupplyTop"],
-    resources: "",
+    resources: "html/powerSupplyForm.htm"
   },
   "tubeBlockTop": {
     css: {
@@ -460,14 +460,7 @@ domItems = {
     classes: ["item micropipetteTopView"],
     resources: "",
   },
-  // "sideView": {
-  //   css: {
-  //     left: "55%",
-  //     top: "25%",
-  //   },
-  //   classes: ["item sideView"],
-  //   resources: "",
-  // },
+
   "pipetteTip1": {
     css: {
       left: "54.7%",
@@ -541,6 +534,22 @@ domItems = {
       top: "36%",
     },
     classes: ["item timerButton"],
+    resources: "",
+  },
+  "powerButton": {
+    css: {
+      left: "29.1%",
+      top: "47.2%",
+    },
+    classes: ["item powerButton"],
+    resources: "",
+  },
+  "powerInput": {
+    css: {
+      left: "26.5%",
+      top: "47%",
+    },
+    classes: ["item powerInput"],
     resources: "",
   },
   "sideView": {

@@ -64,8 +64,8 @@ var eventFunctions = {
     }
     // makeDynamicAnimation("addTip1", selector)
     animate("#micropipette2", 0, "keyframe", "addTip1", selector)
-    console.log(`#${selector}`)
-    animate("#" + selector, 700, "hide")
+
+    animate("#" + selector, "addClass", "opClass")
     return animate("#pipetteTip1", 750, "removeClass", "opClass")
 
   }, //step 3
@@ -175,9 +175,8 @@ var eventFunctions = {
         animate("#s" + i + "Tube", 0, "keyframe", "pressTube" + i);
         game.state["totalTubesPressed"]++;
       }
-    }
-    else {
-    animate("#s" + tubeId + "Tube", 0, "keyframe", "pressTube" + tubeId);
+    } else {
+      animate("#s" + tubeId + "Tube", 0, "keyframe", "pressTube" + tubeId);
     }
     return animate("html", 100, "null")
 
@@ -202,7 +201,7 @@ var eventFunctions = {
       animate("#s" + i + "Tube", 0, "keyframe", "insertTube" + i);
 
     }
-    animate("#tubeBlock, .microTube", 1750, "hide");
+    animate("#tubeBlock, .microTube", "addClass", "opClass");
     return animate("html", 500, "null")
 
 
@@ -231,14 +230,14 @@ var eventFunctions = {
   "setTimerPost": function() {
     animate("#waterBathNoLid *", 1000, "addClass", "opClass");
     animate("#view", 0, zoom, [65, 36, 1, 1000]);
-    animate(".microTube, .tip, #tubeBlock", 0, "show")
+    animate(".microTube, .tip, #tubeBlock", "removeClass", "opClass")
     game.state["microtubeState"] = 0
     // animate("#loadDye", 1000, "removeClass", "opClass"); //For somereason, we cannot add loadDye by adding a line to itemsAdded
-                                                        // Don't know the reason why, and Joochan added opClass to the item itself
-                                                        // and added a removeclass here to show.                    (domitems)
+    // Don't know the reason why, and Joochan added opClass to the item itself
+    // and added a removeclass here to show.                    (domitems)
 
   }, //step 18
-  "prepPipette1": function(evt) {
+  "prepPipette1": function() {
     animate("#micropipette2", 0, "keyframe", "PrepPipette")
     animate("#view", 2000, zoom, [25, 46, 9.5, 1000])
     animate(".volumeInput, .volumeButton", 2000, "removeClass", "opClass")
@@ -261,7 +260,7 @@ var eventFunctions = {
 
   }, //step 21
 
-  "openDye": function(evt) {
+  "openDye": function() {
     animate("#loadDye", 0, "keyframe", "moveLoadingDye")
     animate("#loadDye svg .Cap", 1500, "keyframe", "rotateCap", -120)
     return animate("#svgfluid", 2000, "animate", [{
@@ -270,6 +269,7 @@ var eventFunctions = {
 
   }, //step 19
   "selectTip1": function(evt) {
+    console.log(evt)
     var selector = evt.currentTarget.id
     // in event
     if (game.testMode) {
@@ -307,14 +307,14 @@ var eventFunctions = {
 
   // ~~~~~~~~~~~~~~~~~~~~~~~~~REAPEATING STEPS
   "openTubes": function(evt) {
-    if(game.state["totalTubesPressed"] == 0) {
-      $(`.Cap`).attr("style","")
+    if (game.state["totalTubesPressed"] == 0) {
+      $(`.Cap`).attr("style", "")
     }
 
     var tubeId = evt.currentTarget.id.charAt(1);
 
-    if(!$(`#${evt.currentTarget.id} .Cap`).attr("style")){
-    game.state["totalTubesPressed"]++;
+    if (!$(`#${evt.currentTarget.id} .Cap`).attr("style")) {
+      game.state["totalTubesPressed"]++;
     }
 
     if (game.testMode) {
@@ -323,9 +323,8 @@ var eventFunctions = {
         game.state["totalTubesPressed"]++;
 
       }
-    }
-    else {
-    animate("#s" + tubeId + "Tube svg .Cap", 0, "keyframe", "rotateCap", -120)
+    } else {
+      animate("#s" + tubeId + "Tube svg .Cap", 0, "keyframe", "rotateCap", -120)
     }
     return animate("html", 2000, "null")
 
@@ -338,17 +337,17 @@ var eventFunctions = {
 
   "toTop": function() {
     animate("#arrowDown", 0, "removeClass", "opClass")
-    // animate("#day1, #day2, #day2 *", 0, "hide");
-    // animate("#bothDays, #bothDays *", 0, "hide");
-    // animate("#topView, #topView *", 0, "show");
-    // animate(".bands, .laneFill", 0, "hide");
+    // animate("#day1, #day2, #day2 *", "addClass", "opClass");
+    // animate("#bothDays, #bothDays *", "addClass", "opClass");
+    // animate("#topView, #topView *", "removeClass", "opClass");
+    // animate(".bands, .laneFill", "addClass", "opClass");
     // $("#sideView").append($('#pipetteTip1'));
     return animate("html", 0, "null")
 
   }, //step 31
   "orientGel": function() {
     animate("#arrowDown, #arrowUp", 0, "addClass", "opClass")
-    return animate("#micropipetteTopView, #gelFinalTop", 0, "show")
+    return animate("#micropipetteTopView, #gelFinalTop", 0, "removeClass", "opClass")
   }, //step 32, 37, 42
   "addTipTop": function(evt) {
     // if (evt.currentTarget.classList.contains("st3") == false) {
@@ -484,30 +483,39 @@ var eventFunctions = {
   "disposeTip": function() {
     return animate("#micropipetteTopView", 0, "animate", [{
       "left": '37%',
-      "top": '5.3%'
+      "top": '75.3%'
     }]);
   }, //step 72
 
   //To Day3
 
   "clickLid": function() {
-    animate("#lidSide, #micropipetteTopView", 0, "storage")
-    animate("#lidBox", 0, "view")
-    animate(".gelVoltage", 1000, "view")
-    animate("#tipBoxTop, #wasteBinTop", 0, "storage")
-    return animate("#gelVoltageCover, #voltage", 1000, "view")
+    animate("#lidSide, #micropipetteTopView", 0, "addClass", "opClass")
+    animate("#lidBox", 0, "removeClass", "opClass")
+    animate(".gelVoltage", 0, "removeClass", "opClass")
+    animate("#tipBoxTop, #wasteBinTop", 0, "addClass", "opClass")
+    return animate("#gelVoltageCover, #voltage", 0, "removeClass", "opClass")
   }, //step 73
+
+  "clickLidPost": function() {
+    animate("html", 0, zoom, [0, 31, 6, 1000])
+    return animate("#powerSupplyTop *", 2000, "removeClass", "opClass")
+  },
   "setVoltage": function(evt) {
-    game.state["voltage"] = $("#voltage").val()
-    return animate("html", 0, "null")
+    var voltage = $("#powerSupplyTop").find("[type='text']").val();
+    game.state["voltage"] = voltage;
+    return animate("html", 0, "null", "null")
   },
   "setVoltagePost": function() {
-    animate("#stainingTray", 0, "view")
-    return animate("#gelVoltageCover", 1000, "storage")
+    animate("#stainingTray", 0, "removeClass", "opClass")
+    animate("#gelVoltageCover", 0, "addClass", "opClass")
+    animate("#powerSupplyTop *", 0, "addClass", "opClass")
+    translateGel()
+    return animate("html", 0, zoom, [0, 30, 1, 1000])
   }, //step 74
   "removeGelLid": function() {
-    animate("#lidBox", 0, "storage")
-    return animate("#lidSide", 0, "view")
+    animate("#lidBox", 0, "addClass", "opClass")
+    return animate("#lidSide", 0, "removeClass", "opClass")
 
   }, //step 75
   "removeGel": function() {
@@ -523,10 +531,10 @@ var eventFunctions = {
       top: '58.5%',
       left: '30.6%',
     }])
-    animate("#topView, #topView *", 2000, "storage")
-    animate("#graduatedCylinder, #stainingTraySide", 2000, "view")
-    animate("#waterBathNoLid, #waterBathLid, #gelComb, #wasteBasket, #shelf1, #loadDyeCap", 2000, "storage")
-    animate("#bothDays, #day2, .day3, .day3 *, .microTube, .microTube *, #graduatedCylinder, #stainingTraySide", 2000, "view")
+    animate("#topView, #topView *", 0, "addClass", "opClass")
+    animate("#graduatedCylinder, #stainingTraySide", 0, "removeClass", "opClass")
+    animate("#waterBathNoLid, #waterBathLid, #gelComb, #wasteBasket, #shelf1, #loadDyeCap", 0, "addClass", "opClass")
+    animate("#bothDays, #day2, .day3, .day3 *, .microTube, .microTube *, #graduatedCylinder, #stainingTraySide", 0, "removeClass", "opClass")
     return animate("#stainedGel", 2000, "css", [{
       opacity: 0 //left it with opacity, because of slowFadeIn animation
     }])
@@ -538,7 +546,7 @@ var eventFunctions = {
       "y": -270
     }])
 
-    animate(".bands, .laneFill", 0, "view");
+    animate(".bands, .laneFill", 0, "removeClass", "opClass");
     animate("#stainedGel", 600, "keyframe", "slowFadeIn")
     return animate("#graduatedCylinder", 2000, "keyframe", "pourStainRev")
   }, //step 78

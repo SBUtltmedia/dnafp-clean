@@ -35,6 +35,7 @@ function Game(steps) {
       volume: 0,
       time: 0,
       tip: 0,
+      lane: Math.floor(Math.random()*Math.floor(7))+1
 
       // tipPositions: ,
     }
@@ -101,11 +102,9 @@ function Game(steps) {
     menu.setMenuItem(stepIndex)
 
     menu.highlightMenuItem(stepIndex)
-    if ((this.steps[stepIndex].itemsAdded || this.steps[stepIndex].itemsRemoved)&&stepIndex!=0) { //try while item doesnt exist, add item
-      buildStage(stepIndex).then(this.stepEngine.startStep(stepIndex))
-    } else {
-      this.stepEngine.startStep(stepIndex)
-    }
+ //try while item doesnt exist, add item
+      buildStage(stepIndex).then(() => {game.stepEngine.startStep(stepIndex)})
+
 
   }
 

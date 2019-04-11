@@ -1,7 +1,22 @@
 function animate(selector, delay, method, param, inputs = [], callback = () => {}) {
 
 
-  return new Promise((resolve, reject) => {
+  return new Promise(function(resolve, reject) {
+
+
+    function anim_resolve() {
+      setTimeout(() => {
+
+        resolve("anim_anim_resolved")
+
+
+      }, 0)
+
+
+    }
+
+
+
     if (game.testMode) {
       delay = 0
     }
@@ -16,7 +31,7 @@ function animate(selector, delay, method, param, inputs = [], callback = () => {
         $(selector).css(keyframe["100%"])
         //  callback();
 
-        resolve("keyframetestmode")
+        anim_resolve("keyframetestmode")
 
       }
       // if ($(selector + ':visible').length == 0) {
@@ -52,21 +67,21 @@ function animate(selector, delay, method, param, inputs = [], callback = () => {
                 style = style.replace(/animation:[^;]*;/g, "")
                 $(selector).attr("style", style);
               }
-              resolve(method)
+              anim_resolve(method)
             });
           });
           // callback();
         }, delay)
       }
     } else if (method == "null") {
-      resolve(method)
+      anim_resolve(method)
     } else if (method == "css") {
       setTimeout(function() {
         $(selector).css(...param);
         // callback();
-        resolve("css")
+        anim_resolve("css")
       }, delay)
-      resolve(method)
+      anim_resolve(method)
       //$(selector).delay(delay).playKeyframe(param, function () {});
     }
 
@@ -80,50 +95,38 @@ function animate(selector, delay, method, param, inputs = [], callback = () => {
       setTimeout(function() {
         $(selector)[method](param);
         // callback();
-        resolve(method)
+        anim_resolve(method)
       }, delay)
     } else if (method == "attr") {
       setTimeout(function() {
         $(selector).attr(param[0], param[1]);
         // callback();
-        resolve(method)
+        anim_resolve(method)
       }, delay)
     } else if (method == "animate") {
       if (game.testMode) {
         $(selector).css(...param)
-        resolve(method)
+        anim_resolve(method)
       } else {
         setTimeout(function() {
-          resolve(method)
+          anim_resolve(method)
 
           $(selector).animate(...param);
         }, delay)
       }
       //$(selector).delay(delay).playKeyframe(param, function () {});
-    } else if (method == "show") {
-      setTimeout(function() {
-        $(selector).show();
-        callback();
-        resolve(method)
-      }, delay)
-    } else if (method == "hide") {
-      setTimeout(function() {
-        $(selector).hide();
-        callback();
-        resolve(method)
-      }, delay)
     } else if (typeof(method) == "function") {
       if (method.name == "zoom" && game.testMode) {
         zoomInstant(param[0], param[1], param[2])
         // callback()
-        resolve(method)
+        anim_resolve(method)
 
       } else {
         $(selector).delay(delay).queue(function() {
           method(...param, game.testMode)
           $(this).dequeue();
           // callback();
-          resolve(method)
+          anim_resolve(method)
         })
       }
 

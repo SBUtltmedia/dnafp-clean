@@ -100,17 +100,8 @@ function StepEngine() {
     }
     if ($(s.logic.eventSelector).length) {
       $(s.logic.eventSelector).on(s.logic.eventType, composite);
-    } else if (prevCalled < 5) {
-      console.log("item not found", stepIndex, prevCalled)
-      console.log(s.logic.eventSelector.split("#")[1])
-      item.buildAllItems([s.logic.eventSelector.split("#")[1]]).then(
-        setTimeout(function() {
-          game.stepEngine.startStep(stepIndex, prevCalled + 1)
-        }, 10)
-      )}
-      else {
-        console.log("item refuses to build")
-      }
+    } 
+
 
       if (game.testMode) {
         if (s.id != game.hash) {

@@ -26,7 +26,8 @@ function Item() {
         url: "./resources/" + resources,
         dataType: "text",
         success: function(data) {
-           makeDOMItem({
+
+          makeDOMItem({
             parent,
             itemId,
             css,
@@ -35,13 +36,15 @@ function Item() {
           })
 
 
-
             defer.resolve("resource")
+
+
+
 
         },
         error: function() {
 
-      defer.resolve("no found")
+          defer.resolve("no found")
         }
       })
     } else {
@@ -54,7 +57,10 @@ function Item() {
         data
 
       })
-            defer.resolve("no resource")
+
+        defer.resolve("no resource")
+    
+
     }
     return defer.promise();
   }
@@ -67,7 +73,13 @@ function Item() {
     data = ""
 
   }) {
-
+    //
+    //   {
+    //     id: itemId,
+    //     class: [...classes],
+    //     html: data
+    //   }
+    // )
     var div = $('<div/>', {
       id: itemId,
       class: [...classes],
@@ -83,23 +95,24 @@ function Item() {
     var defer = $.Deferred();
     var _this = this;
 
-    function buildItemsRecurse(domItemsIds, itemIndex = 0) {
+    function buildItemsRecurse(itemIndex = 0) {
+
       //    itemIds = Object.keys(domItems)
       if (itemIndex < domItemsIds.length) {
-        //
-          _this.buildItemById(domItemsIds[itemIndex]).then(() => {
 
-            buildItemsRecurse(domItemsIds, itemIndex + 1)
-          }).fail(() => {
-            defer.resolve("failed")
-          })
+        _this.buildItemById(domItemsIds[itemIndex]).then(() => {
+
+          buildItemsRecurse(itemIndex + 1)
+        }).fail(() => {
+          defer.resolve("failed")
+        })
 
       } else {
         //
         defer.resolve("done building item")
       }
     }
-    buildItemsRecurse(domItemsIds)
+    buildItemsRecurse()
     return defer.promise()
   }
 }

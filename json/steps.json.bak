@@ -5,7 +5,8 @@
       "shortText": "Digest DNA",
       "steps": [{
           "id": "liftEnzyme",
-          "itemsAdded": ["labBench", "shelf1", "wasteBasket", "pipetteHolder", "micropipette0", "micropipette1", "pipetteTip1", "micropipette2", "tip1", "tip2", "tip3", "tip4", "tip5", "tip6", "tip7", "tip8", "tip9", "tip10", "tip11", "tip12", "tipHolder", "s5Tube", "s4Tube", "s3Tube", "s2Tube", "s1Tube", "s0Tube", "iceBucket", "enzTube", "waterBathLid", "waterBathNoLid"],
+          "itemsAdded": "labBench shelf1 wasteBasket pipetteHolder micropipette0 micropipette1 pipetteTip1 micropipette2 tip1 tip2 tip3 tip4 tip5 tip6 tip7 tip8 tip9 tip10 tip11 tip12 tipHolder s5Tube s4Tube s3Tube s2Tube s1Tube s0Tube iceBucket enzTube waterBathLid waterBathNoLid",
+          "itemsRemoved": "",
           "shortText": "Lift enzyme mix",
           "longText": "Remove the tube containing enzyme mix from the ice",
           "bottomText": "Hover over the tube containing the enzyme mix",
@@ -33,7 +34,8 @@
 
         , {
           "id": "setVolume",
-          "itemsAdded": ["tubeBlock"],
+          "itemsAdded": "tubeBlock",
+          "itemsRemoved": "",
           "shortText": "Enter volume",
           "longText": "Set the volume for the micropipette to 10µl",
           "bottomText": "Enter the correct volume (in µl) of fluid to remove",
@@ -276,8 +278,8 @@
       "id": "group2",
       "shortText": "Dye DNA",
       "steps": [{
-        "itemsRemoved": ["shelf1", "waterBathLid", "waterBathNoLid", "iceBucket", "enzTube"],
-        "itemsAdded": ["shelf2", "dyeRack", "loadDye", "gelTray", "gelComb", "electroBoxSide"],
+        "itemsRemoved": "shelf1 waterBathLid waterBathNoLid iceBucket enzTube",
+        "itemsAdded": "shelf2 dyeRack loadDye gelTray gelComb electroBoxSide arrowDown",
         "id": "prepPipette1",
         "shortText": "Prepare micropipet",
         "longText": "Pick up the micropipette",
@@ -482,8 +484,8 @@
         }
       }, {
         "id": "orientGel",
-        "itemsRemoved": ["labBench", "pipetteHolder", "micropipette0", "micropipette1", "micropipette2", "tip1", "tip2", "tip3", "tip4", "tip5", "tip6", "tip7", "tip8", "tip9", "tip10", "tip11", "tip12", "tipHolder", "tubeBlock", "dyeRack", "s0Tube", "s1Tube", "s2Tube", "s3Tube", "s4Tube", "s5Tube", "wasteBasket", "shelf2", "dyeRack", "loadDye", "gelTray", "gelComb", "gelSideView", "electroBoxSide", "gelLid"],
-        "itemsAdded": ["labBenchTop", "gelTopView", "electroBoxBase", "lidSide", "arrowDown", "arrowUp", "powerSupplyTop", "tubeBlockTop", "tubeTop_0", "tubeTop_1", "tubeTop_2", "tubeTop_3", "tubeTop_4", "tubeTop_5", "tubeTop_6", "tipBoxTop", "wasteBinTop", "micropipetteTopView", "sideView", "gelWell", "gelWellBoundary", "pipetteTip1"],
+        "itemsRemoved": "labBench pipetteHolder micropipette0 micropipette1 micropipette2 tip1 tip2 tip3 tip4 tip5 tip6 tip7 tip8 tip9 tip10 tip11 tip12 tipHolder tubeBlock dyeRack s0Tube s1Tube s2Tube s3Tube s4Tube s5Tube wasteBasket shelf2 dyeRack loadDye gelTray gelComb gelSideView electroBoxSide gelLid",
+        "itemsAdded": "labBenchTop gelTopView electroBoxBase lidSide arrowUp powerSupplyTop tubeBlockTop tubeTop_0 tubeTop_1 tubeTop_2 tubeTop_3 tubeTop_4 tubeTop_5 tubeTop_6 tipBoxTop wasteBinTop micropipetteTopView sideView gelWell gelWellBoundary pipetteTip1",
         "shortText": "Orient gel",
         "longText": "Properly orient your gel in the electrophoresis chamber",
         "bottomText": "Click on one of the arrows to select the direction you'd like the wells to face",
@@ -497,8 +499,8 @@
     },
     {
       "id": "group3",
-      "itemsRemoved": ["arrowUp", "arrowDown"],
-      "itemsAdded": ["gelFinalTop", "micropipetteTopView"],
+      "itemsRemoved": "#arrowUp #arrowDown",
+      "itemsAdded": "#gelFinalTop #micropipetteTopView",
       "shortText": "Load Gel",
       "repeats": 7,
       "steps": [{
@@ -576,20 +578,17 @@
         "logic": {
           "eventSelector": "#lidSide",
           "eventType": "click",
-          "eventFunction": "clickLid",
-          "postEventFunction": "clickLidPost"
+          "eventFunction": "clickLid"
         }
       }, {
         "id": "setVoltage",
-        "itemsAdded": ["lidBox"],
-        "itemsRemoved": ["lidSide"],
         "shortText": "Set the voltage",
         "longText": "Set the power to 100 volts. Allow the gel to run for 30-40 minutes.",
         "bottomText": "Enter the correct voltage",
         "feedbackText": "complete the second step",
         "logic": {
-          "eventSelector": ".powerButton",
-          "eventType": "mouseup",
+          "eventSelector": "#voltageInputForm",
+          "eventType": "submit",
           "eventFunction": "setVoltage",
           "postEventFunction": "setVoltagePost",
           "criteria": {
@@ -600,7 +599,7 @@
         }
       }, {
         "id": "removeGelLid",
-        "itemsAdded": ["stainingTray"],
+        "itemsAdded": "#stainingTray",
         "shortText": "Remove Lid",
         "longText": "Remove the lid from the electrophoresis chamber",
         "bottomText": "Click on the lid to remove it from the chamber",
@@ -612,8 +611,8 @@
         }
       }, {
         "id": "removeGel",
-        "itemsRemoved": ["lidBox"],
-        "itemsAdded": ["lidSide"],
+        "itemsRemoved": "#lidBox",
+        "itemsAdded": "#lidSide",
         "shortText": "Remove gel",
         "longText": "Remove the gel tray from the electrophoresis chamber",
         "bottomText": "Click on the staining tray to remove the gel",
@@ -630,14 +629,14 @@
         "bottomText": "Click on the gel to nudge it",
         "feedbackText": "complete the third step",
         "logic": {
-          "eventSelector": "#gelTopView",
+          "eventSelector": "#gelFinalTop",
           "eventType": "click",
           "eventFunction": "nudgeGel"
         }
       }, {
         "id": "stainGel",
-        "itemsRemoved": ["labBenchTop", "gelTopView", "electroBoxBase", "lidSide", "powerSupplyTop", "microtubeHolderTop", "tubeTop_0", "tubeTop_1", "tubeTop_2", "tubeTop_3", "tubeTop_4", "tubeTop_5", "tubeTop_6", "tipBoxTop", "wasteBinTop"],
-        "itemsAdded": ["labBench", "pipetHolder", "micropipette0", "micropipette1", "micropipette2", "tip1", "tip2", "tip3", "tip4", "tip5", "tip6", "tip7", "tip8", "tip9", "tip10", "tip11", "tip12", "tipHolder", "tubeBlock", "s$iter$Tube", "s1Tube", "s2Tube", "s3Tube", "s4Tube", "s5Tube", "wasteBasket", "graduatedCylinder", "stainingTraySide", "stainedGel"],
+        "itemsRemoved": "labBenchTop gelTopView electroBoxBase lidSide arrowUp arrowDown powerSupplyTop microtubeHolderTop tubeTop_0 tubeTop_1 tubeTop_2 tubeTop_3 tubeTop_4 tubeTop_5 tubeTop_6 tipBoxTop wasteBinTop",
+        "itemsAdded": "labBench pipetHolder micropipette0 micropipette1 micropipette2 tip1 tip2 tip3 tip4 tip5 tip6 tip7 tip8 tip9 tip10 tip11 tip12 tipHolder tubeBlock s$iter$Tube s1Tube s2Tube s3Tube s4Tube s5Tube wasteBasket graduatedCylinder stainingTraySide stainedGel",
         "shortText": "Stain the gel",
         "longText": "Pour the stain onto the gel in the staining tray",
         "bottomText": "Click on the graduated cylinder to pour the stain",
