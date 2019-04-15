@@ -77,6 +77,7 @@ domItems = {
     css: {
       left: "20%",
       top: "69.5%",
+      "pointer-events": "none",
     },
     classes: ["item tipHolder"],
     resources: "",
@@ -309,6 +310,7 @@ domItems = {
     css: {
       left: "88%",
       top: "74.5%",
+      opacity: 0
     },
     classes: ["item stainedGel"],
     resources: "",
@@ -319,7 +321,7 @@ domItems = {
       top: "63.7%",
     },
     classes: ["item graduatedCylinder"],
-    resources: "",
+    resources: "img/equipment/graduatedCylinder.svg",
   },
   "labBenchTop": {
     css: {
@@ -329,14 +331,14 @@ domItems = {
     classes: ["item labBenchTop"],
     resources: "",
   },
-  "gelTopView": {
-    css: {
-      left: "7%",
-      top: "55%",
-    },
-    classes: ["item gelTopView"],
-    resources: "",
-  },
+  // "gelTopView": {
+  //   css: {
+  //     left: "7%",
+  //     top: "55%",
+  //   },
+  //   classes: ["item gelTopView"],
+  //   resources: "",
+  // },
   "lidBox": {
     css: {
       left: "-5.5%",
@@ -367,7 +369,7 @@ domItems = {
       top: "10%",
       "z-index": "3",
     },
-    classes: ["item arrowDown opClass"],
+    classes: ["item arrowDown"],
     resources: "",
   },
   "powerSupplyTop": {
@@ -501,7 +503,7 @@ domItems = {
       top: "65.5%",
       "z-index": "1"
     },
-    classes: ["item gelTopView"],
+    classes: ["item gelTopView opClass"],
     resources: "/img/equipment/gelWithLane.svg",
   },
   "stainingTray": {

@@ -5,7 +5,7 @@
       "shortText": "Digest DNA",
       "steps": [{
           "id": "liftEnzyme",
-          "itemsAdded": ["labBench", "shelf1", "wasteBasket", "pipetteHolder", "micropipette0", "micropipette1", "pipetteTip1", "micropipette2", "tip1", "tip2", "tip3", "tip4", "tip5", "tip6", "tip7", "tip8", "tip9", "tip10", "tip11", "tip12", "tipHolder", "s5Tube", "s4Tube", "s3Tube", "s2Tube", "s1Tube", "s0Tube", "iceBucket", "enzTube", "waterBathLid", "waterBathNoLid"],
+          "itemsAdded": ["labBench", "shelf1", "wasteBasket", "pipetteHolder", "micropipette0", "micropipette1", "pipetteTip1", "micropipette2", "tip1", "tip2", "tip3", "tip4", "tip5", "tip6", "tip7", "tip8", "tip9", "tip10", "tip11", "tip12", "tipHolder", "s5Tube", "s4Tube", "s3Tube", "s2Tube", "s1Tube", "s0Tube", "tubeBlock", "iceBucket", "enzTube", "waterBathLid", "waterBathNoLid"],
           "shortText": "Lift enzyme mix",
           "longText": "Remove the tube containing enzyme mix from the ice",
           "bottomText": "Hover over the tube containing the enzyme mix",
@@ -33,7 +33,6 @@
 
         , {
           "id": "setVolume",
-          "itemsAdded": ["tubeBlock"],
           "shortText": "Enter volume",
           "longText": "Set the volume for the micropipette to 10µl",
           "bottomText": "Enter the correct volume (in µl) of fluid to remove",
@@ -497,8 +496,6 @@
     },
     {
       "id": "group3",
-      "itemsRemoved": ["arrowUp", "arrowDown"],
-      "itemsAdded": ["gelFinalTop", "micropipetteTopView"],
       "shortText": "Load Gel",
       "repeats": 7,
       "steps": [{
@@ -582,7 +579,7 @@
       }, {
         "id": "setVoltage",
         "itemsAdded": ["lidBox"],
-        "itemsRemoved": ["lidSide"],
+        "itemsRemoved": ["lidSide", "arrowUp", "arrowDown", "micropipetteTopView", "sideView", "gelWell", "gelWellBoundary", "pipetteTip1"],
         "shortText": "Set the voltage",
         "longText": "Set the power to 100 volts. Allow the gel to run for 30-40 minutes.",
         "bottomText": "Enter the correct voltage",
@@ -636,8 +633,8 @@
         }
       }, {
         "id": "stainGel",
-        "itemsRemoved": ["labBenchTop", "gelTopView", "electroBoxBase", "lidSide", "powerSupplyTop", "microtubeHolderTop", "tubeTop_0", "tubeTop_1", "tubeTop_2", "tubeTop_3", "tubeTop_4", "tubeTop_5", "tubeTop_6", "tipBoxTop", "wasteBinTop"],
-        "itemsAdded": ["labBench", "pipetHolder", "micropipette0", "micropipette1", "micropipette2", "tip1", "tip2", "tip3", "tip4", "tip5", "tip6", "tip7", "tip8", "tip9", "tip10", "tip11", "tip12", "tipHolder", "tubeBlock", "s$iter$Tube", "s1Tube", "s2Tube", "s3Tube", "s4Tube", "s5Tube", "wasteBasket", "graduatedCylinder", "stainingTraySide", "stainedGel"],
+        "itemsRemoved": ["labBenchTop", "gelTopView", "electroBoxBase", "lidSide", "stainingTray", "powerSupplyTop", "tubeBlockTop", "tubeTop_0", "tubeTop_1", "tubeTop_2", "tubeTop_3", "tubeTop_4", "tubeTop_5", "tubeTop_6", "tipBoxTop", "wasteBinTop"],
+        "itemsAdded": ["labBench", "pipetteHolder", "micropipette0", "micropipette1", "micropipette2", "tip1", "tip2", "tip3", "tip4", "tip5", "tip6", "tip7", "tip8", "tip9", "tip10", "tip11", "tip12", "tipHolder", "s0Tube", "s1Tube", "s2Tube", "s3Tube", "s4Tube", "s5Tube", "tubeBlock", "wasteBasket", "graduatedCylinder", "stainingTraySide", "stainedGel"],
         "shortText": "Stain the gel",
         "longText": "Pour the stain onto the gel in the staining tray",
         "bottomText": "Click on the graduated cylinder to pour the stain",

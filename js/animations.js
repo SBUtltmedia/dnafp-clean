@@ -615,27 +615,14 @@ animations = {
   "slowFadeIn": {
     "props": "2s 0s 1 linear normal forwards",
     "keyframes": {
-
+      "0": {
+        "opacity": 0
+      },
+      "60": {
+        "opacity": 0
+      },
       "100%": {
         "opacity": 1
-      }
-    }
-  },
-  "quickFadeOut": {
-    "props": ".125s 0s 1 linear normal forwards",
-    "keyframes": {
-
-      "100%": {
-        "opacity": 0
-      }
-    }
-  },
-  "slowFadeOut": {
-    "props": "2s 0s 1 linear normal forwards",
-    "keyframes": {
-
-      "100%": {
-        "opacity": 0
       }
     }
   },

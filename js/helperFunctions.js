@@ -65,7 +65,7 @@ var eventFunctions = {
     // makeDynamicAnimation("addTip1", selector)
     animate("#micropipette2", 0, "keyframe", "addTip1", selector)
 
-    animate("#" + selector, "addClass", "opClass")
+    animate("#" + selector, 700, "addClass", "opClass")
     return animate("#pipetteTip1", 750, "removeClass", "opClass")
 
   }, //step 3
@@ -336,7 +336,6 @@ var eventFunctions = {
   }, //step 30
 
   "toTop": function() {
-    animate("#arrowDown", 0, "removeClass", "opClass")
     // animate("#day1, #day2, #day2 *", "addClass", "opClass");
     // animate("#bothDays, #bothDays *", "addClass", "opClass");
     // animate("#topView, #topView *", "removeClass", "opClass");
@@ -347,7 +346,9 @@ var eventFunctions = {
   }, //step 31
   "orientGel": function() {
     animate("#arrowDown, #arrowUp", 0, "addClass", "opClass")
-    return animate("#micropipetteTopView, #gelFinalTop", 0, "removeClass", "opClass")
+    return animate("#gelTopView", 0, "removeClass", "opClass")
+    // $(`#${j}`).remove();
+
   }, //step 32, 37, 42
   "addTipTop": function(evt) {
     // if (evt.currentTarget.classList.contains("st3") == false) {
@@ -519,40 +520,39 @@ var eventFunctions = {
 
   }, //step 75
   "removeGel": function() {
-    return animate("#gelFinalTop", 0, "animate", [{
-      top: '73.5%',
-      left: '30.1%',
+    return animate("#gelTopView", 0, "animate", [{
+      top: '77.5%',
+      left: '33.1%',
     }])
 
   }, //step 76
   "nudgeGel": function() {
-    animate("#day1, #bothDays, #bothDays *, #day1 *", 2000, "attr", ["style", ""])
-    animate("#gelFinalTop", 0, "animate", [{
+    // animate("#day1, #bothDays, #bothDays *, #day1 *", 2000, "attr", ["style", ""])
+    animate("#gelTopView", 0, "animate", [{
       top: '58.5%',
       left: '30.6%',
     }])
-    animate("#topView, #topView *", 0, "addClass", "opClass")
-    animate("#graduatedCylinder, #stainingTraySide", 0, "removeClass", "opClass")
-    animate("#waterBathNoLid, #waterBathLid, #gelComb, #wasteBasket, #shelf1, #loadDyeCap", 0, "addClass", "opClass")
-    animate("#bothDays, #day2, .day3, .day3 *, .microTube, .microTube *, #graduatedCylinder, #stainingTraySide", 0, "removeClass", "opClass")
-    return animate("#stainedGel", 2000, "css", [{
-      opacity: 0 //left it with opacity, because of slowFadeIn animation
-    }])
+    // animate("#topView, #topView *", 400, "addClass", "opClass")
+    // animate("#graduatedCylinder, #stainingTraySide", 400, "removeClass", "opClass")
+    // animate("#waterBathNoLid, #waterBathLid, #gelComb, #wasteBasket, #shelf1, #loadDyeCap", 0, "addClass", "opClass")
+    // animate("#bothDays, #day2, .day3, .day3 *, .microTube, .microTube *, #graduatedCylinder, #stainingTraySide", 0, "removeClass", "opClass")
+    return animate("html", 2000, "null", "null")
 
   }, //step 77
   "stainGel": function() {
     animate("#graduatedCylinder", 0, "keyframe", "pourStain")
-    return animate("#svgcylfluid", 1000, "animate", [{
+    animate("#svgcylfluid", 1000, "animate", [{
       "y": -270
     }])
 
     animate(".bands, .laneFill", 0, "removeClass", "opClass");
-    animate("#stainedGel", 600, "keyframe", "slowFadeIn")
+    animate("#stainedGel", 1000, "keyframe", "slowFadeIn")
     return animate("#graduatedCylinder", 2000, "keyframe", "pourStainRev")
+
   }, //step 78
   "examineGel": function() {
-    var contents = $("#gelFinalTop").contents();
-    $("#gelFinalTop").empty();
+    var contents = $("#gelTopView").contents();
+    $("#gelTopView").empty();
     $("#gel").append(contents);
     loadSVGLogic();
 
