@@ -637,4 +637,5 @@ body {
   height: 60%;
   background-image: url("../resources/img/UI/sideBackground.svg");
 }
- .bands rect{y:150}
+
+ .bandstart {y:150}

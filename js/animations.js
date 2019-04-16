@@ -835,6 +835,7 @@ animations = {
       }
     }
   },
+
   "rotateCap": {
     "keyframes": {
       '100%': {

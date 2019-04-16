@@ -1,7 +1,7 @@
 function translateGel() {
   //Make helper function!!
 
-  $("#gel svg #Lane0 #weight1").attr('transform', 'translate(0 30) scale(1, 1) ');
+  $("#gelTopView svg #Lane0 #weight1").attr('transform', 'translate(0 30) scale(1, 1) ');
   var lanes = [
     [
       [40, .8],
@@ -76,18 +76,17 @@ function translateGel() {
 
   ]
   //     var answer=3;
-  lanes[game.state.lane - 1] = lanes[1];
+  lanes[game.state.lane - 1] = lanes[0];
   lanes.forEach(function(val, idx) {
     setLane(idx, val)
 
   })
-
   function setLane(laneNum, weightArray) {
     weightArray.forEach(function(val, idx) {
-      var transform = val[0] // + ') scale(1, ' + val[1] + ')'
-      var selector = "#gelTopView svg #Lane" + laneNum + " #weight" + idx + "_" + laneNum;
-      //console.log(val, idx, transform, selector)
-      $(selector).attr('y', transform);
+      var selector = "#gelTopView svg #Lane" + laneNum + " #weight" + idx + "_" + laneNum + " rect"
+      console.log(val, idx, selector)
+      $(selector).attr('transform', 'translate(0 ' + val[0] + ') scale(1, ' + val[1] + ')');
     })
   }
+
 }

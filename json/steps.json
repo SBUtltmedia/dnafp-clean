@@ -646,6 +646,7 @@
         }
       }, {
         "id": "examineGel",
+        "itemsAdded": ["gelTopView"],
         "shortText": "Examine the gel",
         "longText": "Examine the stained gel to identify your suspect",
         "bottomText": "Click on the stained gel to examine it",

@@ -345,8 +345,10 @@ var eventFunctions = {
 
   }, //step 31
   "orientGel": function() {
+    animate(".bands rect", 0, "addClass", "bandstart")
     animate("#arrowDown, #arrowUp", 0, "addClass", "opClass")
     return animate("#gelTopView", 0, "removeClass", "opClass")
+
     // $(`#${j}`).remove();
 
   }, //step 32, 37, 42
@@ -551,19 +553,41 @@ var eventFunctions = {
 
   }, //step 78
   "examineGel": function() {
-    var contents = $("#gelTopView").contents();
-    $("#gelTopView").empty();
-    $("#gel").append(contents);
-    loadSVGLogic();
+    animate("#gelTopView, #gelTopView *", 0, "removeClass", "opClass")
+    animate(".bands rect", 0, "removeClass", "bandstart")
 
+    // animate("#gelTopView *", 0, "removeClass", "bands")
 
-    $("#gel, #gel *").css({
-      opacity: 1.0,
-      visibility: "visible",
-      display: "block"
-    }).animate({
-      opacity: 1
-    }, 200)
+    animate("#gelTopView", 0, "css", [{
+      top: '72%',
+      left: '89.5%',
+      width: '7%',
+    }])
+    animate("#gelTopView", 0, "animate", [{
+      top: '15%',
+      left: '17.5%',
+      width: '75%',
+      "z-index": 10,
+    }])
+    // var contents = $("#gelTopView").contents();
+    // $("#gelTopView").empty();
+    // $("#gel").append(contents);
+    translateGel();
+    // animate("#gel", 0, "removeClass", "opClass")
+    // animate("#gel", 0, "animate", [{
+    //   top: '15%',
+    //   left: '17.5%',
+    //   width: '75%',
+    //   "z-index": 10,
+    // }])
+
+    // $("#gel, #gel *").css({
+    //   opacity: 1.0,
+    //   visibility: "visible",
+    //   display: "block"
+    // }).animate({
+    //   opacity: 1
+    // }, 200)
     return animate("html", 300, "null")
 
   }, //step 79
