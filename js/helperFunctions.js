@@ -94,7 +94,7 @@ var eventFunctions = {
     $(".micropipette").css("z-index", "-1")
     var zoomLeft = 35 + 3 * (game.iteration)
     animate("#view", 0, zoom, [zoomLeft, 68, 12, 1050])
-    return animate("#svgfluid", 1000, "keyframe", "mixFluid")
+    return animate("#svgfluid", 500, "keyframe", "mixFluid")
 
   },
 
@@ -197,14 +197,13 @@ var eventFunctions = {
   "insertRack": function() {
     animate("#tubeBlock", 0, "keyframe", "insertRack")
     for (i = 0; i <= 5; i++) {
-      //animate("#s" + i + "Tube", 0, "addClass", "microTube");
       animate("#s" + i + "Tube", 0, "keyframe", "insertTube" + i);
-
     }
-    animate("#tubeBlock, .microTube", "addClass", "opClass");
-    return animate("html", 500, "null")
+    animate("#tubeBlock, .microTube", 1750, "addClass", "opClass");
+    return animate("html", 2000, "null")
 
-
+  },
+  "insertRackPost": function() {
 
   }, //step 16
   "closeLid": function() {
@@ -230,7 +229,7 @@ var eventFunctions = {
   "setTimerPost": function() {
     animate("#waterBathNoLid *", 1000, "addClass", "opClass");
     animate("#view", 0, zoom, [65, 36, 1, 1000]);
-    animate(".microTube, .tip, #tubeBlock", "removeClass", "opClass")
+    animate(".microTube, .tip, #tubeBlock", 0, "removeClass", "opClass")
     game.state["microtubeState"] = 0
     // animate("#loadDye", 1000, "removeClass", "opClass"); //For somereason, we cannot add loadDye by adding a line to itemsAdded
     // Don't know the reason why, and Joochan added opClass to the item itself
@@ -269,7 +268,6 @@ var eventFunctions = {
 
   }, //step 19
   "selectTip1": function(evt) {
-    console.log(evt)
     var selector = evt.currentTarget.id
     // in event
     if (game.testMode) {
@@ -569,37 +567,21 @@ var eventFunctions = {
       width: '75%',
       "z-index": 10,
     }])
-    // var contents = $("#gelTopView").contents();
-    // $("#gelTopView").empty();
-    // $("#gel").append(contents);
-    translateGel();
-    // animate("#gel", 0, "removeClass", "opClass")
-    // animate("#gel", 0, "animate", [{
-    //   top: '15%',
-    //   left: '17.5%',
-    //   width: '75%',
-    //   "z-index": 10,
-    // }])
-
-    // $("#gel, #gel *").css({
-    //   opacity: 1.0,
-    //   visibility: "visible",
-    //   display: "block"
-    // }).animate({
-    //   opacity: 1
-    // }, 200)
     return animate("html", 300, "null")
 
-  }, //step 79
+  },
+  "pickLanePre": function() {
+    translateGel(step.logic.criteria.value);
+  },
   "pickLane": function(evt) {
-    var studentAnswer = evt.currentTarget.id.split("_")[1];
-
-
-
-    game.state["lanePickedNumber"] = studentAnswer
+    game.state["lanePickedNumber"] = parseInt(evt.currentTarget.id.split("_")[1]) + 1;
     return animate("html", 300, "null")
   },
-  "pickLanePost": function() {}
+  "pickLanePost": function() {
+    completionText = "Great job. Congratulations! Your Final Score Was: " + String(game.state["score"])
+    overlay.message(completionText)
+    $(".item").addClass("spin")
+  }
 
 }
 

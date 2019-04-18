@@ -7,18 +7,12 @@ function Game(steps) {
   this.iteration = 0
   this.testMode = false
   this.state = stateInit()
-  this.score = 0
   if (location.hash) {
     [, this.hash, this.hashLoop] = location.hash.replace("_", "#").split("#")
-
   }
-
-
   if (this.hash) {
     this.testMode = true;
   }
-
-
   function stateInit() {
     const tipTrayRows = 8,
       tipTrayCols = 12;
@@ -35,7 +29,8 @@ function Game(steps) {
       volume: 0,
       time: 0,
       tip: 0,
-      lane: Math.floor(Math.random()*Math.floor(7))+1
+      score: 0
+      // answerLane:
 
       // tipPositions: ,
     }
@@ -49,21 +44,17 @@ function Game(steps) {
       steps: []
     }
     this.groups[group].steps = [...this.groups[group].steps, id]
-
   }
   this.addToRepeats = function(group, repeats) {
     this.groups[group] = {
       repeats: repeats,
       steps: []
     }
-
   }
   this.getGroupMembership = function(item) {
     if (typeof item == "number") {
       return Object.keys(this.groups).find((n) => {
-
         return this.groups[n].steps.indexOf(this.steps[item].id) != -1;
-
       })
     } else if (typeof item == "string") {
       var groupNames = Object.keys(game.groups)
@@ -74,19 +65,14 @@ function Game(steps) {
       }
     }
   }
-
-
   this.addToSteps = function(item) {
     this.steps.push(item)
     this.steps[this.steps["length"] - 1].completed = "false"
   }
-
   // this.getSteps = function() {
   //   return this.steps
   // };
-
   this.nextStep = function(stepIndex) {
-
     var nextStepNum = ((stepIndex + 1) % this.steps.length)
     // var currentStep = this.steps[stepIndex]
     var prevStepNum = stepIndex - 1
@@ -94,41 +80,14 @@ function Game(steps) {
       game.steps[prevStepNum].completed = "true"
       menu.setItemCompleted(prevStepNum)
     }
-
-
     if (nextStepNum == 0) {
       this.restartGame()
     }
     menu.setMenuItem(stepIndex)
-
     menu.highlightMenuItem(stepIndex)
  //try while item doesnt exist, add item
       buildStage(stepIndex).then(() => {game.stepEngine.startStep(stepIndex)})
-
-
   }
-
-
-
-  // this.getStep = function() {
-  //   return this.currentStep
-  // }
-  // this.nextStep = function(step) {
-    //
-
-
-
-
-
-
-
-
-
-
-    // this.setStep(nextStepNum)
-
-
-
   this.restartGame = function() {
     $('#stepList *').removeClass("activeGroup")
     $('#stepList *').removeClass("completed")

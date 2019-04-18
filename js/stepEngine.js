@@ -1,7 +1,8 @@
 function StepEngine() {
   this.startStep = function(stepIndex, prevCalled = 0) {
-
+    $(".item").not(".ui-draggable").off()
     step = game.steps[stepIndex];
+
 
     //window.location.hash = step.id;
     //highlightObject(true,step.logic.s.logic.eventSelector);
@@ -10,7 +11,9 @@ function StepEngine() {
     var clicked = false;
     var nextStepIndex;
 
-
+    if (s.logic.preEventFunction) {
+      window["eventFunctions"][s.logic.preEventFunction]()
+    }
     s.logic.eventSelector = s.logic.eventSelector.replace("$iter$", game.iteration)
     // if(!$(s.logic.eventSelector).length){
     //
@@ -45,11 +48,13 @@ function StepEngine() {
       //
 
       bar(evt).then(function() {
-
+        game.state["score"] = game.state["score"] + 10
         if (game.testMode) {
           game.state[criteria.variable] = criteria.value
           highlightObject(false, s.logic.eventSelector)
         }
+
+
         if (game.state[criteria.variable] == criteria.value) {
           highlightObject(false, s.logic.eventSelector);
 
@@ -86,7 +91,9 @@ function StepEngine() {
           } else {
             nextStepIndex = stepIndex + 1;
           }
-          game.nextStep(nextStepIndex)
+          if (nextStepIndex < game.steps.length) {
+            game.nextStep(nextStepIndex)
+          }
 
         } else {
           $(s.logic.eventSelector).on(s.logic.eventType, composite);
@@ -98,28 +105,34 @@ function StepEngine() {
         return false;
       })
     }
+
     if ($(s.logic.eventSelector).length) {
-      $(s.logic.eventSelector).on(s.logic.eventType, composite);
-    } 
-
-
-      if (game.testMode) {
-        if (s.id != game.hash) {
-          if (game.groups[game.getGroupMembership(s.id)].repeats) {
-            game.iteration = game.groups[game.getGroupMembership(s.id)].repeats - 1
-          }
-          if ($(s.logic.eventSelector).length) {
-            $(s.logic.eventSelector).trigger(s.logic.eventType);
-          }
-        } else {
-          game.testMode = false
+      $(".item").on("click", function(evt) {
+        if ($(this).id != s.logic.eventSelector) {
+          game.state["score"] = game.state["score"] - 1
         }
-        // if (game.hashLoop) {
-        //   game.iteration = game.hashLoop - 1
-        // } else {
-        //   game.iteration = game.groups[game.getGroupMembership(s.id)].repeats - 1
-        // }
-      }
-
+      })
+      $(s.logic.eventSelector).on(s.logic.eventType, composite);
     }
+
+
+    if (game.testMode) {
+      if (s.id != game.hash) {
+        if (game.groups[game.getGroupMembership(s.id)].repeats) {
+          game.iteration = game.groups[game.getGroupMembership(s.id)].repeats - 1
+        }
+        if ($(s.logic.eventSelector).length) {
+          $(s.logic.eventSelector).trigger(s.logic.eventType);
+        }
+      } else {
+        game.testMode = false
+      }
+      // if (game.hashLoop) {
+      //   game.iteration = game.hashLoop - 1
+      // } else {
+      //   game.iteration = game.groups[game.getGroupMembership(s.id)].repeats - 1
+      // }
+    }
+
   }
+}

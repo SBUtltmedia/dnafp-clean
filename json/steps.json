@@ -69,8 +69,8 @@
             {
               "id": "openTube",
               "shortText": "Open reaction tube",
-              "longText": "Open the next reaction tube",
-              "bottomText": "Click on the reaction tube to open it",
+              "longText": "Open reaction tube $iter$",
+              "bottomText": "Click on reaction tube $iter$ to open it",
               "feedbackText": "complete the third step",
               "logic": {
                 "eventSelector": "#s$iter$Tube",
@@ -236,7 +236,8 @@
           "logic": {
             "eventSelector": "#tubeBlock",
             "eventType": "click",
-            "eventFunction": "insertRack"
+            "eventFunction": "insertRack",
+            "postEventFunction": "insertRackPost"
           }
         },
         {
@@ -665,11 +666,12 @@
         "logic": {
           "eventSelector": ".laneFills",
           "eventType": "click",
+          "preEventFunction": "pickLanePre",
           "eventFunction": "pickLane",
           "postEventFunction": "pickLanePost",
           "criteria": {
             "variable": "lanePickedNumber",
-            "value": 1,
+            "value": "9999",
             "messageWrong": "Incorrect. Try again."
           }
         }

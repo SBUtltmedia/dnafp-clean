@@ -33,21 +33,15 @@ function Menu() {
 
 
 
-    $(".stepPanelItem").on("click", function() {
-
-      $(this).addClass("spin")
-      setTimeout(function() {
-        $(this).removeClass("spin")
-      }, 1500)
-    })
-
-
+    // $(".stepPanelItem").on("click", function() {
+    //
+    //   $(this).addClass("spin")
+    //   setTimeout(function() {
+    //     $(this).removeClass("spin")
+    //   }, 10)
+    // })
   defer.resolve("Menu built")
     return defer.promise();
-
-
-
-
   }
   this.setMenuItem = function(stepNumber) {
     var group = game.getGroupMembership(stepNumber)

@@ -1,25 +1,5 @@
-.endOptionUnlocked {
-  cursor: pointer;
-}
-
-.endOptionLocked {
-  cursor: not-allowed;
-}
-
-.medal {
-  pointer-events: none;
-}
-
 .rounded {
-    border-radius: .5rem;
-}
-
-#challengeButton {
-  cursor: pointer;
-}
-
-#viewLeaderboard {
-  cursor: pointer;
+  border-radius: .5rem;
 }
 
 #messageBox {
@@ -28,13 +8,18 @@
   align-items: center;
   color: white;
   justify-content: center;
-}
 
+}
+#messageText {
+  width: 95%;
+  height: 55%;
+  left: 12.5%;
+  top: 22.5%;
+  text-align: center;
+}
 #messageButton {
   background-image: url("../resources/img/UI/GreenStripe2.png");
-}
-
-#messageBox #messageButton {
+  top: 80%;
   width: 20%;
   text-align: center;
 }
@@ -47,7 +32,6 @@
   background-color: #ffffff;
   background-image: url("../resources/img/UI/DarkStripeBG.png");
   z-index: 150;
-  /*z-index: 5001;*/
   opacity: 1;
   position: absolute;
   box-shadow: .5% .5% .5% #000000;

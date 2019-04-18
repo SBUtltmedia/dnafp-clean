@@ -156,7 +156,10 @@ body {
   background-image: url("../resources/img/UI/step_active.svg");
   animation: littleSpin 1s 0s 1 cubic-bezier(0, .5, .5, 1) normal forwards;
 }
-
+/* .spin {
+  animation: littleSpin 1s 0s 1 cubic-bezier(0, .5, .5, 1) normal forwards;
+  animation-iteration-count: infinite;
+} */
 .highLighted {
   animation: pulse 1.5s linear 10s infinite normal forwards;
 }
