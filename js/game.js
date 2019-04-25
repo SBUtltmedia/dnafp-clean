@@ -3,6 +3,7 @@ function Game(steps) {
   this.stepEngine = new StepEngine();
   this.groups = {}
   this.steps = []
+  this.scoreHistory = {}
   this.currentGroup = 0
   this.iteration = 0
   this.testMode = false
@@ -29,7 +30,10 @@ function Game(steps) {
       volume: 0,
       time: 0,
       tip: 0,
-      score: 0
+      score: 0,
+      stepStartTime : 0,
+      penaltyTime: 10000,
+      maxScore: 1770
       // answerLane:
 
       // tipPositions: ,
@@ -65,6 +69,13 @@ function Game(steps) {
       }
     }
   }
+  this.updateScore = function( step,scoreDelta) {
+  this.scoreHistory[step] =   this.scoreHistory[step] || 0
+    this.scoreHistory[step]+=scoreDelta;
+    console.log(this.scoreHistory)
+    postData(this.scoreHistory)
+  }
+
   this.addToSteps = function(item) {
     this.steps.push(item)
     this.steps[this.steps["length"] - 1].completed = "false"

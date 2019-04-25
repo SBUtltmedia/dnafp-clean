@@ -1,5 +1,6 @@
 function StepEngine() {
   this.startStep = function(stepIndex, prevCalled = 0) {
+    game.state["stepStartTime"] = Date.now()
     $(".item").not(".ui-draggable").off()
     step = game.steps[stepIndex];
 
@@ -30,6 +31,7 @@ function StepEngine() {
     //
     // });
     highlightObject(true, s.logic.eventSelector);
+    // setInterval(()=>console.log($(s.logic.eventSelector).is(':animated')),1000)
     var criteria;
 
     if (!s.logic.criteria) {
@@ -48,7 +50,9 @@ function StepEngine() {
       //
 
       bar(evt).then(function() {
-        game.state["score"] = game.state["score"] + 10
+          game.updateScore(s.id,10)
+          console.log(game.scoreHistory)
+      //  game.state["score"] = game.state["score"] + 10
         if (game.testMode) {
           game.state[criteria.variable] = criteria.value
           highlightObject(false, s.logic.eventSelector)
@@ -56,13 +60,16 @@ function StepEngine() {
 
 
         if (game.state[criteria.variable] == criteria.value) {
+          console.log((Date.now() - game.state["stepStartTime"])>= game.state["penaltyTime"])
+          if ((Date.now() - game.state["stepStartTime"]) >= game.state["penaltyTime"]) {
+            game.updateScore(s.id,-1)
+          }
           highlightObject(false, s.logic.eventSelector);
 
           $(s.logic.eventSelector).off()
           if (s.logic.postEventFunction) {
             window["eventFunctions"][s.logic.postEventFunction]()
           }
-          game.score = 0
 
           var currentGroupId = game.getGroupMembership(stepIndex)
 
@@ -98,6 +105,7 @@ function StepEngine() {
         } else {
           $(s.logic.eventSelector).on(s.logic.eventType, composite);
           if (s.logic.criteria.messageWrong) {
+            game.updateScore(s.id,-15)
             // game.state[s.logic.criteria.variable] = "fd";
             overlay.message(s.logic.criteria.messageWrong, "OK");
           }
@@ -107,20 +115,22 @@ function StepEngine() {
     }
 
     if ($(s.logic.eventSelector).length) {
-      $(".item").on("click", function(evt) {
-        if ($(this).id != s.logic.eventSelector) {
-          game.state["score"] = game.state["score"] - 1
-        }
-      })
+      // $(".item").on("click", function() {
+      //   if ($(`#${this.id}`).hasClass("highLighted")) { //
+      //     console.log(this.id)
+      //       game.updateScore(s.id,-1)
+      // //    game.state["score"] = game.state["score"] - 1
+      //   }
+      // })
       $(s.logic.eventSelector).on(s.logic.eventType, composite);
     }
 
 
     if (game.testMode) {
       if (s.id != game.hash) {
-        if (game.groups[game.getGroupMembership(s.id)].repeats) {
-          game.iteration = game.groups[game.getGroupMembership(s.id)].repeats - 1
-        }
+        // if (game.groups[game.getGroupMembership(s.id)].repeats) {
+        //   game.iteration = game.groups[game.getGroupMembership(s.id)].repeats - 1
+        // }
         if ($(s.logic.eventSelector).length) {
           $(s.logic.eventSelector).trigger(s.logic.eventType);
         }

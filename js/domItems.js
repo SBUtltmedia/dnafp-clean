@@ -567,7 +567,7 @@ domItems = {
 function highlightObject(highlight, selector) {
 
   if (highlight) {
-    animate(selector, 0, "addClass", "highLighted")
+      animate(selector, 0, "addClass", "highLighted")
   } else {
     animate(selector, 0, "removeClass", "highLighted")
   }

@@ -578,7 +578,9 @@ var eventFunctions = {
     return animate("html", 300, "null")
   },
   "pickLanePost": function() {
-    completionText = "Great job. Congratulations! Your Final Score Was: " + String(game.state["score"])
+    var score = Object.keys(game.scoreHistory).reduce((total,current)=>{return game.scoreHistory[current]+total}, 0);
+    completionText = "Great job. Congratulations! Your Final Score Was: " + String(score)
+    game.updateScore("FINISHED-GRADE",(score/game.state["maxScore"])*100)
     overlay.message(completionText)
     $(".item").addClass("spin")
   }

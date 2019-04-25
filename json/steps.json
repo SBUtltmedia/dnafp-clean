@@ -334,8 +334,8 @@
         }, {
           "id": "openTube1",
           "shortText": "Open reaction tube",
-          "longText": "Open the next reaction tube",
-          "bottomText": "Click on the next reaction tube to open it",
+          "longText": "Open reaction tube $iter$",
+          "bottomText": "Click on reaction tube $iter$ to open it",
           "feedbackText": "complete the third step",
           "logic": {
             "eventSelector": "#s$iter$Tube",
@@ -349,7 +349,7 @@
         }, {
           "id": "addDye",
           "shortText": "Add enzyme mix",
-          "longText": "Add the loading dye to the reaction tube",
+          "longText": "Add the loading dye to reaction tube $iter$",
           "bottomText": "Click on the micropipette to add the loading dye",
           "feedbackText": "complete the third step",
           "logic": {

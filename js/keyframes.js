@@ -825,31 +825,6 @@ var keyframes = [{
     }
   },
 
-
-
-  {
-    name: 'tipVisible',
-    '0%': {
-      visibility: 'hidden'
-    },
-    '100%': {
-      visibility: 'visible'
-    }
-  },
-
-
-
-  {
-    name: 'tipHidden',
-    '0%': {
-      visibility: 'visible'
-    },
-    '100%': {
-      visibility: 'hidden'
-    }
-  },
-
-
   {
     name: 'rotateCap',
     '0%': {
@@ -860,17 +835,6 @@ var keyframes = [{
     }
   },
 
-
-
-  {
-    name: 'quickFadeIn',
-    '0%': {
-      opacity: 0
-    },
-    '100%': {
-      opacity: 1
-    }
-  },
   {
     name: 'slowFadeIn',
     '0%': {
@@ -878,27 +842,6 @@ var keyframes = [{
     },
     '100%': {
       opacity: 1
-    }
-  },
-
-
-  {
-    name: 'quickFadeOut',
-    '0%': {
-      opacity: 1
-    },
-    '100%': {
-      opacity: 0
-    }
-  },
-
-  {
-    name: 'slowFadeOut',
-    '0%': {
-      opacity: 1
-    },
-    '100%': {
-      opacity: 0
     }
   },
 
@@ -971,39 +914,6 @@ var keyframes = [{
       top: '62.7%'
     }
   },
-
-
-
-  {
-    name: 'hideTip1',
-    '0%': {
-      opacity: 1,
-
-    },
-    '47%': {
-      opacity: 1,
-
-    },
-    '100%': {
-      opacity: 0,
-
-    }
-  },
-  {
-    name: 'hideTipp1',
-    '0%': {
-      opacity: 1,
-
-    },
-    '47%': {
-      opacity: 1,
-
-    },
-    '100%': {
-      opacity: 0,
-
-    }
-  },
 ]
 
 for (i = 0; i < 6; i++) {
@@ -1053,24 +963,8 @@ obj.props= animdefs[`anim_${name}`]
 delete i.name
 obj.keyframes=i;
 
-
 newObjarray[name]= obj
 }
-
-
-
-
-
-// for (i of keyframes) {
-//   try {
-//     $.keyframe.define(i);
-//   } catch (error) {
-//     console.error(error);
-//
-//   }
-//
-// }
-
 
 function findKeyFrameDef(defName) {
 

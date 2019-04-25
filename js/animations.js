@@ -25,36 +25,6 @@ animations = {
       }
     }
   },
-  "movePipette": {
-    "props": "8s linear 0s 1 normal forwards",
-    "keyframes": {
-
-      "10%": {
-        "left": "0.5%",
-        "top": "35%"
-      },
-      "40%": {
-        "left": "52%",
-        "top": "35%"
-      },
-      "50%": {
-        "left": "52%",
-        "top": "41.6%"
-      },
-      "80%": {
-        "left": "82.5%",
-        "top": "47%"
-      },
-      "90%": {
-        "left": "83%",
-        "top": "32%"
-      },
-      "100%": {
-        "left": "86.4%",
-        "top": "40.8%"
-      }
-    }
-  },
   "removeLid": {
     "props": "0.9s linear 0s 1 normal forwards",
     "keyframes": {
@@ -152,60 +122,6 @@ animations = {
       "100%": {
         "left": "24.5%",
         "top": "38%"
-      }
-    }
-  },
-  "pipetteBacktoNormal": {
-    "props": "2s linear 0s 1 normal forwards",
-    "keyframes": {
-      "60%": {
-        "left": "27.5%",
-        "top": "40%"
-      },
-      "100%": {
-        "left": "14.5%",
-        "top": "52%"
-      }
-    }
-  },
-  "addTipp1": {
-    "props": "3s linear 0s 1 normal forwards",
-    "keyframes": {
-      "100%": {
-        "left": "22.9%",
-        "top": "5.4%"
-      }
-    }
-  },
-  "lowerPipette": {
-    "props": "0.4s linear 0s normal forwards",
-    "keyframes": {
-
-      "100%": {
-        "left": "27.5%",
-        "top": "40%"
-      }
-    }
-  },
-  "moveTip1": {
-    "props": "5s linear 0s 1 normal forwards",
-    "keyframes": {
-
-      "20%": {
-        "left": "20.8%",
-        "top": "70%"
-      },
-      "25%": {
-        "left": "20.8%",
-        "top": "64.6%"
-      },
-      "90%": {
-        "left": "85.5%",
-        "top": "50.6%"
-      },
-      "100%": {
-        "left": "88.9%",
-        "top": "50.6%"
       }
     }
   },
@@ -581,34 +497,6 @@ animations = {
       "100%": {
         "left": "72.8%",
         "top": "25.8%"
-      }
-    }
-  },
-  "tipVisible": {
-    "props": "0.1s linear 0s normal forwards",
-    "keyframes": {
-
-      "100%": {
-        "visibility": "visible"
-      }
-    }
-  },
-  "tipHidden": {
-    "props": "0.1s linear 0s normal forwards",
-    "keyframes": {
-
-      "100%": {
-        "visibility": "hidden"
-      }
-    }
-  },
-
-  "quickFadeIn": {
-    "props": ".125s 0s 1 linear normal forwards",
-    "keyframes": {
-
-      "100%": {
-        "opacity": 1
       }
     }
   },
